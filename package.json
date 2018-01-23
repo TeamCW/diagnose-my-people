@@ -20,6 +20,7 @@
   "homepage": "https://github.com/JWales13/Cushman_Wakefield_Diagnose_My_People#readme",
   "dependencies": {
     "angular": "^1.6.8",
+    "angular-material": "^1.1.6",
     "angular-route": "^1.6.8",
     "bcrypt": "^1.0.3",
     "body-parser": "^1.18.2",
