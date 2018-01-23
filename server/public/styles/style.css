@@ -1,5 +1,31 @@
-.survey-background {
+#survey-background {
+    background-image: url('/images/red-city.jpg');
+}
+
+.Q-card {
+    background-color: rgb(140, 209, 250);
+    opacity: 0.9;
+}
+
+.Q-text {
+    color: black;
+}
+
+.md-headline {
+    color: white;
+}
+
+.survey-head {
     background-image: url('/images/cush-background-3.jpg');
+}
+
+.tabs {
+    border: 3px;
+    border-radius: 3px;
+    border-left: 2px;
+    border-right: 2px;
+    border-style: ridge;
+    border-color: darkblue;
 }
 
 .description {

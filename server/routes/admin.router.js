@@ -26,4 +26,26 @@ router.get('/', function (req, res) {
     });
 });
 
+
+router.delete('/:id', function (req, res) {
+    var clientIdToRemove = req.params.id;
+    console.log("clientToDelete:", clientIdToRemove);
+    pool.connect(function (errorConnectingToDatabase, client, done) {
+        if (errorConnectingToDatabase) {
+            console.log('Error connecting to database', errorConnectingToDatabase);
+            res.sendStatus(500);
+        } else {
+            client.query(`DELETE FROM client WHERE id=$1;`, [clientIdToRemove], function (errorMakingQuery, result) {
+                done();
+                if (errorMakingQuery) {
+                    console.log('Error making query', errorMakingQuery);
+                    res.sendStatus(500);
+                } else {
+                    res.sendStatus(200);
+                }
+            });
+        }
+    });
+});
+
 module.exports = router;
