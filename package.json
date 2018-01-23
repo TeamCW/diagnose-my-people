@@ -1,0 +1,35 @@
+{
+  "name": "Cushman_Wakefield_Diagnose_My_People",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JWales13/Cushman_Wakefield_Diagnose_My_People.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JWales13/Cushman_Wakefield_Diagnose_My_People/issues"
+  },
+  "homepage": "https://github.com/JWales13/Cushman_Wakefield_Diagnose_My_People#readme",
+  "dependencies": {
+    "angular": "^1.6.8",
+    "angular-route": "^1.6.8",
+    "bcrypt": "^1.0.3",
+    "body-parser": "^1.18.2",
+    "bootstrap": "^4.0.0",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "jquery": "^3.3.1",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7",
+    "pg": "^7.4.1"
+  }
+}
