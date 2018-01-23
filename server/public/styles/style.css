@@ -27,3 +27,20 @@
     border-style: ridge;
     border-color: darkblue;
 }
+
+.description {
+    background-color: white;
+    opacity: 0.9;
+    border: solid;
+}
+
+.heading {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.452);
+}
+
+.md-button.md-raised {
+    width: 380px;
+    min-width: 88px;
+    border: solid;
+}
