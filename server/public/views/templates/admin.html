@@ -1,0 +1,67 @@
+<!-- <div ng-include="'views/partials/nav.html'"></div> -->
+<div class="container">
+
+    <h1 id="welcome" class="lead">Welcome, {{uc.userObject.userName}}!</h1>
+    <button class="btn btn-default" ng-click="uc.userService.logout()">Log Out</button>
+</div>
+
+
+<div class="navbar">
+    <div class="container">
+      <ul>
+        <li> <button ng-click="newClient=!newClient">New Client</button> </li>
+        <li> <button ng-click="inProgress=!inProgress">Survey in Progress</button> </li>
+        <li> <button ng-click="pending=!pending">Pending Review</button> </li>
+        <li> <button ng-click="finished=!finished">Finished Survey Process</button> </li>
+      </ul>
+    </div>
+  </div>
+
+<div class="adminTable">
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Organization
+                </th>
+                <th>
+                    Email
+                </th>
+                <th>
+                    Contacted
+                </th>
+                <th>
+                    Review Survey
+                </th>
+                <th>
+                    Edit
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="client in uc.clientData.list">
+                <td>
+                    {{client.point_of_contact}}
+                </td>
+                <td>
+                    {{client.organization}}
+                </td>
+                <td>
+                    {{client.contact_email}}
+                </td>
+                <td>
+                    <input type="checkbox">
+                </td>
+                <td>
+                    <button>Survey</button>
+                </td>
+                <td>
+                    <button>Edit</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
