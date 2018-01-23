@@ -9,15 +9,15 @@
 <div class="navbar">
     <div class="container">
       <ul>
-        <li> <button ng-click="newClient=!newClient">New Client</button> </li>
-        <li> <button ng-click="inProgress=!inProgress">Survey in Progress</button> </li>
-        <li> <button ng-click="pending=!pending">Pending Review</button> </li>
-        <li> <button ng-click="finished=!finished">Finished Survey Process</button> </li>
+        <li> <button ng-click="pending = false;  inProgress = false;  finished = false; ">All</button> </li>
+        <li> <button ng-click="pending = true; inProgress = false;  finished = false;">Pending Review</button> </li>
+        <li> <button ng-click="inProgress = true; pending = false; finished = false;">Survey in Progress</button> </li>
+        <li> <button ng-click="finished = true; pending = false; inProgress = false;">Finished Survey Process</button> </li>
       </ul>
     </div>
   </div>
 
-<div class="adminTable">
+<div class="adminTable" ng-init="pending = false;  inProgress = false;  finished = false; ">
     <table>
         <thead>
             <tr>
@@ -39,10 +39,16 @@
                 <th>
                     Edit
                 </th>
+                <th>
+                    View Results In Dashboard
+                </th>
+                <th>
+                    Delete
+                </th>
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="client in uc.clientData.list">
+            <tr ng-hide="inProgress = true; pending = true; finished = true;" ng-repeat="client in uc.clientData.list">
                 <td>
                     {{client.point_of_contact}}
                 </td>
@@ -60,6 +66,91 @@
                 </td>
                 <td>
                     <button>Edit</button>
+                </td>
+                <td>
+                    <button>View Results</button>
+                </td>
+                <td>
+                    <button ng-click="uc.deleteClient(client)">Delete</button>
+                </td>
+            </tr>
+            <tr ng-show="inProgress = true" ng-hide="pending || finished" ng-repeat="client in uc.clientData.list | filter: {status: 'inProgress'}">
+                <td>
+                    {{client.point_of_contact}}
+                </td>
+                <td>
+                    {{client.organization}}
+                </td>
+                <td>
+                    {{client.contact_email}}
+                </td>
+                <td>
+                    <input type="checkbox">
+                </td>
+                <td>
+                    <button>Survey</button>
+                </td>
+                <td>
+                    <button>Edit</button>
+                </td>
+                <td>
+                    <button>View Results</button>
+                </td>
+                <td>
+                    <button ng-click="uc.deleteClient(client)">Delete</button>
+                </td>
+                
+            </tr>
+            <tr ng-show="pending = true" ng-hide="inProgress || finished" ng-repeat="client in uc.clientData.list | filter: {status: 'pending'}">
+                <td>
+                    {{client.point_of_contact}}
+                </td>
+                <td>
+                    {{client.organization}}
+                </td>
+                <td>
+                    {{client.contact_email}}
+                </td>
+                <td>
+                    <input type="checkbox">
+                </td>
+                <td>
+                    <button>Survey</button>
+                </td>
+                <td>
+                    <button>Edit</button>
+                </td>
+                <td>
+                    <button>View Results</button>
+                </td>
+                <td>
+                    <button ng-click="uc.deleteClient(client)">Delete</button>
+                </td>
+            </tr>
+            <tr ng-show="finished = true" ng-hide="inProgress || pending" ng-repeat="client in uc.clientData.list | filter: {status: 'finished'}">
+                <td>
+                    {{client.point_of_contact}}
+                </td>
+                <td>
+                    {{client.organization}}
+                </td>
+                <td>
+                    {{client.contact_email}}
+                </td>
+                <td>
+                    <input type="checkbox">
+                </td>
+                <td>
+                    <button>Survey</button>
+                </td>
+                <td>
+                    <button>Edit</button>
+                </td>
+                <td>
+                    <button>View Results</button>
+                </td>
+                <td>
+                    <button ng-click="uc.deleteClient(client)">Delete</button>
                 </td>
             </tr>
         </tbody>
