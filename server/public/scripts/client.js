@@ -5,8 +5,12 @@ myApp.config(function($routeProvider, $locationProvider) {
   $locationProvider.hashPrefix('');
   console.log('myApp -- config')
   $routeProvider
-    .when('/home', {
-      templateUrl: '/views/templates/home.html',
+  .when('/home', {
+    templateUrl: '/views/templates/home.html',
+    controller: 'LoginController as lc',
+  })
+    .when('/login', {
+      templateUrl: '/views/templates/login.html',
       controller: 'LoginController as lc',
     })
     .when('/register', {

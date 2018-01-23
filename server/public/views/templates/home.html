@@ -1,25 +1,24 @@
-<div class="container">
-    <h1 class="lead">Login</h1>
-    <h1 class="lead alert alert-danger" role="alert" ng-if="lc.message != ''">{{lc.message}}</h2>
-        <form ng-submit="lc.login()">
-            <div>
-                <label for="username">Username:</label>
-                <input type="text" ng-model="lc.user.username" />
-            </div>
-            <div>
-                <label for="password">Password:</label>
-                <input type="password" ng-model="lc.user.password" />
-            </div>
-            <div>
-                <input class="btn btn-default" type="submit" name="submit" value="Log In" />
-                <a href="#register">Register</a>
-            </div>
-        </form>
-</div>
-<div>
-    <div>
-        <h1>Diagnose My People</h1>
-        <h2></h2>
-        
+<div class="survey-background" layout="column" layout-padding>
+    <div layout="row" class="heading">
+        <h1 >Diagnose My People</h1>
+    </div>
+    <div class="description" layout-margin>
+        <h2>Description of survey and benefits go here</h2>
+        <p>
+            Lorem ipsum dolor sit amet, sit ei diam pertinacia. Pri ea expetenda intellegebat. Utinam aliquando ei eos. Te qui brute
+            sadipscing, ut timeam laoreet ius, quem apeirian eam et. Adhuc facete ne mel, ne sed vidit mandamus, vis at impedit
+            aliquando maiestatis. Ut vim saepe scriptorem, mel at sonet quidam. His putant fierent ex, cu menandri senserit
+            torquatos pro, his cu graeco dolores. Eu aperiri partiendo mei, sit ea expetenda gubergren omittantur. Nihil
+            graecis est ad, sea no possim appareat. Natum eleifend te usu, ne dicit ancillae usu, usu ut graeci putant gloriatur.
+        </p>
+    </div>
+    <div layout="row" flex="40">
+        <md-button class="md-raised">Preview a Sample Survey</md-button>
+    </div>
+    <div layout="row" flex="40">
+        <md-button class="md-raised">Preview a Sample Results Dashboard</md-button>
+    </div>
+    <div layout="row" flex="40">
+        <md-button class="md-raised" ng-href="#/survey/">Create My Customizable Survey</md-button>
     </div>
 </div>
