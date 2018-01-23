@@ -22,6 +22,10 @@ myApp.config(function($routeProvider, $locationProvider) {
         }
       }
     })
+    .when('/survey', {
+      templateUrl: '/views/templates/survey.html',
+      controller: 'SurveyController as sc'
+    })
     .when('/info', {
       templateUrl: '/views/templates/info.html',
       controller: 'InfoController',
