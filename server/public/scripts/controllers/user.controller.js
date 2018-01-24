@@ -6,6 +6,8 @@ myApp.controller('UserController', ['UserService', 'AdminService', function(User
     vm.clientData = AdminService.clientData;
     vm.getClientInfo = AdminService.getClientInfo;
     vm.deleteClient = AdminService.deleteClient;
+    vm.clientContacted = AdminService.clientContacted;
+    vm.editClient = AdminService.editClient;
 
 
 

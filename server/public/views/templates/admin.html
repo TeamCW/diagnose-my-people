@@ -17,7 +17,7 @@
     </div>
   </div>
 
-<div class="adminTable" ng-init="pending = false;  inProgress = false;  finished = false; ">
+<div class="adminTable" ng-init="pending = false;  inProgress = false;  finished = false; edit = false; ">
     <table>
         <thead>
             <tr>
@@ -34,10 +34,10 @@
                     Contacted
                 </th>
                 <th>
-                    Review Survey
+                    Edit
                 </th>
                 <th>
-                    Edit
+                    Review Survey
                 </th>
                 <th>
                     View Results In Dashboard
@@ -49,23 +49,33 @@
         </thead>
         <tbody>
             <tr ng-hide="inProgress = true; pending = true; finished = true;" ng-repeat="client in uc.clientData.list">
-                <td>
+                <td ng-hide="edit" >
                     {{client.point_of_contact}}
                 </td>
-                <td>
+                <td ng-show="edit">
+                    <input type="text" ng-model="client.point_of_contact" placeholder="{{client.point_of_contact}}">
+                </td>
+                <td ng-hide="edit">
                     {{client.organization}}
                 </td>
-                <td>
+                <td ng-show="edit">
+                    <input type="text" ng-model="client.organization" placeholder="{{client.organization}}">
+                </td>
+                <td ng-hide="edit">
                     {{client.contact_email}}
                 </td>
+                <td ng-show="edit">
+                    <input type="text" ng-model="client.contact_email" placeholder="{{client.contact_email}}">
+                </td>
                 <td>
-                    <input type="checkbox">
+                    <input type="checkbox" ng-checked="client.status == 'inProgress' || client.status == 'finished' "  ng-click="uc.clientContacted(client)">
+                </td>
+                <td>
+                    <button ng-click="edit = true;" ng-hide="edit" >Edit</button>
+                    <button ng-click="uc.editClient(client); edit = false" ng-show="edit;">Submit Changes</button>
                 </td>
                 <td>
                     <button>Survey</button>
-                </td>
-                <td>
-                    <button>Edit</button>
                 </td>
                 <td>
                     <button>View Results</button>
@@ -75,23 +85,33 @@
                 </td>
             </tr>
             <tr ng-show="inProgress = true" ng-hide="pending || finished" ng-repeat="client in uc.clientData.list | filter: {status: 'inProgress'}">
-                <td>
+                <td ng-hide="edit" >
                     {{client.point_of_contact}}
                 </td>
-                <td>
+                <td ng-show="edit">
+                    <input type="text" ng-model="client.point_of_contact" placeholder="{{client.point_of_contact}}">
+                </td>
+                <td ng-hide="edit">
                     {{client.organization}}
                 </td>
-                <td>
+                <td ng-show="edit">
+                    <input type="text" ng-model="client.organization" placeholder="{{client.organization}}">
+                </td>
+                <td ng-hide="edit">
                     {{client.contact_email}}
                 </td>
+                <td ng-show="edit">
+                    <input type="text" ng-model="client.contact_email" placeholder="{{client.contact_email}}">
+                </td>
                 <td>
-                    <input type="checkbox">
+                    <input type="checkbox" ng-checked="client.status == 'inProgress' || client.status == 'finished' "  ng-click="uc.clientContacted(client)">
+                </td>
+                <td>
+                    <button ng-click="edit = true;" ng-hide="edit" >Edit</button>
+                    <button ng-click="uc.editClient(client); edit = false" ng-show="edit;">Submit Changes</button>
                 </td>
                 <td>
                     <button>Survey</button>
-                </td>
-                <td>
-                    <button>Edit</button>
                 </td>
                 <td>
                     <button>View Results</button>
@@ -102,23 +122,33 @@
                 
             </tr>
             <tr ng-show="pending = true" ng-hide="inProgress || finished" ng-repeat="client in uc.clientData.list | filter: {status: 'pending'}">
-                <td>
+                <td ng-hide="edit" >
                     {{client.point_of_contact}}
                 </td>
-                <td>
+                <td ng-show="edit">
+                    <input type="text" ng-model="client.point_of_contact" placeholder="{{client.point_of_contact}}">
+                </td>
+                <td ng-hide="edit">
                     {{client.organization}}
                 </td>
-                <td>
+                <td ng-show="edit">
+                    <input type="text" ng-model="client.organization" placeholder="{{client.organization}}">
+                </td>
+                <td ng-hide="edit">
                     {{client.contact_email}}
                 </td>
+                <td ng-show="edit">
+                    <input type="text" ng-model="client.contact_email" placeholder="{{client.contact_email}}">
+                </td>
                 <td>
-                    <input type="checkbox">
+                    <input type="checkbox" ng-checked="client.status == 'inProgress' || client.status == 'finished' "  ng-click="uc.clientContacted(client)">
+                </td>
+                <td>
+                    <button ng-click="edit = true;" ng-hide="edit" >Edit</button>
+                    <button ng-click="uc.editClient(client); edit = false" ng-show="edit;">Submit Changes</button>
                 </td>
                 <td>
                     <button>Survey</button>
-                </td>
-                <td>
-                    <button>Edit</button>
                 </td>
                 <td>
                     <button>View Results</button>
@@ -128,23 +158,33 @@
                 </td>
             </tr>
             <tr ng-show="finished = true" ng-hide="inProgress || pending" ng-repeat="client in uc.clientData.list | filter: {status: 'finished'}">
-                <td>
+                <td ng-hide="edit" >
                     {{client.point_of_contact}}
                 </td>
-                <td>
+                <td ng-show="edit">
+                    <input type="text" ng-model="client.point_of_contact" placeholder="{{client.point_of_contact}}">
+                </td>
+                <td ng-hide="edit">
                     {{client.organization}}
                 </td>
-                <td>
+                <td ng-show="edit">
+                    <input type="text" ng-model="client.organization" placeholder="{{client.organization}}">
+                </td>
+                <td ng-hide="edit">
                     {{client.contact_email}}
                 </td>
+                <td ng-show="edit">
+                    <input type="text" ng-model="client.contact_email" placeholder="{{client.contact_email}}">
+                </td>
                 <td>
-                    <input type="checkbox">
+                    <input type="checkbox" ng-checked="client.status == 'inProgress' || client.status == 'finished' "  ng-click="uc.clientContacted(client)">
+                </td>
+                <td>
+                    <button ng-click="edit = true;" ng-hide="edit" >Edit</button>
+                    <button ng-click="uc.editClient(client); edit = false" ng-show="edit;">Submit Changes</button>
                 </td>
                 <td>
                     <button>Survey</button>
-                </td>
-                <td>
-                    <button>Edit</button>
                 </td>
                 <td>
                     <button>View Results</button>
