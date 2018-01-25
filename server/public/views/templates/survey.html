@@ -4,7 +4,7 @@
 <div ng-cloak layout-sm="container" layout-lg="column" id="survey-background">
   <md-content>
     <md-tabs md-dynamic-height md-border-bottom class="survey-head">
-      <md-tab label="one" class="tabs">
+      <md-tab label="Location" class="tabs">
         <md-content class="md-padding" layout-align="end center" id="survey-background">
           <span class="md-headline">Transit Questions</span>
           <md-card class="Q-card">
@@ -21,10 +21,20 @@
                 </md-card-actions>
               </md-card-title-text>
             </md-card-title>
+            <md-card-title>
+              <md-card-title-text class="Q-text" layout-align="end center">
+                <h1 class="md-display-2"></h1>
+                <h2>Question 2</h2>
+                <br>
+                <md-card-actions layout="column" layout-align="end center">
+                    <md-slider min="1" max="5" step="0.5" value="" ></md-slider>
+                </md-card-actions>
+              </md-card-title-text>
+            </md-card-title>
           </md-card>
         </md-content>
       </md-tab>
-      <md-tab label="two" class="tabs">
+      <md-tab label="Amenities" class="tabs">
           <md-content class="md-padding" id="survey-background">
               <span class="md-headline">Amenities Questions</span>
               <md-card class="Q-card">
@@ -44,7 +54,7 @@
               </md-card>
             </md-content>
       </md-tab>
-      <md-tab label="three" class="tabs">
+      <md-tab label="Brand" class="tabs">
           <md-content class="md-padding" id="survey-background">
               <span class="md-headline">Brand Questions</span>
               <md-card class="Q-card">
@@ -64,9 +74,9 @@
               </md-card>
             </md-content>
       </md-tab>
-      <md-tab label="four" class="tabs">
+      <md-tab label="Retention" class="tabs">
           <md-content class="md-padding" id="survey-background">
-              <span class="md-headline">Layout Questions</span>
+              <span class="md-headline">Retention Questions</span>
               <md-card class="Q-card">
                 <md-card-title>
                   <md-card-title-text class="Q-text" layout-align="end center">
@@ -84,9 +94,9 @@
               </md-card>
             </md-content>
       </md-tab>
-      <md-tab label="five" class="tabs">
+      <md-tab label="Satisfaction" class="tabs">
           <md-content class="md-padding" id="survey-background">
-              <span class="md-headline">Recruitment Questions</span>
+              <span class="md-headline">Satisfaction Questions</span>
               <md-card class="Q-card">
                 <md-card-title>
                   <md-card-title-text class="Q-text" layout-align="end center">
