@@ -2,13 +2,11 @@
     background-image: url('/images/red-city.jpg');
 }
 
-.Q-card {
+.well-md {
     background-color: rgb(140, 209, 250);
     opacity: 0.9;
-}
-
-.Q-text {
-    color: black;
+    text-align: center;
+    margin: auto;
 }
 
 .md-headline {
@@ -19,14 +17,15 @@
     background-image: url('/images/cush-background-3.jpg');
 }
 
-.tabs {
+/* .tabs {
     border: 3px;
     border-radius: 3px;
     border-left: 2px;
     border-right: 2px;
     border-style: ridge;
     border-color: darkblue;
-}
+    margin-right: 10px;
+} */
 
 .description {
     background-color: white;
@@ -81,6 +80,27 @@
 
 .header {
     height: 80px;
-    margin: auto;
+    margin: auto
+}
 
+.md-button.header-btn {
+    color: #6B6D6D;
+}
+
+.survey-tabs {
+  border-top: 3px;
+  border-radius: 3px;
+  border-left: 2px;
+  border-right: 2px;
+  border-top-style: ridge;
+  border-right-style: ridge;
+  border-left-style: ridge;
+  border-bottom-style: none;
+  padding-left: 2px;
+  padding-right: 40px;
+  margin-right: 5px;
+  border-color: rgb(140, 209, 250);
+  background-color: rgb(140, 209, 250);
+  opacity: 0.9;
+  color: black;
 }
