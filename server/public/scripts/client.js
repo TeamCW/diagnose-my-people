@@ -26,6 +26,7 @@ myApp.config(function($routeProvider, $locationProvider) {
         }
       }
     })
+    // Begin survey views
     .when('/survey', {
       templateUrl: '/views/templates/survey.html',
       controller: 'SurveyController as sc'
@@ -46,6 +47,7 @@ myApp.config(function($routeProvider, $locationProvider) {
       templateUrl: '/views/templates/retention.html',
       controller: 'SurveyController as sc'
     })
+    // End survey views
     .when('/dashboard', {
       templateUrl: '/views/templates/dashboard.html',
       controller: 'DashboardController as dc'
