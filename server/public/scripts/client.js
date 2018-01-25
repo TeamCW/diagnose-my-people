@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ngRoute','ngMaterial']);
+var myApp = angular.module('myApp', ['ngRoute']);
 
 /// Routes ///
 myApp.config(function($routeProvider, $locationProvider) {
@@ -28,6 +28,10 @@ myApp.config(function($routeProvider, $locationProvider) {
     })
     .when('/survey', {
       templateUrl: '/views/templates/survey.html',
+      controller: 'SurveyController as sc'
+    })
+    .when('/location', {
+      templateUrl: '/views/templates/location.html',
       controller: 'SurveyController as sc'
     })
     .when('/dashboard', {
