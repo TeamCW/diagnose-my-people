@@ -3,7 +3,7 @@
 </div>
 <div ng-cloak class="container-fluid" id="survey-background">
   <div class="row">
-    <div class="col-lg-10">
+    <div class="col-md-10">
       <!--- tabs -->
       <ul class="nav nav-tabs">
         <li class="active survey-tabs">
@@ -26,21 +26,13 @@
         </li>
       </ul>
       <!--- question block -->
-      <div class="well well-md">Large Well
+      <div class="well well-md">
         <h1>Demographic Questions</h1>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <h2>Answers</h2>
+        <div>
+          <ul ng-repeat="questions in sc.questions.list">
+            <li>{{questions.question, questions.response}}</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
