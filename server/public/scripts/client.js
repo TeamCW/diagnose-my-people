@@ -34,6 +34,18 @@ myApp.config(function($routeProvider, $locationProvider) {
       templateUrl: '/views/templates/location.html',
       controller: 'SurveyController as sc'
     })
+    .when('/amenities', {
+      templateUrl: '/views/templates/amenities.html',
+      controller: 'SurveyController as sc'
+    })
+    .when('/brand', {
+      templateUrl: '/views/templates/brand.html',
+      controller: 'SurveyController as sc'
+    })
+    .when('/retention', {
+      templateUrl: '/views/templates/retention.html',
+      controller: 'SurveyController as sc'
+    })
     .when('/dashboard', {
       templateUrl: '/views/templates/dashboard.html',
       controller: 'DashboardController as dc'

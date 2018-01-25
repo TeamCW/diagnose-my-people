@@ -1,130 +1,48 @@
 <div>
-<a href="#/user">Home</a>
+  <a href="#/user">Home</a>
 </div>
 <div ng-cloak class="container-fluid" id="survey-background">
-  <div class="col-lg-8">
-    <ul class="nav nav-tabs" id="survey-background">
-        <li class="active"><a href="#survey">Demographics</a></li>
-        <li><a href="#location">Location</a></li>
+  <div class="row">
+    <div class="col-lg-10">
+      <!--- tabs -->
+      <ul class="nav nav-tabs">
+        <li class="active survey-tabs">
+          <a href="#survey">Demographics</a>
+        </li>
+        <li class="survey-tabs">
+          <a href="#location">Location</a>
+        </li>
         <br>
-        <li><a href="#amenities">Amenities</a></li>
+        <li class="survey-tabs">
+          <a href="#amenities">Amenities</a>
+        </li>
         <br>
-        <li><a href="#brand">Brand</a></li>
+        <li class="survey-tabs">
+          <a href="#brand">Brand</a>
+        </li>
         <br>
-        <li><a href="#retention">Retention</a></li>
+        <li class="survey-tabs">
+          <a href="#retention">Retention</a>
+        </li>
       </ul>
+      <!--- question block -->
+      <div class="well well-md">Large Well
+        <h1>Demographic Questions</h1>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h2>Answers</h2>
+      </div>
     </div>
   </div>
+</div>
 
-
-
-
-          <!-- <span class="md-headline">Transit Questions</span>
-          <md-card class="Q-card">
-            <md-card-title>
-              <md-card-title-text class="Q-text" layout-align="end center">
-                <h1 class="md-display-2">Tab One</h1>
-                <h2>Question 1</h2>
-                <br>
-                <md-card-actions layout="column" layout-align="end center">
-                  <md-button>Answer 1</md-button>
-                  <md-button>Answer 2</md-button>
-                  <md-button>Answer 3</md-button>
-                  <md-button>Answer 4</md-button>
-                </md-card-actions>
-              </md-card-title-text>
-            </md-card-title>
-            <md-card-title>
-              <md-card-title-text class="Q-text" layout-align="end center">
-                <h1 class="md-display-2"></h1>
-                <h2>Question 2</h2>
-                <br>
-                <md-card-actions layout="column" layout-align="end center">
-                    <md-slider min="1" max="5" step="0.5" value="" ></md-slider>
-                </md-card-actions>
-              </md-card-title-text>
-            </md-card-title>
-          </md-card>
-        </md-content>
-      </md-tab>
-      <md-tab label="Amenities" class="tabs">
-          <md-content class="md-padding" id="survey-background">
-              <span class="md-headline">Amenities Questions</span>
-              <md-card class="Q-card">
-                <md-card-title>
-                  <md-card-title-text class="Q-text" layout-align="end center">
-                    <h1 class="md-display-2">Tab Two</h1>
-                    <h2>Question 2</h2>
-                    <br>
-                    <md-card-actions layout="column" layout-align="end center">
-                      <md-button>Answer 1</md-button>
-                      <md-button>Answer 2</md-button>
-                      <md-button>Answer 3</md-button>
-                      <md-button>Answer 4</md-button>
-                    </md-card-actions>
-                  </md-card-title-text>
-                </md-card-title>
-              </md-card>
-            </md-content>
-      </md-tab>
-      <md-tab label="Brand" class="tabs">
-          <md-content class="md-padding" id="survey-background">
-              <span class="md-headline">Brand Questions</span>
-              <md-card class="Q-card">
-                <md-card-title>
-                  <md-card-title-text class="Q-text" layout-align="end center">
-                    <h1 class="md-display-2">Tab Three</h1>
-                    <h2>Question 3</h2>
-                    <br>
-                    <md-card-actions layout="column" layout-align="end center">
-                      <md-button>Answer 1</md-button>
-                      <md-button>Answer 2</md-button>
-                      <md-button>Answer 3</md-button>
-                      <md-button>Answer 4</md-button>
-                    </md-card-actions>
-                  </md-card-title-text>
-                </md-card-title>
-              </md-card>
-            </md-content>
-      </md-tab>
-      <md-tab label="Retention" class="tabs">
-          <md-content class="md-padding" id="survey-background">
-              <span class="md-headline">Retention Questions</span>
-              <md-card class="Q-card">
-                <md-card-title>
-                  <md-card-title-text class="Q-text" layout-align="end center">
-                    <h1 class="md-display-2">Tab Four</h1>
-                    <h2>Question 4</h2>
-                    <br>
-                    <md-card-actions layout="column" layout-align="end center">
-                      <md-button>Answer 1</md-button>
-                      <md-button>Answer 2</md-button>
-                      <md-button>Answer 3</md-button>
-                      <md-button>Answer 4</md-button>
-                    </md-card-actions>
-                  </md-card-title-text>
-                </md-card-title>
-              </md-card>
-            </md-content>
-      </md-tab>
-      <md-tab label="Satisfaction" class="tabs">
-          <md-content class="md-padding" id="survey-background">
-              <span class="md-headline">Satisfaction Questions</span>
-              <md-card class="Q-card">
-                <md-card-title>
-                  <md-card-title-text class="Q-text" layout-align="end center">
-                    <h1 class="md-display-2">Tab Five</h1>
-                    <h2>Question 5</h2>
-                    <br>
-                    <md-card-actions layout="column" layout-align="end center">
-                      <md-button>Answer 1</md-button>
-                      <md-button>Answer 2</md-button>
-                      <md-button>Answer 3</md-button>
-                      <md-button>Answer 4</md-button>
-                    </md-card-actions>
-                  </md-card-title-text>
-                </md-card-title>
-              </md-card>
-            </md-content>
-      </md-tab>
-    </div> -->
