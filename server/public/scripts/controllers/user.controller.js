@@ -15,5 +15,7 @@ myApp.controller('UserController', ['UserService', 'AdminService', function(User
     vm.getClientInfo();
 
 
+    
+
 
   }]);
