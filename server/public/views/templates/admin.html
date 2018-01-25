@@ -2,21 +2,21 @@
 <div class="container">
 
     <h1 id="welcome" class="lead">Welcome, {{uc.userObject.userName}}!</h1>
-    <md-button class="btn btn-default" ng-click="uc.userService.logout()">Log Out</md-button>
+    <button class="btn btn-default" ng-click="uc.userService.logout()">Log Out</button>
 </div>
 
-<div layout-gt-md="container" layout-padding layout-margin>
+<div class="container">
 <div class="navbar">
-    <md-tabs>
+    <ul>
      
-        <md-tab> <md-button ng-click="pending = false;  inProgress = false;  finished = false; ">All</md-button> </md-tab>
-        <md-tab> <md-button ng-click="pending = true; inProgress = false;  finished = false;">Pending Review</md-button> </md-tab>
-        <md-tab> <md-button ng-click="inProgress = true; pending = false; finished = false;">Survey in Progress</md-button> </md-tab>
-        <md-tab> <md-button ng-click="finished = true; pending = false; inProgress = false;">Finished Survey Process</md-button> </md-tab>
-    </md-tabs>
+        
+        <li> <button ng-click="pending = true; inProgress = false;  finished = false;">New Client</button></li>
+        <li> <button ng-click="inProgress = true; pending = false; finished = false;">Survey in Progress</button> </li>
+        <li> <button ng-click="finished = true; pending = false; inProgress = false;">Finished Survey Process</button> </li>
+    </ul>
   </div>
 
-<div class="adminTable" ng-init="pending = false;  inProgress = false;  finished = false; edit = false; ">
+<div class="adminTable" ng-init= "pending = false;  inProgress = false;  finished = false;edit = false; ">
     <table>
         <thead>
             <tr>
@@ -30,10 +30,10 @@
                     Email
                 </th>
                 <th>
-                    Contacted
+                    Edit
                 </th>
                 <th>
-                    Edit
+                    Contacted
                 </th>
                 <th>
                     Review Survey
@@ -47,7 +47,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-hide="inProgress = true; pending = true; finished = true;" ng-repeat="client in uc.clientData.list">
+            <tr  ng-repeat="client in uc.clientData.list">
                 <td ng-hide="edit" >
                     {{client.point_of_contact}}
                 </td>
@@ -67,20 +67,20 @@
                     <input type="text" ng-model="client.contact_email" placeholder="{{client.contact_email}}">
                 </td>
                 <td>
+                    <button ng-click="edit = true;" ng-hide="edit" >Edit</button>
+                    <button ng-click="uc.editClient(client); edit = false" ng-show="edit;">Submit Changes</button>
+                </td>
+                <td>
                     <input type="checkbox" ng-checked="client.status == 'inProgress' || client.status == 'finished' "  ng-click="uc.clientContacted(client)">
                 </td>
                 <td>
-                    <md-button ng-click="edit = true;" ng-hide="edit" >Edit</md-button>
-                    <md-button ng-click="uc.editClient(client); edit = false" ng-show="edit;">Submit Changes</md-button>
+                    <button>Survey</button>
                 </td>
                 <td>
-                    <md-button>Survey</md-button>
+                    <button ng-href="#/dashboard/">View Results</button>
                 </td>
                 <td>
-                    <md-button ng-href="#/dashboard/">View Results</md-button>
-                </td>
-                <td>
-                    <md-button ng-click="uc.deleteClient(client)">Delete</md-button>
+                    <button ng-click="uc.deleteClient(client)">Delete</button>
                 </td>
             </tr>
             <tr ng-show="inProgress = true" ng-hide="pending || finished" ng-repeat="client in uc.clientData.list | filter: {status: 'inProgress'}">
@@ -106,17 +106,17 @@
                     <input type="checkbox" ng-checked="client.status == 'inProgress' || client.status == 'finished' "  ng-click="uc.clientContacted(client)">
                 </td>
                 <td>
-                    <md-button ng-click="edit = true;" ng-hide="edit" >Edit</md-button>
-                    <md-button ng-click="uc.editClient(client); edit = false" ng-show="edit;">Submit Changes</md-button>
+                    <button ng-click="edit = true;" ng-hide="edit" >Edit</button>
+                    <button ng-click="uc.editClient(client); edit = false" ng-show="edit;">Submit Changes</button>
                 </td>
                 <td>
-                    <md-button>Survey</md-button>
+                    <button>Survey</button>
                 </td>
                 <td>
-                    <md-button ng-href="#/dashboard/">View Results</md-button>
+                    <button ng-href="#/dashboard/">View Results</button>
                 </td>
                 <td>
-                    <md-button ng-click="uc.deleteClient(client)">Delete</md-button>
+                    <button ng-click="uc.deleteClient(client)">Delete</button>
                 </td>
                 
             </tr>
@@ -143,17 +143,17 @@
                     <input type="checkbox" ng-checked="client.status == 'inProgress' || client.status == 'finished' "  ng-click="uc.clientContacted(client)">
                 </td>
                 <td>
-                    <md-button ng-click="edit = true;" ng-hide="edit" >Edit</md-button>
-                    <md-button ng-click="uc.editClient(client); edit = false" ng-show="edit;">Submit Changes</md-button>
+                    <button ng-click="edit = true;" ng-hide="edit" >Edit</button>
+                    <button ng-click="uc.editClient(client); edit = false" ng-show="edit;">Submit Changes</button>
                 </td>
                 <td>
-                    <md-button>Survey</md-button>
+                    <button>Survey</button>
                 </td>
                 <td>
-                    <md-button ng-href="#/dashboard/">View Results</md-button>
+                    <button ng-href="#/dashboard/">View Results</button>
                 </td>
                 <td>
-                    <md-button ng-click="uc.deleteClient(client)">Delete</md-button>
+                    <button ng-click="uc.deleteClient(client)">Delete</button>
                 </td>
             </tr>
             <tr ng-show="finished = true" ng-hide="inProgress || pending" ng-repeat="client in uc.clientData.list | filter: {status: 'finished'}">
@@ -179,17 +179,17 @@
                     <input type="checkbox" ng-checked="client.status == 'inProgress' || client.status == 'finished' "  ng-click="uc.clientContacted(client)">
                 </td>
                 <td>
-                    <md-button ng-click="edit = true;" ng-hide="edit" >Edit</md-button>
-                    <md-button ng-click="uc.editClient(client); edit = false" ng-show="edit;">Submit Changes</md-button>
+                    <button ng-click="edit = true;" ng-hide="edit" >Edit</button>
+                    <button ng-click="uc.editClient(client); edit = false" ng-show="edit;">Submit Changes</button>
                 </td>
                 <td>
-                    <md-button >Survey</md-button>
+                    <button >Survey</button>
                 </td>
                 <td>
-                    <md-button  ng-href="#/dashboard/">View Results</md-button>
+                    <button  ng-href="#/dashboard/">View Results</button>
                 </td>
                 <td>
-                    <md-button  ng-click="uc.deleteClient(client)">Delete</md-button>
+                    <button  ng-click="uc.deleteClient(client)">Delete</button>
                 </td>
             </tr>
         </tbody>
