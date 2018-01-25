@@ -10,6 +10,7 @@ var indexRouter = require('./routes/index.router');
 var userRouter = require('./routes/user.router');
 var registerRouter = require('./routes/register.router');
 var adminRouter = require('./routes/admin.router');
+var surveyRouter = require('./routes/survey.router');
 
 var port = process.env.PORT || 5000;
 
