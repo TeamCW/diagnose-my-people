@@ -1,0 +1,99 @@
+<div ng-include="'views/partials/nav.html'"></div>
+<div class="container">
+    <h1>Build Your Survey</h1>
+    <p>Select the categories below you would like in your survey.</p>
+    <hr>
+    <h2>Location</h2>
+    <div class="row">
+        <div class="col-6">
+            <p>
+                Location is a majoy concern for your people. This section What factors of location are most important to them?
+                Will Compile information on what is truly important for the location for your peoples transit.  We will use this
+                information to compile information on Parking, Exposure, Transit and Drive Time.
+            </p>
+            <ul>
+                <li>Question 1</li>
+                <li>Question 2</li>
+                <li>Question 3</li>
+            </ul>
+            <button ng-click="bs.locationAdded = !bs.locationAdded" ng-hide="bs.locationAdded" class="btn btn-outline-success">Add to Survey</button>
+            <button ng-click="bs.locationAdded = !bs.locationAdded" ng-show="bs.locationAdded" class="btn btn-outline-danger">Remove from Survey</button>
+        </div>
+        <img src="../images/kpi/location.jpg" class="col-6 img-thumbnail build-survey-pic">
+    </div>
+    <hr>
+    <h2>Amenities</h2>
+    <div class="row">
+        <div class="col-6">
+            <p>
+                Whats most important for your employees.  Do they want a building close to restaurants, bars, free-parking? Find out by polling.
+                We will use this data to report what amenities they want geographically, internal, or in an office building
+        
+            </p>
+            <ul>
+                <li>Question 1</li>
+                <li>Question 2</li>
+                <li>Question 3</li>
+            </ul>
+            <button ng-click="bs.amenitiesAdded = !bs.amenitiesAdded" ng-hide="bs.amenitiesAdded" class="btn btn-outline-success">Add to Survey</button>
+            <button ng-click="bs.amenitiesAdded = !bs.amenitiesAdded" ng-show="bs.amenitiesAdded" class="btn btn-outline-danger">Remove from Survey</button>
+        </div>
+        <img src="../images/kpi/amenities.jpg" class="col-6 img-thumbnail build-survey-pic">
+    </div>
+    <hr>
+    <h2>Brand</h2>
+    <div class="row">
+        <div class="col-6">
+            <p>
+                What about your brand is most important to your people in your new location?
+                We will find what signage for your brand, the exposure,
+            </p>
+            <ul>
+                <li>Question 1</li>
+                <li>Question 2</li>
+                <li>Question 3</li>
+            </ul>
+            <button ng-click="bs.brandAdded = !bs.brandAdded" ng-hide="bs.brandAdded" class="btn btn-outline-success">Add to Survey</button>
+            <button ng-click="bs.brandAdded = !bs.brandAdded" ng-show="bs.brandAdded" class="btn btn-outline-danger">Remove from Survey</button>
+        </div>
+        <img src="../images/kpi/brand.jpg" class="col-6 img-thumbnail build-survey-pic">
+    </div>
+    <hr>
+    <h2>Recruitment and Retainment</h2>
+    <div class="row">
+        <div class="col-6">
+            <p>
+                What about a new building is most important to your people.  We wil give you information on 
+                their desire for the culture, their well being, the brand, and on being able to be collaboritive.
+            </p>
+            <ul>
+                <li>Question 1</li>
+                <li>Question 2</li>
+                <li>Question 3</li>
+            </ul>
+            <button ng-click="bs.retainmentAdded = !bs.retainmentAdded" ng-hide="bs.retainmentAdded" class="btn btn-outline-success">Add to Survey</button>
+            <button ng-click="bs.retainmentAdded = !bs.retainmentAdded" ng-show="bs.retainmentAdded" class="btn btn-outline-danger">Remove from Survey</button>
+        </div>
+        <img src="../images/kpi/retainment.jpg" class="col-6 img-thumbnail build-survey-pic">
+    </div>
+    <hr>
+    <h2>Space Layout</h2>
+    <div class="row">
+        <div class="col-6">
+            <p>
+                What do your people want the new space to be like.  What are the functions of the building that help them
+                with their jobs, what should be in the break space, and what kind of furniture doe they like.
+            </p>
+            <ul>
+                <li>Question 1</li>
+                <li>Question 2</li>
+                <li>Question 3</li>
+            </ul>
+            <button ng-click="bs.spaceLayoutAdded = !bs.spaceLayoutAdded" ng-hide="bs.spaceLayoutAdded" class="btn btn-outline-success">Add to Survey</button>
+            <button ng-click="bs.spaceLayoutAdded = !bs.spaceLayoutAdded" ng-show="bs.spaceLayoutAdded" class="btn btn-outline-danger">Remove from Survey</button>
+        </div>
+        <img src="../images/kpi/space_layout.png" class="col-6 img-thumbnail build-survey-pic">
+    </div>
+    <hr>
+    <a href="{{bs.reviewBuildSurveyURL()}}">Review Survey </a>
+     
