@@ -98,7 +98,7 @@ CREATE TABLE "client" (
 	"survey_hash" varchar UNIQUE,
 	"contact_number" varchar,
 	"position" varchar,
-	"status" varchar NOT NULL DEFAULT 'newClient',
+	"status" varchar NOT NULL DEFAULT 'New Client',
 	CONSTRAINT client_pk PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE
@@ -122,4 +122,15 @@ ALTER TABLE "employee_results" ADD CONSTRAINT "employee_results_fk2" FOREIGN KEY
 
 ALTER TABLE "selected_kpi" ADD CONSTRAINT "selected_kpi_fk0" FOREIGN KEY ("client_id") REFERENCES "client"("id");
 ALTER TABLE "selected_kpi" ADD CONSTRAINT "selected_kpi_fk1" FOREIGN KEY ("kpi_id") REFERENCES "catagory"("id");
+
+
+
+
+
+
+INSERT INTO client (point_of_contact, contact_email, organization, contact_number, position, status)
+VALUES ('John Smith', 'John@ABCTowing.com', 'ABC Towing', '555-1234', 'President', 'Finished'),
+('Tim Cook', 'Tim@Apple.com', 'Apple', null, 'CEO', default),
+('Mark Zuckerberg', 'Mark@Facebook.com', 'Facebook', null, 'CEO', default),
+('Jeff Benzos', 'Jeff@Amazon.com', 'Amazon', '123-4567', 'CEO', 'In Progress');
 
