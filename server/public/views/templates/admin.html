@@ -4,8 +4,8 @@
     <button class="btn btn-outline-danger" id="logout" ng-click="uc.userService.logout()">Log Out</button>
 </div>
 
-<div class="container-fluid">
-    <nav  class="navbar navbar-light" style="background-color: white" >
+<div class="container">
+    <nav class="navbar navbar-light" style="background-color: white">
         <ul class="navbar-nav">
             <li class="nav-item">
                 <button class="btn btn-outline-danger" ng-click="pending = false; inProgress = false; finished = false;">All</button>
@@ -22,7 +22,7 @@
         </ul>
     </nav>
     <div class="adminTable" ng-init="pending = false; inProgress = false; finished = false;edit = false; ">
-        <table class="table table-striped">
+        <table class="table table-sm table-striped">
             <thead>
                 <tr scope="row">
                     <th>
@@ -64,7 +64,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-hide="inProgress = true; pending = true; finished = true;" ng-repeat="client in uc.clientData.list | orderBy: 'status' ">
+                <tr ng-hide="inProgress = true; pending = true; finished = true;" ng-repeat="client in uc.clientData.list">
                     <td ng-hide="edit">
                         {{client.point_of_contact}}
                     </td>
@@ -118,7 +118,7 @@
                         <button class="btn btn-outline-danger" ng-click="uc.deleteClient(client)">Delete</button>
                     </td>
                 </tr>
-                <tr ng-show="inProgress = true" ng-hide="pending || finished" ng-repeat="client in uc.clientData.list | filter: {status: 'In Progress'} | orderBy: 'status' ">
+                <tr ng-show="inProgress = true" ng-hide="pending || finished" ng-repeat="client in uc.clientData.list | filter: {status: 'In Progress'} ">
                     <td ng-hide="edit">
                         {{client.point_of_contact}}
                     </td>
@@ -172,7 +172,7 @@
                         <button class="btn btn-outline-danger" ng-click="uc.deleteClient(client)">Delete</button>
                     </td>
                 </tr>
-                <tr ng-show="pending = true" ng-hide="inProgress || finished" ng-repeat="client in uc.clientData.list | filter: {status: 'New Client'} | orderBy: 'status' ">
+                <tr ng-show="pending = true" ng-hide="inProgress || finished" ng-repeat="client in uc.clientData.list | filter: {status: 'New Client'}">
                     <td ng-hide="edit">
                         {{client.point_of_contact}}
                     </td>
@@ -226,7 +226,7 @@
                         <button class="btn btn-outline-danger" ng-click="uc.deleteClient(client)">Delete</button>
                     </td>
                 </tr>
-                <tr ng-show="finished = true" ng-hide="inProgress || pending" ng-repeat="client in uc.clientData.list | filter: {status: 'Finished'} | orderBy: 'status' ">
+                <tr ng-show="finished = true" ng-hide="inProgress || pending" ng-repeat="client in uc.clientData.list | filter: {status: 'Finished'}">
                     <td ng-hide="edit">
                         {{client.point_of_contact}}
                     </td>
