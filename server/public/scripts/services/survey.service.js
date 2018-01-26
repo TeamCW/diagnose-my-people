@@ -11,7 +11,9 @@ myApp.service('SurveyService', function($http, $location){
             url: '/survey'
         }).then(function (response) {
             console.log('response', response);
-            self.questions.list = response.data;//this fills up the questions array with the table from the database.          
+            for (let i = 0; i < response.data.length; i++) {
+            self.questions.list.push(response.data[i]);//this fills up the questions array with the table from the database.
+            }          
         });
     }
 

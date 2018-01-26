@@ -29,12 +29,16 @@
       <div class="well well-md">
         <h1>Demographic Questions</h1>
         <div>
-          <ul ng-repeat="questions in sc.questions.list">
-            <li>{{questions.question, questions.response}}</li>
-          </ul>
+          <div ng-repeat="question in sc.questions.list">
+            <p class="survey-questions">{{question.question}}</p>
+            <p class="dropdown">
+              <select ng-model="selectedResponse.response">
+<option ng-repeat="response in question.responses" ng-value="response">{{response}}</option>
+              </select>
+            </p>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
