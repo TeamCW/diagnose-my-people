@@ -109,3 +109,17 @@
   opacity: 0.9;
   color: black;
 }
+
+  .navbar-nav {
+    display: inline-block;
+    width: 100%;
+  }
+  
+  .navbar-nav>li {
+     display: inline-block;
+  }
+
+#logout {
+    float: right;
+}
+
