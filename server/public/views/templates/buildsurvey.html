@@ -16,8 +16,8 @@
                 <li>Question 2</li>
                 <li>Question 3</li>
             </ul>
-            <button ng-click="bs.locationAdded = !bs.locationAdded" ng-hide="bs.locationAdded" class="btn btn-outline-success">Add to Survey</button>
-            <button ng-click="bs.locationAdded = !bs.locationAdded" ng-show="bs.locationAdded" class="btn btn-outline-danger">Remove from Survey</button>
+            <button ng-click="bs.toggleLocation()" ng-hide="bs.kpisAdded.locationAdded" class="btn btn-outline-success">Add to Survey</button>
+            <button ng-click="bs.toggleLocation()" ng-show="bs.kpisAdded.locationAdded" class="btn btn-outline-danger">Remove from Survey</button>
         </div>
         <img src="../images/kpi/location.jpg" class="col-6 img-thumbnail build-survey-pic">
     </div>
@@ -35,8 +35,8 @@
                 <li>Question 2</li>
                 <li>Question 3</li>
             </ul>
-            <button ng-click="bs.amenitiesAdded = !bs.amenitiesAdded" ng-hide="bs.amenitiesAdded" class="btn btn-outline-success">Add to Survey</button>
-            <button ng-click="bs.amenitiesAdded = !bs.amenitiesAdded" ng-show="bs.amenitiesAdded" class="btn btn-outline-danger">Remove from Survey</button>
+            <button ng-click="bs.toggleAmenities()" ng-hide="bs.kpisAdded.amenitiesAdded" class="btn btn-outline-success">Add to Survey</button>
+            <button ng-click="bs.toggleAmenities()" ng-show="bs.kpisAdded.amenitiesAdded" class="btn btn-outline-danger">Remove from Survey</button>
         </div>
         <img src="../images/kpi/amenities.jpg" class="col-6 img-thumbnail build-survey-pic">
     </div>
@@ -53,8 +53,8 @@
                 <li>Question 2</li>
                 <li>Question 3</li>
             </ul>
-            <button ng-click="bs.brandAdded = !bs.brandAdded" ng-hide="bs.brandAdded" class="btn btn-outline-success">Add to Survey</button>
-            <button ng-click="bs.brandAdded = !bs.brandAdded" ng-show="bs.brandAdded" class="btn btn-outline-danger">Remove from Survey</button>
+            <button ng-click="bs.toggleBrand()" ng-hide="bs.kpisAdded.brandAdded" class="btn btn-outline-success">Add to Survey</button>
+            <button ng-click="bs.toggleBrand()" ng-show="bs.kpisAdded.brandAdded" class="btn btn-outline-danger">Remove from Survey</button>
         </div>
         <img src="../images/kpi/brand.jpg" class="col-6 img-thumbnail build-survey-pic">
     </div>
@@ -71,8 +71,8 @@
                 <li>Question 2</li>
                 <li>Question 3</li>
             </ul>
-            <button ng-click="bs.retainmentAdded = !bs.retainmentAdded" ng-hide="bs.retainmentAdded" class="btn btn-outline-success">Add to Survey</button>
-            <button ng-click="bs.retainmentAdded = !bs.retainmentAdded" ng-show="bs.retainmentAdded" class="btn btn-outline-danger">Remove from Survey</button>
+            <button ng-click="bs.toggleRetainment()" ng-hide="bs.kpisAdded.retainmentAdded" class="btn btn-outline-success">Add to Survey</button>
+            <button ng-click="bs.toggleRetainment()" ng-show="bs.kpisAdded.retainmentAdded" class="btn btn-outline-danger">Remove from Survey</button>
         </div>
         <img src="../images/kpi/retainment.jpg" class="col-6 img-thumbnail build-survey-pic">
     </div>
@@ -89,11 +89,11 @@
                 <li>Question 2</li>
                 <li>Question 3</li>
             </ul>
-            <button ng-click="bs.spaceLayoutAdded = !bs.spaceLayoutAdded" ng-hide="bs.spaceLayoutAdded" class="btn btn-outline-success">Add to Survey</button>
-            <button ng-click="bs.spaceLayoutAdded = !bs.spaceLayoutAdded" ng-show="bs.spaceLayoutAdded" class="btn btn-outline-danger">Remove from Survey</button>
+            <button ng-click="bs.toggleSpaceLayout()" ng-hide="bs.kpisAdded.spaceLayoutAdded" class="btn btn-outline-success">Add to Survey</button>
+            <button ng-click="bs.toggleSpaceLayout()" ng-show="bs.kpisAdded.spaceLayoutAdded" class="btn btn-outline-danger">Remove from Survey</button>
         </div>
         <img src="../images/kpi/space_layout.png" class="col-6 img-thumbnail build-survey-pic">
     </div>
     <hr>
-    <a href="{{bs.reviewBuildSurveyURL()}}">Review Survey </a>
+    <a ng-href="{{bs.reviewBuildSurveyURL.urlString}}">Review Survey </a>
      
