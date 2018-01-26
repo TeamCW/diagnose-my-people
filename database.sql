@@ -78,12 +78,12 @@ CREATE TABLE "employee_results" (
 
 
 
-CREATE TABLE "selected_questions" (
+CREATE TABLE "selected_kpi" (
 	"id" serial NOT NULL,
 	"client_id" integer NOT NULL,
-	"question_id" integer NOT NULL,
+	"kpi_id" integer NOT NULL,
 	"notes_added" varchar,
-	CONSTRAINT selected_questions_pk PRIMARY KEY ("id")
+	CONSTRAINT selected_kpi_pk PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE
 );
@@ -120,12 +120,6 @@ ALTER TABLE "employee_results" ADD CONSTRAINT "employee_results_fk0" FOREIGN KEY
 ALTER TABLE "employee_results" ADD CONSTRAINT "employee_results_fk1" FOREIGN KEY ("question_id") REFERENCES "questions"("id");
 ALTER TABLE "employee_results" ADD CONSTRAINT "employee_results_fk2" FOREIGN KEY ("response_id") REFERENCES "possible_responses"("id");
 
-ALTER TABLE "selected_questions" ADD CONSTRAINT "selected_questions_fk0" FOREIGN KEY ("client_id") REFERENCES "client"("id");
-ALTER TABLE "selected_questions" ADD CONSTRAINT "selected_questions_fk1" FOREIGN KEY ("question_id") REFERENCES "questions"("id");
+ALTER TABLE "selected_kpi" ADD CONSTRAINT "selected_kpi_fk0" FOREIGN KEY ("client_id") REFERENCES "client"("id");
+ALTER TABLE "selected_kpi" ADD CONSTRAINT "selected_kpi_fk1" FOREIGN KEY ("kpi_id") REFERENCES "catagory"("id");
 
-
-
-SELECT question, array_agg(response_text) as responses, kpi FROM questions
-INNER JOIN possible_responses on questions.id = possible_responses.question_id
-INNER JOIN catagory on questions.kpi_id = catagory.id
-GROUP BY question, kpi;
