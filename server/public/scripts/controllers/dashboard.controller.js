@@ -1,5 +1,9 @@
-myApp.controller('DashboardController', function(AdminService) {
+myApp.controller('DashboardController', ['DashboardService', 'AdminService', function(DashboardService, AdminService) {
     console.log('DashboardController created');
     var vm = this;
-    vm.adminService = AdminService;
-  });
+    vm.dashboardService = DashboardService;
+
+
+
+
+  }]);//end controller

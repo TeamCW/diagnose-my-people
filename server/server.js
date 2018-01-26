@@ -11,6 +11,7 @@ var userRouter = require('./routes/user.router');
 var registerRouter = require('./routes/register.router');
 var adminRouter = require('./routes/admin.router');
 var surveyRouter = require('./routes/survey.router');
+var dashboardRouter = require('./routes/dashboard.router');
 
 var port = process.env.PORT || 5000;
 
@@ -33,6 +34,7 @@ app.use('/register', registerRouter);
 app.use('/user', userRouter);
 app.use('/admin', adminRouter)
 app.use('/survey', surveyRouter);
+app.use('/dashboard', dashboardRouter);
 
 // Catch all bucket, must be last!
 app.use('/', indexRouter);
