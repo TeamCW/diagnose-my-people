@@ -4,7 +4,7 @@ myApp.controller('SurveyController', function(SurveyService) {
 
     //SurveyService.js 
     vm.surveyService = SurveyService;
-    vm.questions = SurveyService.questions;  
-    SurveyService.getQuestions();      
+    vm.demographics = SurveyService.demographics;  
+    SurveyService.getDemographics();      
 
   });
