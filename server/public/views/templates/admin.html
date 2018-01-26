@@ -44,9 +44,6 @@
                         Edit
                     </th>
                     <th>
-                        Contacted
-                    </th>
-                    <th>
                         Status
                     </th>
                     <th>
@@ -64,7 +61,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-hide="inProgress = true; pending = true; finished = true;" ng-repeat="client in uc.clientData.list">
+                <tr ng-hide="inProgress = true; pending = true; finished = true;" ng-repeat="client in uc.clientData.list ">
                     <td ng-hide="edit">
                         {{client.point_of_contact}}
                     </td>
@@ -100,10 +97,9 @@
                         <button class="btn btn-outline-danger" ng-click="uc.editClient(client); edit = false" ng-show="edit;">Submit Changes</button>
                     </td>
                     <td>
-                        <input type="checkbox" ng-checked="client.status == 'In Progress' || client.status == 'Finished'" ng-click="uc.clientContacted(client)">
-                    </td>
-                    <td>
-                        {{client.status}}
+                        <select ng-model="client.status" ng-change="uc.clientContacted(client)">
+                            <option ng-repeat="status in uc.clientStatus">{{status}}</option>
+                        </select>
                     </td>
                     <td>
                         <button class="btn btn-outline-danger">Survey</button>
@@ -154,10 +150,9 @@
                         <button class="btn btn-outline-danger" ng-click="uc.editClient(client); edit = false" ng-show="edit;">Submit Changes</button>
                     </td>
                     <td>
-                        <input type="checkbox" ng-checked="client.status == 'In Progress' || client.status == 'Finished' " ng-click="uc.clientContacted(client)">
-                    </td>
-                    <td>
-                        {{client.status}}
+                        <select ng-model="client.status" ng-change="uc.clientContacted(client)">
+                            <option ng-repeat="status in uc.clientStatus">{{status}}</option>
+                        </select>
                     </td>
                     <td>
                         <button class="btn btn-outline-danger">Survey</button>
@@ -208,10 +203,9 @@
                         <button class="btn btn-outline-danger" ng-click="uc.editClient(client); edit = false" ng-show="edit;">Submit Changes</button>
                     </td>
                     <td>
-                        <input type="checkbox" ng-checked="client.status == 'In Progress' || client.status == 'Finished'" ng-click="uc.clientContacted(client)">
-                    </td>
-                    <td>
-                        {{client.status}}
+                        <select ng-model="client.status" ng-change="uc.clientContacted(client)">
+                            <option ng-repeat="status in uc.clientStatus">{{status}}</option>
+                        </select>
                     </td>
                     <td>
                         <button class="btn btn-outline-danger">Survey</button>
@@ -262,10 +256,9 @@
                         <button class="btn btn-outline-danger" ng-click="uc.editClient(client); edit = false" ng-show="edit;">Submit Changes</button>
                     </td>
                     <td>
-                        <input type="checkbox" ng-checked="client.status == 'In Progress' || client.status == 'Finished' " ng-click="uc.clientContacted(client)">
-                    </td>
-                    <td>
-                        {{client.status}}
+                        <select ng-model="client.status" ng-change="uc.clientContacted(client)">
+                            <option ng-repeat="status in uc.clientStatus">{{status}}</option>
+                        </select>
                     </td>
                     <td>
                         <button class="btn btn-outline-danger">Survey</button>

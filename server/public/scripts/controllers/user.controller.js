@@ -8,6 +8,7 @@ myApp.controller('UserController', ['UserService', 'AdminService', function(User
     vm.deleteClient = AdminService.deleteClient;
     vm.clientContacted = AdminService.clientContacted;
     vm.editClient = AdminService.editClient;
+    vm.clientStatus = AdminService.clientStatus;
 
 
 
