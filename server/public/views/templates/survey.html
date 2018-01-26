@@ -33,14 +33,16 @@
             <p class="survey-questions">{{question.question}}</p>
             <p class="dropdown">
               <select ng-model="selectedResponse.response">
-<option ng-repeat="response in question.responses" ng-value="response">{{response}}</option>
+                <option ng-repeat="response in question.responses" ng-value="response">{{response}}</option>
               </select>
             </p>
           </div>
         </div>
-        <button type="button" class="btn btn-default" ng-click="sc.saveResponses(selectedResponse)">
+        <a href="#location">
+          <button type="button" class="btn btn-default" ng-click="sc.saveResponses(selectedResponse)">
             <span class="glyphicon glyphicon-arrow-right"></span> Next
-        </button>  
+          </button>
+        </a>
       </div>
     </div>
   </div>
