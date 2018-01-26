@@ -69,6 +69,7 @@
     background-image: url('/images/red-city.jpg');
     height: 500px;
     padding: 10px;
+    color: #6b6d6d;
 }
 
 .btn.btn-outline-danger.admin {
