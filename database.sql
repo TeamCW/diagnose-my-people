@@ -99,6 +99,7 @@ CREATE TABLE "client" (
 	"contact_number" varchar,
 	"position" varchar,
 	"status" varchar NOT NULL DEFAULT 'New Client',
+	"comments" varchar,
 	CONSTRAINT client_pk PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE
@@ -122,6 +123,8 @@ ALTER TABLE "employee_results" ADD CONSTRAINT "employee_results_fk2" FOREIGN KEY
 
 ALTER TABLE "selected_kpi" ADD CONSTRAINT "selected_kpi_fk0" FOREIGN KEY ("client_id") REFERENCES "client"("id");
 ALTER TABLE "selected_kpi" ADD CONSTRAINT "selected_kpi_fk1" FOREIGN KEY ("kpi_id") REFERENCES "catagory"("id");
+
+
 
 
 
