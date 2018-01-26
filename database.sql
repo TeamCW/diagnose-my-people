@@ -95,7 +95,7 @@ CREATE TABLE "client" (
 	"point_of_contact" varchar NOT NULL,
 	"contact_email" varchar NOT NULL,
 	"organization" varchar,
-	"survey_hash" varchar NOT NULL UNIQUE,
+	"survey_hash" varchar UNIQUE,
 	"contact_number" varchar,
 	"position" varchar,
 	"status" varchar NOT NULL DEFAULT 'newClient',
@@ -123,3 +123,9 @@ ALTER TABLE "employee_results" ADD CONSTRAINT "employee_results_fk2" FOREIGN KEY
 ALTER TABLE "selected_questions" ADD CONSTRAINT "selected_questions_fk0" FOREIGN KEY ("client_id") REFERENCES "client"("id");
 ALTER TABLE "selected_questions" ADD CONSTRAINT "selected_questions_fk1" FOREIGN KEY ("question_id") REFERENCES "questions"("id");
 
+
+
+SELECT question, array_agg(response_text) as responses, kpi FROM questions
+INNER JOIN possible_responses on questions.id = possible_responses.question_id
+INNER JOIN catagory on questions.kpi_id = catagory.id
+GROUP BY question, kpi;
