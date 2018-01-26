@@ -30,6 +30,10 @@ myApp.config(function($routeProvider, $locationProvider) {
       templateUrl: '/views/templates/survey.html',
       controller: 'SurveyController as sc'
     })
+    .when('/buildsurvey', {
+      templateUrl: '/views/templates/buildsurvey.html',
+      controller: 'BuildSurveyController as sc'
+    })
     .when('/location', {
       templateUrl: '/views/templates/location.html',
       controller: 'SurveyController as sc'
