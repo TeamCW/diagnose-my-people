@@ -13,5 +13,4 @@ myApp.controller('SurveyController', function(SurveyService) {
     SurveyService.getLocation();
     SurveyService.getAmenities();      
       
-
   });

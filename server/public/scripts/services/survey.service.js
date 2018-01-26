@@ -23,7 +23,7 @@ myApp.service('SurveyService', function($http, $location){
     self.getLocation = function () {
         $http({
             method: 'GET',
-            url: '/location'
+            url: 'survey/location'
         }).then(function (response) {
             console.log('response', response);
             for (let i = 0; i < response.data.length; i++) {
@@ -36,7 +36,7 @@ myApp.service('SurveyService', function($http, $location){
     self.getAmenities = function () {
         $http({
             method: 'GET',
-            url: '/amenities'
+            url: 'survey/amenities'
         }).then(function (response) {
             console.log('response', response);
             for (let i = 0; i < response.data.length; i++) {
