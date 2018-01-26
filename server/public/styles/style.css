@@ -87,6 +87,11 @@
     color: #6B6D6D;
 }
 
+
+.build-survey-pic{
+    max-height: 390px;
+}
+
 .survey-tabs {
   border-top: 3px;
   border-radius: 3px;
