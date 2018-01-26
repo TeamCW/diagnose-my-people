@@ -2,13 +2,11 @@
     background-image: url('/images/red-city.jpg');
 }
 
-.Q-card {
+.well-md {
     background-color: rgb(140, 209, 250);
     opacity: 0.9;
-}
-
-.Q-text {
-    color: black;
+    text-align: center;
+    margin: auto;
 }
 
 .md-headline {
@@ -19,42 +17,95 @@
     background-image: url('/images/cush-background-3.jpg');
 }
 
-.tabs {
+/* .tabs {
     border: 3px;
     border-radius: 3px;
     border-left: 2px;
     border-right: 2px;
     border-style: ridge;
     border-color: darkblue;
-}
+    margin-right: 10px;
+} */
 
 .description {
     background-color: white;
-    opacity: 0.9;
+    opacity: 0.97;
     border: solid;
+    border-color: #6b6d6d;
+    border-radius: 6px;
+    padding: 10px;
+    color: #6b6d6d;
+
 }
 
 .heading {
     color: white;
-    background-color: rgba(0, 0, 0, 0.452);
-}
+    background-color: rgba(0, 0, 0, 0.452);    
+    border-radius: 6px;
+    padding: 10px;
 
-.md-button.md-raised.long {
-    width: 380px;
-    min-width: 88px;
-    border: solid;
 }
 
 .box {
     border-style: solid;
     border-color: #F21E2E;
     padding: 30px;
+    margin: auto;
+    width: 40%;
+}
+
+.button-cta {
+    -webkit-appearance: none;
+    background-color: #e4002b;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    font-size: 16px;
+    border: 1px solid #e4002b;
+    box-shadow: 0px 1px 1px rgba(0,0,0,1);
+}
+
+.landing {
+    background-image: url('/images/cush-background-3.jpg');
+    height: 600px;
+    padding: 10px;
+}
+
+.btn-admin {
+    float: right;    
+    padding: 20px 0;
+    color: #6b6d6d;
+    border: none;
+}
+
+.header {
+    height: 80px;
+    margin: auto
 }
 
 .md-button.header-btn {
     color: #6B6D6D;
 }
 
+
 .build-survey-pic{
     max-height: 390px;
+}
+
+.survey-tabs {
+  border-top: 3px;
+  border-radius: 3px;
+  border-left: 2px;
+  border-right: 2px;
+  border-top-style: ridge;
+  border-right-style: ridge;
+  border-left-style: ridge;
+  border-bottom-style: none;
+  padding-left: 2px;
+  padding-right: 40px;
+  margin-right: 5px;
+  border-color: rgb(140, 209, 250);
+  background-color: rgb(140, 209, 250);
+  opacity: 0.9;
+  color: black;
 }

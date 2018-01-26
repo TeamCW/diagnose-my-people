@@ -24,8 +24,8 @@ CREATE TABLE "questions" (
 
 CREATE TABLE "users" (
 	"id" serial NOT NULL,
-	"username" varchar(80) NOT NULL UNIQUE,
-	"password" varchar(240) NOT NULL,
+	"username" varchar NOT NULL UNIQUE,
+	"password" varchar NOT NULL,
 	CONSTRAINT users_pk PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE
@@ -37,6 +37,7 @@ CREATE TABLE "possible_responses" (
 	"id" serial NOT NULL,
 	"question_id" integer NOT NULL,
 	"response_text" varchar NOT NULL,
+	"style_id" integer NOT NULL,
 	CONSTRAINT possible_responses_pk PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE
@@ -68,9 +69,8 @@ CREATE TABLE "employee_results" (
 	"id" serial NOT NULL,
 	"client_id" integer NOT NULL,
 	"question_id" integer NOT NULL,
-	"response_id" integer NOT NULL,
-	"response_from_input" varchar NOT NULL,
-	"response_style" integer NOT NULL,
+	"response_id" integer,
+	"response_from_input" varchar,
 	CONSTRAINT employee_results_pk PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE
@@ -82,7 +82,7 @@ CREATE TABLE "selected_questions" (
 	"id" serial NOT NULL,
 	"client_id" integer NOT NULL,
 	"question_id" integer NOT NULL,
-	"notes_added" varchar NOT NULL,
+	"notes_added" varchar,
 	CONSTRAINT selected_questions_pk PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE
@@ -93,11 +93,12 @@ CREATE TABLE "selected_questions" (
 CREATE TABLE "client" (
 	"id" serial NOT NULL,
 	"point_of_contact" varchar NOT NULL,
-	"contact_email" varchar NOT NULL UNIQUE,
-	"organization" varchar NOT NULL,
-	"survey_url" varchar NOT NULL UNIQUE,
-	"passcode" varchar NOT NULL UNIQUE,
-	"deadline" varchar NOT NULL,
+	"contact_email" varchar NOT NULL,
+	"organization" varchar,
+	"survey_hash" varchar UNIQUE,
+	"contact_number" varchar,
+	"position" varchar,
+	"status" varchar NOT NULL DEFAULT 'newClient',
 	CONSTRAINT client_pk PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE
@@ -111,14 +112,20 @@ ALTER TABLE "questions" ADD CONSTRAINT "questions_fk1" FOREIGN KEY ("style_id") 
 
 
 ALTER TABLE "possible_responses" ADD CONSTRAINT "possible_responses_fk0" FOREIGN KEY ("question_id") REFERENCES "questions"("id");
+ALTER TABLE "possible_responses" ADD CONSTRAINT "possible_responses_fk1" FOREIGN KEY ("style_id") REFERENCES "response_style"("id");
 
 
 
 ALTER TABLE "employee_results" ADD CONSTRAINT "employee_results_fk0" FOREIGN KEY ("client_id") REFERENCES "client"("id");
 ALTER TABLE "employee_results" ADD CONSTRAINT "employee_results_fk1" FOREIGN KEY ("question_id") REFERENCES "questions"("id");
 ALTER TABLE "employee_results" ADD CONSTRAINT "employee_results_fk2" FOREIGN KEY ("response_id") REFERENCES "possible_responses"("id");
-ALTER TABLE "employee_results" ADD CONSTRAINT "employee_results_fk3" FOREIGN KEY ("response_style") REFERENCES "response_style"("id");
 
 ALTER TABLE "selected_questions" ADD CONSTRAINT "selected_questions_fk0" FOREIGN KEY ("client_id") REFERENCES "client"("id");
 ALTER TABLE "selected_questions" ADD CONSTRAINT "selected_questions_fk1" FOREIGN KEY ("question_id") REFERENCES "questions"("id");
 
+
+
+SELECT question, array_agg(response_text) as responses, kpi FROM questions
+INNER JOIN possible_responses on questions.id = possible_responses.question_id
+INNER JOIN catagory on questions.kpi_id = catagory.id
+GROUP BY question, kpi;
