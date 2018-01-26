@@ -1,7 +1,7 @@
 <div>
   <a href="#/user">Home</a>
 </div>
-<div ng-cloak class="container-fluid" id="survey-background">
+<div ng-cloak class="container-fluid survey-background">
   <div class="row">
     <div class="col-md-10">
       <!--- tabs -->
@@ -29,12 +29,21 @@
       <div class="well well-md">
         <h1>Demographic Questions</h1>
         <div>
-          <ul ng-repeat="questions in sc.questions.list">
-            <li>{{questions.question, questions.response}}</li>
-          </ul>
+          <div ng-repeat="question in sc.demographics.list">
+            <p class="survey-questions">{{question.question}}</p>
+            <p class="dropdown">
+              <select ng-model="selectedResponse.response">
+                <option ng-repeat="response in question.responses" ng-value="response">{{response}}</option>
+              </select>
+            </p>
+          </div>
         </div>
+        <a href="#location">
+          <button type="button" class="btn btn-default" ng-click="sc.saveResponses(selectedResponse)">
+            <span class="glyphicon glyphicon-arrow-right"></span> Next
+          </button>
+        </a>
       </div>
     </div>
   </div>
 </div>
-

@@ -1,4 +1,4 @@
-#survey-background {
+.survey-background {
     background-image: url('/images/red-city.jpg');
 }
 
@@ -111,14 +111,18 @@
   color: black;
 }
 
-  .navbar-nav {
+.survey-questions {
+    font-weight: bold;
+}
+
+.navbar-nav {
     display: inline-block;
     width: 100%;
-  }
+}
   
-  .navbar-nav>li {
+.navbar-nav>li {
      display: inline-block;
-  }
+}
 
 #logout {
     float: right;

@@ -11,10 +11,10 @@ router.get('/', function (req, res) {
             res.sendStatus(500);
         } else {
 
-            client.query(`SELECT question, array_agg(response_text) as responses, kpi FROM questions
+            client.query(`SELECT possible_responses.question_id, question, array_agg(response_text) as responses, kpi FROM questions
             INNER JOIN possible_responses on questions.id = possible_responses.question_id
             INNER JOIN catagory on questions.kpi_id = catagory.id
-            GROUP BY question, kpi;`,
+            GROUP BY question, kpi, possible_responses.question_id;`,
                 function (errorMakingDatabaseQuery, result) {
                     done();
                     if (errorMakingDatabaseQuery) {
