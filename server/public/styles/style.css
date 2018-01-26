@@ -40,7 +40,7 @@
 
 .heading {
     color: white;
-    background-color: rgba(0, 0, 0, 0.452);    
+    /* background-color: rgba(0, 0, 0, 0.452);     */
     border-radius: 6px;
     padding: 10px;
 
@@ -66,15 +66,16 @@
 }
 
 .landing {
-    background-image: url('/images/cush-background-3.jpg');
-    height: 600px;
+    background-image: url('/images/red-city.jpg');
+    height: 500px;
     padding: 10px;
+    color: #6b6d6d;
 }
 
-.btn-admin {
+.btn.btn-outline-danger.admin {
     float: right;    
-    padding: 20px 0;
     color: #6b6d6d;
+    margin: 15px;
     border: none;
 }
 
@@ -85,6 +86,11 @@
 
 .md-button.header-btn {
     color: #6B6D6D;
+}
+
+
+.build-survey-pic{
+    max-height: 390px;
 }
 
 .survey-tabs {
@@ -108,3 +114,17 @@
 .survey-questions {
     font-weight: bold;
 }
+
+.navbar-nav {
+    display: inline-block;
+    width: 100%;
+}
+  
+.navbar-nav>li {
+     display: inline-block;
+}
+
+#logout {
+    float: right;
+}
+

@@ -31,6 +31,14 @@ myApp.config(function($routeProvider, $locationProvider) {
       templateUrl: '/views/templates/survey.html',
       controller: 'SurveyController as sc'
     })
+    .when('/buildsurvey', {
+      templateUrl: '/views/templates/buildsurvey.html',
+      controller: 'BuildSurveyController as bs'
+    })
+    .when('/build-survey-review/:amenities/:brand/:location/:retainment/:spaceLayout', {
+      templateUrl: '/views/templates/build-survey-review.html',
+      controller: 'BuildSurveyController as br'
+    })
     .when('/location', {
       templateUrl: '/views/templates/location.html',
       controller: 'SurveyController as sc'
