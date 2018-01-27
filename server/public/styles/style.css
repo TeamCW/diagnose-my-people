@@ -128,3 +128,11 @@
     float: right;
 }
 
+.slider {
+    width: 500px;
+}
+
+.slider-values {
+    margin-right: 20px;
+    margin-left: 20px;
+}
