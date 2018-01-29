@@ -136,3 +136,20 @@
     margin-right: 20px;
     margin-left: 20px;
 }
+
+.icon {
+    width: 25px;
+    height: 25px;
+  }
+
+  .icon-account-login {
+    fill: #e4002b;
+  }
+
+  th {
+    white-space: nowrap;
+}
+
+td {
+    white-space: nowrap;
+}
