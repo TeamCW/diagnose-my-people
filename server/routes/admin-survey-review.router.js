@@ -49,4 +49,27 @@ router.put('/', function (req, res) {
     });
 })
 
+// Remove a survey category from selected client's survey
+router.delete('/:id', function (req, res) {
+    var categoryToRemove = req.params.id;
+    console.log(categoryToRemove);
+    
+    pool.connect(function (errorConnectingToDatabase, client, done) {
+        if (errorConnectingToDatabase) {
+            console.log('Error connecting to database', errorConnectingToDatabase);
+            res.sendStatus(500);
+        } else {
+            client.query(`DELETE FROM selected_kpi WHERE id=$1;`, [categoryToRemove], function (errorMakingQuery, result) {
+                done();
+                if (errorMakingQuery) {
+                    console.log('Error making query', errorMakingQuery);
+                    res.sendStatus(500);
+                } else {
+                    res.sendStatus(200);
+                }
+            });
+        }
+    });
+})
+
 module.exports = router;

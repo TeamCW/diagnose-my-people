@@ -33,4 +33,30 @@ myApp.service('AdminSurveyReviewService', ['$http', '$location', function ($http
             self.getClientSurvey(clientId);
         });
     }
+
+        //remove a category from a client's survey
+        self.removeCategory = function (categoryToDelete, clientId) {
+            swal({
+                title: "Are you sure?",
+                text: "This category will be removed from the survey",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        swal("Category removed!", {
+                            icon: "success",
+                        });
+                        $http({
+                            method: 'DELETE',
+                            url: '/admin-survey-review/' + categoryToDelete.id,
+                        }).then(function (response) {                            
+                            self.getClientSurvey(clientId);
+                        });
+                    } else {
+                        swal("File not deleted");
+                    }
+                });
+        };
 }]);

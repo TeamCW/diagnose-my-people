@@ -5,6 +5,6 @@ myApp.controller('AdminSurveyReviewController', ['AdminSurveyReviewService', '$r
   vm.client = AdminSurveyReviewService.client;
   AdminSurveyReviewService.getClientSurvey($routeParams.clientId);
   vm.editBlurb = AdminSurveyReviewService.editBlurb;
-
+  vm.removeCategory = AdminSurveyReviewService.removeCategory;
     
   }]);

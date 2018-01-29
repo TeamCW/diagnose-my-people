@@ -3,13 +3,16 @@
 
     <h3>{{asr.client.survey[0].client_organization}}</h3>
     <h4>{{asr.client.survey[0].client_name}}</h4>
-    <p><strong>Custom Survey URL: </strong>{{asr.client.survey[0].survey_url}}</p>
+    <p>
+        <strong>Custom Survey URL: </strong>{{asr.client.survey[0].survey_url}}</p>
 
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>KPI</th>
+                <th>Selected Category</th>
                 <th>Blurb</th>
+                <th>Add/Edit Blurb</th>
+                <th>Remove Category From Survey</th>
             </tr>
         </thead>
         <tbody>
@@ -22,6 +25,9 @@
                 <td>
                     <button ng-hide="blurb.isEditable" ng-click="blurb.isEditable = !blurb.isEditable">Add Blurb</button>
                     <button ng-show="blurb.isEditable" ng-click="asr.editBlurb(kpi, kpi.client_id)">Save Blurb</button>
+                </td>
+                <td>
+                    <button ng-click="asr.removeCategory(kpi, kpi.client_id)">Delete</button>
                 </td>
             </tr>
         </tbody>
