@@ -12,7 +12,7 @@ var registerRouter = require('./routes/register.router');
 var adminRouter = require('./routes/admin.router');
 var surveyRouter = require('./routes/survey.router');
 var dashboardRouter = require('./routes/dashboard.router');
-var buildSurveyRouter = require('./routes/buildsurvey')
+var buildSurveyRouter = require('./routes/buildsurvey.router');
 
 var port = process.env.PORT || 5000;
 

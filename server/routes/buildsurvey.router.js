@@ -34,9 +34,9 @@ router.post('/clientinfo', function (req, res) {
                 organization, 
                 contact_number, 
                 position,
-                survey_hash ,
+                survey_hash
             )
-            VALUES ($1, $2, $3, $4, $5, $6),`, [
+            VALUES ($1, $2, $3, $4, $5, $6);`, [
                 req.body.point_of_contact,
                 req.body.contact_email,
                 req.body.organization,
@@ -69,7 +69,7 @@ router.get('/clientid', function (req, res) {
         } else {
             // We connected to the database!!!
             // Now, we're going to GET things from thd DB
-            client.query('SELECT id FROM client WHERE survey_has=$1;',[req.query.survey_hash], function (errorMakingQuery, result) {
+            client.query('SELECT id FROM client WHERE survey_hash=$1;',[req.query.survey_hash], function (errorMakingQuery, result) {
                 done();
                 if (errorMakingQuery) {
                     // Query failed. Did you test it in Postico?
@@ -99,9 +99,9 @@ router.post('/kpi', function (req, res) {
                 kpi_id,
                 client_id
             )
-            VALUES ($1, $2),`, [
-                req.query.kpi_id,
-                req.query.client_id
+            VALUES ($1, $2);`, [
+                req.body.kpi_id,
+                req.body.client_id
             ], 
             function (errorMakingQuery, result) {
                 done();

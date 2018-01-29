@@ -41,7 +41,7 @@ myApp.config(function($routeProvider, $locationProvider) {
     })
     .when('/build-survey-contact-info/:amenitiesAdded/:brandAdded/:locationAdded/:retainmentAdded/:spaceLayoutAdded', {
       templateUrl: '/views/templates/build-survey-contact-info.html',
-      controller: 'BuildSurveyController as bc'
+      controller: 'BuildSurveyContactInfoController as bc'
     })
     .when('/location', {
       templateUrl: '/views/templates/location.html',

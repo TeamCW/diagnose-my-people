@@ -25,9 +25,10 @@ myApp.service('BuildSurveyContactInfoService', function ($http, $location) {
         postion: ''
     };
 
-    self.postNewSurveyAndClient = function (kpisAdded) {
+    self.postNewSurveyAndClient = function (kpisAdded, contactInformation) {
+        console.log('in postNewSurveyAndClient')
         var clientID;
-        var ts = Math.round((new Date()).getTime() / 1000).toString;
+        var ts = Math.round((new Date()).getTime() / 1000);
 
         var makeid = function () {
             var text = "";
@@ -48,12 +49,12 @@ myApp.service('BuildSurveyContactInfoService', function ($http, $location) {
             method: 'POST',
             url: '/buildsurvey/clientinfo',
             data: {
-                point_of_contact: contactInfo.point_of_contact,
-                contact_email: contactInfo.contact_email,
-                organization: contactInfo.organization,
+                point_of_contact: contactInformation.point_of_contact,
+                contact_email: contactInformation.contact_email,
+                organization: contactInformation.organization,
                 survey_hash: surveyHash,
-                contact_number: contactInfo.contact_number,
-                position: contactInfo.position
+                contact_number: contactInformation.contact_number,
+                position: contactInformation.position
             }
         }).then(function (response) {
             console.log('response', response)
@@ -69,75 +70,81 @@ myApp.service('BuildSurveyContactInfoService', function ($http, $location) {
                 }
             }).then(function (response) {
                 console.log('response', response)
-                clientID = response
+                clientID = response.data[response.data.length-1].id
                 postClientsKPIs()
-            })
-        }
-
-        if (kpis_added.locationAdded) {
-            $http({
-                method: 'POST',
-                url: '/kpi',
-                params: {
-                    kpi_id: 1,
-                    client_id: clientID
-                }
-            }).then(function (response) {
-                console.log('response', response)
 
             })
         }
-        if (kpis_added.amenitiesAdded) {
-            $http({
-                method: 'POST',
-                url: '/kpi',
-                params: {
-                    kpi_id: 2,
-                    client_id: clientID
-                }
-            }).then(function (response) {
-                console.log('response', response)
+        var postClientsKPIs = function () {
+            console.log('in post client kpi');
+            console.log(kpisAdded);
+            if (kpisAdded.locationAdded) {
+                console.log('in if')
+                $http({
+                    method: 'POST',
+                    url: '/buildsurvey/kpi',
+                    data: {
+                        kpi_id: '1',
+                        client_id: clientID
+                    }
+                }).then(function (response) {
+                    console.log('response', response)
 
-            })
-        }
-        if (kpis_added.brandAdded) {
-            $http({
-                method: 'POST',
-                url: '/kpi',
-                params: {
-                    kpi_id: 3,
-                    client_id: clientID
-                }
-            }).then(function (response) {
-                console.log('response', response)
+                })
+            }
+            if (kpisAdded.amenitiesAdded) {
+                $http({
+                    method: 'POST',
+                    url: '/buildsurvey/kpi',
+                    data: {
+                        kpi_id: '2',
+                        client_id: clientID
+                    }
+                }).then(function (response) {
+                    console.log('response', response)
 
-            })
-        }
-        if (kpis_added.retainmentAdded) {
-            $http({
-                method: 'POST',
-                url: '/kpi',
-                params: {
-                    kpi_id: 4,
-                    client_id: clientID
-                }
-            }).then(function (response) {
-                console.log('response', response)
+                })
+            }
+            if (kpisAdded.brandAdded) {
+                $http({
+                    method: 'POST',
+                    url: '/buildsurvey/kpi',
+                    data: {
+                        kpi_id: '3',
+                        client_id: clientID
+                    }
+                }).then(function (response) {
+                    console.log('response', response)
 
-            })
-        }
-        if (kpis_added.spaceLayoutAdded) {
-            $http({
-                method: 'POST',
-                url: '/kpi',
-                params: {
-                    kpi_id: 5,
-                    client_id: clientID
-                }
-            }).then(function (response) {
-                console.log('response', response)
+                })
+            }
+            if (kpisAdded.retainmentAdded) {
+                $http({
+                    method: 'POST',
+                    url: '/buildsurvey/kpi',
+                    data: {
+                        kpi_id: '4',
+                        client_id: clientID
+                    }
+                }).then(function (response) {
+                    console.log('response', response)
 
-            })
+                })
+            }
+            if (kpisAdded.spaceLayoutAdded) {
+                $http({
+                    method: 'POST',
+                    url: '/buildsurvey/kpi',
+                    data: {
+                        kpi_id: '5',
+                        client_id: clientID
+                    }
+                }).then(function (response) {
+                    console.log('response', response)
+
+                })
+            }
         }
+
     };//end self.postNewSurveyAndClient method
 });

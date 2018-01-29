@@ -16,7 +16,7 @@
         <input type="tel" name="phone" id="phone" class="form-control" ng-model="bc.contactInformation.contact_number">
         <label for="comments">Comments:</label>
         <textarea name="comments" id="comments" cols="30" rows="10" class="form-control" ng-model="bc.contactInformation.comments"></textarea>
-        <button ng-click="bc.postNewSurveyAndClient(bc.kpisAdded )">Submit</button>
+        <button ng-click="bc.postNewSurveyAndClient(bc.kpisAdded,bc.contactInformation)">Submit</button>
 
     <div>
 
