@@ -33,7 +33,7 @@
           <div ng-repeat="question in sc.demographics.list | limitTo:sc.demographicLimit">
             <p class="survey-questions">{{question.question}}</p>
             <p class="dropdown">
-              <select ng-model="sc.selectedResponse.question_id">
+              <select ng-model="question.newResponse" ng-change="sc.saveResponses(question)">
                 <option ng-repeat="response in question.responses" ng-value="response">{{response}}</option>
               </select>
             </p>
