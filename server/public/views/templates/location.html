@@ -30,14 +30,14 @@
           <div ng-repeat="question in sc.location.list | limitTo:sc.locationLimit">
             <div class="survey-questions">{{question.question}}
               <br>
-              <div ng-show="question.question_id === 7">
-                <button type="button" class="btn btn-default">{{question.responses[0]}}</button>
-                <button type="button" class="btn btn-default">{{question.responses[1]}}</button>
+              <div ng-show="question.question_id === 6">
+                <button type="button" class="btn btn-default" ng-model="sc.selectedResponse.question_id; sc.selectedResponse.response_id">{{question.responses[0]}}</button>
+                <button type="button" class="btn btn-default" ng-model="sc.selectedResponse.question_id; sc.selectedResponse.response_id">{{question.responses[1]}}</button>
               </div>
               <br>
-              <div ng-show="question.question_id === 6">
-                <button type="button" class="btn btn-default">{{question.responses[0]}}</button>
-                <button type="button" class="btn btn-default">{{question.responses[1]}}</button>
+              <div ng-show="question.question_id === 7">
+                <button type="button" class="btn btn-default" ng-model="sc.selectedResponse.question_id; sc.selectedResponse.response_id">{{question.responses[0]}}</button>
+                <button type="button" class="btn btn-default" ng-model="sc.selectedResponse.question_id; sc.selectedResponse.response_id">{{question.responses[1]}}</button>
               </div>
               <div class="slidecontainer" ng-show="question.question_id === 8">
                 <input type="range" min="1" max="5" value="3" class="slider">
@@ -54,7 +54,7 @@
           </div>
         </div>
         <a href="#amenities">
-          <button type="button" class="btn btn-default" ng-click="sc.saveResponses(selectedResponse)">
+          <button type="button" class="btn btn-default" ng-click="sc.saveResponses(sc.selectedResponse)">
             <span class="glyphicon glyphicon-arrow-right"></span> Next
           </button>
         </a>

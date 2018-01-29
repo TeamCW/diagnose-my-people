@@ -8,6 +8,8 @@ myApp.service('SurveyService', function($http, $location){
     self.brand = { list: [] };
     self.retention = { list: [] };
 
+    self.selectedResponse = {};
+
 
 //request to populate demographic questions and possible answers.
     self.getDemographics = function () {
@@ -75,5 +77,17 @@ myApp.service('SurveyService', function($http, $location){
         });
     }
 
+//adding question responses to the database
+  self.saveResponse = function () {
+    console.log('in saveResponse');
+    $http({
+      method: 'POST',
+      url: '/survey',
+      data: self.selectedResponse
+    }).then(function (response) {
+      console.log('response', response);
+      
+    })
+  };
 
 });
