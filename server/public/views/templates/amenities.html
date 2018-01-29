@@ -24,9 +24,9 @@
             </ul>
             <!--- question block -->
             <div class="well well-md">
-                <h1>Location Questions</h1>
+                <h1>Amenities Questions</h1>
                 <div>
-                  <div ng-repeat="question in sc.amenities.list">
+                  <div ng-repeat="question in sc.amenities.list | limitTo:sc.amenitiesLimit">
                     <p class="survey-questions">{{question.question}}</p>
                     <p class="dropdown">
                       <select ng-model="selectedResponse.response">

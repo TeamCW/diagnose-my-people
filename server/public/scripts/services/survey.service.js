@@ -5,6 +5,8 @@ myApp.service('SurveyService', function($http, $location){
     self.demographics = { list: [] };
     self.location = { list: [] };
     self.amenities = { list: [] };
+    self.brand = { list: [] };
+
 
 //request to populate demographic questions and possible answers.
     self.getDemographics = function () {
@@ -45,5 +47,19 @@ myApp.service('SurveyService', function($http, $location){
             }          
         });
     }
+
+//request to populate brand questions and possible answers.
+    self.getBrand = function () {
+        $http({
+            method: 'GET',
+            url: 'survey/brand'
+        }).then(function (response) {
+            console.log('response', response);
+            for (let i = 0; i < response.data.length; i++) {
+            self.brand.list.push(response.data[i]);//this fills up the questions array with the table from the database.
+            }          
+        });
+    }
+
 
 });
