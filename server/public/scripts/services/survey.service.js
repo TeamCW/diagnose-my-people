@@ -6,6 +6,7 @@ myApp.service('SurveyService', function($http, $location){
     self.location = { list: [] };
     self.amenities = { list: [] };
     self.brand = { list: [] };
+    self.retention = { list: [] };
 
 
 //request to populate demographic questions and possible answers.
@@ -57,6 +58,19 @@ myApp.service('SurveyService', function($http, $location){
             console.log('response', response);
             for (let i = 0; i < response.data.length; i++) {
             self.brand.list.push(response.data[i]);//this fills up the questions array with the table from the database.
+            }          
+        });
+    }
+
+//request to populate retention questions and possible answers.
+    self.getRetention = function () {
+        $http({
+            method: 'GET',
+            url: 'survey/retention'
+        }).then(function (response) {
+            console.log('response', response);
+            for (let i = 0; i < response.data.length; i++) {
+            self.retention.list.push(response.data[i]);//this fills up the questions array with the table from the database.
             }          
         });
     }

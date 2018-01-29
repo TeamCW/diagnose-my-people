@@ -24,23 +24,45 @@
             </ul>
             <!--- question block -->
             <div class="well well-md">
-                <h1>Amenities Questions</h1>
+                <h1 class="tab-title">Amenities</h1>
+                <br>
                 <div>
-                  <div ng-repeat="question in sc.amenities.list | limitTo:sc.amenitiesLimit">
-                    <p class="survey-questions">{{question.question}}</p>
-                    <p class="dropdown">
-                      <select ng-model="selectedResponse.response">
-                        <option ng-repeat="response in question.responses" ng-value="response">{{response}}</option>
-                      </select>
-                    </p>
-                  </div>
+                    <div ng-repeat="question in sc.amenities.list | limitTo:sc.amenitiesLimit">
+                        <div class="survey-questions">{{question.question}}
+                            <br>
+                            <div ng-show="question.question_id === 9">
+                                <button type="button" class="btn btn-default">{{question.responses[0]}}</button>
+                                <button type="button" class="btn btn-default">{{question.responses[1]}}</button>
+                            </div>
+                            <br>
+                            <div ng-show="question.question_id === 10">
+                                <button type="button" class="btn btn-default">{{question.responses[0]}}</button>
+                                <button type="button" class="btn btn-default">{{question.responses[1]}}</button>
+                            </div>
+                            <br>
+                            <div ng-show="question.question_id === 11">
+                                <button type="button" class="btn btn-default">{{question.responses[0]}}</button>
+                                <button type="button" class="btn btn-default">{{question.responses[1]}}</button>
+                            </div>
+                            <div ng-show="question.question_id === 12">
+                                <button type="button" class="btn btn-default">{{question.responses[0]}}</button>
+                                <button type="button" class="btn btn-default">{{question.responses[1]}}</button>
+                                <button type="button" class="btn btn-default">{{question.responses[2]}}</button>
+                                <button type="button" class="btn btn-default">{{question.responses[3]}}</button>
+                                <button type="button" class="btn btn-default">{{question.responses[4]}}</button>
+                                <button type="button" class="btn btn-default">{{question.responses[5]}}</button>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                    <br>
+                    <a href="#brand">
+                        <button type="button" class="btn btn-default" ng-click="sc.saveResponses(selectedResponse)">
+                            <span class="glyphicon glyphicon-arrow-right"></span> Next
+                        </button>
+                    </a>
                 </div>
-                <a href="#brand">
-                  <button type="button" class="btn btn-default" ng-click="sc.saveResponses(selectedResponse)">
-                    <span class="glyphicon glyphicon-arrow-right"></span> Next
-                  </button>
-                </a>
-              </div>
             </div>
-          </div>
         </div>
+    </div>
+</div>
