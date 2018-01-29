@@ -16,7 +16,7 @@ router.get('/', function (req, res) {
                     console.log('error', errorMakingDatabaseQuery);
                     res.sendStatus(500);
                 } else {
-                    res.send(result.rows[0]);
+                    res.send(result.rows);
                 }
             });
         }
