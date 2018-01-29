@@ -1,7 +1,7 @@
 <div>
     <a href="#/user">Home</a>
 </div>
-<div ng-cloak class="container-fluid" id="survey-background">
+<div ng-cloak class="container-fluid survey-background">
     <div class="row">
         <div class="col-lg-10">
             <!--- tabs -->
@@ -23,21 +23,46 @@
                 </li>
             </ul>
             <!--- question block -->
-            <div class="well well-md">Large Well
-                <h1>Amenity Questions</h1>
+            <div class="well well-md">
+                <h1 class="tab-title">Amenities</h1>
                 <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <h2>Answers</h2>
+                <div>
+                    <div ng-repeat="question in sc.amenities.list | limitTo:sc.amenitiesLimit">
+                        <div class="survey-questions">{{question.question}}
+                            <br>
+                            <div ng-show="question.question_id === 9">
+                                <button type="button" class="btn btn-default">{{question.responses[0]}}</button>
+                                <button type="button" class="btn btn-default">{{question.responses[1]}}</button>
+                            </div>
+                            <br>
+                            <div ng-show="question.question_id === 10">
+                                <button type="button" class="btn btn-default">{{question.responses[0]}}</button>
+                                <button type="button" class="btn btn-default">{{question.responses[1]}}</button>
+                            </div>
+                            <br>
+                            <div ng-show="question.question_id === 11">
+                                <button type="button" class="btn btn-default">{{question.responses[0]}}</button>
+                                <button type="button" class="btn btn-default">{{question.responses[1]}}</button>
+                            </div>
+                            <div ng-show="question.question_id === 12">
+                                <button type="button" class="btn btn-default">{{question.responses[0]}}</button>
+                                <button type="button" class="btn btn-default">{{question.responses[1]}}</button>
+                                <button type="button" class="btn btn-default">{{question.responses[2]}}</button>
+                                <button type="button" class="btn btn-default">{{question.responses[3]}}</button>
+                                <button type="button" class="btn btn-default">{{question.responses[4]}}</button>
+                                <button type="button" class="btn btn-default">{{question.responses[5]}}</button>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                    <br>
+                    <a href="#brand">
+                        <button type="button" class="btn btn-default" ng-click="sc.saveResponses(selectedResponse)">
+                            <span class="glyphicon glyphicon-arrow-right"></span> Next
+                        </button>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
+</div>

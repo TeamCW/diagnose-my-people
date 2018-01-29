@@ -1,7 +1,7 @@
 <div>
     <a href="#/user">Home</a>
 </div>
-<div ng-cloak class="container-fluid" id="survey-background">
+<div ng-cloak class="container-fluid survey-background">
     <div class="row">
         <div class="col-lg-10">
             <!--- tabs -->
@@ -23,21 +23,65 @@
                 </li>
             </ul>
             <!--- question block -->
-            <div class="well well-md">Large Well
-                <h1>Brand Questions</h1>
+            <div class="well well-md">
+                <h1 class="tab-title">Brand</h1>
                 <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <h2>Answers</h2>
+                <div>
+                    <div ng-repeat="question in sc.brand.list | limitTo:sc.brandLimit">
+                        <div class="survey-questions">{{question.question}}
+                            <div class="slidecontainer" ng-show="question.question_id === 13">
+                                <input type="range" min="1" max="5" value="3" class="slider">
+                            </div>
+                            <span ng-show="question.question_id === 13">
+                                <span class="slider-values">{{question.responses[0]}}</span>
+                                <span class="slider-values">{{question.responses[1]}}</span>
+                                <span class="slider-values">{{question.responses[2]}}</span>
+                                <span class="slider-values">{{question.responses[3]}}</span>
+                                <span class="slider-values">{{question.responses[4]}}</span>
+                            </span>
+                            <br>
+                            <div ng-show="question.question_id === 14">
+                                <button type="button" class="btn btn-default">{{question.responses[0]}}</button>
+                                <button type="button" class="btn btn-default">{{question.responses[1]}}</button>
+                            </div>
+
+                            <div ng-show="question.question_id === 15">
+                                <button type="button" class="btn btn-default">{{question.responses[0]}}</button>
+                                <button type="button" class="btn btn-default">{{question.responses[1]}}</button>
+                            </div>
+                            <div class="slidecontainer" ng-show="question.question_id === 16">
+                                <input type="range" min="1" max="5" value="3" class="slider">
+                            </div>
+                            <span ng-show="question.question_id === 16">
+                                <span class="slider-values">{{question.responses[0]}}</span>
+                                <span class="slider-values">{{question.responses[1]}}</span>
+                                <span class="slider-values">{{question.responses[2]}}</span>
+                                <span class="slider-values">{{question.responses[3]}}</span>
+                                <span class="slider-values">{{question.responses[4]}}</span>
+                                <br>
+                            </span>
+                            <br>
+                            <div ng-show="question.question_id === 17">
+                                <button type="button" class="btn btn-default" ng-click="sc.publicYes = !sc.publicYes">{{question.responses[0]}}</button>
+                                <button type="button" class="btn btn-default">{{question.responses[1]}}</button>
+                            </div>
+                            <br>
+                            <div ng-if="sc.publicYes" ng-show="question.question_id === 17">
+                                <button type="button" class="btn btn-default">{{question.responses[2]}}</button>
+                                <button type="button" class="btn btn-default">{{question.responses[3]}}</button>
+                            </div>
+                            <br>
+                            <br>
+                        </div>
+                        <br>
+                    </div>
+                    <a href="#retention">
+                        <button type="button" class="btn btn-default" ng-click="sc.saveResponses(selectedResponse)">
+                            <span class="glyphicon glyphicon-arrow-right"></span> Next
+                        </button>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
+</div>

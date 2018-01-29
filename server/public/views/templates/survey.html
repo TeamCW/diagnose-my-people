@@ -3,7 +3,7 @@
 </div>
 <div ng-cloak class="container-fluid survey-background">
   <div class="row">
-    <div class="col-md-10">
+    <div class="col-lg-10">
       <!--- tabs -->
       <ul class="nav nav-tabs">
         <li class="active survey-tabs">
@@ -27,9 +27,10 @@
       </ul>
       <!--- question block -->
       <div class="well well-md">
-        <h1>Demographic Questions</h1>
+        <h1 class="tab-title">Demographics</h1>
+        <br>
         <div>
-          <div ng-repeat="question in sc.demographics.list">
+          <div ng-repeat="question in sc.demographics.list | limitTo:sc.demographicLimit">
             <p class="survey-questions">{{question.question}}</p>
             <p class="dropdown">
               <select ng-model="selectedResponse.response">

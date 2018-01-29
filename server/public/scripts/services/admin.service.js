@@ -4,6 +4,11 @@ myApp.service('AdminService', function ($http, $location) {
     vm.clientData = { list: [] };
 
 
+
+
+    vm.clientStatus = ["New Client", "In Progress", "Finished"];
+
+
     vm.getClientInfo = function () {
         $http({
             method: 'GET',
@@ -28,7 +33,7 @@ myApp.service('AdminService', function ($http, $location) {
         $http({
             method: 'PUT',
             url: '/admin/' + clientToEdit.id,
-            data: {status: 'inProgress'}
+            data: clientToEdit
         }).then(function(response){
             vm.getClientInfo();
         })
