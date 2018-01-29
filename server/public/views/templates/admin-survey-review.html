@@ -1,14 +1,14 @@
 <div class="container">
     <div class="row justify-content-md-center">
-        <div class="col-md-4" >
-            <div class="card" >
+        <div class="col-md-4">
+            <div class="card">
                 <div class="card-body">
                     <h1 class="card-title">Admin Survey Review</h1>
                 </div>
             </div>
         </div>
         <div class="col-md-8">
-            <div class="card" >
+            <div class="card">
                 <div class="card-body">
                     <h3>{{asr.client.survey[0].client_organization}}</h3>
                     <h4>{{asr.client.survey[0].client_name}}</h4>
@@ -18,17 +18,11 @@
             </div>
         </div>
     </div>
-    <!-- <h1>Admin Survey Review</h1>
-
-    <h3>{{asr.client.survey[0].client_organization}}</h3>
-    <h4>{{asr.client.survey[0].client_name}}</h4>
-    <p>
-        <strong>Custom Survey URL: </strong>{{asr.client.survey[0].survey_url}}</p> -->
-<button class="btn btn-outline-danger">Add Survey Category</button>
-<span>Categories: </span>
-                <span ng-repeat="kpi in asr.client.survey" for="categories">
-                    <input type="checkbox" checklist-model="" checklist-value="kpi.id">{{kpi.kpi_name}}</input>
-                </span>
+    <!-- <button class="btn btn-outline-danger">Add Survey Category</button>
+    <span>Categories: </span>
+    <span ng-repeat="kpi in asr.client.survey" for="categories">
+        <input type="checkbox" checklist-model="" checklist-value="kpi.id">{{kpi.kpi_name}}</input>
+    </span> -->
 
     <table class="table table-striped">
         <thead>
@@ -60,4 +54,10 @@
             </tr>
         </tbody>
     </table>
+    <span>
+        <a ng-href="#/user">
+        <img class="icon" src="vendors/open-iconic/svg/arrow-thick-left.svg">
+        Back to Admin
+    </a>
+    </span>
 </div>
