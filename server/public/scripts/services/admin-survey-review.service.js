@@ -3,10 +3,10 @@ myApp.service('AdminSurveyReviewService', ['$http', '$location', function ($http
     var self = this;
     self.client = { survey: {} };
 
-    //GET details for each gig and display them in their own view using $routeparams
+    //GET selected KPI for each client and display them in their own view using $routeparams
     self.getClientSurvey = function (clientId) {
         console.log(clientId);
-        
+
         $http({
             method: 'GET',
             url: '/admin-survey-review/',
