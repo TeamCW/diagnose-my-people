@@ -18,6 +18,7 @@ myApp.controller('SurveyController', function (SurveyService) {
   vm.amenities = SurveyService.amenities;
   vm.brand = SurveyService.brand;
   vm.retention = SurveyService.retention;
+  vm.saveResponses = SurveyService.saveResponses;
 
 
 

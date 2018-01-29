@@ -1,9 +1,9 @@
 -- create database named diagnose_my_people --
 
-CREATE TABLE "catagory" (
+CREATE TABLE "category" (
 	"id" serial NOT NULL,
 	"kpi" varchar NOT NULL,
-	CONSTRAINT catagory_pk PRIMARY KEY ("id")
+	CONSTRAINT category_pk PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE
 );
@@ -108,7 +108,7 @@ CREATE TABLE "client" (
 
 
 
-ALTER TABLE "questions" ADD CONSTRAINT "questions_fk0" FOREIGN KEY ("kpi_id") REFERENCES "catagory"("id");
+ALTER TABLE "questions" ADD CONSTRAINT "questions_fk0" FOREIGN KEY ("kpi_id") REFERENCES "category"("id");
 ALTER TABLE "questions" ADD CONSTRAINT "questions_fk1" FOREIGN KEY ("style_id") REFERENCES "question_styles"("id");
 
 
@@ -122,7 +122,7 @@ ALTER TABLE "employee_results" ADD CONSTRAINT "employee_results_fk1" FOREIGN KEY
 ALTER TABLE "employee_results" ADD CONSTRAINT "employee_results_fk2" FOREIGN KEY ("response_id") REFERENCES "possible_responses"("id");
 
 ALTER TABLE "selected_kpi" ADD CONSTRAINT "selected_kpi_fk0" FOREIGN KEY ("client_id") REFERENCES "client"("id");
-ALTER TABLE "selected_kpi" ADD CONSTRAINT "selected_kpi_fk1" FOREIGN KEY ("kpi_id") REFERENCES "catagory"("id");
+ALTER TABLE "selected_kpi" ADD CONSTRAINT "selected_kpi_fk1" FOREIGN KEY ("kpi_id") REFERENCES "category"("id");
 
 
 

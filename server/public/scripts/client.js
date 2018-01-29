@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ngRoute']);
+var myApp = angular.module('myApp', ['ngRoute','chart.js']);
 
 /// Routes ///
 myApp.config(function($routeProvider, $locationProvider) {
@@ -41,7 +41,11 @@ myApp.config(function($routeProvider, $locationProvider) {
     })
     .when('/build-survey-contact-info/:amenitiesAdded/:brandAdded/:locationAdded/:retainmentAdded/:spaceLayoutAdded', {
       templateUrl: '/views/templates/build-survey-contact-info.html',
-      controller: 'BuildSurveyController as bc'
+      controller: 'BuildSurveyContactInfoController as bc'
+    })
+    .when('/build-survey-thank-you/:name', {
+      templateUrl: '/views/templates/build-survey-thank-you.html',
+      controller: 'BuildSurveyThankYouController as bt'
     })
     .when('/location', {
       templateUrl: '/views/templates/location.html',

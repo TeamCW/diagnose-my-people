@@ -1,4 +1,4 @@
-myApp.controller('BuildSurveyController', function(BuildSurveyService) {
+myApp.controller('BuildSurveyController', function (BuildSurveyService) {
     console.log('BuildSurveyController created');
     var self = this; 
 
