@@ -15,7 +15,8 @@ router.get('/', function (req, res) {
             INNER JOIN possible_responses on questions.id = possible_responses.question_id
             INNER JOIN catagory on questions.kpi_id = catagory.id
             WHERE kpi = 'demographic'
-            GROUP BY question, kpi, possible_responses.question_id, catagory.id;`,
+            GROUP BY question, kpi, possible_responses.question_id, catagory.id
+            ORDER BY question_id;`,
                 function (errorMakingDatabaseQuery, result) {
                     done();
                     if (errorMakingDatabaseQuery) {
@@ -41,7 +42,8 @@ router.get('/location', function (req, res) {
             INNER JOIN possible_responses on questions.id = possible_responses.question_id
             INNER JOIN catagory on questions.kpi_id = catagory.id
             WHERE kpi = 'location'
-            GROUP BY question, kpi, possible_responses.question_id, catagory.id;`,
+            GROUP BY question, kpi, possible_responses.question_id, catagory.id
+            ORDER BY question_id;`,
                 function (errorMakingDatabaseQuery, result) {
                     done();
                     if (errorMakingDatabaseQuery) {
@@ -66,7 +68,8 @@ router.get('/brand', function (req, res) {
             INNER JOIN possible_responses on questions.id = possible_responses.question_id
             INNER JOIN catagory on questions.kpi_id = catagory.id
             WHERE kpi = 'brand'
-            GROUP BY question, kpi, possible_responses.question_id, catagory.id;`,
+            GROUP BY question, kpi, possible_responses.question_id, catagory.id
+            ORDER BY question_id;`,
                 function (errorMakingDatabaseQuery, result) {
                     done();
                     if (errorMakingDatabaseQuery) {
@@ -92,7 +95,8 @@ router.get('/retention', function (req, res) {
             INNER JOIN possible_responses on questions.id = possible_responses.question_id
             INNER JOIN catagory on questions.kpi_id = catagory.id
             WHERE kpi = 'retention'
-            GROUP BY question, kpi, possible_responses.question_id, catagory.id;`,
+            GROUP BY question, kpi, possible_responses.question_id, catagory.id
+            ORDER BY question_id;`,
                 function (errorMakingDatabaseQuery, result) {
                     done();
                     if (errorMakingDatabaseQuery) {
@@ -117,7 +121,8 @@ router.get('/amenities', function (req, res) {
             INNER JOIN possible_responses on questions.id = possible_responses.question_id
             INNER JOIN catagory on questions.kpi_id = catagory.id
             WHERE kpi = 'amenities'
-            GROUP BY question, kpi, possible_responses.question_id, catagory.id;`,
+            GROUP BY question, kpi, possible_responses.question_id, catagory.id
+            ORDER BY question_id;`,
                 function (errorMakingDatabaseQuery, result) {
                     done();
                     if (errorMakingDatabaseQuery) {

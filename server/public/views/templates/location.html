@@ -26,7 +26,7 @@
       <div class="well well-md">
         <h1>Location Questions</h1>
         <div>
-          <div ng-repeat="question in sc.location.list">
+          <div ng-repeat="question in sc.location.list | limitTo:sc.locationLimit">
             <div class="survey-questions">{{question.question}}
               <br>
                 <div ng-show="question.question_id === 7">
