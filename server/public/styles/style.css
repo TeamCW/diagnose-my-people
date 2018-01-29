@@ -136,3 +136,20 @@
     margin-right: 20px;
     margin-left: 20px;
 }
+
+.icon {
+    width: 14px;
+    height: 14px;
+    fill: #e4002b;
+  }
+
+th {
+    white-space: nowrap;
+    text-align: center;
+}
+
+td {
+    white-space: nowrap;
+    text-align: center;
+}
+
