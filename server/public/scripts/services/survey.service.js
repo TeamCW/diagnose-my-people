@@ -19,7 +19,26 @@ myApp.service('SurveyService', function($http, $location){
         }).then(function (response) {
             console.log('response', response);
             for (let i = 0; i < response.data.length; i++) {
-            self.demographics.list.push(response.data[i]);//this fills up the questions array with the table from the database.
+                console.log('response.data[i]:',response.data[i]);
+                var newData = {
+                    kpi: response.data[i].kpi,
+                    kpi_id: response.data[i].kpi_id,
+                    question: response.data[i].question,
+                    question_id: response.data[i].question.id,
+                    responses: []
+                };
+                for (let k = 0; k < response.data[i].responses.length; k++) {
+                    for (let j = 0; j < response.data[i].response_ids.length; j++){
+                        var newResponse = {
+                            id: response.data[i].response_ids[k],
+                            response_text: response.data[i].responses[k]
+
+                        }//end constructor
+                    }//end id for loop
+                    newData.responses.push(newResponse);
+                } //end response text for loop
+
+            self.demographics.list.push(newData);//this fills up the questions array with the table from the database.
             console.log('demographics info:',self.demographics.list);
             }          
         });
@@ -78,12 +97,12 @@ myApp.service('SurveyService', function($http, $location){
     }
 
 //adding question responses to the database
-  self.saveResponse = function () {
-    console.log('in saveResponse');
+  self.saveResponses = function (response) {
+    console.log('in saveResponse', response);
     $http({
       method: 'POST',
       url: '/survey',
-      data: self.selectedResponse
+      data: response
     }).then(function (response) {
       console.log('response', response);
       
