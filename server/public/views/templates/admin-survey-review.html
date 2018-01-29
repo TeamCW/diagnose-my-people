@@ -1,7 +1,29 @@
 <div class="container">
     <h1>Admin Survey Review</h1>
 
-    {{asr}}
+    <h3>{{asr.client.survey[0].client_organization}}</h3>
+    <h4>{{asr.client.survey[0].client_name}}</h4>
+    <p><strong>Custom Survey URL: </strong>{{asr.client.survey[0].survey_url}}</p>
 
-
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>KPI</th>
+                <th>Blurb</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="kpi in asr.client.survey">
+                <td>{{kpi.kpi_name}}</td>
+                <td>
+                    <span ng-hide="blurb.isEditable">{{kpi.notes_added}}</span>
+                    <input ng-show="blurb.isEditable" type="text" ng-model="kpi.notes_added">
+                </td>
+                <td>
+                    <button ng-hide="blurb.isEditable" ng-click="blurb.isEditable = !blurb.isEditable">Add Blurb</button>
+                    <button ng-show="blurb.isEditable" ng-click="asr.editBlurb(kpi, kpi.client_id)">Save Blurb</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>

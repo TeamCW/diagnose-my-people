@@ -15,6 +15,22 @@ myApp.service('AdminSurveyReviewService', ['$http', '$location', function ($http
             }
         }).then(function (response) {
             self.client.survey = response.data;
+            console.log(response.data);
+
         });
     };
+
+    //edit the order of the song list
+    self.editBlurb = function (blurbToEdit, clientId) {
+        console.log(blurbToEdit);
+
+        $http({
+            method: 'PUT',
+            url: '/admin-survey-review/',
+            data: blurbToEdit,
+        }).then(function (response) {
+            console.log('response', response);
+            self.getClientSurvey(clientId);
+        });
+    }
 }]);
