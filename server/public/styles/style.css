@@ -113,6 +113,7 @@
 
 .survey-questions {
     font-weight: bold;
+    margin-bottom: 10px;
 }
 
 .navbar-nav {
@@ -135,6 +136,11 @@
 .slider-values {
     margin-right: 20px;
     margin-left: 20px;
+    font-weight: normal;
+}
+
+.tab-title {
+    text-decoration: underline;
 }
 
 .icon {

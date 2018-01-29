@@ -24,23 +24,57 @@
             </ul>
             <!--- question block -->
             <div class="well well-md">
-                    <h1>Retention Questions</h1>
-                    <div>
-                      <div ng-repeat="question in sc.retention.list | limitTo:sc.retentionLimit">
-                        <p class="survey-questions">{{question.question}}</p>
-                        <p class="dropdown">
-                          <select ng-model="selectedResponse.response">
-                            <option ng-repeat="response in question.responses" ng-value="response">{{response}}</option>
-                          </select>
-                        </p>
-                      </div>
+                <h1 class="tab-title">Retention</h1>
+                <br>
+                <div>
+                    <div ng-repeat="question in sc.retention.list | limitTo:sc.retentionLimit">
+                        <div class="survey-questions">{{question.question}}
+                            <div class="slidecontainer" ng-show="question.question_id === 18">
+                                <input type="range" min="1" max="5" value="3" class="slider">
+                            </div>
+                            <span ng-show="question.question_id === 18">
+                                <span class="slider-values">{{question.responses[0]}}</span>
+                                <span class="slider-values">{{question.responses[1]}}</span>
+                                <span class="slider-values">{{question.responses[2]}}</span>
+                                <span class="slider-values">{{question.responses[3]}}</span>
+                                <span class="slider-values">{{question.responses[4]}}</span>
+                            </span>
+                            <br>
+                            <br>
+                            <div ng-show="question.question_id === 19">
+                                <button type="button" class="btn btn-default">{{question.responses[0]}}</button>
+                                <button type="button" class="btn btn-default">{{question.responses[1]}}</button>
+                            </div>
+                            <div class="slidecontainer" ng-show="question.question_id === 20">
+                                <input type="range" min="1" max="5" value="3" class="slider">
+                            </div>
+                            <span ng-show="question.question_id === 20">
+                                <span class="slider-values">{{question.responses[0]}}</span>
+                                <span class="slider-values">{{question.responses[1]}}</span>
+                                <span class="slider-values">{{question.responses[2]}}</span>
+                                <span class="slider-values">{{question.responses[3]}}</span>
+                                <span class="slider-values">{{question.responses[4]}}</span>
+                            </span>
+                            <br>
+                            <div class="slidecontainer" ng-show="question.question_id === 21">
+                                <input type="range" min="1" max="5" value="3" class="slider">
+                            </div>
+                            <span ng-show="question.question_id === 21">
+                                <span class="slider-values">{{question.responses[0]}}</span>
+                                <span class="slider-values">{{question.responses[1]}}</span>
+                                <span class="slider-values">{{question.responses[2]}}</span>
+                                <span class="slider-values">{{question.responses[3]}}</span>
+                                <span class="slider-values">{{question.responses[4]}}</span>
+                            </span>
+                        </div>
                     </div>
                     <a href="#complete">
-                      <button type="button" class="btn btn-default" ng-click="sc.saveResponses(selectedResponse)">
-                        <span class="glyphicon glyphicon-arrow-right"></span> Next
-                      </button>
+                        <button type="button" class="btn btn-default" ng-click="sc.saveResponses(selectedResponse)">
+                            <span class="glyphicon glyphicon-arrow-right"></span> Next
+                        </button>
                     </a>
-                  </div>
                 </div>
-              </div>
             </div>
+        </div>
+    </div>
+</div>
