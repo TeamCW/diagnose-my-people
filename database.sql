@@ -82,7 +82,7 @@ CREATE TABLE "selected_kpi" (
 	"id" serial NOT NULL,
 	"client_id" integer NOT NULL,
 	"kpi_id" integer NOT NULL,
-	"notes_added" varchar,
+	"notes_added" varchar(140),
 	CONSTRAINT selected_kpi_pk PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE

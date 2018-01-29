@@ -138,18 +138,18 @@
 }
 
 .icon {
-    width: 25px;
-    height: 25px;
-  }
-
-  .icon-account-login {
+    width: 14px;
+    height: 14px;
     fill: #e4002b;
   }
 
-  th {
+th {
     white-space: nowrap;
+    text-align: center;
 }
 
 td {
     white-space: nowrap;
+    text-align: center;
 }
+
