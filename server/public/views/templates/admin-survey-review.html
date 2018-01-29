@@ -1,7 +1,63 @@
 <div class="container">
-    <h1>Admin Survey Review</h1>
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="card-title">Admin Survey Review</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <h3>{{asr.client.survey[0].client_organization}}</h3>
+                    <h4>{{asr.client.survey[0].client_name}}</h4>
+                    <p>
+                        <strong>Custom Survey URL: </strong>{{asr.client.survey[0].survey_url}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <button class="btn btn-outline-danger">Add Survey Category</button>
+    <span>Categories: </span>
+    <span ng-repeat="kpi in asr.client.survey" for="categories">
+        <input type="checkbox" checklist-model="" checklist-value="kpi.id">{{kpi.kpi_name}}</input>
+    </span> -->
 
-    {{asr}}
-
-
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Selected Category</th>
+                <th>Blurb</th>
+                <th>Add/Edit Blurb</th>
+                <th>Remove Category</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="kpi in asr.client.survey">
+                <td>{{kpi.kpi_name}}</td>
+                <td>
+                    <span ng-hide="blurb.isEditable">{{kpi.notes_added}}</span>
+                    <input ng-show="blurb.isEditable" type="text" ng-model="kpi.notes_added">
+                </td>
+                <td>
+                    <button class="btn btn-outline-danger" ng-hide="blurb.isEditable" ng-click="blurb.isEditable = !blurb.isEditable">
+                        <img class="icon" src="vendors/open-iconic/svg/pencil.svg">
+                    </button>
+                    <button class="btn btn-outline-danger" ng-show="blurb.isEditable" ng-click="asr.editBlurb(kpi, kpi.client_id)">Save Blurb</button>
+                </td>
+                <td>
+                    <button class="btn btn-outline-danger" ng-click="asr.removeCategory(kpi, kpi.client_id)">
+                        <img class="icon" src="vendors/open-iconic/svg/trash.svg">
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <span>
+        <a ng-href="#/user">
+        <img class="icon" src="vendors/open-iconic/svg/arrow-thick-left.svg">
+        Back to Admin
+    </a>
+    </span>
 </div>

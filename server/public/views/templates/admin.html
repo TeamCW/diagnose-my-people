@@ -93,7 +93,9 @@
                         <input type="text" ng-model="client.contact_number" placeholder="{{client.contact_number}}">
                     </td>
                     <td>
-                        <button class="btn btn-outline-danger" ng-click="edit = true;" ng-hide="edit"><img class="icon" src="vendors/open-iconic/svg/pencil.svg"></button>
+                        <button class="btn btn-outline-danger" ng-click="edit = true;" ng-hide="edit">
+                            <img class="icon" src="vendors/open-iconic/svg/pencil.svg">
+                        </button>
                         <button class="btn btn-outline-danger" ng-click="uc.editClient(client); edit = false" ng-show="edit;">Submit Changes</button>
                     </td>
                     <td>
@@ -102,16 +104,22 @@
                         </select>
                     </td>
                     <td>
-                        <button class="btn btn-outline-danger"><img class="icon" src="vendors/open-iconic/svg/document.svg"></button>
+                        <a class="btn btn-outline-danger" ng-href="#/admin-survey-review/{{client.id}}">
+                            <img class="icon" src="vendors/open-iconic/svg/document.svg">
+                        </a>
                     </td>
                     <td>
                         {{client.survey_hash}}
                     </td>
                     <td>
-                        <a class="btn btn-outline-danger" ng-href="#/dashboard/"><img class="icon" src="vendors/open-iconic/svg/bar-chart.svg" alt="bar-chart"></a>
+                        <a class="btn btn-outline-danger" ng-href="#/dashboard/">
+                            <img class="icon" src="vendors/open-iconic/svg/bar-chart.svg" alt="bar-chart">
+                        </a>
                     </td>
                     <td>
-                        <button class="btn btn-outline-danger" ng-click="uc.deleteClient(client)"><img class="icon" src="vendors/open-iconic/svg/trash.svg"></button>
+                        <button class="btn btn-outline-danger" ng-click="uc.deleteClient(client)">
+                            <img class="icon" src="vendors/open-iconic/svg/trash.svg">
+                        </button>
                     </td>
                 </tr>
                 <tr ng-show="inProgress = true" ng-hide="pending || finished" ng-repeat="client in uc.clientData.list | filter: {status: 'In Progress'} ">
@@ -146,7 +154,9 @@
                         <input type="text" ng-model="client.contact_number" placeholder="{{client.contact_number}}">
                     </td>
                     <td>
-                        <button class="btn btn-outline-danger" ng-click="edit = true;" ng-hide="edit"><img class="icon" src="vendors/open-iconic/svg/pencil.svg"></button>
+                        <button class="btn btn-outline-danger" ng-click="edit = true;" ng-hide="edit">
+                            <img class="icon" src="vendors/open-iconic/svg/pencil.svg">
+                        </button>
                         <button class="btn btn-outline-danger" ng-click="uc.editClient(client); edit = false" ng-show="edit;">Submit Changes</button>
                     </td>
                     <td>
@@ -155,16 +165,22 @@
                         </select>
                     </td>
                     <td>
-                        <button class="btn btn-outline-danger"><img class="icon" src="vendors/open-iconic/svg/document.svg"></button>
+                        <a class="btn btn-outline-danger" ng-href="#/admin-survey-review/{{client.id}}">
+                            <img class="icon" src="vendors/open-iconic/svg/document.svg">
+                        </a>
                     </td>
                     <td>
                         {{client.survey_hash}}
                     </td>
                     <td>
-                        <a class="btn btn-outline-danger" ng-href="#/dashboard/"><img class="icon" src="vendors/open-iconic/svg/bar-chart.svg" alt="bar-chart"></a>
+                        <a class="btn btn-outline-danger" ng-href="#/dashboard/">
+                            <img class="icon" src="vendors/open-iconic/svg/bar-chart.svg" alt="bar-chart">
+                        </a>
                     </td>
                     <td>
-                        <button class="btn btn-outline-danger" ng-click="uc.deleteClient(client)"><img class="icon" src="vendors/open-iconic/svg/trash.svg"></button>
+                        <button class="btn btn-outline-danger" ng-click="uc.deleteClient(client)">
+                            <img class="icon" src="vendors/open-iconic/svg/trash.svg">
+                        </button>
                     </td>
                 </tr>
                 <tr ng-show="pending = true" ng-hide="inProgress || finished" ng-repeat="client in uc.clientData.list | filter: {status: 'New Client'}">
@@ -199,7 +215,9 @@
                         <input type="text" ng-model="client.contact_number" placeholder="{{client.contact_number}}">
                     </td>
                     <td>
-                        <button class="btn btn-outline-danger" ng-click="edit = true;" ng-hide="edit"><img class="icon" src="vendors/open-iconic/svg/pencil.svg"></button>
+                        <button class="btn btn-outline-danger" ng-click="edit = true;" ng-hide="edit">
+                            <img class="icon" src="vendors/open-iconic/svg/pencil.svg">
+                        </button>
                         <button class="btn btn-outline-danger" ng-click="uc.editClient(client); edit = false" ng-show="edit;">Submit Changes</button>
                     </td>
                     <td>
@@ -208,16 +226,22 @@
                         </select>
                     </td>
                     <td>
-                        <button class="btn btn-outline-danger"><img class="icon" src="vendors/open-iconic/svg/document.svg"></button>
+                        <a class="btn btn-outline-danger" ng-href="#/admin-survey-review/{{client.id}}">
+                            <img class="icon" src="vendors/open-iconic/svg/document.svg">
+                        </a>
                     </td>
                     <td>
                         {{client.survey_hash}}
                     </td>
                     <td>
-                        <a class="btn btn-outline-danger" ng-href="#/dashboard/"><img class="icon" src="vendors/open-iconic/svg/bar-chart.svg" alt="bar-chart"></a>
+                        <a class="btn btn-outline-danger" ng-href="#/dashboard/">
+                            <img class="icon" src="vendors/open-iconic/svg/bar-chart.svg" alt="bar-chart">
+                        </a>
                     </td>
                     <td>
-                        <button class="btn btn-outline-danger" ng-click="uc.deleteClient(client)"><img class="icon" src="vendors/open-iconic/svg/trash.svg"></button>
+                        <button class="btn btn-outline-danger" ng-click="uc.deleteClient(client)">
+                            <img class="icon" src="vendors/open-iconic/svg/trash.svg">
+                        </button>
                     </td>
                 </tr>
                 <tr ng-show="finished = true" ng-hide="inProgress || pending" ng-repeat="client in uc.clientData.list | filter: {status: 'Finished'}">
@@ -252,7 +276,9 @@
                         <input type="text" ng-model="client.contact_number" placeholder="{{client.contact_number}}">
                     </td>
                     <td>
-                        <button class="btn btn-outline-danger" ng-click="edit = true;" ng-hide="edit"><img class="icon" src="vendors/open-iconic/svg/pencil.svg"></button>
+                        <button class="btn btn-outline-danger" ng-click="edit = true;" ng-hide="edit">
+                            <img class="icon" src="vendors/open-iconic/svg/pencil.svg">
+                        </button>
                         <button class="btn btn-outline-danger" ng-click="uc.editClient(client); edit = false" ng-show="edit;">Submit Changes</button>
                     </td>
                     <td>
@@ -261,16 +287,22 @@
                         </select>
                     </td>
                     <td>
-                        <button class="btn btn-outline-danger"><img class="icon" src="vendors/open-iconic/svg/document.svg"></button>
+                        <a class="btn btn-outline-danger" ng-href="#/admin-survey-review/{{client.id}}">
+                            <img class="icon" src="vendors/open-iconic/svg/document.svg">
+                        </a>
                     </td>
                     <td>
                         {{client.survey_hash}}
                     </td>
                     <td>
-                        <a class="btn btn-outline-danger" ng-href="#/dashboard/"><img class="icon" src="vendors/open-iconic/svg/bar-chart.svg" alt="bar-chart"></a>
+                        <a class="btn btn-outline-danger" ng-href="#/dashboard/">
+                            <img class="icon" src="vendors/open-iconic/svg/bar-chart.svg" alt="bar-chart">
+                        </a>
                     </td>
                     <td>
-                        <button class="btn btn-outline-danger" ng-click="uc.deleteClient(client)"><img class="icon" src="vendors/open-iconic/svg/trash.svg"></button>
+                        <button class="btn btn-outline-danger" ng-click="uc.deleteClient(client)">
+                            <img class="icon" src="vendors/open-iconic/svg/trash.svg">
+                        </button>
                     </td>
                 </tr>
             </tbody>

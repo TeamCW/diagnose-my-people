@@ -144,6 +144,7 @@ myApp.service('BuildSurveyContactInfoService', function ($http, $location) {
 
                 })
             }
+            window.location.href = '#/build-survey-thank-you/'+contactInformation.point_of_contact
         }
 
     };//end self.postNewSurveyAndClient method
