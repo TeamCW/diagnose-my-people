@@ -20,7 +20,7 @@ myApp.service('AdminSurveyReviewService', ['$http', '$location', function ($http
         });
     };
 
-    //edit the order of the song list
+    //edit or add a blurb to selected KPI on client's survey
     self.editBlurb = function (blurbToEdit, clientId) {
         console.log(blurbToEdit);
 

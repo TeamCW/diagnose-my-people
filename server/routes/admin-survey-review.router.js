@@ -29,9 +29,7 @@ router.get('/', function (req, res) {
 
 // Edit or add a blurb to client survey KPIs
 router.put('/', function (req, res) {
-    var blurbToEdit = req.body;
-    console.log('blurbToEdit:', blurbToEdit);
-    
+    var blurbToEdit = req.body;    
     pool.connect(function (errorConnectingToDatabase, client, done) {
         if (errorConnectingToDatabase) {
             console.log('Error connecting to database', errorConnectingToDatabase);
