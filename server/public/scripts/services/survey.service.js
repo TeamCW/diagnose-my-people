@@ -17,6 +17,7 @@ myApp.service('SurveyService', function($http, $location){
             console.log('response', response);
             for (let i = 0; i < response.data.length; i++) {
             self.demographics.list.push(response.data[i]);//this fills up the questions array with the table from the database.
+            console.log('demographics info:',self.demographics.list);
             }          
         });
     }
