@@ -24,15 +24,16 @@
       </ul>
       <!--- question block -->
       <div class="well well-md">
-        <h1>Location Questions</h1>
+        <h1 class="tab-title">Location</h1>
+        <br>
         <div>
           <div ng-repeat="question in sc.location.list | limitTo:sc.locationLimit">
             <div class="survey-questions">{{question.question}}
               <br>
-                <div ng-show="question.question_id === 7">
-                    <button type="button" class="btn btn-default">{{question.responses[0]}}</button>
-                    <button type="button" class="btn btn-default">{{question.responses[1]}}</button>
-                  </div>
+              <div ng-show="question.question_id === 7">
+                <button type="button" class="btn btn-default">{{question.responses[0]}}</button>
+                <button type="button" class="btn btn-default">{{question.responses[1]}}</button>
+              </div>
               <br>
               <div ng-show="question.question_id === 6">
                 <button type="button" class="btn btn-default">{{question.responses[0]}}</button>
@@ -42,11 +43,11 @@
                 <input type="range" min="1" max="5" value="3" class="slider">
               </div>
               <span ng-show="question.question_id === 8">
-                <span class="slider-values">Very Dissastified</span>
-                <span class="slider-values">Dissatisfied</span>
-                <span class="slider-values">No Opinion</span>
-                <span class="slider-values">Satisfied</span>
-                <span class="slider-values">Very Satisfied</span>
+                <span class="slider-values">{{question.responses[0]}}</span>
+                <span class="slider-values">{{question.responses[1]}}</span>
+                <span class="slider-values">{{question.responses[2]}}</span>
+                <span class="slider-values">{{question.responses[3]}}</span>
+                <span class="slider-values">{{question.responses[4]}}</span>
               </span>
               <br>
             </div>
