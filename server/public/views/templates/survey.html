@@ -33,14 +33,14 @@
           <div ng-repeat="question in sc.demographics.list | limitTo:sc.demographicLimit">
             <p class="survey-questions">{{question.question}}</p>
             <p class="dropdown">
-              <select ng-model="sc.selectedResponse.question_id">
+              <select ng-model="question.newResponse" ng-change="sc.saveResponses(question)">
                 <option ng-repeat="response in question.responses" ng-value="response">{{response}}</option>
               </select>
             </p>
           </div>
         </div>
         <a href="#location">
-          <button type="button" class="btn btn-default" ng-click="sc.saveResponses(sc.selectedResponse)">
+          <button type="button" class="btn btn-default" ng-click="sc.saveResponses(question)">
             <span class="glyphicon glyphicon-arrow-right"></span> Next
           </button>
         </a>

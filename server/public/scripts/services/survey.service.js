@@ -78,14 +78,14 @@ myApp.service('SurveyService', function($http, $location){
     }
 
 //adding question responses to the database
-  self.saveResponse = function () {
-    console.log('in saveResponse');
+  self.saveResponses = function (question) {
+    console.log('in saveResponse', question);
     $http({
       method: 'POST',
       url: '/survey',
       data: self.selectedResponse
     }).then(function (response) {
-      console.log('response', response);
+      console.log('saveResponse = response', response);
       
     })
   };
