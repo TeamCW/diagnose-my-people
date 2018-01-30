@@ -8,7 +8,6 @@ myApp.controller('AdminSurveyReviewController', ['AdminSurveyReviewService', '$r
   AdminSurveyReviewService.getCategories();
   vm.editBlurb = AdminSurveyReviewService.editBlurb;
   vm.removeCategory = AdminSurveyReviewService.removeCategory;
-  vm.compareCategories = AdminSurveyReviewService.compareCategories;
   vm.addClientCategory = AdminSurveyReviewService.addClientCategory;
     
   }]);

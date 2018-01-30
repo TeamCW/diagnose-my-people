@@ -22,7 +22,7 @@
     <button ng-hide="addCategory" class="btn btn-outline-danger" ng-click="addCategory = !addCategory">Add Survey Category</button>
     <button ng-show="addCategory" class="btn btn-outline-danger " ng-click="addCategory = !addCategory">Done Adding</button>
     <div ng-show="addCategory">
-        <span>Categories: </span>
+        <p>Categories To Add: </p>
         <span ng-repeat="kpi in asr.categories.list" for="categories">
             <button ng-model="kpi.id" ng-click="asr.addClientCategory(kpi, asr.client.survey[0].client_id)">+ {{kpi.kpi}}</button>
         </span>
