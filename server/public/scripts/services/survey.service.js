@@ -24,7 +24,7 @@ myApp.service('SurveyService', function($http, $location){
                     kpi: response.data[i].kpi,
                     kpi_id: response.data[i].kpi_id,
                     question: response.data[i].question,
-                    question_id: response.data[i].question.id,
+                    question_id: response.data[i].question_id,
                     responses: []
                 };
                 for (let k = 0; k < response.data[i].responses.length; k++) {
@@ -97,12 +97,12 @@ myApp.service('SurveyService', function($http, $location){
     }
 
 //adding question responses to the database
-  self.saveResponses = function (response) {
-    console.log('in saveResponse', response);
+  self.saveResponses = function (question) {
+    console.log('in saveResponse', question);
     $http({
       method: 'POST',
       url: '/survey',
-      data: response
+      data: question
     }).then(function (response) {
       console.log('saveResponse = response', response);
       
