@@ -22,7 +22,7 @@
           <a href="#retention">Retention</a>
         </li>
         <li class="survey-tabs">
-            <a href="#conclusion">Conclusion</a>
+          <a href="#conclusion">Conclusion</a>
         </li>
       </ul>
       <!--- question block -->
@@ -32,33 +32,31 @@
         <div>
           <div ng-repeat="question in sc.location.list | limitTo:sc.locationLimit">
             <div class="survey-questions">{{question.question}}
-              <input ng-show="question.question_id === 5"  type="text">
+              <input ng-show="question.question_id === 5" type="text">
               <br>
               <div ng-show="question.question_id === 6">
-                <button type="button" class="btn btn-default" ng-model="question.selectedResponse" ng-value="question.responses[0]" ng-click="sc.saveResponses(question)">{{question.responses[0]}}</button>
-                <button type="button" class="btn btn-default" ng-model="question.selectedResponse" ng-value="question.responses[1]" ng-click="sc.saveResponses(question)">{{question.responses[1]}}</button>
+                <label class="btn btn-default" ng-repeat="response in question.responses"> {{response.response_text}}
+                  <input type="radio" ng-model="question.selectedResponse" ng-value="response" ng-click="sc.saveResponses(question)">
+                </label>
               </div>
               <br>
-              <div ng-show="question.question_id === 7">
-                <button type="button" class="btn btn-default" ng-model="sc.selectedResponse">{{question.responses[0]}}</button>
-                <button type="button" class="btn btn-default" ng-model="sc.selectedResponse">{{question.responses[1]}}</button>
+              <div ng-show="question.question_id === 7" class="btn-group" data-toggle="buttons">
+                <label class="btn btn-default" ng-repeat="response in question.responses"> {{response.response_text}}
+                  <input type="radio" ng-model="question.selectedResponse" ng-value="response" ng-click="sc.saveResponses(question)">
+                </label>
               </div>
               <div class="slidecontainer" ng-show="question.question_id === 8">
-                <input type="range" min="1" max="5" value="3" class="slider">
+                <input type="range" min="1" max="5" value="3" class="slider" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
               </div>
-              <span ng-show="question.question_id === 8">
-                <span class="slider-values">{{question.responses[0]}}</span>
-                <span class="slider-values">{{question.responses[1]}}</span>
-                <span class="slider-values">{{question.responses[2]}}</span>
-                <span class="slider-values">{{question.responses[3]}}</span>
-                <span class="slider-values">{{question.responses[4]}}</span>
+              <span ng-show="question.question_id === 8" ng-repeat="response in question.responses">
+                <span class="slider-values">{{response.response_text}}</span>
               </span>
               <br>
             </div>
           </div>
         </div>
         <a href="#amenities">
-          <button type="button" class="btn btn-default" ng-click="sc.saveResponses(sc.selectedResponse)">
+          <button type="button" class="btn btn-default">
             <span class="glyphicon glyphicon-arrow-right"></span> Next
           </button>
         </a>
