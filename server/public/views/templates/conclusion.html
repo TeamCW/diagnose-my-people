@@ -1,0 +1,68 @@
+<div>
+    <a href="#/user">Home</a>
+</div>
+<div ng-cloak class="container-fluid survey-background">
+    <div class="row">
+        <div class="col-lg-10">
+            <!--- tabs -->
+            <ul class="nav nav-tabs" id="survey-background">
+                <li class="survey-tabs">
+                    <a href="#survey">Demographics</a>
+                </li>
+                <li class="survey-tabs">
+                    <a href="#location">Location</a>
+                </li>
+                <li class="survey-tabs">
+                    <a href="#amenities">Amenities</a>
+                </li>
+                <li class="survey-tabs">
+                    <a href="#brand">Brand</a>
+                </li>
+                <li class="survey-tabs">
+                    <a href="#retention">Retention</a>
+                </li>
+                <li class="active survey-tabs">
+                    <a href="#conclusion">Conclusion</a>
+                </li>
+            </ul>
+            <!--- question block -->
+            <div class="well well-md">
+                <h1 class="tab-title">Conclusion</h1>
+                <br>
+                <div>
+                    <div ng-repeat="question in sc.conclusion.list | limitTo:sc.conclusionLimit">
+                        <div class="survey-questions">{{question.question}}
+                            <div class="slidecontainer" ng-show="question.question_id === 23">
+                                <input type="range" min="1" max="5" value="3" class="slider">
+                            </div>
+                            <span ng-show="question.question_id === 23">
+                                <span class="slider-values">{{question.responses[0]}}</span>
+                                <span class="slider-values">{{question.responses[1]}}</span>
+                                <span class="slider-values">{{question.responses[2]}}</span>
+                                <span class="slider-values">{{question.responses[3]}}</span>
+                                <span class="slider-values">{{question.responses[4]}}</span>
+                            </span>
+                            <br>
+                            <br>
+                            <div ng-show="question.question_id === 24">
+                                    <p>{{question.responses[0]}}<input type="number" class="smallInput"></p>
+                                    <p>{{question.responses[1]}}<input type="number" class="smallInput"></p>
+                                    <p>{{question.responses[2]}}<input type="number" class="smallInput"></p>
+                                    <p>{{question.responses[3]}}<input type="number" class="smallInput"></p>
+                            </div>
+                            <br>
+                        <div ng-show="question.question_id === 25">
+                            <input class="largeText" type="text">
+                        </div>
+                        <br>
+                    </div>
+                </div>
+                <a href="#amenities">
+                    <button type="button" class="btn btn-default" ng-click="sc.saveResponses(sc.selectedResponse)">
+                        <span class="glyphicon glyphicon-arrow-right"></span> Next
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

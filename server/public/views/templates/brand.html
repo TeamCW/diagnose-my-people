@@ -21,6 +21,9 @@
                 <li class="survey-tabs">
                     <a href="#retention">Retention</a>
                 </li>
+                <li class="survey-tabs">
+                    <a href="#conclusion">Conclusion</a>
+                </li>
             </ul>
             <!--- question block -->
             <div class="well well-md">
@@ -70,7 +73,17 @@
                                 <button type="button" class="btn btn-default">{{question.responses[2]}}</button>
                                 <button type="button" class="btn btn-default">{{question.responses[3]}}</button>
                             </div>
-                            <br>
+                            <div class="slidecontainer" ng-show="question.question_id === 18">
+                                <input type="range" min="1" max="5" value="3" class="slider">
+                            </div>
+                            <span ng-show="question.question_id === 18">
+                                <span class="slider-values">{{question.responses[0]}}</span>
+                                <span class="slider-values">{{question.responses[1]}}</span>
+                                <span class="slider-values">{{question.responses[2]}}</span>
+                                <span class="slider-values">{{question.responses[3]}}</span>
+                                <span class="slider-values">{{question.responses[4]}}</span>
+                                <br>
+                            </span>
                             <br>
                         </div>
                         <br>

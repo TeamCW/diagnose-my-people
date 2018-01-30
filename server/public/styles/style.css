@@ -153,3 +153,13 @@
 #popChart {
    zoom: 50%;
 }
+
+.smallInput {
+    width: 40px;
+    border-radius: 5px;
+}
+
+.largeText {
+    width: 100px;
+    border-radius: 5px;
+}
