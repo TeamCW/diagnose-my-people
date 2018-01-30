@@ -31,65 +31,56 @@
                 <br>
                 <div>
                     <div ng-repeat="question in sc.brand.list | limitTo:sc.brandLimit">
-                        <div class="survey-questions">{{question.question}}
+                        <div class="brand-survey-questions">{{question.question}}
                             <div class="slidecontainer" ng-show="question.question_id === 13">
-                                <input type="range" min="1" max="5" value="3" class="slider">
+                                <input type="range" min="1" max="5" value="3" class="slider" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
                             </div>
-                            <span ng-show="question.question_id === 13">
-                                <span class="slider-values">{{question.responses[0]}}</span>
-                                <span class="slider-values">{{question.responses[1]}}</span>
-                                <span class="slider-values">{{question.responses[2]}}</span>
-                                <span class="slider-values">{{question.responses[3]}}</span>
-                                <span class="slider-values">{{question.responses[4]}}</span>
+                            <span ng-show="question.question_id === 13" ng-repeat="response in question.responses | orderBy : 'responses_ids'">
+                                <span class="slider-values">{{response.response_text}}</span>
                             </span>
                             <br>
-                            <div ng-show="question.question_id === 14">
-                                <button type="button" class="btn btn-default">{{question.responses[0]}}</button>
-                                <button type="button" class="btn btn-default">{{question.responses[1]}}</button>
+                            <div ng-show="question.question_id === 14" class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-default" ng-repeat="response in question.responses"> {{response.response_text}}
+                                    <input type="radio" ng-model="question.selectedResponse" ng-value="response" ng-click="sc.saveResponses(question)">
+                                </label>
                             </div>
-
-                            <div ng-show="question.question_id === 15">
-                                <button type="button" class="btn btn-default">{{question.responses[0]}}</button>
-                                <button type="button" class="btn btn-default">{{question.responses[1]}}</button>
+                            <br>
+                            <div ng-show="question.question_id === 15" class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-default" ng-repeat="response in question.responses"> {{response.response_text}}
+                                    <input type="radio" ng-model="question.selectedResponse" ng-value="response" ng-click="sc.saveResponses(question)">
+                                </label>
                             </div>
+                            <br>
                             <div class="slidecontainer" ng-show="question.question_id === 16">
-                                <input type="range" min="1" max="5" value="3" class="slider">
+                                <input type="range" min="1" max="5" value="3" class="slider" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
                             </div>
-                            <span ng-show="question.question_id === 16">
-                                <span class="slider-values">{{question.responses[0]}}</span>
-                                <span class="slider-values">{{question.responses[1]}}</span>
-                                <span class="slider-values">{{question.responses[2]}}</span>
-                                <span class="slider-values">{{question.responses[3]}}</span>
-                                <span class="slider-values">{{question.responses[4]}}</span>
-                                <br>
+                            <span ng-show="question.question_id === 16" ng-repeat="response in question.responses | orderBy : 'responses_ids'">
+                                <span class="slider-values">{{response.response_text}}</span>
                             </span>
                             <br>
-                            <div ng-show="question.question_id === 17">
-                                <button type="button" class="btn btn-default" ng-click="sc.publicYes = !sc.publicYes">{{question.responses[0]}}</button>
-                                <button type="button" class="btn btn-default">{{question.responses[1]}}</button>
+                            <!--- this question needs its display changed -->
+                            <div ng-show="question.question_id === 17" class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-default" ng-repeat="response in question.responses"> {{response.response_text}}
+                                    <input type="radio" ng-model="question.selectedResponse" ng-value="response" ng-click="sc.saveResponses(question) ; sc.publicYes = !sc.publicYes">
+                                </label>
                             </div>
-                            <br>
-                            <div ng-if="sc.publicYes" ng-show="question.question_id === 17">
-                                <button type="button" class="btn btn-default">{{question.responses[2]}}</button>
-                                <button type="button" class="btn btn-default">{{question.responses[3]}}</button>
+                            <div ng-if="sc.publicYes" ng-show="question.question_id === 17" class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-default" ng-repeat="response in question.responses"> {{response.response_text}}
+                                    <input type="radio" ng-model="question.selectedResponse" ng-value="response" ng-click="sc.saveResponses(question)">
+                                </label>
                             </div>
                             <div class="slidecontainer" ng-show="question.question_id === 18">
-                                <input type="range" min="1" max="5" value="3" class="slider">
+                                <input type="range" min="1" max="5" value="3" class="slider" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
                             </div>
-                            <span ng-show="question.question_id === 18">
-                                <span class="slider-values">{{question.responses[0]}}</span>
-                                <span class="slider-values">{{question.responses[1]}}</span>
-                                <span class="slider-values">{{question.responses[2]}}</span>
-                                <span class="slider-values">{{question.responses[3]}}</span>
-                                <span class="slider-values">{{question.responses[4]}}</span>
-                                <br>
+                            <span ng-show="question.question_id === 18" ng-repeat="response in question.responses | orderBy : 'responses_ids'">
+                                <span class="slider-values">{{response.response_text}}</span>
                             </span>
                             <br>
                         </div>
                         <br>
                     </div>
                     <a href="#retention">
-                        <button type="button" class="btn btn-default" ng-click="sc.saveResponses(selectedResponse)">
+                        <button type="button" class="btn btn-default">
                             <span class="glyphicon glyphicon-arrow-right"></span> Next
                         </button>
                     </a>
