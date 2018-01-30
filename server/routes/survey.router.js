@@ -38,7 +38,7 @@ router.get('/location', function (req, res) {
             res.sendStatus(500);
         } else {
 
-            client.query(`SELECT possible_responses.question_id, question, array_agg(response_text) as responses, catagory.id as kpi_id, kpi FROM questions
+            client.query(`SELECT possible_responses.question_id, question, array_agg(response_text) as responses, array_agg(possible_responses.id) as response_ids, catagory.id as kpi_id, kpi FROM questions
             INNER JOIN possible_responses on questions.id = possible_responses.question_id
             INNER JOIN catagory on questions.kpi_id = catagory.id
             WHERE kpi = 'location'
@@ -136,6 +136,31 @@ router.get('/amenities', function (req, res) {
     });
 });
 
+router.get('/conclusion', function (req, res) {
+    pool.connect(function (errorConnectingToDatabase, client, done) {
+        if (errorConnectingToDatabase) {
+            console.log('error', errorConnectingToDatabase);
+            res.sendStatus(500);
+        } else {
+
+            client.query(`SELECT possible_responses.question_id, question, array_agg(response_text) as responses, catagory.id as kpi_id, kpi FROM questions
+            INNER JOIN possible_responses on questions.id = possible_responses.question_id
+            INNER JOIN catagory on questions.kpi_id = catagory.id
+            WHERE kpi = 'conclusion'
+            GROUP BY question, kpi, possible_responses.question_id, catagory.id
+            ORDER BY question_id;`,
+                function (errorMakingDatabaseQuery, result) {
+                    done();
+                    if (errorMakingDatabaseQuery) {
+                        console.log('error', errorMakingDatabaseQuery);
+                        res.sendStatus(500);
+                    } else {
+                        res.send(result.rows);
+                    }
+                });
+        }
+    });
+});
 
 router.post('/', function (req, res) {
     console.log('employee response:', req.body);

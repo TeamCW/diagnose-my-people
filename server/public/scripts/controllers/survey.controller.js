@@ -6,8 +6,9 @@ myApp.controller('SurveyController', function (SurveyService) {
   vm.demographicLimit = 4;
   vm.locationLimit = 4;
   vm.amenitiesLimit = 4;
-  vm.brandLimit = 5;
+  vm.brandLimit = 6;
   vm.retentionLimit = 4;
+  vm.conclusionLimit = 3;
 
 
 
@@ -18,6 +19,7 @@ myApp.controller('SurveyController', function (SurveyService) {
   vm.amenities = SurveyService.amenities;
   vm.brand = SurveyService.brand;
   vm.retention = SurveyService.retention;
+  vm.conclusion = SurveyService.conclusion;
   vm.saveResponses = SurveyService.saveResponses;
 
 
@@ -28,6 +30,7 @@ myApp.controller('SurveyController', function (SurveyService) {
   SurveyService.getAmenities();
   SurveyService.getBrand();
   SurveyService.getRetention();
+  SurveyService.getConclusion();
 
 
 });
