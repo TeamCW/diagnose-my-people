@@ -1,4 +1,4 @@
-<div ng-include="'views/partials/nav.html'"></div>
+
 <div class="container">
     <h1>Build Your Survey</h1>
     <p>Select the categories below you would like in your survey.</p>
@@ -11,11 +11,6 @@
                 Will Compile information on what is truly important for the location for your peoples transit.  We will use this
                 information to compile information on Parking, Exposure, Transit and Drive Time.
             </p>
-            <ul>
-                <li>Question 1</li>
-                <li>Question 2</li>
-                <li>Question 3</li>
-            </ul>
             <button ng-click="bs.toggleLocation()" ng-hide="bs.kpisAdded.locationAdded" class="btn btn-outline-success">Add to Survey</button>
             <button ng-click="bs.toggleLocation()" ng-show="bs.kpisAdded.locationAdded" class="btn btn-outline-danger">Remove from Survey</button>
         </div>
@@ -30,11 +25,6 @@
                 We will use this data to report what amenities they want geographically, internal, or in an office building
         
             </p>
-            <ul>
-                <li>Question 1</li>
-                <li>Question 2</li>
-                <li>Question 3</li>
-            </ul>
             <button ng-click="bs.toggleAmenities()" ng-hide="bs.kpisAdded.amenitiesAdded" class="btn btn-outline-success">Add to Survey</button>
             <button ng-click="bs.toggleAmenities()" ng-show="bs.kpisAdded.amenitiesAdded" class="btn btn-outline-danger">Remove from Survey</button>
         </div>
@@ -48,11 +38,6 @@
                 What about your brand is most important to your people in your new location?
                 We will find what signage for your brand, the exposure,
             </p>
-            <ul>
-                <li>Question 1</li>
-                <li>Question 2</li>
-                <li>Question 3</li>
-            </ul>
             <button ng-click="bs.toggleBrand()" ng-hide="bs.kpisAdded.brandAdded" class="btn btn-outline-success">Add to Survey</button>
             <button ng-click="bs.toggleBrand()" ng-show="bs.kpisAdded.brandAdded" class="btn btn-outline-danger">Remove from Survey</button>
         </div>
@@ -66,11 +51,6 @@
                 What about a new building is most important to your people.  We wil give you information on 
                 their desire for the culture, their well being, the brand, and on being able to be collaboritive.
             </p>
-            <ul>
-                <li>Question 1</li>
-                <li>Question 2</li>
-                <li>Question 3</li>
-            </ul>
             <button ng-click="bs.toggleRetainment()" ng-hide="bs.kpisAdded.retainmentAdded" class="btn btn-outline-success">Add to Survey</button>
             <button ng-click="bs.toggleRetainment()" ng-show="bs.kpisAdded.retainmentAdded" class="btn btn-outline-danger">Remove from Survey</button>
         </div>
@@ -84,11 +64,6 @@
                 What do your people want the new space to be like.  What are the functions of the building that help them
                 with their jobs, what should be in the break space, and what kind of furniture doe they like.
             </p>
-            <ul>
-                <li>Question 1</li>
-                <li>Question 2</li>
-                <li>Question 3</li>
-            </ul>
             <button ng-click="bs.toggleSpaceLayout()" ng-hide="bs.kpisAdded.spaceLayoutAdded" class="btn btn-outline-success">Add to Survey</button>
             <button ng-click="bs.toggleSpaceLayout()" ng-show="bs.kpisAdded.spaceLayoutAdded" class="btn btn-outline-danger">Remove from Survey</button>
         </div>
