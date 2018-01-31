@@ -69,7 +69,12 @@ myApp.config(function($routeProvider, $locationProvider) {
     })
     .when('/admin-survey-review/:clientId', {
       templateUrl: '/views/templates/admin-survey-review.html',
-      controller: 'AdminSurveyReviewController as asr'
+      controller: 'AdminSurveyReviewController as asr',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
     })
     // End survey views
     .when('/dashboard', {
