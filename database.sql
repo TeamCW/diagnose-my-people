@@ -174,3 +174,31 @@ VALUES ('What year were you born?', 1, 1),
 ('Regarding you and your job, how would you rate your overall job satisfaction?', 6, 3), 
 ('Do you feel our space fosters: (1 being very poor, 5 being very good)', 6, 1), 
 ('Are there any additional comments or notes we should know regarding the positives and negatives of our current building location? Please note, this is not a comment on the design or function of the space, but rather the overall building location, condition and amenities.', 6, 5);
+
+
+
+INSERT INTO possible_responses (question_id, response_text, style_id)
+VALUES (1, '1964 or earlier', 1), (1, '1965-1980', 1), (1, '1981 or after', 1), 
+(2, 'Customer/Account Services', 4), (2, 'Finance', 4), (2, 'Business Development', 4), (2, 'Administrative', 4), (2, 'Research', 4), (2, 'Management', 4), (2, 'Legal', 4), (2, 'Executive', 4), 
+(3, 'Creative', 3), (3, 'Corporate', 3), (3, 'Healthcare', 3), (3, 'General Office', 3), (3, 'Pro Services Firm', 3), (3, 'Technology', 3), (4, '0-1', 2), 
+(4, '1-3', 2), (4, '3-5', 2), (4, '5-10', 2), (4, '10+', 2), 
+(5, '00', 5), 
+(6, 'Public Transit', 2), (6, 'Driving', 2), 
+(7, 'Yes', 2), (7, 'No', 2), 
+(8, 'Very Satisfied', 1), (8, 'Satisfied', 1), (8, 'No Opinion', 1), (8, 'Dissatisfied', 1), (8, 'Very Dissatisfied', 1), 
+(9, 'Yes', 2), (9, 'No', 2), (10, '1', 3), (10, '2', 3), (10, '3', 3), 
+(10, '4', 3), (10, '5', 3), (11, 'Yes', 2), 
+(11, 'No', 2), (12, 'Food and Entertainment', 1), 
+(12, 'Conference Room', 1), (12, 'Green Space', 1), (12, 'Shower/Locker Room', 1), (12, 'Parking', 1), (12, 'Fitness Center', 1), (12, 'Public Transit', 1), 
+(13, 'Very Poor', 1), (13, 'Poor', 1), (13, 'No Opinion', 1), (13, 'Good', 1), (13, 'Very Good', 1),
+ (14, 'Yes', 2), (14, 'No', 2), 
+ (15, 'Yes', 2), (15, 'No', 2), 
+ (16, 'Very Poor', 1), (16, 'Poor', 1), (16, 'No Opinion', 1), (16, 'Good', 1), (16, 'Very Good', 1), 
+ (17, 'Yes', 2), (17, 'No', 2), (17, 'New Location', 2), (17, 'Current Space', 2), 
+ (18, 'Very Inferior', 3), (18, 'Inferior', 3), (18, 'Same', 3), (18, 'Superior', 3), (18, 'Highly Superior', 3), 
+ (19, 'Very Poor', 1), (19, 'Poor', 1), (19, 'No Opinion', 1), (19, 'Good', 1), (19, 'Very Good', 1), 
+ (20, '1', 1), (20, '2', 1), (20, '3', 1), (20, '4', 1), (20, '5', 1), 
+ (21, 'Very Poor', 1), (21, 'Poor', 1), (21, 'No Opinion', 1), (21, 'Good', 1), (21, 'Very Good', 1), 
+ (22, 'Home:', 1), (22, 'Office Desk:', 1), (22, 'Elsewhere In The Office:', 1), (22, 'Coffee Shop:', 1), (22, 'On-site With Client:', 1), (22, 'Other:', 1), 
+ (23, 'Very Dissatisfied', 1), (23, 'Dissatisfied', 1), (23, 'No Opinion', 1), (23, 'Satisfied', 1), (23, 'Very Satisfied', 1), 
+ (24, 'Positive Culture:', 1), (24, 'Employee Wellbeing:', 1), (24, 'Worker Productivity:', 1), (24, 'Engagement Among Coworkers:', 1);
