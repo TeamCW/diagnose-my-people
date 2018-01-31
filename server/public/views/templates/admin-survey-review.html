@@ -3,15 +3,14 @@
         <div class="col-md-4">
             <div class="card" style="height: 10rem;">
                 <div class="card-body">
-                    <h1 class="card-title">Admin Survey Review</h1>
+                    <h2 class="card-title">Custom Survey For {{asr.client.survey[0].client_organization}}</h2>
                 </div>
             </div>
         </div>
         <div class="col-md-8">
             <div class="card" style="height: 10rem;">
                 <div class="card-body">
-                    <h3>{{asr.client.survey[0].client_organization}}</h3>
-                    <h4>{{asr.client.survey[0].client_name}}</h4>
+                    <h4>Point of Contact: {{asr.client.survey[0].client_name}}</h4>
                     <p>
                         <strong>Custom Survey URL: </strong>{{asr.client.survey[0].survey_url}}</p>
                 </div>
@@ -19,11 +18,11 @@
         </div>
     </div>
     <br>
-    <button ng-hide="addCategory" class="btn btn-outline-danger" ng-click="addCategory = !addCategory">Add Survey Category</button>
+    <button ng-hide="addCategory" class="btn btn-outline-danger" ng-click="asr.getNotSelected(); addCategory = !addCategory">Add Survey Category</button>
     <button ng-show="addCategory" class="btn btn-outline-danger " ng-click="addCategory = !addCategory">Done Adding</button>
     <div ng-show="addCategory">
         <p>Categories To Add: </p>
-        <span ng-repeat="kpi in asr.categories.list" for="categories">
+        <span ng-repeat="kpi in asr.notSelectedArray.list" for="categories">
             <button ng-model="kpi.id" ng-click="asr.addClientCategory(kpi, asr.client.survey[0].client_id)">+ {{kpi.kpi}}</button>
         </span>
     </div>
