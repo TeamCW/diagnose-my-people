@@ -21,6 +21,9 @@
                 <li class="survey-tabs">
                     <a href="#retention">Retention</a>
                 </li>
+                <li class="survey-tabs">
+                    <a href="#conclusion">Conclusion</a>
+                </li>
             </ul>
             <!--- question block -->
             <div class="well well-md">
@@ -30,34 +33,35 @@
                     <div ng-repeat="question in sc.amenities.list | limitTo:sc.amenitiesLimit">
                         <div class="survey-questions">{{question.question}}
                             <br>
-                            <div ng-show="question.question_id === 9">
-                                <button type="button" class="btn btn-default">{{question.responses[0]}}</button>
-                                <button type="button" class="btn btn-default">{{question.responses[1]}}</button>
+                            <div ng-show="question.question_id === 9" class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-default" ng-repeat="response in question.responses"> {{response.response_text}}
+                                    <input type="radio" ng-model="question.selectedResponse" ng-value="response" ng-click="sc.saveResponses(question)">
+                                </label>
                             </div>
                             <br>
-                            <div ng-show="question.question_id === 10">
-                                <button type="button" class="btn btn-default">{{question.responses[0]}}</button>
-                                <button type="button" class="btn btn-default">{{question.responses[1]}}</button>
+                            <div class="slidecontainer" ng-show="question.question_id === 10">
+                                <input type="range" min="1" max="5" value="3" class="slider" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
                             </div>
+                            <span ng-show="question.question_id === 10" ng-repeat="response in question.responses | orderBy : 'responses_ids'">
+                                <span class="slider-values">{{response.response_text}}</span>
+                            </span>
                             <br>
-                            <div ng-show="question.question_id === 11">
-                                <button type="button" class="btn btn-default">{{question.responses[0]}}</button>
-                                <button type="button" class="btn btn-default">{{question.responses[1]}}</button>
+                            <div ng-show="question.question_id === 11" class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-default" ng-repeat="response in question.responses"> {{response.response_text}}
+                                    <input type="radio" ng-model="question.selectedResponse" ng-value="response" ng-click="sc.saveResponses(question)">
+                                </label>
                             </div>
-                            <div ng-show="question.question_id === 12">
-                                <button type="button" class="btn btn-default">{{question.responses[0]}}</button>
-                                <button type="button" class="btn btn-default">{{question.responses[1]}}</button>
-                                <button type="button" class="btn btn-default">{{question.responses[2]}}</button>
-                                <button type="button" class="btn btn-default">{{question.responses[3]}}</button>
-                                <button type="button" class="btn btn-default">{{question.responses[4]}}</button>
-                                <button type="button" class="btn btn-default">{{question.responses[5]}}</button>
+                            <div ng-show="question.question_id === 12" class="btn-group col-lg-12" data-toggle="buttons">
+                                <label class="btn btn-default" ng-repeat="response in question.responses"> {{response.response_text}}
+                                    <input type="radio" ng-model="question.selectedResponse" ng-value="response" ng-click="sc.saveResponses(question)">
+                                </label>
                             </div>
                             <br>
                         </div>
                     </div>
                     <br>
                     <a href="#brand">
-                        <button type="button" class="btn btn-default" ng-click="sc.saveResponses(selectedResponse)">
+                        <button type="button" class="btn btn-default">
                             <span class="glyphicon glyphicon-arrow-right"></span> Next
                         </button>
                     </a>

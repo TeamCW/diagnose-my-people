@@ -2,8 +2,13 @@ myApp.service('AdminSurveyReviewService', ['$http', '$location', function ($http
 
     var self = this;
     self.client = { survey: {} };
-    self.categories = { list: {} };
+    self.categories = { list: [] };
+    // var clientKpi = self.client;
+    self.notSelectedArray = { list: [] };
+    
+    
 
+  
 
     // console.log(self.categories);
     
@@ -26,7 +31,7 @@ myApp.service('AdminSurveyReviewService', ['$http', '$location', function ($http
             }
         }).then(function (response) {
             self.client.survey = response.data;
-            console.log('selected kpi',response.data);
+            console.log('client survey response:', self.client.survey);
         });
     };
 
@@ -37,10 +42,27 @@ myApp.service('AdminSurveyReviewService', ['$http', '$location', function ($http
             url: '/admin-survey-review/all',
         }).then(function (response) {
             self.categories.list = response.data;
-            console.log('all kpi',response.data);
-            
+            console.log('all category response:', self.categories.list);
+            // var clientKpi = self.client;
+            // console.log('clientKpi', clientKpi);          
         });
     };
+
+    self.getNotSelected = function (clientId) {
+        $http({
+            method: 'GET',
+            url: '/admin-survey-review/not-selected',
+            params: {
+                clientId: clientId
+            }
+        }).then(function (response) {
+            self.notSelectedArray.list = response.data;
+            console.log('not selected response:', self.notSelectedArray.list);           
+        });
+    };
+
+
+
 
     //edit or add a blurb to selected KPI on client's survey
     self.editBlurb = function (blurbToEdit, clientId) {
@@ -99,4 +121,9 @@ myApp.service('AdminSurveyReviewService', ['$http', '$location', function ($http
                 }
             });
     };
+
+
+
+   
 }]);
+

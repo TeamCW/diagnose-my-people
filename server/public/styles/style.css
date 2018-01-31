@@ -7,6 +7,8 @@
     opacity: 0.9;
     text-align: center;
     margin: auto;
+    margin-bottom: 40px;
+    border-radius: 5px;
 }
 
 .md-headline {
@@ -16,16 +18,6 @@
 .survey-head {
     background-image: url('/images/cush-background-3.jpg');
 }
-
-/* .tabs {
-    border: 3px;
-    border-radius: 3px;
-    border-left: 2px;
-    border-right: 2px;
-    border-style: ridge;
-    border-color: darkblue;
-    margin-right: 10px;
-} */
 
 .description {
     background-color: white;
@@ -152,4 +144,19 @@
 
 #popChart {
    zoom: 50%;
+}
+
+.smallInput {
+    width: 40px;
+    border-radius: 5px;
+}
+
+.largeText {
+    width: 100px;
+    border-radius: 5px;
+}
+
+.brand-survey-questions {
+    font-weight: bold;
+    margin-bottom: 2px;
 }
