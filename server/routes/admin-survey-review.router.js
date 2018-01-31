@@ -33,6 +33,7 @@ router.get('/', function (req, res) {
     }
 });
 
+//GET list of KPIs not currently selected in client survey
 router.get('/not-selected', function (req, res) {
     var clientId = req.query.clientId;
     console.log('clientId:', clientId);
@@ -63,30 +64,30 @@ router.get('/not-selected', function (req, res) {
 });
 
 //GET list of all KPIs
-router.get('/all', function (req, res) {
-    var clientId = req.query.clientId;
-    if (req.isAuthenticated()) {
-        pool.connect(function (errorConnectingToDatabase, client, done) {
-            if (errorConnectingToDatabase) {
-                console.log('error', errorConnectingToDatabase);
-                res.sendStatus(500);
-            } else {
-                client.query(`SELECT * FROM category;`, function (errorMakingDatabaseQuery, result) {
-                    done();
-                    if (errorMakingDatabaseQuery) {
-                        console.log('error', errorMakingDatabaseQuery);
-                        res.sendStatus(500);
-                    } else {
-                        res.send(result.rows);
-                    }
-                });
-            }
-        });
-    }
-    else {
-        res.sendStatus(403);
-    }
-});
+// router.get('/all', function (req, res) {
+//     var clientId = req.query.clientId;
+//     if (req.isAuthenticated()) {
+//         pool.connect(function (errorConnectingToDatabase, client, done) {
+//             if (errorConnectingToDatabase) {
+//                 console.log('error', errorConnectingToDatabase);
+//                 res.sendStatus(500);
+//             } else {
+//                 client.query(`SELECT * FROM category;`, function (errorMakingDatabaseQuery, result) {
+//                     done();
+//                     if (errorMakingDatabaseQuery) {
+//                         console.log('error', errorMakingDatabaseQuery);
+//                         res.sendStatus(500);
+//                     } else {
+//                         res.send(result.rows);
+//                     }
+//                 });
+//             }
+//         });
+//     }
+//     else {
+//         res.sendStatus(403);
+//     }
+// });
 
 // Edit or add a blurb to client survey KPIs
 router.put('/', function (req, res) {
