@@ -32,32 +32,34 @@
                 <div>
                     <div ng-repeat="question in sc.conclusion.list | limitTo:sc.conclusionLimit">
                         <div class="survey-questions">{{question.question}}
-                                <div class="slidecontainer" ng-show="question.question_id === 23">
-                                        <input type="range" min="1" max="5" value="3" class="slider" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
-                                    </div>
-                                    <span ng-show="question.question_id === 23" ng-repeat="response in question.responses | orderBy : 'responses_ids'">
-                                        <span class="slider-values">{{response.response_text}}</span>
-                                    </span>
-                                    <br>
+                            <div class="slidecontainer" ng-show="question.question_id === 23">
+                                <input type="range" min="1" max="5" value="3" class="slider" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
+                            </div>
+                            <span ng-show="question.question_id === 23" ng-repeat="response in question.responses | orderBy : 'responses_ids'">
+                                <span class="slider-values">{{response.response_text}}</span>
+                            </span>
+                            <br>
                             <br>
                             <div ng-show="question.question_id === 24" ng-repeat="response in question.responses">
-                                    <p>{{response.response_text}}
-                                        <input type="number" class="smallInput">%</p>
-                                </div>
+                                <p>{{response.response_text}}
+                                    <input type="number" class="smallInput">
+                                </p>
+                            </div>
                             <br>
-                        <div ng-show="question.question_id === 25" ng-repeat="response in question.responses">
-                            <p>{{response.response_text}}
-                            <input class="largeText" type="text"></p>
+                            <div ng-show="question.question_id === 25" ng-repeat="response in question.responses">
+                                <p>
+                                    <input class="largeText" type="text">
+                                </p>
+                            </div>
+                            <br>
                         </div>
-                        <br>
                     </div>
+                    <a href="#/user">
+                        <button type="button" class="btn btn-default">
+                            <span class="glyphicon glyphicon-arrow-right"></span> Finish Survey
+                        </button>
+                    </a>
                 </div>
-                <a href="#/user">
-                    <button type="button" class="btn btn-default">
-                        <span class="glyphicon glyphicon-arrow-right"></span> Finish Survey
-                    </button>
-                </a>
             </div>
         </div>
     </div>
-</div>
