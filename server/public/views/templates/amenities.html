@@ -51,7 +51,7 @@
                                     <input type="radio" ng-model="question.selectedResponse" ng-value="response" ng-click="sc.saveResponses(question)">
                                 </label>
                             </div>
-                            <div ng-show="question.question_id === 12" class="btn-group form-group" data-toggle="buttons">
+                            <div ng-show="question.question_id === 12" class="form-group" data-toggle="buttons">
                                 <label class="btn btn-default" ng-repeat="response in question.responses" style="width: 200px"> {{response.response_text}}
                                     <input type="radio" ng-model="question.selectedResponse" ng-value="response" ng-click="sc.saveResponses(question)">
                                 </label>

@@ -65,7 +65,7 @@ router.get('/brand', function (req, res) {
         } else {
 
 
-            client.query(`SELECT possible_responses.question_id, question, array_agg(response_text) as responses, category.id as kpi_id, kpi FROM questions
+            client.query(`SELECT possible_responses.question_id, question, array_agg(response_text) as responses, array_agg(possible_responses.id) as response_ids, category.id as kpi_id, kpi FROM questions
             INNER JOIN possible_responses on questions.id = possible_responses.question_id
             INNER JOIN category on questions.kpi_id = category.id
             WHERE kpi = 'brand'
@@ -93,7 +93,7 @@ router.get('/retention', function (req, res) {
         } else {
 
 
-            client.query(`SELECT possible_responses.question_id, question, array_agg(response_text) as responses, category.id as kpi_id, kpi FROM questions
+            client.query(`SELECT possible_responses.question_id, question, array_agg(response_text) as responses, array_agg(possible_responses.id) as response_ids, category.id as kpi_id, kpi FROM questions
             INNER JOIN possible_responses on questions.id = possible_responses.question_id
             INNER JOIN category on questions.kpi_id = category.id
             WHERE kpi = 'retention'
@@ -120,7 +120,7 @@ router.get('/amenities', function (req, res) {
         } else {
 
 
-            client.query(`SELECT possible_responses.question_id, question, array_agg(response_text) as responses, category.id as kpi_id, kpi FROM questions
+            client.query(`SELECT possible_responses.question_id, question, array_agg(response_text) as responses, array_agg(possible_responses.id) as response_ids, category.id as kpi_id, kpi FROM questions
             INNER JOIN possible_responses on questions.id = possible_responses.question_id
             INNER JOIN category on questions.kpi_id = category.id
             WHERE kpi = 'amenities'
@@ -147,7 +147,7 @@ router.get('/conclusion', function (req, res) {
         } else {
 
 
-            client.query(`SELECT possible_responses.question_id, question, array_agg(response_text) as responses, category.id as kpi_id, kpi FROM questions
+            client.query(`SELECT possible_responses.question_id, question, array_agg(response_text) as responses, array_agg(possible_responses.id) as response_ids, category.id as kpi_id, kpi FROM questions
             INNER JOIN possible_responses on questions.id = possible_responses.question_id
             INNER JOIN category on questions.kpi_id = category.id
             WHERE kpi = 'conclusion'
