@@ -3,23 +3,7 @@ myApp.service('AdminSurveyReviewService', ['$http', '$location', function ($http
     var self = this;
     self.client = { survey: {} };
     self.categories = { list: [] };
-    // var clientKpi = self.client;
     self.notSelectedArray = { list: [] };
-
-
-
-
-
-    // console.log(self.categories);
-
-    // var selectedKpis = [self.client];
-    // console.log(selectedKpis);
-
-
-    // var arr = [1,2,3,4],
-    // brr = [2,4],
-    //     res = self.categories.filter(f => !self.client.includes(f));
-    // console.log('leftovers',res);
 
     //GET selected KPIs for each client and display them in their own view using $routeparams
     self.getClientSurvey = function (clientId) {
@@ -34,19 +18,6 @@ myApp.service('AdminSurveyReviewService', ['$http', '$location', function ($http
             console.log('client survey response:', self.client.survey);
         });
     };
-
-    // //GET all KPIs
-    // self.getCategories = function () {
-    //     $http({
-    //         method: 'GET',
-    //         url: '/admin-survey-review/all',
-    //     }).then(function (response) {
-    //         self.categories.list = response.data;
-    //         console.log('all category response:', self.categories.list);
-    //         // var clientKpi = self.client;
-    //         // console.log('clientKpi', clientKpi);          
-    //     });
-    // };
 
     //GET list of KPIs not currently selected in client survey
     self.getNotSelected = function (clientId) {
@@ -63,9 +34,7 @@ myApp.service('AdminSurveyReviewService', ['$http', '$location', function ($http
     };
 
 
-
-
-    //edit or add a blurb to selected KPI on client's survey
+    //Edit or add a blurb to selected KPI on client's survey
     self.editBlurb = function (blurbToEdit, clientId) {
         console.log(blurbToEdit);
 
@@ -117,6 +86,7 @@ myApp.service('AdminSurveyReviewService', ['$http', '$location', function ($http
                         url: '/admin-survey-review/' + categoryToDelete.id,
                     }).then(function (response) {
                         self.getClientSurvey(clientId);
+                        self.getNotSelected(clientId);
                     });
                 } else {
                     swal("File not deleted");
