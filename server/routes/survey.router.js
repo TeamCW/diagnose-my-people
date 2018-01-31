@@ -64,6 +64,7 @@ router.get('/brand', function (req, res) {
             res.sendStatus(500);
         } else {
 
+
             client.query(`SELECT possible_responses.question_id, question, array_agg(response_text) as responses, category.id as kpi_id, kpi FROM questions
             INNER JOIN possible_responses on questions.id = possible_responses.question_id
             INNER JOIN category on questions.kpi_id = category.id
@@ -91,6 +92,7 @@ router.get('/retention', function (req, res) {
             res.sendStatus(500);
         } else {
 
+
             client.query(`SELECT possible_responses.question_id, question, array_agg(response_text) as responses, category.id as kpi_id, kpi FROM questions
             INNER JOIN possible_responses on questions.id = possible_responses.question_id
             INNER JOIN category on questions.kpi_id = category.id
@@ -117,6 +119,7 @@ router.get('/amenities', function (req, res) {
             res.sendStatus(500);
         } else {
 
+
             client.query(`SELECT possible_responses.question_id, question, array_agg(response_text) as responses, category.id as kpi_id, kpi FROM questions
             INNER JOIN possible_responses on questions.id = possible_responses.question_id
             INNER JOIN category on questions.kpi_id = category.id
@@ -142,6 +145,7 @@ router.get('/conclusion', function (req, res) {
             console.log('error', errorConnectingToDatabase);
             res.sendStatus(500);
         } else {
+
 
             client.query(`SELECT possible_responses.question_id, question, array_agg(response_text) as responses, category.id as kpi_id, kpi FROM questions
             INNER JOIN possible_responses on questions.id = possible_responses.question_id
