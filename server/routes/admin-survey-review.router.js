@@ -14,8 +14,8 @@ router.get('/', function (req, res) {
             category.kpi AS kpi_name, kpi_id, client_id, selected_kpi.id, notes_added FROM selected_kpi
             JOIN "client" ON client.id = selected_kpi.client_id
             JOIN "category" ON category.id = selected_kpi.kpi_id
-            WHERE client_id= 1
-            ORDER BY kpi_name;`,  function (errorMakingDatabaseQuery, result) {
+            WHERE client_id= $1
+            ORDER BY kpi_name;`, [clientId], function (errorMakingDatabaseQuery, result) {
                 done();
                 if (errorMakingDatabaseQuery) {
                     console.log('error', errorMakingDatabaseQuery);
