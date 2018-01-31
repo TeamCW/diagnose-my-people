@@ -167,3 +167,8 @@
     margin-left: 50px;
     font-weight: normal;
 }
+
+.admin-review-cards {
+    background-color: #e4002b;
+    color: white;
+}
