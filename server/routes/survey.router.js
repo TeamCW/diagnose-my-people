@@ -11,11 +11,11 @@ router.get('/', function (req, res) {
             res.sendStatus(500);
         } else {
 
-            client.query(`SELECT possible_responses.question_id, question, array_agg(response_text) as responses, array_agg(possible_responses.id) as response_ids, catagory.id as kpi_id, kpi FROM questions
+            client.query(`SELECT possible_responses.question_id, question, array_agg(response_text) as responses, array_agg(possible_responses.id) as response_ids, category.id as kpi_id, kpi FROM questions
             INNER JOIN possible_responses on questions.id = possible_responses.question_id
-            INNER JOIN catagory on questions.kpi_id = catagory.id
+            INNER JOIN category on questions.kpi_id = category.id
             WHERE kpi = 'demographic'
-            GROUP BY question, kpi, possible_responses.question_id, catagory.id
+            GROUP BY question, kpi, possible_responses.question_id, category.id
             ORDER BY question_id;`,
                 function (errorMakingDatabaseQuery, result) {
                     done();
@@ -38,11 +38,11 @@ router.get('/location', function (req, res) {
             res.sendStatus(500);
         } else {
 
-            client.query(`SELECT possible_responses.question_id, question, array_agg(response_text) as responses, array_agg(possible_responses.id) as response_ids, catagory.id as kpi_id, kpi FROM questions
+            client.query(`SELECT possible_responses.question_id, question, array_agg(response_text) as responses, array_agg(possible_responses.id) as response_ids, category.id as kpi_id, kpi FROM questions
             INNER JOIN possible_responses on questions.id = possible_responses.question_id
-            INNER JOIN catagory on questions.kpi_id = catagory.id
+            INNER JOIN category on questions.kpi_id = category.id
             WHERE kpi = 'location'
-            GROUP BY question, kpi, possible_responses.question_id, catagory.id
+            GROUP BY question, kpi, possible_responses.question_id, category.id
             ORDER BY question_id;`,
                 function (errorMakingDatabaseQuery, result) {
                     done();
@@ -64,11 +64,11 @@ router.get('/brand', function (req, res) {
             res.sendStatus(500);
         } else {
 
-            client.query(`SELECT possible_responses.question_id, question, array_agg(response_text) as responses, catagory.id as kpi_id, kpi FROM questions
+            client.query(`SELECT possible_responses.question_id, question, array_agg(response_text) as responses, category.id as kpi_id, kpi FROM questions
             INNER JOIN possible_responses on questions.id = possible_responses.question_id
-            INNER JOIN catagory on questions.kpi_id = catagory.id
+            INNER JOIN category on questions.kpi_id = category.id
             WHERE kpi = 'brand'
-            GROUP BY question, kpi, possible_responses.question_id, catagory.id
+            GROUP BY question, kpi, possible_responses.question_id, category.id
             ORDER BY question_id;`,
                 function (errorMakingDatabaseQuery, result) {
                     done();
@@ -91,11 +91,11 @@ router.get('/retention', function (req, res) {
             res.sendStatus(500);
         } else {
 
-            client.query(`SELECT possible_responses.question_id, question, array_agg(response_text) as responses, catagory.id as kpi_id, kpi FROM questions
+            client.query(`SELECT possible_responses.question_id, question, array_agg(response_text) as responses, category.id as kpi_id, kpi FROM questions
             INNER JOIN possible_responses on questions.id = possible_responses.question_id
-            INNER JOIN catagory on questions.kpi_id = catagory.id
+            INNER JOIN category on questions.kpi_id = category.id
             WHERE kpi = 'retention'
-            GROUP BY question, kpi, possible_responses.question_id, catagory.id
+            GROUP BY question, kpi, possible_responses.question_id, category.id
             ORDER BY question_id;`,
                 function (errorMakingDatabaseQuery, result) {
                     done();
@@ -117,11 +117,11 @@ router.get('/amenities', function (req, res) {
             res.sendStatus(500);
         } else {
 
-            client.query(`SELECT possible_responses.question_id, question, array_agg(response_text) as responses, catagory.id as kpi_id, kpi FROM questions
+            client.query(`SELECT possible_responses.question_id, question, array_agg(response_text) as responses, category.id as kpi_id, kpi FROM questions
             INNER JOIN possible_responses on questions.id = possible_responses.question_id
-            INNER JOIN catagory on questions.kpi_id = catagory.id
+            INNER JOIN category on questions.kpi_id = category.id
             WHERE kpi = 'amenities'
-            GROUP BY question, kpi, possible_responses.question_id, catagory.id
+            GROUP BY question, kpi, possible_responses.question_id, category.id
             ORDER BY question_id;`,
                 function (errorMakingDatabaseQuery, result) {
                     done();
@@ -143,11 +143,11 @@ router.get('/conclusion', function (req, res) {
             res.sendStatus(500);
         } else {
 
-            client.query(`SELECT possible_responses.question_id, question, array_agg(response_text) as responses, catagory.id as kpi_id, kpi FROM questions
+            client.query(`SELECT possible_responses.question_id, question, array_agg(response_text) as responses, category.id as kpi_id, kpi FROM questions
             INNER JOIN possible_responses on questions.id = possible_responses.question_id
-            INNER JOIN catagory on questions.kpi_id = catagory.id
+            INNER JOIN category on questions.kpi_id = category.id
             WHERE kpi = 'conclusion'
-            GROUP BY question, kpi, possible_responses.question_id, catagory.id
+            GROUP BY question, kpi, possible_responses.question_id, category.id
             ORDER BY question_id;`,
                 function (errorMakingDatabaseQuery, result) {
                     done();
