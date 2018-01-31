@@ -11,10 +11,35 @@ router.get('/', function (req, res) {
             res.sendStatus(500);
         } else {
             client.query(`SELECT client.point_of_contact AS client_name, client.organization AS client_organization, client.survey_hash AS survey_url,
-            catagory.kpi AS kpi_name, kpi_id, client_id, selected_kpi.id, notes_added FROM selected_kpi
+            category.kpi AS kpi_name, kpi_id, client_id, selected_kpi.id, notes_added FROM selected_kpi
             JOIN "client" ON client.id = selected_kpi.client_id
-            JOIN "catagory" ON catagory.id = selected_kpi.kpi_id
-            WHERE client_id=$1;`, [clientId], function (errorMakingDatabaseQuery, result) {
+            JOIN "category" ON category.id = selected_kpi.kpi_id
+            WHERE client_id= 1
+            ORDER BY kpi_name;`,  function (errorMakingDatabaseQuery, result) {
+                done();
+                if (errorMakingDatabaseQuery) {
+                    console.log('error', errorMakingDatabaseQuery);
+                    res.sendStatus(500);
+                } else {
+                    res.send(result.rows);
+                }
+            });
+        }
+    });
+});
+
+router.get('/not-selected', function (req, res) {
+    var clientId = req.query.clientId;
+    console.log('clientId:', clientId);
+    pool.connect(function (errorConnectingToDatabase, client, done) {
+        if (errorConnectingToDatabase) {
+            console.log('error', errorConnectingToDatabase);
+            res.sendStatus(500);
+        } else {
+            client.query(`SELECT c.id, kpi 
+            FROM   category c 
+            WHERE  NOT EXISTS (SELECT 1 FROM selected_kpi s
+            WHERE  s.client_id = $1 AND c.id = s.kpi_id);`, [clientId],  function (errorMakingDatabaseQuery, result) {
                 done();
                 if (errorMakingDatabaseQuery) {
                     console.log('error', errorMakingDatabaseQuery);
@@ -35,7 +60,7 @@ router.get('/all', function (req, res) {
             console.log('error', errorConnectingToDatabase);
             res.sendStatus(500);
         } else {
-            client.query(`SELECT * FROM catagory;`, function (errorMakingDatabaseQuery, result) {
+            client.query(`SELECT * FROM category;`, function (errorMakingDatabaseQuery, result) {
                 done();
                 if (errorMakingDatabaseQuery) {
                     console.log('error', errorMakingDatabaseQuery);

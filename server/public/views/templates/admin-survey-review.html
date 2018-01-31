@@ -19,11 +19,11 @@
         </div>
     </div>
     <br>
-    <button ng-hide="addCategory" class="btn btn-outline-danger" ng-click="addCategory = !addCategory">Add Survey Category</button>
+    <button ng-hide="addCategory" class="btn btn-outline-danger" ng-click="asr.getNotSelected(); addCategory = !addCategory">Add Survey Category</button>
     <button ng-show="addCategory" class="btn btn-outline-danger " ng-click="addCategory = !addCategory">Done Adding</button>
     <div ng-show="addCategory">
         <p>Categories To Add: </p>
-        <span ng-repeat="kpi in asr.categories.list" for="categories">
+        <span ng-repeat="kpi in asr.notSelectedArray.list" for="categories">
             <button ng-model="kpi.id" ng-click="asr.addClientCategory(kpi, asr.client.survey[0].client_id)">+ {{kpi.kpi}}</button>
         </span>
     </div>
