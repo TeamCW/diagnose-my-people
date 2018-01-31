@@ -4,8 +4,11 @@ myApp.service('AdminSurveyReviewService', ['$http', '$location', function ($http
     self.client = { survey: {} };
     self.categories = { list: [] };
     // var clientKpi = self.client;
-    // var notSelectedArray = { list:[] };
+    self.notSelectedArray = { list: [] };
+    
+    
 
+  
 
     //GET selected KPI for each client and display them in their own view using $routeparams
     self.getClientSurvey = function (clientId) {
@@ -17,7 +20,7 @@ myApp.service('AdminSurveyReviewService', ['$http', '$location', function ($http
             }
         }).then(function (response) {
             self.client.survey = response.data;
-            console.log(response.data);
+            console.log('client survey response:', self.client.survey);
         });
     };
 
@@ -28,16 +31,26 @@ myApp.service('AdminSurveyReviewService', ['$http', '$location', function ($http
             url: '/admin-survey-review/all',
         }).then(function (response) {
             self.categories.list = response.data;
-            console.log(response.data);
+            console.log('all category response:', self.categories.list);
             // var clientKpi = self.client;
-            console.log('clientKpi', clientKpi);
-            
-            // for (let i = 0; i < response.data.length; i++) {
-                
-                
-            // }
+            // console.log('clientKpi', clientKpi);          
         });
     };
+
+    self.getNotSelected = function (clientId) {
+        $http({
+            method: 'GET',
+            url: '/admin-survey-review/not-selected',
+            params: {
+                clientId: clientId
+            }
+        }).then(function (response) {
+            self.notSelectedArray.list = response.data;
+            console.log('not selected response:', self.notSelectedArray.list);           
+        });
+    };
+
+
 
 
     //edit or add a blurb to selected KPI on client's survey
@@ -96,4 +109,9 @@ myApp.service('AdminSurveyReviewService', ['$http', '$location', function ($http
                 }
             });
     };
+
+
+
+   
 }]);
+

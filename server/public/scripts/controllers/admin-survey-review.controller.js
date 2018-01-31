@@ -9,5 +9,10 @@ myApp.controller('AdminSurveyReviewController', ['AdminSurveyReviewService', '$r
   vm.editBlurb = AdminSurveyReviewService.editBlurb;
   vm.removeCategory = AdminSurveyReviewService.removeCategory;
   vm.addClientCategory = AdminSurveyReviewService.addClientCategory;
+  vm.getNotSelected = AdminSurveyReviewService.getNotSelected($routeParams.clientId);
+  vm.notSelectedArray = AdminSurveyReviewService.notSelectedArray;
     
+
+
+  
   }]);
