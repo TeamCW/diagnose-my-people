@@ -10,7 +10,18 @@ myApp.service('AdminSurveyReviewService', ['$http', '$location', function ($http
 
   
 
-    //GET selected KPI for each client and display them in their own view using $routeparams
+    // console.log(self.categories);
+    
+    // var selectedKpis = [self.client];
+    // console.log(selectedKpis);
+    
+
+    // var arr = [1,2,3,4],
+    // brr = [2,4],
+//     res = self.categories.filter(f => !self.client.includes(f));
+// console.log('leftovers',res);
+
+    //GET selected KPIs for each client and display them in their own view using $routeparams
     self.getClientSurvey = function (clientId) {
         $http({
             method: 'GET',
@@ -77,7 +88,8 @@ myApp.service('AdminSurveyReviewService', ['$http', '$location', function ($http
         $http({
             method: 'POST',
             url: '/admin-survey-review/',
-            data: { newCategory, clientId
+            data: {
+                newCategory, clientId
             }
         }).then(function (response) {
             self.getClientSurvey(clientId);

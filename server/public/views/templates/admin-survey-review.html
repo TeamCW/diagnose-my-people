@@ -3,15 +3,14 @@
         <div class="col-md-4">
             <div class="card" style="height: 10rem;">
                 <div class="card-body">
-                    <h1 class="card-title">Admin Survey Review</h1>
+                    <h2 class="card-title">Custom Survey For {{asr.client.survey[0].client_organization}}</h2>
                 </div>
             </div>
         </div>
         <div class="col-md-8">
             <div class="card" style="height: 10rem;">
                 <div class="card-body">
-                    <h3>{{asr.client.survey[0].client_organization}}</h3>
-                    <h4>{{asr.client.survey[0].client_name}}</h4>
+                    <h4>Point of Contact: {{asr.client.survey[0].client_name}}</h4>
                     <p>
                         <strong>Custom Survey URL: </strong>{{asr.client.survey[0].survey_url}}</p>
                 </div>
