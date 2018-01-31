@@ -152,7 +152,8 @@
 }
 
 .largeText {
-    width: 100px;
+    width: 350px;
+    height: 200px;
     border-radius: 5px;
 }
 
@@ -160,3 +161,10 @@
     font-weight: bold;
     margin-bottom: 2px;
 }
+
+.slider-numbers {
+    margin-right: 50px;
+    margin-left: 50px;
+    font-weight: normal;
+}
+
