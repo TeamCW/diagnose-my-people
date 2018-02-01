@@ -1,19 +1,19 @@
 myApp.controller('UserController', ['UserService', 'AdminService', function(UserService, AdminService) {
     console.log('UserController created');
-    var vm = this;
-    vm.userService = UserService;
-    vm.userObject = UserService.userObject;
-    vm.clientData = AdminService.clientData;
-    vm.getClientInfo = AdminService.getClientInfo;
-    vm.deleteClient = AdminService.deleteClient;
-    vm.clientContacted = AdminService.clientContacted;
-    vm.editClient = AdminService.editClient;
-    vm.clientStatus = AdminService.clientStatus;
+    var self = this;
+    self.userService = UserService;
+    self.userObject = UserService.userObject;
+    self.clientData = AdminService.clientData;
+    self.getClientInfo = AdminService.getClientInfo;
+    self.deleteClient = AdminService.deleteClient;
+    self.clientContacted = AdminService.clientContacted;
+    self.editClient = AdminService.editClient;
+    self.clientStatus = AdminService.clientStatus;
 
 
 
 
-    vm.getClientInfo();
+    self.getClientInfo();
 
 
     
