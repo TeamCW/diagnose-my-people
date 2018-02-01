@@ -116,21 +116,10 @@ ALTER TABLE "selected_kpi" ADD CONSTRAINT "selected_kpi_fk1" FOREIGN KEY ("kpi_i
 
 
 
-
-
-
-INSERT INTO client (point_of_contact, contact_email, organization, contact_number, position, status)
-VALUES ('John Smith', 'JohnSmith@ABCTowing.com', 'ABC Towing', '555-1234', 'President', 'Finished'),
-('Tim Cook', 'Tim@Apple.com', 'Apple', null, 'CEO', default),
-('Mark Zuckerberg', 'Mark@Facebook.com', 'Facebook', null, 'CEO', default),
-('Jeff Bezos', 'Jeff@Amazon.com', 'Amazon', '123-4567', 'CEO', 'In Progress');
-
-
 INSERT INTO category (kpi)
 VALUES ('demographic'),('location'),('amenities'),('brand'),('retention'),('conclusion');
 
-INSERT INTO question_styles (display_style_type)
-VALUES ('multiple_choice'), ('buttons'), ('slider'), ('dropdown'), ('text_input');
+
 
 INSERT INTO response_style (display_style_type)
 VALUES ('bar_chart'), ('pie_chart'), ('wave_chart'), ('vertical_chart'), ('text'), ('line_chart');
