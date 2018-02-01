@@ -47,7 +47,7 @@
                         Review Survey
                     </th>
                     <th>
-                        Custom URL
+                        Survey URL
                     </th>
                     <th>
                         Dashboard
@@ -90,7 +90,7 @@
                         <button class="btn btn-outline-danger" ng-click="uc.editClient(client); edit = false" ng-show="edit;">Submit Changes</button>
                     </td>
                     <td>
-                        <select ng-model="client.status" ng-change="uc.clientContacted(client)">
+                        <select ng-model="client.status" ng-change="uc.editClient(client)">
                             <option ng-repeat="status in uc.clientStatus">{{status}}</option>
                         </select>
                     </td>
@@ -103,7 +103,7 @@
                         {{client.survey_hash}}
                     </td>
                     <td>
-                        <a class="btn btn-outline-danger" ng-href="#/dashboard/">
+                        <a class="btn btn-outline-danger" ng-href="#/dashboard/{{client.id}}">
                             <img class="icon" src="vendors/open-iconic/svg/bar-chart.svg" alt="bar-chart">
                         </a>
                     </td>
@@ -145,7 +145,7 @@
                         <button class="btn btn-outline-danger" ng-click="uc.editClient(client); edit = false" ng-show="edit;">Submit Changes</button>
                     </td>
                     <td>
-                        <select ng-model="client.status" ng-change="uc.clientContacted(client)">
+                        <select ng-model="client.status" ng-change="uc.editClient(client)">
                             <option ng-repeat="status in uc.clientStatus">{{status}}</option>
                         </select>
                     </td>
@@ -158,7 +158,7 @@
                         {{client.survey_hash}}
                     </td>
                     <td>
-                        <a class="btn btn-outline-danger" ng-href="#/dashboard/">
+                        <a class="btn btn-outline-danger" ng-href="#/dashboard/{{client.id}}">
                             <img class="icon" src="vendors/open-iconic/svg/bar-chart.svg" alt="bar-chart">
                         </a>
                     </td>
@@ -200,7 +200,7 @@
                         <button class="btn btn-outline-danger" ng-click="uc.editClient(client); edit = false" ng-show="edit;">Submit Changes</button>
                     </td>
                     <td>
-                        <select ng-model="client.status" ng-change="uc.clientContacted(client)">
+                        <select ng-model="client.status" ng-change="uc.editClient(client)">
                             <option ng-repeat="status in uc.clientStatus">{{status}}</option>
                         </select>
                     </td>
@@ -213,7 +213,7 @@
                         {{client.survey_hash}}
                     </td>
                     <td>
-                        <a class="btn btn-outline-danger" ng-href="#/dashboard/">
+                        <a class="btn btn-outline-danger" ng-href="#/dashboard/{{client.id}}">
                             <img class="icon" src="vendors/open-iconic/svg/bar-chart.svg" alt="bar-chart">
                         </a>
                     </td>
@@ -255,7 +255,7 @@
                         <button class="btn btn-outline-danger" ng-click="uc.editClient(client); edit = false" ng-show="edit;">Submit Changes</button>
                     </td>
                     <td>
-                        <select ng-model="client.status" ng-change="uc.clientContacted(client)">
+                        <select ng-model="client.status" ng-change="uc.editClient(client)">
                             <option ng-repeat="status in uc.clientStatus">{{status}}</option>
                         </select>
                     </td>
@@ -268,7 +268,7 @@
                         {{client.survey_hash}}
                     </td>
                     <td>
-                        <a class="btn btn-outline-danger" ng-href="#/dashboard/">
+                        <a class="btn btn-outline-danger" ng-href="#/dashboard/{{client.id}}">
                             <img class="icon" src="vendors/open-iconic/svg/bar-chart.svg" alt="bar-chart">
                         </a>
                     </td>
