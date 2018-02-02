@@ -33,9 +33,8 @@
 .heading {
     color: white;
     /* background-color: rgba(0, 0, 0, 0.452);     */
-    border-radius: 6px;
-    padding: 10px;
-
+    margin-top: 130px;
+    font-family: 'Arial';
 }
 
 .box {
@@ -184,4 +183,11 @@
 .no_underline:hover {
     text-decoration: none;
     color: #6b6d6d;
+}
+
+.jumbotron {
+    background-image: url('/images/people-overlay.png');
+    background-size: 1200px;
+    height: 280px;
+    color: white;
 }
