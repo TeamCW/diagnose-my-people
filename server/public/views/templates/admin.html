@@ -32,9 +32,6 @@
                         Organization
                     </th>
                     <th>
-                        Position
-                    </th>
-                    <th>
                         Email
                     </th>
                     <th>
@@ -50,7 +47,7 @@
                         Review Survey
                     </th>
                     <th>
-                        Custom URL
+                        Survey URL
                     </th>
                     <th>
                         Dashboard
@@ -75,12 +72,6 @@
                         <input type="text" ng-model="client.organization" placeholder="{{client.organization}}">
                     </td>
                     <td ng-hide="edit">
-                        {{client.position}}
-                    </td>
-                    <td ng-show="edit">
-                        <input type="text" ng-model="client.position" placeholder="{{client.position}}">
-                    </td>
-                    <td ng-hide="edit">
                         {{client.contact_email}}
                     </td>
                     <td ng-show="edit">
@@ -99,7 +90,7 @@
                         <button class="btn btn-outline-danger" ng-click="uc.editClient(client); edit = false" ng-show="edit;">Submit Changes</button>
                     </td>
                     <td>
-                        <select ng-model="client.status" ng-change="uc.clientContacted(client)">
+                        <select ng-model="client.status" ng-change="uc.editClient(client)">
                             <option ng-repeat="status in uc.clientStatus">{{status}}</option>
                         </select>
                     </td>
@@ -112,7 +103,7 @@
                         {{client.survey_hash}}
                     </td>
                     <td>
-                        <a class="btn btn-outline-danger" ng-href="#/dashboard/">
+                        <a class="btn btn-outline-danger" ng-href="#/dashboard/{{client.id}}">
                             <img class="icon" src="vendors/open-iconic/svg/bar-chart.svg" alt="bar-chart">
                         </a>
                     </td>
@@ -136,12 +127,6 @@
                         <input type="text" ng-model="client.organization" placeholder="{{client.organization}}">
                     </td>
                     <td ng-hide="edit">
-                        {{client.position}}
-                    </td>
-                    <td ng-show="edit">
-                        <input type="text" ng-model="client.position" placeholder="{{client.position}}">
-                    </td>
-                    <td ng-hide="edit">
                         {{client.contact_email}}
                     </td>
                     <td ng-show="edit">
@@ -160,7 +145,7 @@
                         <button class="btn btn-outline-danger" ng-click="uc.editClient(client); edit = false" ng-show="edit;">Submit Changes</button>
                     </td>
                     <td>
-                        <select ng-model="client.status" ng-change="uc.clientContacted(client)">
+                        <select ng-model="client.status" ng-change="uc.editClient(client)">
                             <option ng-repeat="status in uc.clientStatus">{{status}}</option>
                         </select>
                     </td>
@@ -173,7 +158,7 @@
                         {{client.survey_hash}}
                     </td>
                     <td>
-                        <a class="btn btn-outline-danger" ng-href="#/dashboard/">
+                        <a class="btn btn-outline-danger" ng-href="#/dashboard/{{client.id}}">
                             <img class="icon" src="vendors/open-iconic/svg/bar-chart.svg" alt="bar-chart">
                         </a>
                     </td>
@@ -197,12 +182,6 @@
                         <input type="text" ng-model="client.organization" placeholder="{{client.organization}}">
                     </td>
                     <td ng-hide="edit">
-                        {{client.position}}
-                    </td>
-                    <td ng-show="edit">
-                        <input type="text" ng-model="client.position" placeholder="{{client.position}}">
-                    </td>
-                    <td ng-hide="edit">
                         {{client.contact_email}}
                     </td>
                     <td ng-show="edit">
@@ -221,7 +200,7 @@
                         <button class="btn btn-outline-danger" ng-click="uc.editClient(client); edit = false" ng-show="edit;">Submit Changes</button>
                     </td>
                     <td>
-                        <select ng-model="client.status" ng-change="uc.clientContacted(client)">
+                        <select ng-model="client.status" ng-change="uc.editClient(client)">
                             <option ng-repeat="status in uc.clientStatus">{{status}}</option>
                         </select>
                     </td>
@@ -234,7 +213,7 @@
                         {{client.survey_hash}}
                     </td>
                     <td>
-                        <a class="btn btn-outline-danger" ng-href="#/dashboard/">
+                        <a class="btn btn-outline-danger" ng-href="#/dashboard/{{client.id}}">
                             <img class="icon" src="vendors/open-iconic/svg/bar-chart.svg" alt="bar-chart">
                         </a>
                     </td>
@@ -258,12 +237,6 @@
                         <input type="text" ng-model="client.organization" placeholder="{{client.organization}}">
                     </td>
                     <td ng-hide="edit">
-                        {{client.position}}
-                    </td>
-                    <td ng-show="edit">
-                        <input type="text" ng-model="client.position" placeholder="{{client.position}}">
-                    </td>
-                    <td ng-hide="edit">
                         {{client.contact_email}}
                     </td>
                     <td ng-show="edit">
@@ -282,7 +255,7 @@
                         <button class="btn btn-outline-danger" ng-click="uc.editClient(client); edit = false" ng-show="edit;">Submit Changes</button>
                     </td>
                     <td>
-                        <select ng-model="client.status" ng-change="uc.clientContacted(client)">
+                        <select ng-model="client.status" ng-change="uc.editClient(client)">
                             <option ng-repeat="status in uc.clientStatus">{{status}}</option>
                         </select>
                     </td>
@@ -295,7 +268,7 @@
                         {{client.survey_hash}}
                     </td>
                     <td>
-                        <a class="btn btn-outline-danger" ng-href="#/dashboard/">
+                        <a class="btn btn-outline-danger" ng-href="#/dashboard/{{client.id}}">
                             <img class="icon" src="vendors/open-iconic/svg/bar-chart.svg" alt="bar-chart">
                         </a>
                     </td>

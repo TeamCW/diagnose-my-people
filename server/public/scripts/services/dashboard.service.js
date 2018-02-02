@@ -1,10 +1,10 @@
 myApp.service('DashboardService', function ($http, $location) {
     console.log('DashboardService Loaded');
-    var vm = this;
-    vm.responseData = { list: [] };
-    
+    var self = this;
+    self.responseData = { list: [] };
+    self.clientData = { list: [] };
 
-    vm.getAgeGroups = function () {
+    self.getAgeGroups = function () {
         $http({
             method: 'GET',
             url: '/dashboard',
@@ -16,7 +16,18 @@ myApp.service('DashboardService', function ($http, $location) {
     }//end getAgeGroups
 
 
-
+    self.getClientSurvey = function (clientId) {
+        $http({
+            method: 'GET',
+            url: '/dashboard',
+            params: {
+                clientId: clientId
+            }
+        }).then(function (response) {
+            self.clientData.list = response.data;
+            console.log('client dashboard response:', self.clientData.list);
+        });
+    };
 
      
 
