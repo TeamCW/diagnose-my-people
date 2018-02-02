@@ -12,16 +12,19 @@
             <div class="card admin-review-cards" style="height: 10rem;">
                 <div class="card-body">
                     <h4>Point of Contact: {{asr.client.survey[0].client_name}}</h4>
-                    <p>
-                        <strong>Custom Survey URL: </strong>{{asr.client.survey[0].survey_url}}</p>
+                    <span><strong>Phone: </strong>{{asr.client.survey[0].client_number}}</span>
+                    <div><strong>Email: </strong>{{asr.client.survey[0].client_email}}</div>
+                    <div>
+                        <strong>Survey URL: </strong>{{asr.client.survey[0].survey_url}}</div>
                 </div>
             </div>
         </div>
     </div>
     <br>
     <button ng-hide="addCategory" class="btn btn-outline-danger" ng-click="asr.getNotSelected(); addCategory = !addCategory">Add Survey Category</button>
-    <button ng-show="addCategory" class="btn btn-danger " ng-click="addCategory = !addCategory">Done Adding</button>
+    <button ng-show="addCategory" class="btn btn-outline-danger " ng-click="addCategory = !addCategory">Done Adding</button>
     <div ng-show="addCategory">
+        <br>
         <span>Categories To Add: </span>
         <span ng-repeat="kpi in asr.notSelectedArray.list" for="categories">
             <button class="btn btn-danger btn-sm"ng-model="kpi.id" ng-click="asr.addClientCategory(kpi, asr.client.survey[0].client_id)">+ {{kpi.kpi}}</button>
@@ -61,7 +64,7 @@
         </table>
     </div>
     <span>
-        <a ng-href="#/user">
+        <a ng-href="#/user" class="no_underline">
             <img class="icon" src="vendors/open-iconic/svg/arrow-thick-left.svg"> Back to Admin
         </a>
     </span>

@@ -58,9 +58,13 @@
 }
 
 .landing {
-    background-image: url('/images/red-city.jpg');
-    height: 500px;
-    padding: 10px;
+    background: linear-gradient(#e4002b, black);
+    background-repeat: repeat;
+    /* background-image: url('/images/people.png'); */
+    /* background-size: 1100px; */
+    background-attachment: fixed;
+    background-size: auto;
+    padding: 29px;
     color: #6b6d6d;
 }
 
@@ -169,6 +173,15 @@
 }
 
 .admin-review-cards {
-    background-color: #e4002b;
-    color: white;
+    color: #6b6d6d;
+}
+
+.no_underline {
+    text-decoration: none;
+    color: black;
+}
+
+.no_underline:hover {
+    text-decoration: none;
+    color: #6b6d6d;
 }
