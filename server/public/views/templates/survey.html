@@ -7,7 +7,7 @@
       <!--- tabs -->
       <ul class="nav nav-tabs">
         <li class="active survey-tabs">
-          <a href="#survey">Demographics</a>
+          <a href="#survey">My People</a>
         </li>
         <li class="survey-tabs">
           <a href="#location">Location</a>
@@ -30,7 +30,6 @@
       </ul>
       <!--- question block -->
       <div class="well well-md">
-        <h1 class="tab-title">Demographics</h1>
         <br>
         <div>
           <div ng-repeat="question in sc.demographics.list | limitTo:sc.demographicLimit">
@@ -39,12 +38,15 @@
               <select ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
                 <option ng-repeat="response in question.responses" ng-value="response">{{response.response_text}}</option>
               </select>
+              <br>
+              <br>
             </p>
           </div>
         </div>
+        <br>
         <a href="#location">
-          <button type="button" class="btn btn-default">
-            <span class="glyphicon glyphicon-arrow-right"></span> Next
+          <button type="button" class="btn btn-danger">
+            <span></span> Next
           </button>
         </a>
       </div>
