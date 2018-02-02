@@ -67,6 +67,10 @@ myApp.config(function($routeProvider, $locationProvider) {
       templateUrl: '/views/templates/conclusion.html',
       controller: 'SurveyController as sc'
     })
+    .when('/surveyFinished', {
+      templateUrl: '/views/templates/surveyFinished.html',
+      controller: 'SurveyController as sc'
+    })
     .when('/admin-survey-review/:clientId', {
       templateUrl: '/views/templates/admin-survey-review.html',
       controller: 'AdminSurveyReviewController as asr',

@@ -4,11 +4,11 @@ myApp.controller('SurveyController', function (SurveyService) {
 
   //setting the limit for displayed objects on the corresponding survey views
   vm.demographicLimit = 4;
-  vm.locationLimit = 4;
-  vm.amenitiesLimit = 4;
-  vm.brandLimit = 6;
-  vm.retentionLimit = 4;
-  vm.conclusionLimit = 3;
+  vm.locationLimit = 5;
+  vm.amenitiesLimit = 10;
+  vm.brandLimit = 8;
+  vm.retentionLimit = 10;
+  vm.conclusionLimit = 7;
 
 
 

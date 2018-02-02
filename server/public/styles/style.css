@@ -127,12 +127,13 @@
   }
 
   .well-md {
-    background-color: white;
+    background-color: rgb(236, 232, 232);
     text-align: center;
     margin-left: 200px;
     margin-bottom: 60px;
     border-radius: 5px;
     padding-bottom: 60px;
+    opacity: none;
 }
 
 .survey-background {
@@ -159,7 +160,30 @@
     width: 500px;
 }
 
+.slider.ret2{
+    width: 500px;
+}
+
+.slider.ret3 {
+    width: 500px;
+}
+
 .slider-values {
+    margin-right: 20px;
+    margin-left: 20px;
+    font-weight: normal;
+    padding: 5px;
+    border-top: 20px;
+    border-bottom: 20px;
+}
+
+.slider-values.ret2{
+    margin-right: 20px;
+    margin-left: 20px;
+    font-weight: normal;
+}
+
+.slider-values.ret3 {
     margin-right: 20px;
     margin-left: 20px;
     font-weight: normal;
@@ -178,7 +202,7 @@
 
 .survey-questions {
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 60px;
 }
 
 /* End survey styling ^ */
