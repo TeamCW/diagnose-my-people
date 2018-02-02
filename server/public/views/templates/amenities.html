@@ -7,65 +7,133 @@
             <!--- tabs -->
             <ul class="nav nav-tabs" id="survey-background">
                 <li class="survey-tabs">
-                    <a href="#survey">Demographics</a>
+                    <a href="#survey">My People</a>
                 </li>
                 <li class="survey-tabs">
-                    <a href="#location">Location</a>
+                    <a href="#location">My Workplace</a>
                 </li>
                 <li class="active survey-tabs">
-                    <a href="#amenities">Amenities</a>
+                    <a href="#amenities">My Amenities</a>
                 </li>
                 <li class="survey-tabs">
-                    <a href="#brand">Brand</a>
+                    <a href="#brand">My Company</a>
                 </li>
                 <li class="survey-tabs">
-                    <a href="#retention">Retention</a>
+                    <a href="#retention">My Worklife</a>
                 </li>
                 <li class="survey-tabs">
-                    <a href="#conclusion">Conclusion</a>
+                    <a href="#conclusion">My Satisfaction</a>
                 </li>
             </ul>
             <!--- question block -->
             <div class="well well-md">
-                <h1 class="tab-title">Amenities</h1>
                 <br>
-                <div>
-                    <div ng-repeat="question in sc.amenities.list | limitTo:sc.amenitiesLimit">
-                        <div class="survey-questions">{{question.question}}
+                <div ng-repeat="question in sc.amenities.list | limitTo:sc.amenitiesLimit">
+                    <div class="survey-questions">{{question.question}}
+                        <br>
+                        <br>
+                        <div class="slidecontainer" ng-show="question.question_id === 10">
+                            <input type="range" min="1" max="5" value="3" class="slider" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
+                        </div>
+                        <span ng-show="question.question_id === 10" ng-repeat="response in question.responses | orderBy:'id'">
+                            <span class="slider-numbers">{{response.response_text}}</span>
+                        </span>
+                        <br>
+                        <div class="slidecontainer" ng-show="question.question_id === 11">
+                            <input type="range" min="1" max="5" value="3" class="slider" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
+                        </div>
+                        <span ng-show="question.question_id === 11" ng-repeat="response in question.responses | orderBy:'id'">
+                            <span class="slider-numbers">{{response.response_text}}</span>
+                        </span>
+                        <br>
+                    </div>
+                </div>
+                <br>
+                <div ng-show="question.question_id === 12"></div>
+                <div ng-repeat="question in sc.amenities.list | limitTo:sc.amenitiesLimit" ng-show="question.question_id === 13">
+                    <div class="survey-questions">{{question.question}}
+                        <div class="dropdown">
+                            <select ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
+                                <option ng-repeat="response in question.responses" ng-value="response">{{response.response_text}}</option>
+                            </select>
                             <br>
-                            <div ng-show="question.question_id === 9" class="btn-group" data-toggle="buttons">
-                                <label class="btn btn-default" ng-repeat="response in question.responses"> {{response.response_text}}
-                                    <input type="radio" ng-model="question.selectedResponse" ng-value="response" ng-click="sc.saveResponses(question)">
-                                </label>
-                            </div>
-                            <br>
-                            <div class="slidecontainer" ng-show="question.question_id === 10">
-                                <input type="range" min="1" max="5" value="3" class="slider" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
-                            </div>
-                            <span ng-show="question.question_id === 10" ng-repeat="response in question.responses | orderBy:'id'">
-                                <span class="slider-numbers">{{response.response_text}}</span>
-                            </span>
-                            <br>
-                            <div ng-show="question.question_id === 11" class="btn-group" data-toggle="buttons">
-                                <label class="btn btn-default" ng-repeat="response in question.responses"> {{response.response_text}}
-                                    <input type="radio" ng-model="question.selectedResponse" ng-value="response" ng-click="sc.saveResponses(question)">
-                                </label>
-                            </div>
-                            <div ng-show="question.question_id === 12" class="form-group" data-toggle="buttons">
-                                <label class="btn btn-default" ng-repeat="response in question.responses" style="width: 200px"> {{response.response_text}}
-                                    <input type="radio" ng-model="question.selectedResponse" ng-value="response" ng-click="sc.saveResponses(question)">
-                                </label>
-                            </div>
                             <br>
                         </div>
                     </div>
-                    <br>
-                    <a href="#brand">
-                        <button type="button" class="btn btn-default">
-                            <span class="glyphicon glyphicon-arrow-right"></span> Next
-                        </button>
-                    </a>
                 </div>
+                <div ng-repeat="question in sc.amenities.list | limitTo:sc.amenitiesLimit" ng-show="question.question_id === 14">
+                    <div class="survey-questions">{{question.question}}
+                        <div class="dropdown" ng-show="question.question_id === 14">
+                            <select ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
+                                <option ng-repeat="response in question.responses" ng-value="response">{{response.response_text}}</option>
+                            </select>
+                            <br>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <div ng-repeat="question in sc.amenities.list | limitTo:sc.amenitiesLimit" ng-show="question.question_id === 15">
+                    <div class="survey-questions">{{question.question}}
+                        <div class="dropdown" ng-show="question.question_id === 15">
+                            <select ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
+                                <option ng-repeat="response in question.responses" ng-value="response">{{response.response_text}}</option>
+                            </select>
+                            <br>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <div ng-repeat="question in sc.amenities.list | limitTo:sc.amenitiesLimit" ng-show="question.question_id === 16">
+                    <div class="survey-questions">{{question.question}}
+                        <div class="dropdown" ng-show="question.question_id === 16">
+                            <select ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
+                                <option ng-repeat="response in question.responses" ng-value="response">{{response.response_text}}</option>
+                            </select>
+                            <br>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <div ng-repeat="question in sc.amenities.list | limitTo:sc.amenitiesLimit" ng-show="question.question_id === 17">
+                    <div class="survey-questions">{{question.question}}
+                        <div class="dropdown" ng-show="question.question_id === 17">
+                            <select ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
+                                <option ng-repeat="response in question.responses" ng-value="response">{{response.response_text}}</option>
+                            </select>
+                            <br>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <div ng-repeat="question in sc.amenities.list | limitTo:sc.amenitiesLimit" ng-show="question.question_id === 18">
+                    <div class="survey-questions">{{question.question}}
+                        <div class="dropdown" ng-show="question.question_id === 18">
+                            <select ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
+                                <option ng-repeat="response in question.responses" ng-value="response">{{response.response_text}}</option>
+                            </select>
+                            <br>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <div ng-repeat="question in sc.amenities.list | limitTo:sc.amenitiesLimit" ng-show="question.question_id === 19">
+                    <div class="survey-questions">{{question.question}}
+                        <div class="dropdown" ng-show="question.question_id === 19">
+                            <select ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
+                                <option ng-repeat="response in question.responses" ng-value="response">{{response.response_text}}</option>
+                            </select>
+                            <br>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <a href="#brand">
+                    <button type="button" class="btn btn-danger">
+                        <span></span> Next
+                    </button>
+                </a>
             </div>
         </div>
     </div>
