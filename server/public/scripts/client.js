@@ -1,14 +1,14 @@
-var myApp = angular.module('myApp', ['ngRoute','chart.js']);
+var myApp = angular.module('myApp', ['ngRoute', 'chart.js']);
 
 /// Routes ///
-myApp.config(function($routeProvider, $locationProvider) {
+myApp.config(function ($routeProvider, $locationProvider) {
   $locationProvider.hashPrefix('');
   console.log('myApp -- config')
   $routeProvider
-  .when('/home', {
-    templateUrl: '/views/templates/home.html',
-    controller: 'LoginController as lc',
-  })
+    .when('/home', {
+      templateUrl: '/views/templates/home.html',
+      controller: 'LoginController as lc',
+    })
     .when('/login', {
       templateUrl: '/views/templates/login.html',
       controller: 'LoginController as lc',
@@ -21,7 +21,7 @@ myApp.config(function($routeProvider, $locationProvider) {
       templateUrl: '/views/templates/admin.html',
       controller: 'UserController as uc',
       resolve: {
-        getuser : function(UserService){
+        getuser: function (UserService) {
           return UserService.getuser();
         }
       }
@@ -71,7 +71,7 @@ myApp.config(function($routeProvider, $locationProvider) {
       templateUrl: '/views/templates/admin-survey-review.html',
       controller: 'AdminSurveyReviewController as asr',
       resolve: {
-        getuser : function(UserService){
+        getuser: function (UserService) {
           return UserService.getuser();
         }
       }
@@ -79,13 +79,18 @@ myApp.config(function($routeProvider, $locationProvider) {
     // End survey views
     .when('/dashboard', {
       templateUrl: '/views/templates/dashboard.html',
-      controller: 'DashboardController as dc'
+      controller: 'DashboardController as dc',
+      resolve: {
+        getuser: function (UserService) {
+          return UserService.getuser();
+        }
+      }
     })
     .when('/info', {
       templateUrl: '/views/templates/info.html',
       controller: 'InfoController',
       resolve: {
-        getuser : function(UserService){
+        getuser: function (UserService) {
           return UserService.getuser();
         }
       }
