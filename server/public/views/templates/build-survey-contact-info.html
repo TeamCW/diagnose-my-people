@@ -1,23 +1,37 @@
 <div class="container">
-        <span class="glyphicon glyphicon-search"></span>
+    <span class="glyphicon glyphicon-search"></span>
     <h1>One Last Step...</h1>
-    <p>Fill out your contact information below so we can connect you with one of our Cushman & Wakefield Specialists to help you with the next steps for implementing your survey.</p>
+    <p>Fill out your contact information below to connect you with one of our Cushman & Wakefield specialists to present you the results of the survey.</p>
     <div>
+        <hr>
+        <label for="">Logo Preview:</label>
+        <div style="height: 125px; width: 125px" class="row text-center">
+            <div ng-if="bc.contactInformation.logoURL.length>1">
+                <img style="max-height: 100px;" ng-src={{bc.contactInformation.logoURL}} class="img-fluid center-block" alt="logo">
+            </div>
+        </div>
+        <button ng-click="bc.openPicker()" class="btn btn-outline-danger">Upload Organization Logo</button>
+        <hr>
+
+
+        
+        <br>
         <label for="name">Name:</label>
         <input type="text" name="name" id="name" class="form-control" ng-model="bc.contactInformation.point_of_contact">
-        <label for="position">Position:</label>
+        <label for="position">Position: (OPTIONAL)</label>
         <input type="text" name="position" id="position" class="form-control" ng-model="bc.contactInformation.position">
         <label for="organization">Organization:</label>
         <input type="text" name="organization" id="organzation" class="form-control" ng-model="bc.contactInformation.organization">
         <label for="email">Email:</label>
         <input type="email" name="email" id="email" class="form-control" ng-model="bc.contactInformation.contact_email">
-        <label for="phone">Contact Phone Number:</label>
+        <label for="phone">Contact Phone Number: (OPTIONAL)</label>
         <input type="tel" name="phone" id="phone" class="form-control" ng-model="bc.contactInformation.contact_number">
-        <label for="comments">Comments:</label>
+        <label for="comments">Comments: (OPTIONAL)</label>
         <textarea name="comments" id="comments" cols="30" rows="10" class="form-control" ng-model="bc.contactInformation.comments"></textarea>
-        <button ng-click="bc.postNewSurveyAndClient(bc.kpisAdded,bc.contactInformation)">Submit</button>
+        <br>
+        <button ng-click="bc.postNewSurveyAndClient(bc.kpisAdded,bc.contactInformation)" class="btn btn-outline-danger">Submit</button>
 
-    <div>
+        <div>
 
 
-</div>
+        </div>
