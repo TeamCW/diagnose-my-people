@@ -141,7 +141,7 @@ INSERT INTO category (kpi)
 VALUES ('demographic'),('location'),('amenities'),('brand'),('retention'),('conclusion');
 
 INSERT INTO question_styles (display_style_type)
-VALUES ('multiple_choice'), ('buttons'), ('slider'), ('dropdown'), ('text_input');
+VALUES ('dropdown'), ('slider'), ('text_input'), ('blank');
 
 INSERT INTO response_style (display_style_type)
 VALUES ('bar_chart'), ('pie_chart'), ('wave_chart'), ('vertical_chart'), ('text'), ('line_chart');
