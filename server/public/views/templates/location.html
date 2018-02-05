@@ -50,13 +50,21 @@
             </div>
           </div> -->
           <!-- ng-if question.style === "dropdown" -->
-          <div class="dropdown" ng-switch-when="dropdown">
+          <div class="dropdown" ng-switch-when="dropdown" ng-show="question.question_id === 5">
             <select ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
               <option ng-repeat="response in question.responses" ng-value="response">{{response.response_text}}</option>
             </select>
-            <br>
-            <br>
           </div>
+          <div class="dropdown" ng-switch-when="dropdown" ng-show="question.question_id === 6">
+              <select ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
+                <option ng-repeat="response in question.responses" ng-value="response">{{response.response_text}}</option>
+              </select>
+            </div>
+            <div class="dropdown" ng-switch-when="dropdown" ng-show="question.question_id === 7">
+                <select ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
+                  <option ng-repeat="response in question.responses" ng-value="response">{{response.response_text}}</option>
+                </select>
+              </div>
           <div ng-switch-when="slider">
         <div ng-repeat="question in sc.location.list" class="slidecontainer" ng-show="question.question_id === 8">
           <input type="range" min="1" max="5" value="3" class="slider" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
