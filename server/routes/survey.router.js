@@ -11,7 +11,7 @@ router.get('/', function (req, res) {
             res.sendStatus(500);
         } else {
 
-            client.query(`SELECT possible_responses.question_id, question, array_agg(response_text) as responses, array_agg(possible_responses.id) as response_ids, category.id as kpi_id, kpi FROM questions
+            client.query(`SELECT possible_responses.question_id, question,array_agg(display_style_type) as display_types ,array_agg(response_text) as responses, array_agg(possible_responses.id) as response_ids, category.id as kpi_id, kpi FROM questions
             INNER JOIN possible_responses on questions.id = possible_responses.question_id
             INNER JOIN category on questions.kpi_id = category.id
             WHERE kpi = 'demographic'

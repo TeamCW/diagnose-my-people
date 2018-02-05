@@ -122,12 +122,12 @@
     padding-left: 5px;
     /* margin-left: 200px; */
     border-color: rgb(221, 217, 217);
-    background-color:white;
+    background-color:rgb(247, 242, 242);
     color: black;
   }
 
   .well-md {
-    background-color: rgb(236, 232, 232);
+    background-color: rgb(247, 242, 242);
     text-align: center;
     margin-left: 200px;
     margin-bottom: 60px;
@@ -205,4 +205,11 @@
     margin-bottom: 60px;
 }
 
+.slidebox {
+    margin-bottom: 30px;
+}
+
+#slidebox-brandQ1 {
+    border-top: 40px;
+}
 /* End survey styling ^ */
