@@ -97,7 +97,7 @@ CREATE TABLE "client" (
 	"organization" varchar,
 	"survey_hash" varchar NOT NULL UNIQUE,
 	"contact_number" varchar,
-	"status" varchar NOT NULL DEFAULT 'newClient',
+	"status" varchar NOT NULL DEFAULT 'New Client',
 	"comments" varchar,
 	"logo_url" varchar,
 	CONSTRAINT client_pk PRIMARY KEY ("id")
@@ -123,13 +123,6 @@ ALTER TABLE "employee_results" ADD CONSTRAINT "employee_results_fk2" FOREIGN KEY
 
 ALTER TABLE "selected_kpi" ADD CONSTRAINT "selected_kpi_fk0" FOREIGN KEY ("client_id") REFERENCES "client"("id") ON DELETE CASCADE;
 ALTER TABLE "selected_kpi" ADD CONSTRAINT "selected_kpi_fk1" FOREIGN KEY ("kpi_id") REFERENCES "category"("id");
-
-
-
-
-
-
-
 
 
 
