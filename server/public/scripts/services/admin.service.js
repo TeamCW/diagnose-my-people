@@ -41,5 +41,7 @@ myApp.service('AdminService', function ($http, $location) {
         })
     }; //end editClient
 
+  
+
 
 }); //end service    
