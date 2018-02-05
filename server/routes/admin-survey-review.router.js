@@ -11,7 +11,7 @@ router.get('/', function (req, res) {
                 console.log('error', errorConnectingToDatabase);
                 res.sendStatus(500);
             } else {
-                client.query(`SELECT client.point_of_contact AS client_name, client.organization AS client_organization, client.survey_hash AS survey_url,
+                client.query(`SELECT client.point_of_contact AS client_name, client.organization AS client_organization, client.contact_email AS client_email, client.contact_number AS client_number, client.survey_hash AS survey_url,
             category.kpi AS kpi_name, kpi_id, client_id, selected_kpi.id, notes_added FROM selected_kpi
             JOIN "client" ON client.id = selected_kpi.client_id
             JOIN "category" ON category.id = selected_kpi.kpi_id
