@@ -3,7 +3,13 @@ myApp.controller('DashboardController', ['DashboardService', 'AdminService', '$h
     var vm = this;
     vm.dashboardService = DashboardService;
     vm.responseData = { list: [] };
-    
+    vm.clientDemoData = DashboardService.clientDemoData;
+    vm.clientLocalData = DashboardService.clientLocalData;
+    vm.clientBrandData = DashboardService.clientBrandData;
+    vm.clientAmenData = DashboardService.clientAmenData;
+    vm.clientRetRecData = DashboardService.clientRetRecData;
+    vm.clientConclusionData = DashboardService.clientConclusionData;
+
     DashboardService.getClientResponses($routeParams.clientId);
 
 
@@ -279,31 +285,31 @@ myApp.controller('DashboardController', ['DashboardService', 'AdminService', '$h
         }
     });
 
-    vm.getAgeGroups = function () {
-        $http({
-            method: 'GET',
-            url: '/dashboard',
-        }).then(function (response) {
-            responseData = response.data;
-            console.log('response info:', responseData)
-            vm.updateChart(responseData);
-        });
-    }//end getAgeGroups
+    // vm.getAgeGroups = function () {
+    //     $http({
+    //         method: 'GET',
+    //         url: '/dashboard',
+    //     }).then(function (response) {
+    //         responseData = response.data;
+    //         console.log('response info:', responseData)
+    //         vm.updateChart(responseData);
+    //     });
+    // }//end getAgeGroups
 
 
 
-    vm.updateChart = function (responseData) {
-        for (var i = 0; i < responseData.length; i++) {
-            vm.barChart.config.data.labels.push(responseData[i].response_text);
-            vm.barChart.data.datasets[0].data.push(responseData[i].count);
-        }
-        console.log('labels:', vm.barChart.config.data.labels);
-        console.log('data:', vm.barChart.data.datasets[0].data);
-        vm.barChart.update();
-    };
+    // vm.updateChart = function (responseData) {
+    //     for (var i = 0; i < responseData.length; i++) {
+    //         vm.barChart.config.data.labels.push(responseData[i].response_text);
+    //         vm.barChart.data.datasets[0].data.push(responseData[i].count);
+    //     }
+    //     console.log('labels:', vm.barChart.config.data.labels);
+    //     console.log('data:', vm.barChart.data.datasets[0].data);
+    //     vm.barChart.update();
+    // };
 
 
-    vm.getAgeGroups();
+    // vm.getAgeGroups();
 
 
 }]);//end controller
