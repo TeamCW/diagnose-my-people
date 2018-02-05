@@ -19,16 +19,19 @@ router.post('/clientinfo', function (req, res) {
                 contact_email, 
                 organization, 
                 contact_number, 
-                position,
-                survey_hash
+                survey_hash,
+                comments,
+                logo_url
             )
-            VALUES ($1, $2, $3, $4, $5, $6);`, [
+            VALUES ($1, $2, $3, $4, $5, $6,$7);`, [
                 req.body.point_of_contact,
                 req.body.contact_email,
                 req.body.organization,
                 req.body.contact_number,
-                req.body.position,
-                req.body.survey_hash
+                req.body.survey_hash,
+                req.body.comments,
+                req.body.logoURL
+
             ], 
             function (errorMakingQuery, result) {
                 done();
