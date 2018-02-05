@@ -2,20 +2,6 @@ var express = require('express');
 var router = express.Router();
 var pool = require('../modules/pool.js');
 
-// CREATE TABLE "client" (
-// 	"id" serial NOT NULL,
-// 	"point_of_contact" varchar NOT NULL,
-// 	"contact_email" varchar NOT NULL,
-// 	"organization" varchar,
-// 	"survey_hash" varchar UNIQUE,
-// 	"contact_number" varchar,
-// 	"position" varchar,
-// 	"status" varchar NOT NULL DEFAULT 'New Client',
-// 	CONSTRAINT client_pk PRIMARY KEY ("id")
-// ) WITH (
-//   OIDS=FALSE
-// );
-
 
 router.post('/clientinfo', function (req, res) {
     // Attempt to connect to database

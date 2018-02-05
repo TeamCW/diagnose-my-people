@@ -1,4 +1,4 @@
-myApp.controller('BuildSurveyContactInfoController',[ '$routeParams', 'BuildSurveyContactInfoService',  function ($routeParams, BuildSurveyContactInfoService) {
+myApp.controller('BuildSurveyContactInfoController', ['$routeParams', 'BuildSurveyContactInfoService', '$scope', function ($routeParams, BuildSurveyContactInfoService,$scope) {
     console.log('BuildSurveyController created');
     console.log($routeParams)
     var self = this;
@@ -20,8 +20,33 @@ myApp.controller('BuildSurveyContactInfoController',[ '$routeParams', 'BuildSurv
     self.kpisAdded.spaceLayoutAdded = JSON.parse($routeParams.spaceLayoutAdded);
 
     self.contactInformation = BuildSurveyContactInfoService.contactInformation;
-    
+
     self.postNewSurveyAndClient = BuildSurveyContactInfoService.postNewSurveyAndClient;
+
+
+    self.openPicker = function () {
+
+        console.log('in openPicker()')
+        //fileStack API Key is ARZfGPoJpQYKvfeabBd4Bz
+        var fsClient = filestack.init('ARZfGPoJpQYKvfeabBd4Bz');
+        fsClient.pick({
+            fromSources: ["local_file_system", "url", "imagesearch", "googledrive", "dropbox", "onedrive", "clouddrive"],
+            accept: ["image/*"],
+            transformations: {
+                crop: { force: true }
+            }
+        }).then(function (response) {
+            // declare this function to handle response
+            console.log(response)
+            self.contactInformation.logoURL = response.filesUploaded[0].url
+            console.log(self.contactInformation.logoURL)
+            $scope.$apply()
+        });
+
+    }
+
+
+
 
     console.log(self.kpisAdded)
 
