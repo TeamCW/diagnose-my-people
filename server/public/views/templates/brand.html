@@ -36,7 +36,7 @@
                                 <div class="slidecontainer" ng-show="question.question_id === 20">
                                     <input type="range" min="1" max="5" value="3" class="slider" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
                                 </div>
-                                <span ng-show="question.question_id === 20" ng-repeat="response in question.responses | orderBy : 'responses_ids'" id="slidebox-brandQ1">
+                                <span ng-show="question.question_id === 20" ng-repeat="response in question.responses | orderBy : 'id'" id="slidebox-brandQ1">
                                     <span class="slider-values">{{response.response_text}}</span>
                                 </span>
                             </div>
@@ -44,7 +44,7 @@
                                 <div class="slidecontainer" ng-show="question.question_id === 21">
                                     <input type="range" min="1" max="5" value="3" class="slider" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
                                 </div>
-                                <span ng-show="question.question_id === 21" ng-repeat="response in question.responses | orderBy : 'responses_ids'">
+                                <span ng-show="question.question_id === 21" ng-repeat="response in question.responses | orderBy : 'id'">
                                     <span class="slider-values">{{response.response_text}}</span>
                                 </span>
                             </div>
@@ -52,7 +52,7 @@
                                 <div class="slidecontainer" ng-show="question.question_id === 22">
                                     <input type="range" min="1" max="5" value="3" class="slider" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
                                 </div>
-                                <span ng-show="question.question_id === 22" ng-repeat="response in question.responses | orderBy : 'responses_ids'">
+                                <span ng-show="question.question_id === 22" ng-repeat="response in question.responses | orderBy : 'id'">
                                     <span class="slider-values">{{response.response_text}}</span>
                                 </span>
                             </div>
@@ -60,39 +60,31 @@
                                 <div class="slidecontainer" ng-show="question.question_id === 23">
                                     <input type="range" min="1" max="5" value="3" class="slider" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
                                 </div>
-                                <span ng-show="question.question_id === 23" ng-repeat="response in question.responses | orderBy : 'responses_ids'">
+                                <span ng-show="question.question_id === 23" ng-repeat="response in question.responses | orderBy : 'id'">
                                     <span class="slider-values">{{response.response_text}}</span>
                                 </span>
                             </div>
                             <div class="slidebox">
                                 <div class="slidecontainer" ng-show="question.question_id === 24">
-                                    <input type="range" min="1" max="5" value="3" class="slider" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
+                                    <input type="range" min="1" max="5" value="3" class="slider brand5" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
                                 </div>
-                                <span ng-show="question.question_id === 24" ng-repeat="response in question.responses | orderBy : 'responses_ids'">
+                                <span ng-show="question.question_id === 24" ng-repeat="response in question.responses | orderBy : 'id'">
                                     <span class="slider-values">{{response.response_text}}</span>
                                 </span>
                             </div>
                             <div class="slidebox">
                                 <div class="slidecontainer" ng-show="question.question_id === 25">
-                                    <input type="range" min="1" max="5" value="3" class="slider" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
+                                    <input type="range" min="1" max="5" value="3" class="slider brand6" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
                                 </div>
-                                <span ng-show="question.question_id === 25" ng-repeat="response in question.responses | orderBy : 'responses_ids'">
+                                <span ng-show="question.question_id === 25" ng-repeat="response in question.responses | orderBy : 'id'">
                                     <span class="slider-values">{{response.response_text}}</span>
                                 </span>
                             </div>
                             <div class="slidebox">
                                 <div class="slidecontainer" ng-show="question.question_id === 26">
-                                    <input type="range" min="1" max="5" value="3" class="slider" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
+                                    <input type="range" min="1" max="5" value="3" class="slider brand6" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
                                 </div>
-                                <span ng-show="question.question_id === 26" ng-repeat="response in question.responses | orderBy : 'responses_ids'">
-                                    <span class="slider-values">{{response.response_text}}</span>
-                                </span>
-                            </div>
-                            <div class="slidebox">
-                                <div class="slidecontainer" ng-show="question.question_id === 27">
-                                    <input type="range" min="1" max="5" value="3" class="slider" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
-                                </div>
-                                <span ng-show="question.question_id === 27" ng-repeat="response in question.responses | orderBy : 'responses_ids'">
+                                <span ng-show="question.question_id === 26" ng-repeat="response in question.responses | orderBy : 'id'">
                                     <span class="slider-values">{{response.response_text}}</span>
                                 </span>
                             </div>
