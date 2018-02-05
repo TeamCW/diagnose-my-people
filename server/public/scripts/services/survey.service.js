@@ -27,6 +27,7 @@ myApp.service('SurveyService', function ($http, $location) {
                     question: response.data[i].question,
                     question_id: response.data[i].question_id,
                     style_id: response.data[i].style_id,
+                    display_id: response.data[i].display_style_type,
                     responses: []
                 };
                 for (let k = 0; k < response.data[i].responses.length; k++) {
@@ -59,6 +60,7 @@ myApp.service('SurveyService', function ($http, $location) {
                     question: response.data[i].question,
                     question_id: response.data[i].question_id,
                     style_id: response.data[i].style_id,
+                    display_id: response.data[i].display_style_type,
                     responses: []
                 };
                 for (let k = 0; k < response.data[i].responses.length; k++) {
@@ -91,6 +93,7 @@ myApp.service('SurveyService', function ($http, $location) {
                     question: response.data[i].question,
                     question_id: response.data[i].question_id,
                     style_id: response.data[i].style_id,
+                    display_id: response.data[i].display_style_type,
                     responses: []
                 };
                 for (let k = 0; k < response.data[i].responses.length; k++) {
@@ -123,6 +126,7 @@ myApp.service('SurveyService', function ($http, $location) {
                     question: response.data[i].question,
                     question_id: response.data[i].question_id,
                     style_id: response.data[i].style_id,
+                    display_id: response.data[i].display_style_type,
                     responses: []
                 };
                 for (let k = 0; k < response.data[i].responses.length; k++) {
@@ -155,6 +159,7 @@ myApp.service('SurveyService', function ($http, $location) {
                     question: response.data[i].question,
                     question_id: response.data[i].question_id,
                     style_id: response.data[i].style_id,
+                    display_id: response.data[i].display_style_type,
                     responses: []
                 };
                 for (let k = 0; k < response.data[i].responses.length; k++) {
@@ -187,6 +192,7 @@ myApp.service('SurveyService', function ($http, $location) {
                     question: response.data[i].question,
                     question_id: response.data[i].question_id,
                     style_id: response.data[i].style_id,
+                    display_id: response.data[i].display_style_type,
                     responses: []
                 };
                 for (let k = 0; k < response.data[i].responses.length; k++) {
