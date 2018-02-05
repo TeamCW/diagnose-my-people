@@ -31,7 +31,7 @@
 
 
 .build-survey-pic{
-    max-height: 390px;
+    max-height: 261px;
 }
 
 .navbar-nav {
@@ -226,5 +226,9 @@
     padding: 30px;
     margin: auto;
     width: 40%;
+}
+
+.space {
+    height: 150px;
 }
 /* End landing page styling*/

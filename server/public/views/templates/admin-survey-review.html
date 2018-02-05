@@ -36,24 +36,24 @@
             <thead>
                 <tr>
                     <th>Selected Category</th>
-                    <th>Blurb</th>
-                    <th>Add/Edit Blurb</th>
+                    <!-- <th>Blurb</th> -->
+                    <!-- <th>Add/Edit Blurb</th> -->
                     <th>Remove Category</th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="kpi in asr.client.survey">
                     <td>{{kpi.kpi_name}}</td>
-                    <td>
+                    <!-- <td>
                         <span ng-hide="blurb.isEditable">{{kpi.notes_added}}</span>
                         <input ng-show="blurb.isEditable" type="text" ng-model="kpi.notes_added">
-                    </td>
-                    <td>
+                    </td> -->
+                    <!-- <td>
                         <button class="btn btn-outline-danger" ng-hide="blurb.isEditable" ng-click="blurb.isEditable = !blurb.isEditable">
                             <img class="icon" src="vendors/open-iconic/svg/pencil.svg">
                         </button>
                         <button class="btn btn-outline-danger" ng-show="blurb.isEditable" ng-click="asr.editBlurb(kpi, kpi.client_id)">Save Blurb</button>
-                    </td>
+                    </td> -->
                     <td>
                         <button class="btn btn-outline-danger" ng-click="asr.removeCategory(kpi, kpi.client_id)">
                             <img class="icon" src="vendors/open-iconic/svg/trash.svg">
@@ -69,3 +69,4 @@
         </a>
     </span>
 </div>
+<div class="space"></div>
