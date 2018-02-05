@@ -10,7 +10,6 @@ myApp.controller('SurveyController', function (SurveyService) {
   vm.retentionLimit = 10;
   vm.conclusionLimit = 7;
 
-  vm.switchTest = 'cars';
 
   //SurveyService.js 
   vm.surveyService = SurveyService;

@@ -30,118 +30,89 @@
                 <br>
                 <div ng-repeat="question in sc.amenities.list | limitTo:sc.amenitiesLimit">
                     <div class="survey-questions">{{question.question}}
-                        <div ng-switch="sc.question.display_type">
-                        <br>
-                        <br>
-                        <div ng-switch-when="slider">
-                        <div class="slidecontainer" ng-show="question.question_id === 10">
-                            <input type="range" min="1" max="5" value="3" class="slider" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
+                        <div ng-switch="question.display_id">
+                            <div class="slidecontainer" ng-show="question.question_id === 10" ng-switch-when="slider">
+                                <input type="range" min="1" max="5" value="3" class="slider" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
+                            </div>
+                            <span ng-show="question.question_id === 10" ng-repeat="response in question.responses | orderBy:'id'">
+                                <span class="slider-numbers">{{response.response_text}}</span>
+                            </span>
+                            <div class="slidecontainer" ng-show="question.question_id === 11" ng-switch-when="slider">
+                                <input type="range" min="1" max="5" value="3" class="slider" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
+                            </div>
+                            <span ng-show="question.question_id === 11" ng-repeat="response in question.responses | orderBy:'id'">
+                                <span class="slider-numbers">{{response.response_text}}</span>
+                            </span>
                         </div>
-                        <span ng-show="question.question_id === 10" ng-repeat="response in question.responses | orderBy:'id'">
-                            <span class="slider-numbers">{{response.response_text}}</span>
-                        </span>
-                        </div>
-                        <br>
-                        <div ng-switch-when="slider">
-                        <div class="slidecontainer" ng-show="question.question_id === 11">
-                            <input type="range" min="1" max="5" value="3" class="slider" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
-                        </div>
-                        <span ng-show="question.question_id === 11" ng-repeat="response in question.responses | orderBy:'id'">
-                            <span class="slider-numbers">{{response.response_text}}</span>
-                        </span>
-                        </div>
-                        <br>
-                    </div>
-                </div>
-                <br>
-                <div ng-show="question.question_id === 12"></div>
-                <div ng-switch="sc.question.display_type"></div>
-                <div ng-repeat="question in sc.amenities.list | limitTo:sc.amenitiesLimit" ng-show="question.question_id === 13">
-                    <div class="survey-questions">{{question.question}}
-                        <div class="dropdown" ng-switch-when="dropdown">
-                            <select ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
-                                <option ng-repeat="response in question.responses" ng-value="response">{{response.response_text}}</option>
-                            </select>
-                            <br>
-                            <br>
-                        </div>
-                    </div>
-                </div>
-                <div ng-repeat="question in sc.amenities.list | limitTo:sc.amenitiesLimit" ng-show="question.question_id === 14">
-                    <div class="survey-questions">{{question.question}}
-                        <div class="dropdown" ng-switch-when="dropdown" ng-show="question.question_id === 14">
-                            <select ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
-                                <option ng-repeat="response in question.responses" ng-value="response">{{response.response_text}}</option>
-                            </select>
-                            <br>
-                            <br>
-                        </div>
-                    </div>
-                </div>
-                <div ng-repeat="question in sc.amenities.list | limitTo:sc.amenitiesLimit" ng-show="question.question_id === 15">
-                    <div class="survey-questions">{{question.question}}
-                        <div class="dropdown" ng-switch-when="dropdown" ng-show="question.question_id === 15">
-                            <select ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
-                                <option ng-repeat="response in question.responses" ng-value="response">{{response.response_text}}</option>
-                            </select>
-                            <br>
-                            <br>
-                        </div>
-                    </div>
-                </div>
-                <div ng-repeat="question in sc.amenities.list | limitTo:sc.amenitiesLimit" ng-show="question.question_id === 16">
-                    <div class="survey-questions">{{question.question}}
-                        <div class="dropdown" ng-switch-when="dropdown" ng-show="question.question_id === 16">
-                            <select ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
-                                <option ng-repeat="response in question.responses" ng-value="response">{{response.response_text}}</option>
-                            </select>
-                            <br>
-                            <br>
-                        </div>
-                    </div>
-                </div>
-                <div ng-repeat="question in sc.amenities.list | limitTo:sc.amenitiesLimit" ng-show="question.question_id === 17">
-                    <div class="survey-questions">{{question.question}}
-                        <div class="dropdown" ng-switch-when="dropdown" ng-show="question.question_id === 17">
-                            <select ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
-                                <option ng-repeat="response in question.responses" ng-value="response">{{response.response_text}}</option>
-                            </select>
-                            <br>
-                            <br>
+                        <div ng-show="question.question_id === 12"></div>
+                        <div ng-switch="question.display_id">
+                            <div ng-show="question.question_id === 13">
+                                <div class="dropdown" ng-switch-when="dropdown">
+                                    <select ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)" class="amenitiesDropdown">
+                                        <option ng-repeat="response in question.responses" ng-value="response">{{response.response_text}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div ng-show="question.question_id === 14">
+                                <div class="dropdown" ng-switch-when="dropdown" ng-show="question.question_id === 14">
+                                    <select ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)" class="amenitiesDropdown">
+                                        <option ng-repeat="response in question.responses" ng-value="response">{{response.response_text}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div ng-show="question.question_id === 15">
+                                <div class="dropdown" ng-switch-when="dropdown" ng-show="question.question_id === 15">
+                                    <select ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)" class="amenitiesDropdown">
+                                        <option ng-repeat="response in question.responses" ng-value="response">{{response.response_text}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div ng-show="question.question_id === 16">
+                                <div class="dropdown" ng-switch-when="dropdown" ng-show="question.question_id === 16">
+                                    <select ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)" class="amenitiesDropdown">
+                                        <option ng-repeat="response in question.responses" ng-value="response">{{response.response_text}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div ng-show="question.question_id === 17">
+                                <div class="dropdown" ng-switch-when="dropdown" ng-show="question.question_id === 17">
+                                    <select ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)" class="amenitiesDropdown">
+                                        <option ng-repeat="response in question.responses" ng-value="response">{{response.response_text}}</option>
+                                    </select>
+                                    <br>
+                                    <br>
+                                </div>
+                            </div>
+                            <div ng-show="question.question_id === 18">
+                                <div class="dropdown" ng-switch-when="dropdown" ng-show="question.question_id === 18">
+                                    <select ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)" class="amenitiesDropdown">
+                                        <option ng-repeat="response in question.responses" ng-value="response">{{response.response_text}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div ng-show="question.question_id === 19">
+                                <div class="dropdown" ng-switch-when="dropdown" ng-show="question.question_id === 19">
+                                    <select ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)" class="amenitiesDropdown">
+                                        <option ng-repeat="response in question.responses" ng-value="response">{{response.response_text}}</option>
+                                    </select>
+                                    <br>
+                                    <br>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    <br>
+                    <br>
                 </div>
-                <div ng-repeat="question in sc.amenities.list | limitTo:sc.amenitiesLimit" ng-show="question.question_id === 18">
-                    <div class="survey-questions">{{question.question}}
-                        <div class="dropdown" ng-switch-when="dropdown" ng-show="question.question_id === 18">
-                            <select ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
-                                <option ng-repeat="response in question.responses" ng-value="response">{{response.response_text}}</option>
-                            </select>
-                            <br>
-                            <br>
-                        </div>
-                    </div>
-                </div>
-                <div ng-repeat="question in sc.amenities.list | limitTo:sc.amenitiesLimit" ng-show="question.question_id === 19">
-                    <div class="survey-questions">{{question.question}}
-                        <div class="dropdown" ng-switch-when="dropdown" ng-show="question.question_id === 19">
-                            <select ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
-                                <option ng-repeat="response in question.responses" ng-value="response">{{response.response_text}}</option>
-                            </select>
-                            <br>
-                            <br>
-                        </div>
-                    </div>
-                </div>
-                <br>
-                <br>
-                <a href="#brand">
-                    <button type="button" class="btn btn-danger">
-                        <span></span> Next
-                    </button>
-                </a>
+                <div>
+                    <a href="#brand">
+                        <button type="button" class="btn btn-danger">
+                            <span></span> Next
+                        </button>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>
