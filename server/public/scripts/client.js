@@ -43,7 +43,7 @@ myApp.config(function ($routeProvider, $locationProvider) {
       templateUrl: '/views/templates/build-survey-contact-info.html',
       controller: 'BuildSurveyContactInfoController as bc'
     })
-    .when('/build-survey-thank-you/:name', {
+    .when('/build-survey-thank-you/:name/:surveyHash', {
       templateUrl: '/views/templates/build-survey-thank-you.html',
       controller: 'BuildSurveyThankYouController as bt'
     })
