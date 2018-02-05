@@ -21,6 +21,8 @@ myApp.controller('SurveyController', function (SurveyService) {
   vm.retention = SurveyService.retention;
   vm.conclusion = SurveyService.conclusion;
   vm.saveResponses = SurveyService.saveResponses;
+  vm.saveResponsesUserInput = SurveyService.saveResponsesUserInput;
+  vm.lastQuestion = SurveyService.lastQuestion;
 
 
 
