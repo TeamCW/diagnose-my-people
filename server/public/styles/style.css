@@ -187,6 +187,8 @@
 .jumbotron {
     background-image: url('/images/cushman-landing2.png');
     background-size: 1200px;
+    background-repeat: no-repeat;
+    background-color: #FC3257;
     height: 280px;
     color: white;
 }
