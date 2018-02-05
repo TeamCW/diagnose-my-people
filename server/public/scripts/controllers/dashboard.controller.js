@@ -1,4 +1,4 @@
-myApp.controller('DashboardController', ['DashboardService', 'AdminService', '$http', function (DashboardService, AdminService, $http) {
+myApp.controller('DashboardController', ['DashboardService', 'AdminService', '$http', '$routeParams',function (DashboardService, AdminService, $http, $routeParams) {
     console.log('DashboardController created');
     var vm = this;
     vm.dashboardService = DashboardService;
@@ -10,10 +10,7 @@ myApp.controller('DashboardController', ['DashboardService', 'AdminService', '$h
     vm.clientRetRecData = DashboardService.clientRetRecData;
     vm.clientConclusionData = DashboardService.clientConclusionData;
 
-    vm.getClientResponses = function() {
-        DashboardService.getClientResponses($routeParams.clientId);
-      };
-    
+    DashboardService.getClientResponses($routeParams.clientId);
 
 
     
