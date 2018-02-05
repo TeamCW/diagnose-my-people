@@ -146,7 +146,7 @@ router.get('/retention', function (req, res) {
 });
 
 
-router.get('/conslusion', function (req, res) {
+router.get('/conclusion', function (req, res) {
     var clientId = req.params.id;
     if (req.isAuthenticated()) {
         pool.connect(function (errorConnectingToDatabase, client, done) {

@@ -12,6 +12,7 @@ myApp.service('DashboardService', function ($http, $location) {
 
 
 
+
     self.getClientResponsesDemo = function (clientId) {
         $http({
             method: 'GET',
@@ -92,12 +93,7 @@ myApp.service('DashboardService', function ($http, $location) {
     };
 
 
-    self.getClientResponsesDemo();
-    self.getClientResponsesLocal();
-    self.getClientResponsesBrand();
-    self.getClientResponsesAmen();
-    self.getClientResponsesRetention();
-    self.getClientResponsesConclusion();
+
     
     
 
