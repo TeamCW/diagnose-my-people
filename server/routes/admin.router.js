@@ -65,7 +65,6 @@ router.put('/edit/:id', function (req, res) {
     var clientIdToEdit = req.params.id;
     var clientNameToEdit = req.body.point_of_contact;
     var clientOrgToEdit = req.body.organization;
-    var clientPositionToEdit = req.body.position;
     var clientEmailToEdit = req.body.contact_email;
     var clientNumberToEdit = req.body.contact_number;
     var clientStatusToUpdate = req.body.status
@@ -76,8 +75,8 @@ router.put('/edit/:id', function (req, res) {
                 res.sendStatus(500);
             } else {
                 client.query(`UPDATE client
-            SET point_of_contact = $1, organization = $2, contact_email = $3, position = $5, contact_number = $6, status = $7
-            WHERE "id" = $4;`, [clientNameToEdit, clientOrgToEdit, clientEmailToEdit, clientIdToEdit, clientPositionToEdit, clientNumberToEdit, clientStatusToUpdate], function (errorMakingQuery, result) {
+            SET point_of_contact = $1, organization = $2, contact_email = $3, contact_number = $5, status = $6
+            WHERE "id" = $4;`, [clientNameToEdit, clientOrgToEdit, clientEmailToEdit, clientIdToEdit, clientNumberToEdit, clientStatusToUpdate], function (errorMakingQuery, result) {
                         done();
                         if (errorMakingQuery) {
                             console.log('Error making query', errorMakingQuery);

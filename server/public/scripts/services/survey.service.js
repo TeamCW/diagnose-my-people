@@ -11,6 +11,7 @@ myApp.service('SurveyService', function ($http, $location) {
 
 
     self.selectedResponse = {};
+    self.lastQuestion = {};
 
 
     //request to populate demographic questions and possible answers.
@@ -225,4 +226,24 @@ myApp.service('SurveyService', function ($http, $location) {
         })
     };
 
-});
+
+     //adding last question response to the database
+ self.saveResponsesUserInput = function (lastQuestion) {
+   console.log('in saveResponsesUserInput', lastQuestion);
+   $http({
+       method: 'POST',
+       url: '/survey/input',
+       data: lastQuestion
+   }).then(function (response) {
+       console.log('saveResponse = response', response);
+
+   })
+};
+
+
+
+
+
+});//end service
+
+
