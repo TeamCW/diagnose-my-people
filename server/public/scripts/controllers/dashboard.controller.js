@@ -4,7 +4,13 @@ myApp.controller('DashboardController', ['DashboardService', 'AdminService', '$h
     vm.dashboardService = DashboardService;
     vm.responseData = { list: [] };
 
+    vm.getClientResponses = function() {
+        DashboardService.getClientResponses($routeParams.clientId);
+      };
+    
 
+
+    
     var barChart = document.getElementById("barChart");
     vm.barChart = new Chart(barChart, {
         type: 'bar',

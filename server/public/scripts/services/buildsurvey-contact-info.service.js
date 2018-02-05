@@ -22,7 +22,9 @@ myApp.service('BuildSurveyContactInfoService', function ($http, $location) {
         contact_email: '',
         organization: '',
         contact_number: '',
-        postion: ''
+        comments: '',
+        logoURL: '',
+        surveyHash: '',
     };
 
     self.postNewSurveyAndClient = function (kpisAdded, contactInformation) {
@@ -42,7 +44,7 @@ myApp.service('BuildSurveyContactInfoService', function ($http, $location) {
 
         console.log(makeid());
 
-        var surveyHash = ts + makeid();
+        self.contactInformation.surveyHash = ts + makeid();
 
         //post client information
         $http({
@@ -52,9 +54,11 @@ myApp.service('BuildSurveyContactInfoService', function ($http, $location) {
                 point_of_contact: contactInformation.point_of_contact,
                 contact_email: contactInformation.contact_email,
                 organization: contactInformation.organization,
-                survey_hash: surveyHash,
+                survey_hash: contactInformation.surveyHash,
                 contact_number: contactInformation.contact_number,
-                position: contactInformation.position
+                position: contactInformation.position,
+                comments: contactInformation.comments,
+                logoURL: contactInformation.logoURL
             }
         }).then(function (response) {
             console.log('response', response)
@@ -66,11 +70,11 @@ myApp.service('BuildSurveyContactInfoService', function ($http, $location) {
                 method: 'GET',
                 url: '/buildsurvey/clientid',
                 params: {
-                    survey_hash: surveyHash
+                    survey_hash: contactInformation.surveyHash
                 }
             }).then(function (response) {
                 console.log('response', response)
-                clientID = response.data[response.data.length-1].id
+                clientID = response.data[response.data.length - 1].id
                 postClientsKPIs()
 
             })
@@ -144,8 +148,12 @@ myApp.service('BuildSurveyContactInfoService', function ($http, $location) {
 
                 })
             }
-            window.location.href = '#/build-survey-thank-you/'+contactInformation.point_of_contact
+            window.location.href = '#/build-survey-thank-you/' + contactInformation.point_of_contact + '/' + contactInformation.surveyHash
         }
 
     };//end self.postNewSurveyAndClient method
+    
+
+
 });
+

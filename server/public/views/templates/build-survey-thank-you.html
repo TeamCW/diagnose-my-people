@@ -1,11 +1,13 @@
-
 <div class="container">
     <h1>Thank You {{bt.name}}</h1>
     <p>
-       We have received your custom survey and are reviewing.  A Cushman & Wakefield Specialist 
-       will be in contact with you soon.
+        Here is the link url link to your survey. The next step is to distribute this link to your people. Our specialists will collect
+        the data and present it to you.
     </p>
-    <a href="#/home">Go to Home Page</a>   
+    <a href="#/survey/{{bt.surveyHash}}">localhost:5000/survey/{{bt.surveyHash}}</a>
+    <br>
+    <br>
+    <a href="#/home" class="btn btn-outline-danger">Exit to Home Page</a>
 
 
 </div>

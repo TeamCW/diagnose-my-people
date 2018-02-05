@@ -2,20 +2,6 @@ var express = require('express');
 var router = express.Router();
 var pool = require('../modules/pool.js');
 
-// CREATE TABLE "client" (
-// 	"id" serial NOT NULL,
-// 	"point_of_contact" varchar NOT NULL,
-// 	"contact_email" varchar NOT NULL,
-// 	"organization" varchar,
-// 	"survey_hash" varchar UNIQUE,
-// 	"contact_number" varchar,
-// 	"position" varchar,
-// 	"status" varchar NOT NULL DEFAULT 'New Client',
-// 	CONSTRAINT client_pk PRIMARY KEY ("id")
-// ) WITH (
-//   OIDS=FALSE
-// );
-
 
 router.post('/clientinfo', function (req, res) {
     // Attempt to connect to database
@@ -33,16 +19,19 @@ router.post('/clientinfo', function (req, res) {
                 contact_email, 
                 organization, 
                 contact_number, 
-                position,
-                survey_hash
+                survey_hash,
+                comments,
+                logo_url
             )
-            VALUES ($1, $2, $3, $4, $5, $6);`, [
+            VALUES ($1, $2, $3, $4, $5, $6,$7);`, [
                 req.body.point_of_contact,
                 req.body.contact_email,
                 req.body.organization,
                 req.body.contact_number,
-                req.body.position,
-                req.body.survey_hash
+                req.body.survey_hash,
+                req.body.comments,
+                req.body.logoURL
+
             ], 
             function (errorMakingQuery, result) {
                 done();

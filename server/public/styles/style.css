@@ -2,33 +2,6 @@
     color: white;
 }
 
-.description {
-    background-color: white;
-    opacity: 0.97;
-    border: solid;
-    border-color: #6b6d6d;
-    border-radius: 6px;
-    padding: 10px;
-    color: #6b6d6d;
-
-}
-
-.heading {
-    color: white;
-    /* background-color: rgba(0, 0, 0, 0.452);     */
-    border-radius: 6px;
-    padding: 10px;
-
-}
-
-.box {
-    border-style: solid;
-    border-color: #F21E2E;
-    padding: 30px;
-    margin: auto;
-    width: 40%;
-}
-
 .button-cta {
     -webkit-appearance: none;
     background-color: #e4002b;
@@ -38,13 +11,6 @@
     font-size: 16px;
     border: 1px solid #e4002b;
     box-shadow: 0px 1px 1px rgba(0,0,0,1);
-}
-
-.landing {
-    background-image: url('/images/red-city.jpg');
-    height: 500px;
-    padding: 10px;
-    color: #6b6d6d;
 }
 
 .btn.btn-outline-danger.admin {
@@ -65,7 +31,7 @@
 
 
 .build-survey-pic{
-    max-height: 390px;
+    max-height: 261px;
 }
 
 .navbar-nav {
@@ -204,6 +170,55 @@
     font-weight: bold;
     margin-bottom: 60px;
 }
+/* End survey styling ^ */
+
+/* Landing page styling*/
+
+.no_underline {
+    text-decoration: none;
+    color: black;
+}
+
+.no_underline:hover {
+    text-decoration: none;
+    color: #6b6d6d;
+}
+
+.jumbotron {
+    background-image: url('/images/cushman-landing2.png');
+    background-size: 1200px;
+    height: 280px;
+    color: white;
+}
+
+.landing {
+    background: linear-gradient(#e4002b, black);
+    background-repeat: repeat;
+    /* background-image: url('/images/people.png'); */
+    /* background-size: 1100px; */
+    background-attachment: fixed;
+    background-size: auto;
+    padding: 29px;
+    color: #6b6d6d;
+}
+
+.description {
+    background-color: white;
+    opacity: 0.97;
+    border: solid;
+    border-color: #6b6d6d;
+    border-radius: 6px;
+    padding: 10px;
+    color: #6b6d6d;
+
+}
+
+.heading {
+    color: white;
+    /* background-color: rgba(0, 0, 0, 0.452);     */
+    margin-top: 130px;
+    font-family: 'Arial';
+}
 
 .slidebox {
     margin-bottom: 30px;
@@ -213,3 +228,15 @@
     border-top: 40px;
 }
 /* End survey styling ^ */
+.box {
+    border-style: solid;
+    border-color: #F21E2E;
+    padding: 30px;
+    margin: auto;
+    width: 40%;
+}
+
+.space {
+    height: 150px;
+}
+/* End landing page styling*/
