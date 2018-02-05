@@ -35,13 +35,13 @@
                                 <input type="range" min="1" max="5" value="3" class="slider" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
                             </div>
                             <span ng-show="question.question_id === 10" ng-repeat="response in question.responses | orderBy:'id'">
-                                <span class="slider-numbers">{{response.response_text}}</span>
+                                <span class="slider-numbers amenities1">{{response.response_text}}</span>
                             </span>
                             <div class="slidecontainer" ng-show="question.question_id === 11" ng-switch-when="slider">
                                 <input type="range" min="1" max="5" value="3" class="slider" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
                             </div>
                             <span ng-show="question.question_id === 11" ng-repeat="response in question.responses | orderBy:'id'">
-                                <span class="slider-numbers">{{response.response_text}}</span>
+                                <span class="slider-numbers amenities2">{{response.response_text}}</span>
                             </span>
                         </div>
                         <div ng-show="question.question_id === 12"></div>

@@ -32,35 +32,35 @@
                     <div ng-repeat="question in sc.conclusion.list | limitTo:sc.conclusionLimit">
                         <div class="survey-questions">{{question.question}}
                             <div class="slidecontainer" ng-show="question.question_id === 37">
-                                <input type="range" min="1" max="5" value="3" class="slider" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
+                                <input type="range" min="1" max="5" value="3" class="slider conclusion1" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
                             </div>
                             <span ng-show="question.question_id === 37" ng-repeat="response in question.responses | orderBy : 'id'">
-                                <span class="slider-values">{{response.response_text}}</span>
+                                <span class="slider-values conclusion1">{{response.response_text}}</span>
                             </span>
-                            <div ng-show="question.question_id === 38"></div>
+                            <span ng-show="question.question_id === 38" id="conclusionQ2"></span>
                             <div class="slidecontainer" ng-show="question.question_id === 39">
-                                <input type="range" min="1" max="5" value="3" class="slider" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
+                                <input type="range" min="1" max="5" value="3" class="slider conclusion" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
                             </div>
                             <span ng-show="question.question_id === 39" ng-repeat="response in question.responses | orderBy : 'id'">
-                                <span class="slider-values">{{response.response_text}}</span>
+                                <span class="slider-values conclusionQs">{{response.response_text}}</span>
                             </span>
                             <div class="slidecontainer" ng-show="question.question_id === 40">
-                                <input type="range" min="1" max="5" value="3" class="slider" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
+                                <input type="range" min="1" max="5" value="3" class="slider conclusion" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
                             </div>
                             <span ng-show="question.question_id === 40" ng-repeat="response in question.responses | orderBy : 'id'">
-                                <span class="slider-values">{{response.response_text}}</span>
+                                <span class="slider-values conclusionQs">{{response.response_text}}</span>
                             </span>
                             <div class="slidecontainer" ng-show="question.question_id === 41">
-                                <input type="range" min="1" max="5" value="3" class="slider" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
+                                <input type="range" min="1" max="5" value="3" class="slider conclusion" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
                             </div>
                             <span ng-show="question.question_id === 41" ng-repeat="response in question.responses | orderBy : 'id'">
-                                <span class="slider-values">{{response.response_text}}</span>
+                                <span class="slider-values conclusionQs">{{response.response_text}}</span>
                             </span>
                             <div class="slidecontainer" ng-show="question.question_id === 42">
-                                <input type="range" min="1" max="5" value="3" class="slider" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
+                                <input type="range" min="1" max="5" value="3" class="slider conclusion" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
                             </div>
                             <span ng-show="question.question_id === 42" ng-repeat="response in question.responses | orderBy : 'id'">
-                                <span class="slider-values">{{response.response_text}}</span>
+                                <span class="slider-values conclusionQs">{{response.response_text}}</span>
                             </span>
                             <div ng-show="question.question_id === 43" ng-repeat="response in question.responses">
                                 
@@ -71,7 +71,7 @@
                         </div>
                     </div>
                     <a href="#/surveyFinished">
-                        <button type="button" class="btn btn-default" ng-click = "sc.saveResponsesUserInput(sc.lastQuestion)" >
+                        <button type="button" class="btn btn-danger" ng-click = "sc.saveResponsesUserInput(sc.lastQuestion)" >
                             <span></span> Finish Survey
                         </button>
                     </a>
