@@ -81,7 +81,7 @@ myApp.config(function ($routeProvider, $locationProvider) {
       }
     })
     // End survey views
-    .when('/dashboard', {
+    .when('/dashboard/:clientId', {
       templateUrl: '/views/templates/dashboard.html',
       controller: 'DashboardController as dc',
       resolve: {

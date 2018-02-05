@@ -63,15 +63,15 @@
                                 <span class="slider-values">{{response.response_text}}</span>
                             </span>
                             <div ng-show="question.question_id === 43" ng-repeat="response in question.responses">
-                                <p>
-                                    <input class="largeText" type="text">
-                                </p>
+                                
+                                    <input class="largeText" type="text" ng-model= "sc.lastQuestion.response_from_input" >
+                                
                             </div>
                             <br>
                         </div>
                     </div>
                     <a href="#/surveyFinished">
-                        <button type="button" class="btn btn-default">
+                        <button type="button" class="btn btn-default" ng-click = "sc.saveResponsesUserInput(sc.lastQuestion)" >
                             <span></span> Finish Survey
                         </button>
                     </a>

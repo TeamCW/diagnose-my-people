@@ -11,6 +11,7 @@ myApp.service('SurveyService', function ($http, $location) {
 
 
     self.selectedResponse = {};
+    self.lastQuestion = {};
 
 
     //request to populate demographic questions and possible answers.
@@ -27,6 +28,7 @@ myApp.service('SurveyService', function ($http, $location) {
                     question: response.data[i].question,
                     question_id: response.data[i].question_id,
                     style_id: response.data[i].style_id,
+                    display_id: response.data[i].display_style_type,
                     responses: []
                 };
                 for (let k = 0; k < response.data[i].responses.length; k++) {
@@ -59,6 +61,7 @@ myApp.service('SurveyService', function ($http, $location) {
                     question: response.data[i].question,
                     question_id: response.data[i].question_id,
                     style_id: response.data[i].style_id,
+                    display_id: response.data[i].display_style_type,
                     responses: []
                 };
                 for (let k = 0; k < response.data[i].responses.length; k++) {
@@ -91,6 +94,7 @@ myApp.service('SurveyService', function ($http, $location) {
                     question: response.data[i].question,
                     question_id: response.data[i].question_id,
                     style_id: response.data[i].style_id,
+                    display_id: response.data[i].display_style_type,
                     responses: []
                 };
                 for (let k = 0; k < response.data[i].responses.length; k++) {
@@ -123,6 +127,7 @@ myApp.service('SurveyService', function ($http, $location) {
                     question: response.data[i].question,
                     question_id: response.data[i].question_id,
                     style_id: response.data[i].style_id,
+                    display_id: response.data[i].display_style_type,
                     responses: []
                 };
                 for (let k = 0; k < response.data[i].responses.length; k++) {
@@ -155,6 +160,7 @@ myApp.service('SurveyService', function ($http, $location) {
                     question: response.data[i].question,
                     question_id: response.data[i].question_id,
                     style_id: response.data[i].style_id,
+                    display_id: response.data[i].display_style_type,
                     responses: []
                 };
                 for (let k = 0; k < response.data[i].responses.length; k++) {
@@ -187,6 +193,7 @@ myApp.service('SurveyService', function ($http, $location) {
                     question: response.data[i].question,
                     question_id: response.data[i].question_id,
                     style_id: response.data[i].style_id,
+                    display_id: response.data[i].display_style_type,
                     responses: []
                 };
                 for (let k = 0; k < response.data[i].responses.length; k++) {
@@ -219,4 +226,24 @@ myApp.service('SurveyService', function ($http, $location) {
         })
     };
 
-});
+
+     //adding last question response to the database
+ self.saveResponsesUserInput = function (lastQuestion) {
+   console.log('in saveResponsesUserInput', lastQuestion);
+   $http({
+       method: 'POST',
+       url: '/survey/input',
+       data: lastQuestion
+   }).then(function (response) {
+       console.log('saveResponse = response', response);
+
+   })
+};
+
+
+
+
+
+});//end service
+
+
