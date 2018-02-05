@@ -4,5 +4,6 @@ myApp.controller('BuildSurveyThankYouController',[ '$routeParams', 'BuildSurveyC
     var self = this;
 
     self.name = $routeParams.name;
+    self.surveyHash = $routeParams.surveyHash
 
 }]);
