@@ -4,10 +4,6 @@ myApp.controller('DashboardController', ['DashboardService', 'AdminService', '$h
     vm.dashboardService = DashboardService;
     vm.responseData = { list: [] };
 
-    vm.getClientResponses = function() {
-        DashboardService.getClientResponses($routeParams.clientId);
-      };
-
     
 
 
