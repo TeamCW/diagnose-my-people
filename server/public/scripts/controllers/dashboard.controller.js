@@ -7,6 +7,7 @@ myApp.controller('DashboardController', ['DashboardService', 'AdminService', '$h
     vm.getClientResponses = function() {
         DashboardService.getClientResponses($routeParams.clientId);
       };
+
     
 
 
