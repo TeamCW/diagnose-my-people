@@ -175,14 +175,39 @@ router.get('/conclusion', function (req, res) {
 router.post('/', function (req, res) {
     console.log('employee response:', req.body);
     var employeeResponseQuestionId = req.body.question_id;
-    var employeeResponseResponseId = req.body.selectedResponse.id;
+    var employeeResponseId = req.body.selectedResponse.id;
     var employeeResponseClient = 2;
     pool.connect(function (errorConnectingToDatabase, client, done) {
         if (errorConnectingToDatabase) {
             console.log('error', errorConnectingToDatabase);
             res.sendStatus(500);
         } else {
-            client.query(`INSERT INTO employee_results (question_id, response_id, client_id) VALUES ($1, $2, $3); `, [employeeResponseQuestionId, employeeResponseResponseId, employeeResponseClient],
+            client.query(`INSERT INTO employee_results (question_id, response_id, client_id) VALUES ($1, $2, $3); `, [employeeResponseQuestionId, employeeResponseId, employeeResponseClient],
+                function (errorMakingDatabaseQuery, result) {
+                    done();
+                    if (errorMakingDatabaseQuery) {
+                        console.log('error', errorMakingDatabaseQuery);
+                        res.sendStatus(500);
+                    } else {
+                        res.send(result.rows);
+                    }
+                });
+        }
+    });
+});
+
+
+router.post('/input', function (req, res) {
+    console.log('employee response:', req.body);
+    var employeeResponseQuestionId = 43;
+    var employeeResponseInput = req.body.response_from_input;
+    var employeeResponseClient = 2;
+    pool.connect(function (errorConnectingToDatabase, client, done) {
+        if (errorConnectingToDatabase) {
+            console.log('error', errorConnectingToDatabase);
+            res.sendStatus(500);
+        } else {
+            client.query(`INSERT INTO employee_results (question_id, response_from_input, client_id) VALUES ($1, $2, $3); `, [employeeResponseQuestionId, employeeResponseInput, employeeResponseClient],
                 function (errorMakingDatabaseQuery, result) {
                     done();
                     if (errorMakingDatabaseQuery) {

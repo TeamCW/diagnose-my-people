@@ -269,3 +269,13 @@
     height: 150px;
 }
 /* End landing page styling*/
+
+
+/* admin page styling*/
+.adminTable th {
+    text-align: center;
+}
+
+.adminTable td {
+    text-align: center;
+}
