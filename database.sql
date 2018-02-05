@@ -229,3 +229,4 @@ VALUES (1, '1960 or Earlier', 1), (1, '1961 - 1970', 1), (1, '1971 - 1980', 1), 
 (41, 'Not at all', 1), (41, 'Poorly', 1), (41, 'Satisfactory', 1), (41, 'Very well', 1), (41, 'Exceptionally well', 1),
 (42, 'Not at all', 1), (42, 'Poorly', 1), (42, 'Satisfactory', 1), (42, 'Very well', 1), (42, 'Exceptionally well', 1),
 (43, '00', 1);
+
