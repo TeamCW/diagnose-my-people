@@ -3,7 +3,7 @@
 CREATE TABLE "category" (
 	"id" serial NOT NULL,
 	"kpi" varchar NOT NULL,
-	CONSTRAINT catagory_pk PRIMARY KEY ("id")
+	CONSTRAINT category_pk PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE
 );
@@ -81,7 +81,7 @@ CREATE TABLE "employee_results" (
 CREATE TABLE "selected_kpi" (
 	"id" serial NOT NULL,
 	"client_id" integer NOT NULL,
-	"question_id" integer NOT NULL,
+	"kpi_id" integer NOT NULL,
 	"notes_added" varchar(140),
 	CONSTRAINT selected_kpi_pk PRIMARY KEY ("id")
 ) WITH (
@@ -97,7 +97,7 @@ CREATE TABLE "client" (
 	"organization" varchar,
 	"survey_hash" varchar NOT NULL UNIQUE,
 	"contact_number" varchar,
-	"status" varchar NOT NULL DEFAULT 'newClient',
+	"status" varchar NOT NULL DEFAULT 'New Client',
 	"comments" varchar,
 	"logo_url" varchar,
 	CONSTRAINT client_pk PRIMARY KEY ("id")
@@ -122,13 +122,7 @@ ALTER TABLE "employee_results" ADD CONSTRAINT "employee_results_fk1" FOREIGN KEY
 ALTER TABLE "employee_results" ADD CONSTRAINT "employee_results_fk2" FOREIGN KEY ("response_id") REFERENCES "possible_responses"("id");
 
 ALTER TABLE "selected_kpi" ADD CONSTRAINT "selected_kpi_fk0" FOREIGN KEY ("client_id") REFERENCES "client"("id") ON DELETE CASCADE;
-ALTER TABLE "selected_kpi" ADD CONSTRAINT "selected_kpi_fk1" FOREIGN KEY ("question_id") REFERENCES "questions"("id");
-
-
-
-
-
-
+ALTER TABLE "selected_kpi" ADD CONSTRAINT "selected_kpi_fk1" FOREIGN KEY ("kpi_id") REFERENCES "category"("id");
 
 
 
@@ -140,7 +134,7 @@ INSERT INTO category (kpi)
 VALUES ('demographic'),('location'),('amenities'),('brand'),('retention'),('conclusion');
 
 INSERT INTO question_styles (display_style_type)
-VALUES ('multiple_choice'), ('buttons'), ('slider'), ('dropdown'), ('text_input');
+VALUES ('dropdown'), ('slider'), ('text_input'), ('blank');
 
 INSERT INTO response_style (display_style_type)
 VALUES ('bar_chart'), ('pie_chart'), ('wave_chart'), ('vertical_chart'), ('text'), ('line_chart');
