@@ -10,7 +10,13 @@ myApp.controller('DashboardController', ['DashboardService', 'AdminService', '$h
     vm.clientRetRecData = DashboardService.clientRetRecData;
     vm.clientConclusionData = DashboardService.clientConclusionData;
 
-    DashboardService.getClientResponses($routeParams.clientId);
+    
+    DashboardService.getClientResponsesDemo($routeParams.clientId);
+    DashboardService.getClientResponsesLocal($routeParams.clientId);
+    DashboardService.getClientResponsesBrand($routeParams.clientId);
+    DashboardService.getClientResponsesAmen($routeParams.clientId);
+    DashboardService.getClientResponsesRetention($routeParams.clientId);
+    DashboardService.getClientResponsesConclusion($routeParams.clientId);
 
 
     
