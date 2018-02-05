@@ -22,7 +22,9 @@ myApp.service('BuildSurveyContactInfoService', function ($http, $location) {
         contact_email: '',
         organization: '',
         contact_number: '',
-        postion: ''
+        postion: '',
+        comments: '',
+        logoURL: ''
     };
 
     self.postNewSurveyAndClient = function (kpisAdded, contactInformation) {
@@ -70,7 +72,7 @@ myApp.service('BuildSurveyContactInfoService', function ($http, $location) {
                 }
             }).then(function (response) {
                 console.log('response', response)
-                clientID = response.data[response.data.length-1].id
+                clientID = response.data[response.data.length - 1].id
                 postClientsKPIs()
 
             })
@@ -144,8 +146,12 @@ myApp.service('BuildSurveyContactInfoService', function ($http, $location) {
 
                 })
             }
-            window.location.href = '#/build-survey-thank-you/'+contactInformation.point_of_contact
+            window.location.href = '#/build-survey-thank-you/' + contactInformation.point_of_contact
         }
 
     };//end self.postNewSurveyAndClient method
+    
+
+
 });
+
