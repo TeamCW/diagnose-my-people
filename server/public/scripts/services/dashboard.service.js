@@ -16,10 +16,10 @@ myApp.service('DashboardService', function ($http, $location) {
     }//end getAgeGroups
 
 
-    self.getClientSurvey = function (clientId) {
+    self.getClientResponses = function (clientId) {
         $http({
             method: 'GET',
-            url: '/dashboard',
+            url: '/dashboard/',
             params: {
                 clientId: clientId
             }
