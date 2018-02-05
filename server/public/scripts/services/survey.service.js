@@ -21,12 +21,12 @@ myApp.service('SurveyService', function ($http, $location) {
         }).then(function (response) {
             console.log('response', response);
             for (let i = 0; i < response.data.length; i++) {
-                console.log('response.data[i]:', response.data[i]);
                 var newData = {
                     kpi: response.data[i].kpi,
                     kpi_id: response.data[i].kpi_id,
                     question: response.data[i].question,
                     question_id: response.data[i].question_id,
+                    style_id: response.data[i].style_id,
                     responses: []
                 };
                 for (let k = 0; k < response.data[i].responses.length; k++) {
@@ -41,8 +41,8 @@ myApp.service('SurveyService', function ($http, $location) {
                 } //end response text for loop
 
                 self.demographics.list.push(newData);//this fills up the questions array with the table from the database.
-                console.log('demographics info:', self.demographics.list);
             }
+            console.log('demographics info:', self.demographics.list);
         });
     }
 
@@ -53,12 +53,12 @@ myApp.service('SurveyService', function ($http, $location) {
             url: 'survey/location'
         }).then(function (response) {
             for (let i = 0; i < response.data.length; i++) {
-                console.log('response.data[i]:', response.data[i]);
                 var newData = {
                     kpi: response.data[i].kpi,
                     kpi_id: response.data[i].kpi_id,
                     question: response.data[i].question,
                     question_id: response.data[i].question_id,
+                    style_id: response.data[i].style_id,
                     responses: []
                 };
                 for (let k = 0; k < response.data[i].responses.length; k++) {
@@ -73,9 +73,8 @@ myApp.service('SurveyService', function ($http, $location) {
                 } //end response text for loop
 
                 self.location.list.push(newData);//this fills up the questions array with the table from the database.
-                console.log('location info:', self.location.list);
             }
-
+            console.log('location info:', self.location.list);
         });
     }
 
@@ -86,12 +85,12 @@ myApp.service('SurveyService', function ($http, $location) {
             url: 'survey/amenities'
         }).then(function (response) {
             for (let i = 0; i < response.data.length; i++) {
-                console.log('response.data[i]:', response.data[i]);
                 var newData = {
                     kpi: response.data[i].kpi,
                     kpi_id: response.data[i].kpi_id,
                     question: response.data[i].question,
                     question_id: response.data[i].question_id,
+                    style_id: response.data[i].style_id,
                     responses: []
                 };
                 for (let k = 0; k < response.data[i].responses.length; k++) {
@@ -106,9 +105,8 @@ myApp.service('SurveyService', function ($http, $location) {
                 } //end response text for loop
 
                 self.amenities.list.push(newData);//this fills up the questions array with the table from the database.
-                console.log('amenities info:', self.amenities.list);
             }
-
+            console.log('amenities info:', self.amenities.list);
         });
     }
 
@@ -119,12 +117,12 @@ myApp.service('SurveyService', function ($http, $location) {
             url: 'survey/brand'
         }).then(function (response) {
             for (let i = 0; i < response.data.length; i++) {
-                console.log('response.data[i]:', response.data[i]);
                 var newData = {
                     kpi: response.data[i].kpi,
                     kpi_id: response.data[i].kpi_id,
                     question: response.data[i].question,
                     question_id: response.data[i].question_id,
+                    style_id: response.data[i].style_id,
                     responses: []
                 };
                 for (let k = 0; k < response.data[i].responses.length; k++) {
@@ -139,9 +137,8 @@ myApp.service('SurveyService', function ($http, $location) {
                 } //end response text for loop
 
                 self.brand.list.push(newData);//this fills up the questions array with the table from the database.
-                console.log('brand info:', self.brand.list);
             }
-
+            console.log('brand info:', self.brand.list);
         });
     }
 
@@ -152,12 +149,12 @@ myApp.service('SurveyService', function ($http, $location) {
             url: 'survey/retention'
         }).then(function (response) {
             for (let i = 0; i < response.data.length; i++) {
-                console.log('response.data[i]:', response.data[i]);
                 var newData = {
                     kpi: response.data[i].kpi,
                     kpi_id: response.data[i].kpi_id,
                     question: response.data[i].question,
                     question_id: response.data[i].question_id,
+                    style_id: response.data[i].style_id,
                     responses: []
                 };
                 for (let k = 0; k < response.data[i].responses.length; k++) {
@@ -172,9 +169,8 @@ myApp.service('SurveyService', function ($http, $location) {
                 } //end response text for loop
 
                 self.retention.list.push(newData);//this fills up the questions array with the table from the database.
-                console.log('retention info:', self.retention.list);
             }
-
+            console.log('retention info:', self.retention.list);
         });
     }
 
@@ -185,12 +181,12 @@ myApp.service('SurveyService', function ($http, $location) {
             url: 'survey/conclusion'
         }).then(function (response) {
             for (let i = 0; i < response.data.length; i++) {
-                console.log('response.data[i]:', response.data[i]);
                 var newData = {
                     kpi: response.data[i].kpi,
                     kpi_id: response.data[i].kpi_id,
                     question: response.data[i].question,
                     question_id: response.data[i].question_id,
+                    style_id: response.data[i].style_id,
                     responses: []
                 };
                 for (let k = 0; k < response.data[i].responses.length; k++) {
@@ -205,9 +201,8 @@ myApp.service('SurveyService', function ($http, $location) {
                 } //end response text for loop
 
                 self.conclusion.list.push(newData);//this fills up the questions array with the table from the database.
-                console.log('conclusion info:', self.conclusion.list);
             }
-
+            console.log('conclusion info:', self.conclusion.list);
         });
     }
 

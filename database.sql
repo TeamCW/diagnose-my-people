@@ -3,7 +3,7 @@
 CREATE TABLE "category" (
 	"id" serial NOT NULL,
 	"kpi" varchar NOT NULL,
-	CONSTRAINT category_pk PRIMARY KEY ("id")
+	CONSTRAINT catagory_pk PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE
 );
@@ -14,6 +14,7 @@ CREATE TABLE "questions" (
 	"id" serial NOT NULL,
 	"question" varchar NOT NULL,
 	"kpi_id" integer NOT NULL,
+	"style_id" integer NOT NULL,
 	CONSTRAINT questions_pk PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE
@@ -38,6 +39,16 @@ CREATE TABLE "possible_responses" (
 	"response_text" varchar NOT NULL,
 	"style_id" integer NOT NULL,
 	CONSTRAINT possible_responses_pk PRIMARY KEY ("id")
+) WITH (
+  OIDS=FALSE
+);
+
+
+
+CREATE TABLE "question_styles" (
+	"id" serial NOT NULL,
+	"display_style_type" varchar NOT NULL,
+	CONSTRAINT question_styles_pk PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE
 );
@@ -70,7 +81,7 @@ CREATE TABLE "employee_results" (
 CREATE TABLE "selected_kpi" (
 	"id" serial NOT NULL,
 	"client_id" integer NOT NULL,
-	"kpi_id" integer NOT NULL,
+	"question_id" integer NOT NULL,
 	"notes_added" varchar(140),
 	CONSTRAINT selected_kpi_pk PRIMARY KEY ("id")
 ) WITH (
@@ -84,9 +95,9 @@ CREATE TABLE "client" (
 	"point_of_contact" varchar NOT NULL,
 	"contact_email" varchar NOT NULL,
 	"organization" varchar,
-	"survey_hash" varchar UNIQUE,
+	"survey_hash" varchar NOT NULL UNIQUE,
 	"contact_number" varchar,
-	"status" varchar NOT NULL DEFAULT 'New Client',
+	"status" varchar NOT NULL DEFAULT 'newClient',
 	"comments" varchar,
 	"logo_url" varchar,
 	CONSTRAINT client_pk PRIMARY KEY ("id")
@@ -98,10 +109,12 @@ CREATE TABLE "client" (
 
 
 ALTER TABLE "questions" ADD CONSTRAINT "questions_fk0" FOREIGN KEY ("kpi_id") REFERENCES "category"("id");
+ALTER TABLE "questions" ADD CONSTRAINT "questions_fk1" FOREIGN KEY ("style_id") REFERENCES "question_styles"("id");
 
 
 ALTER TABLE "possible_responses" ADD CONSTRAINT "possible_responses_fk0" FOREIGN KEY ("question_id") REFERENCES "questions"("id");
 ALTER TABLE "possible_responses" ADD CONSTRAINT "possible_responses_fk1" FOREIGN KEY ("style_id") REFERENCES "response_style"("id");
+
 
 
 ALTER TABLE "employee_results" ADD CONSTRAINT "employee_results_fk0" FOREIGN KEY ("client_id") REFERENCES "client"("id") ON DELETE CASCADE;
@@ -109,7 +122,14 @@ ALTER TABLE "employee_results" ADD CONSTRAINT "employee_results_fk1" FOREIGN KEY
 ALTER TABLE "employee_results" ADD CONSTRAINT "employee_results_fk2" FOREIGN KEY ("response_id") REFERENCES "possible_responses"("id");
 
 ALTER TABLE "selected_kpi" ADD CONSTRAINT "selected_kpi_fk0" FOREIGN KEY ("client_id") REFERENCES "client"("id") ON DELETE CASCADE;
-ALTER TABLE "selected_kpi" ADD CONSTRAINT "selected_kpi_fk1" FOREIGN KEY ("kpi_id") REFERENCES "category"("id") ON DELETE CASCADE;
+ALTER TABLE "selected_kpi" ADD CONSTRAINT "selected_kpi_fk1" FOREIGN KEY ("question_id") REFERENCES "questions"("id");
+
+
+
+
+
+
+
 
 
 
@@ -119,57 +139,56 @@ ALTER TABLE "selected_kpi" ADD CONSTRAINT "selected_kpi_fk1" FOREIGN KEY ("kpi_i
 INSERT INTO category (kpi)
 VALUES ('demographic'),('location'),('amenities'),('brand'),('retention'),('conclusion');
 
-
+INSERT INTO question_styles (display_style_type)
+VALUES ('multiple_choice'), ('buttons'), ('slider'), ('dropdown'), ('text_input');
 
 INSERT INTO response_style (display_style_type)
 VALUES ('bar_chart'), ('pie_chart'), ('wave_chart'), ('vertical_chart'), ('text'), ('line_chart');
 
-
-
-INSERT INTO questions (question, kpi_id)
-VALUES ('When were you born?', 1),
-('Please select your service line / department', 1),
-('Which of the following best describes your current work setting?', 1),
-('How many years have you worked for our company?', 1),
-('What is your average commute time?', 2),
-('How do you currently commute to work?', 2),
-('How would you prefer to commute to work?', 2),
-('How satisfied are you with parking arrangements at your current work setting?', 2),
-('If a partial “work from home” policy was implemented, how often would you see yourself using this as an alternative working style?', 2),
-('Please rate how often you use your current building’s amenities, such as a fitness center or lounge area, in an average week.', 3),
-('If a ‘3rd work space’ was available in your building, such as a coffee shop, lounge or common space, how often do you think you would use it in a week? ', 3), 
-('Please rate the following amenities you would like to have in an ideal location: (1 being no preference, 5 being highly preferable', 3),
-('Food and Entertainment:', 3),
-('Conference Room:', 3),
-('Green Space:', 3),
-('Shower/Locker Room:', 3),
-('Fitness Center:', 3),
-('Parking:', 3),
-('Public Transit:', 3),
-('How do you perceive our company’s stance on environmental stewardship and sustainability?', 4),
-('How well do you feel our current facility reflects our company’s brand and mission statement?', 4),
-('What kind of impression do you feel our current work space has on our customers?', 4),
-('How would you rate our company’s current public exposure?', 4),
-('How important is it for our business to have a public face?', 4),
-('How impactful would a new location be to our companies public face?', 4),
-('How does our current space compare to other office spaces you have worked in or visited?', 4),
-('Please rate your current work areas access to daylight and natural views', 5),
-('How much impact does your location have on your workplace satisfaction?', 5),
-('How well does your current work environment provide the space to meet you and your teams needs?', 5),
-('Where are you working during an average work week? (Please equal 100%)', 5),
-('Home:', 5),
-('Office desk:', 5),
-('Elsewhere in the office:', 5),
-('Coffee shop:', 5),
-('On-site with client:', 5),
-('Other:', 5),
-('How would you rate your overall satisfaction with your current work space?', 6),
-('How well does our space foster:', 6),
-('Positive culture:', 6),
-('Employee wellbeing:', 6),
-('Worker productivity:', 6),
-('Engagement among coworkers:', 6),
-('Are there any additional comments or notes we should know regarding the positives and negatives of our current building location? Please note, this is not a comment on the design or function of the space, but rather the overall building location, condition and amenities.', 6);
+INSERT INTO questions (question, kpi_id, style_id)
+VALUES ('When were you born?', 1, 1),
+('Please select your service line / department', 1, 1),
+('Which of the following best describes your current work setting?', 1, 1),
+('How many years have you worked for our company?', 1, 1),
+('What is your average commute time?', 2, 1),
+('How do you currently commute to work?', 2, 1),
+('How would you prefer to commute to work?', 2, 1),
+('How satisfied are you with parking arrangements at your current work setting?', 2, 1),
+('If a partial “work from home” policy was implemented, how often would you see yourself using this as an alternative working style?', 2, 1),
+('Please rate how often you use your current building’s amenities, such as a fitness center or lounge area, in an average week.', 3, 2),
+('If a ‘3rd work space’ was available in your building, such as a coffee shop, lounge or common space, how often do you think you would use it in a week? ', 3, 2), 
+('Please rate the following amenities you would like to have in an ideal location: (1 being no preference, 5 being highly preferable', 3, 4),
+('Food and Entertainment:', 3, 3),
+('Conference Room:', 3, 3),
+('Green Space:', 3, 3),
+('Shower/Locker Room:', 3, 3),
+('Fitness Center:', 3, 3),
+('Parking:', 3, 3),
+('Public Transit:', 3, 3),
+('How do you perceive our company’s stance on environmental stewardship and sustainability?', 4, 2),
+('How well do you feel our current facility reflects our company’s brand and mission statement?', 4, 2),
+('What kind of impression do you feel our current work space has on our customers?', 4, 2),
+('How would you rate our company’s current public exposure?', 4, 2),
+('How important is it for our business to have a public face?', 4, 2),
+('How impactful would a new location be to our companies public face?', 4, 2),
+('How does our current space compare to other office spaces you have worked in or visited?', 4, 2),
+('Please rate your current work areas access to daylight and natural views', 5, 2),
+('How much impact does your location have on your workplace satisfaction?', 5, 2),
+('How well does your current work environment provide the space to meet you and your teams needs?', 5, 3),
+('Where are you working during an average work week? (Please equal 100%)', 5, 3),
+('Home:', 5, 3),
+('Office desk:', 5, 3),
+('Elsewhere in the office:', 5, 3),
+('Coffee shop:', 5, 3),
+('On-site with client:', 5, 3),
+('Other:', 5, 3),
+('How would you rate your overall satisfaction with your current work space?', 6, 2),
+('How well does our space foster:', 6, 4),
+('Positive culture:', 6, 2),
+('Employee wellbeing:', 6, 2),
+('Worker productivity:', 6,2),
+('Engagement among coworkers:', 6, 2),
+('Are there any additional comments or notes we should know regarding the positives and negatives of our current building location? Please note, this is not a comment on the design or function of the space, but rather the overall building location, condition and amenities.', 6, 3);
 
 
 
@@ -190,13 +209,13 @@ VALUES (1, '1960 or Earlier', 1), (1, '1961 - 1970', 1), (1, '1971 - 1980', 1), 
 (21, 'Very Poor', 1), (21, 'Poor', 1), (21, 'No Opinion', 1), (21, 'Good', 1), (21, 'Very Good', 1),
 (22, 'Very Poor', 1), (22, 'Poor', 1), (22, 'No Opinion', 1), (22, 'Good', 1), (22, 'Very Good', 1),
 (23, 'Unfavorable', 1), (23, 'Needs improvement', 1), (23, 'No Opinion', 1), (23, 'Good', 1), (23, 'Excellent', 1),
-(24, 'Not at all', 1), (24, 'Minimal', 1), (24, 'Important', 1), (24, 'Very important', 1), (24, 'Essential', 1),
-(25, 'Not at all', 1), (25, 'Minimal', 1), (25, 'Impactful', 1), (25, 'Very impactful', 1), (25, 'Extremely impactful', 1),
+(24, 'Not at all', 1), (24, 'Minimal', 1), (24, 'Important', 1), (24, 'Very Important', 1), (24, 'Essential', 1),
+(25, 'Not at all', 1), (25, 'Minimal', 1), (25, 'Impactful', 1), (25, 'Very Impactful', 1), (25, 'Extremely Impactful', 1),
 (26, 'Very Inferior', 3), (26, 'Inferior', 3), (26, 'Same', 3), (26, 'Superior', 3), (26, 'Highly Superior', 3),
 (27, 'Very Poor', 1), (27, 'Poor', 1), (27, 'No Opinion', 1), (27, 'Good', 1), (27, 'Very Good', 1),
 (28, 'Not at all', 1), (28, 'Minimal', 1), (28, 'Impactful', 1), (28, 'Very impactful', 1), (28, 'Extremely impactful', 1),
 (29, 'Not at all', 1), (29, 'Poorly', 1), (29, 'Satisfactory', 1), (29, 'Very well', 1), (29, 'Exceptionally well', 1),
-
+(30, '0', 5),
 (31, '0-10%', 1), (31, '10-20%', 1), (31, '20-40%', 1), (31, '40-60%', 1), (31, '60-80%', 1), (31, '80-100%', 1),
 (32, '0-10%', 1), (32, '10-20%', 1), (32, '20-40%', 1), (32, '40-60%', 1), (32, '60-80%', 1), (32, '80-100%', 1),
 (33, '0-10%', 1), (33, '10-20%', 1), (33, '20-40%', 1), (33, '40-60%', 1), (33, '60-80%', 1), (33, '80-100%', 1),
@@ -204,8 +223,10 @@ VALUES (1, '1960 or Earlier', 1), (1, '1961 - 1970', 1), (1, '1971 - 1980', 1), 
 (35, '0-10%', 1), (35, '10-20%', 1), (35, '20-40%', 1), (35, '40-60%', 1), (35, '60-80%', 1), (35, '80-100%', 1),
 (36, '0-10%', 1), (36, '10-20%', 1), (36, '20-40%', 1), (36, '40-60%', 1), (36, '60-80%', 1), (36, '80-100%', 1),
 (37, 'Unsatisfactory', 1), (37, 'Needs improvement', 1), (37, 'Satisfactory', 1), (37, 'Good', 1), (37, 'Excellent', 1),
-
+(38, '00', 1),
 (39, 'Not at all', 1), (39, 'Poorly', 1), (39, 'Satisfactory', 1), (39, 'Very well', 1), (39, 'Exceptionally well', 1),
 (40, 'Not at all', 1), (40, 'Poorly', 1), (40, 'Satisfactory', 1), (40, 'Very well', 1), (40, 'Exceptionally well', 1),
 (41, 'Not at all', 1), (41, 'Poorly', 1), (41, 'Satisfactory', 1), (41, 'Very well', 1), (41, 'Exceptionally well', 1),
-(42, 'Not at all', 1), (42, 'Poorly', 1), (42, 'Satisfactory', 1), (42, 'Very well', 1), (42, 'Exceptionally well', 1);
+(42, 'Not at all', 1), (42, 'Poorly', 1), (42, 'Satisfactory', 1), (42, 'Very well', 1), (42, 'Exceptionally well', 1),
+(43, '00', 1);
+
