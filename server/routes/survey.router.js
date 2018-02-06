@@ -223,13 +223,15 @@ router.post('/input', function (req, res) {
 
 
 router.get('/client-info', function (req, res) {
+    var surveyHash = req.query.surveyHash;
         pool.connect(function (errorConnectingToDatabase, client, done) {
             if (errorConnectingToDatabase) {
                 console.log('error', errorConnectingToDatabase);
                 res.sendStatus(500);
             } else {
 
-                client.query(`SELECT id, organization, logo_url, survey_hash FROM client;`,
+                client.query(`SELECT id, organization, logo_url, survey_hash FROM client
+                WHERE survey_hash = $1;`, [surveyHash],
                     function (errorMakingDatabaseQuery, result) {
                         done();
                         if (errorMakingDatabaseQuery) {

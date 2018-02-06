@@ -1,4 +1,4 @@
-myApp.controller('SurveyController', function (SurveyService) {
+myApp.controller('SurveyController', function (SurveyService, $routeParams) {
   console.log('SurveyController created');
   var vm = this;
 
@@ -33,7 +33,7 @@ myApp.controller('SurveyController', function (SurveyService) {
   SurveyService.getBrand();
   SurveyService.getRetention();
   SurveyService.getConclusion();
-  SurveyService.getClient();
+  SurveyService.getClient($routeParams.surveyHash);
 
 
 });
