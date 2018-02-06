@@ -82,21 +82,20 @@ myApp.service('BuildSurveyContactInfoService', function ($http, $location) {
         var postClientsKPIs = function () {
             console.log('in post client kpi');
             console.log(kpisAdded);
+            //demographic required post
+            $http({
+                method: 'POST',
+                url: '/buildsurvey/kpi',
+                data: {
+                    kpi_id: '1',
+                    client_id: clientID
+                }
+            }).then(function (response) {
+                console.log('response', response)
+
+            })
             if (kpisAdded.locationAdded) {
                 console.log('in if')
-                $http({
-                    method: 'POST',
-                    url: '/buildsurvey/kpi',
-                    data: {
-                        kpi_id: '1',
-                        client_id: clientID
-                    }
-                }).then(function (response) {
-                    console.log('response', response)
-
-                })
-            }
-            if (kpisAdded.amenitiesAdded) {
                 $http({
                     method: 'POST',
                     url: '/buildsurvey/kpi',
@@ -109,7 +108,7 @@ myApp.service('BuildSurveyContactInfoService', function ($http, $location) {
 
                 })
             }
-            if (kpisAdded.brandAdded) {
+            if (kpisAdded.amenitiesAdded) {
                 $http({
                     method: 'POST',
                     url: '/buildsurvey/kpi',
@@ -122,7 +121,7 @@ myApp.service('BuildSurveyContactInfoService', function ($http, $location) {
 
                 })
             }
-            if (kpisAdded.retainmentAdded) {
+            if (kpisAdded.brandAdded) {
                 $http({
                     method: 'POST',
                     url: '/buildsurvey/kpi',
@@ -135,7 +134,7 @@ myApp.service('BuildSurveyContactInfoService', function ($http, $location) {
 
                 })
             }
-            if (kpisAdded.spaceLayoutAdded) {
+            if (kpisAdded.retainmentAdded) {
                 $http({
                     method: 'POST',
                     url: '/buildsurvey/kpi',
@@ -148,6 +147,18 @@ myApp.service('BuildSurveyContactInfoService', function ($http, $location) {
 
                 })
             }
+            //conclusion required post
+            $http({
+                method: 'POST',
+                url: '/buildsurvey/kpi',
+                data: {
+                    kpi_id: '6',
+                    client_id: clientID
+                }
+            }).then(function (response) {
+                console.log('response', response)
+
+            })
             window.location.href = '#/build-survey-thank-you/' + contactInformation.point_of_contact + '/' + contactInformation.surveyHash
         }
 

@@ -7,7 +7,7 @@ myApp.service('BuildSurveyService', function ($http, $location) {
         brandAdded: false,
         locationAdded: false,
         retainmentAdded: false,
-        spaceLayoutAdded: false
+
     }
 
 
@@ -58,12 +58,6 @@ myApp.service('BuildSurveyService', function ($http, $location) {
             urlString += '/false'
         };
         if (self.kpisAdded.retainmentAdded) {
-            urlString += '/true'
-        }
-        else {
-            urlString += '/false'
-        };
-        if (self.kpisAdded.spaceLayoutAdded) {
             urlString += '/true'
         }
         else {
