@@ -174,9 +174,9 @@ router.get('/conclusion', function (req, res) {
 
 router.post('/', function (req, res) {
     console.log('employee response:', req.body);
-    var employeeResponseQuestionId = req.body.question_id;
-    var employeeResponseId = req.body.selectedResponse.id;
-    var employeeResponseClient = 2;
+    var employeeResponseQuestionId = req.body.question.question_id;
+    var employeeResponseId = req.body.question.selectedResponse.id;
+    var employeeResponseClient = req.body.clientId;
     pool.connect(function (errorConnectingToDatabase, client, done) {
         if (errorConnectingToDatabase) {
             console.log('error', errorConnectingToDatabase);
@@ -200,8 +200,8 @@ router.post('/', function (req, res) {
 router.post('/input', function (req, res) {
     console.log('employee response:', req.body);
     var employeeResponseQuestionId = 43;
-    var employeeResponseInput = req.body.response_from_input;
-    var employeeResponseClient = 2;
+    var employeeResponseInput = req.body.question.response_from_input;
+    var employeeResponseClient = req.body.clientId;
     pool.connect(function (errorConnectingToDatabase, client, done) {
         if (errorConnectingToDatabase) {
             console.log('error', errorConnectingToDatabase);

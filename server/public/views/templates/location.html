@@ -12,22 +12,22 @@
       <!--- tabs -->
       <ul class="nav nav-tabs">
         <li class="survey-tabs">
-          <a href="#survey">My People</a>
+          <a href="#survey/{{sc.client.list[0].survey_hash}}">My People</a>
         </li>
         <li class="active survey-tabs">
-          <a href="#location">My Workplace</a>
+          <a href="#location/{{sc.client.list[0].survey_hash}}">My Workplace</a>
         </li>
         <li class="survey-tabs">
-          <a href="#amenities">My Amenities</a>
+          <a href="#amenities/{{sc.client.list[0].survey_hash}}">My Amenities</a>
         </li>
         <li class="survey-tabs">
-          <a href="#brand">My Company</a>
+          <a href="#brand/{{sc.client.list[0].survey_hash}}">My Company</a>
         </li>
         <li class="survey-tabs">
-          <a href="#retention">My Worklife</a>
+          <a href="#retention/{{sc.client.list[0].survey_hash}}">My Worklife</a>
         </li>
         <li class="survey-tabs">
-          <a href="#conclusion">My Satisfaction</a>
+          <a href="#conclusion/{{sc.client.list[0].survey_hash}}">My Satisfaction</a>
         </li>
       </ul>
       <!--- question block -->
@@ -37,28 +37,28 @@
           <div class="survey-questions">{{question.question}}
             <div ng-switch="question.display_id">
               <div class="dropdown" ng-switch-when="dropdown" ng-show="question.question_id === 5">
-                <select ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
+                <select ng-model="question.selectedResponse" ng-change="sc.saveResponses(question, sc.client.list[0].id)">
                   <option ng-repeat="response in question.responses" ng-value="response">{{response.response_text}}</option>
                 </select>
               </div>
               <div class="dropdown" ng-switch-when="dropdown" ng-show="question.question_id === 6">
-                <select ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
+                <select ng-model="question.selectedResponse" ng-change="sc.saveResponses(question, sc.client.list[0].id)">
                   <option ng-repeat="response in question.responses" ng-value="response">{{response.response_text}}</option>
                 </select>
               </div>
               <div class="dropdown" ng-switch-when="dropdown" ng-show="question.question_id === 7">
-                <select ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
+                <select ng-model="question.selectedResponse" ng-change="sc.saveResponses(question, sc.client.list[0].id)">
                   <option ng-repeat="response in question.responses" ng-value="response">{{response.response_text}}</option>
                 </select>
               </div>
               <div class="slidecontainer" ng-show="question.question_id === 8" ng-switch-when="slider">
-                <input type="range" min="1" max="5" value="3" class="slider location1" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
+                <input type="range" min="1" max="5" value="3" class="slider location1" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question, sc.client.list[0].id)">
               </div>
               <span ng-show="question.question_id === 8" ng-repeat="response in question.responses | orderBy:'id'">
                 <span class="slider-numbers location">{{response.response_text}}</span>
               </span>
               <div class="slidecontainer" ng-show="question.question_id === 9" ng-switch-when="slider">
-                <input type="range" min="1" max="5" value="3" class="slider location1" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
+                <input type="range" min="1" max="5" value="3" class="slider location1" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question, sc.client.list[0].id)">
               </div>
               <span ng-show="question.question_id === 9" ng-repeat="response in question.responses | orderBy:'id'">
                 <span class="slider-numbers location2">{{response.response_text}}</span>
@@ -69,7 +69,7 @@
           </div>
         </div>
         <div>
-          <a href="#amenities/">
+          <a href="#amenities/{{sc.client.list[0].survey_hash}}">
             <button type="button" class="btn btn-danger">
               <span></span> Next
             </button>

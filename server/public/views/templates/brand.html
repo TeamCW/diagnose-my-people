@@ -12,22 +12,22 @@
             <!--- tabs -->
             <ul class="nav nav-tabs" id="survey-background">
                 <li class="survey-tabs">
-                    <a href="#survey">My People</a>
+                    <a href="#survey/{{sc.client.list[0].survey_hash}}">My People</a>
                 </li>
                 <li class="survey-tabs">
-                    <a href="#location">My Workplace</a>
+                    <a href="#location/{{sc.client.list[0].survey_hash}}">My Workplace</a>
                 </li>
                 <li class="survey-tabs">
-                    <a href="#amenities">My Amenities</a>
+                    <a href="#amenities/{{sc.client.list[0].survey_hash}}">My Amenities</a>
                 </li>
                 <li class="active survey-tabs">
-                    <a href="#brand">My Company</a>
+                    <a href="#brand/{{sc.client.list[0].survey_hash}}">My Company</a>
                 </li>
                 <li class="survey-tabs">
-                    <a href="#retention">My Worklife</a>
+                    <a href="#retention/{{sc.client.list[0].survey_hash}}">My Worklife</a>
                 </li>
                 <li class="survey-tabs">
-                    <a href="#conclusion">My Satisfaction</a>
+                    <a href="#conclusion/{{sc.client.list[0].survey_hash}}">My Satisfaction</a>
                 </li>
             </ul>
             <!--- question block -->
@@ -39,7 +39,7 @@
                         <div class="brand-survey-questions">{{question.question}}
                             <div class="slidebox">
                                 <div class="slidecontainer" ng-show="question.question_id === 20">
-                                    <input type="range" min="1" max="5" value="3" class="slider" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
+                                    <input type="range" min="1" max="5" value="3" class="slider" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question, sc.client.list[0].id)">
                                 </div>
                                 <span ng-show="question.question_id === 20" ng-repeat="response in question.responses | orderBy : 'id'" id="slidebox-brandQ1">
                                     <span class="slider-values">{{response.response_text}}</span>
@@ -47,7 +47,7 @@
                             </div>
                             <div class="slidebox">
                                 <div class="slidecontainer" ng-show="question.question_id === 21">
-                                    <input type="range" min="1" max="5" value="3" class="slider" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
+                                    <input type="range" min="1" max="5" value="3" class="slider" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question, sc.client.list[0].id)">
                                 </div>
                                 <span ng-show="question.question_id === 21" ng-repeat="response in question.responses | orderBy : 'id'">
                                     <span class="slider-values">{{response.response_text}}</span>
@@ -55,7 +55,7 @@
                             </div>
                             <div class="slidebox">
                                 <div class="slidecontainer" ng-show="question.question_id === 22">
-                                    <input type="range" min="1" max="5" value="3" class="slider" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
+                                    <input type="range" min="1" max="5" value="3" class="slider" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question, sc.client.list[0].id)">
                                 </div>
                                 <span ng-show="question.question_id === 22" ng-repeat="response in question.responses | orderBy : 'id'">
                                     <span class="slider-values">{{response.response_text}}</span>
@@ -63,7 +63,7 @@
                             </div>
                             <div class="slidebox">
                                 <div class="slidecontainer" ng-show="question.question_id === 23">
-                                    <input type="range" min="1" max="5" value="3" class="slider" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
+                                    <input type="range" min="1" max="5" value="3" class="slider" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question, sc.client.list[0].id)">
                                 </div>
                                 <span ng-show="question.question_id === 23" ng-repeat="response in question.responses | orderBy : 'id'">
                                     <span class="slider-values">{{response.response_text}}</span>
@@ -71,7 +71,7 @@
                             </div>
                             <div class="slidebox">
                                 <div class="slidecontainer" ng-show="question.question_id === 24">
-                                    <input type="range" min="1" max="5" value="3" class="slider brand5" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
+                                    <input type="range" min="1" max="5" value="3" class="slider brand5" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question, sc.client.list[0].id)">
                                 </div>
                                 <span ng-show="question.question_id === 24" ng-repeat="response in question.responses | orderBy : 'id'">
                                     <span class="slider-values">{{response.response_text}}</span>
@@ -79,7 +79,7 @@
                             </div>
                             <div class="slidebox">
                                 <div class="slidecontainer" ng-show="question.question_id === 25">
-                                    <input type="range" min="1" max="5" value="3" class="slider brand6" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
+                                    <input type="range" min="1" max="5" value="3" class="slider brand6" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question, sc.client.list[0].id)">
                                 </div>
                                 <span ng-show="question.question_id === 25" ng-repeat="response in question.responses | orderBy : 'id'">
                                     <span class="slider-values">{{response.response_text}}</span>
@@ -87,7 +87,7 @@
                             </div>
                             <div class="slidebox">
                                 <div class="slidecontainer" ng-show="question.question_id === 26">
-                                    <input type="range" min="1" max="5" value="3" class="slider brand6" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
+                                    <input type="range" min="1" max="5" value="3" class="slider brand6" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question, sc.client.list[0].id)">
                                 </div>
                                 <span ng-show="question.question_id === 26" ng-repeat="response in question.responses | orderBy : 'id'">
                                     <span class="slider-values">{{response.response_text}}</span>
@@ -97,7 +97,7 @@
                         </div>
                         <br>
                     </div>
-                    <a href="#retention/">
+                    <a href="#retention/{{sc.client.list[0].survey_hash}}">
                         <button type="button" class="btn btn-danger">
                             <span></span> Next
                         </button>

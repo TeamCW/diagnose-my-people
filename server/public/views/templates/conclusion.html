@@ -12,22 +12,22 @@
             <!--- tabs -->
             <ul class="nav nav-tabs" id="survey-background">
                 <li class="survey-tabs">
-                    <a href="#survey">My People</a>
+                    <a href="#survey/{{sc.client.list[0].survey_hash}}">My People</a>
                 </li>
                 <li class="survey-tabs">
-                    <a href="#location">My Workplace</a>
+                    <a href="#location/{{sc.client.list[0].survey_hash}}">My Workplace</a>
                 </li>
                 <li class="survey-tabs">
-                    <a href="#amenities">My Amenities</a>
+                    <a href="#amenities/{{sc.client.list[0].survey_hash}}">My Amenities</a>
                 </li>
                 <li class="survey-tabs">
-                    <a href="#brand">My Company</a>
+                    <a href="#brand/{{sc.client.list[0].survey_hash}}">My Company</a>
                 </li>
                 <li class="survey-tabs">
-                    <a href="#retention">My Worklife</a>
+                    <a href="#retention/{{sc.client.list[0].survey_hash}}">My Worklife</a>
                 </li>
                 <li class="active survey-tabs">
-                    <a href="#conclusion">My Satisfaction</a>
+                    <a href="#conclusion/{{sc.client.list[0].survey_hash}}">My Satisfaction</a>
                 </li>
             </ul>
             <!--- question block -->
@@ -37,32 +37,32 @@
                     <div ng-repeat="question in sc.conclusion.list | limitTo:sc.conclusionLimit">
                         <div class="survey-questions">{{question.question}}
                             <div class="slidecontainer" ng-show="question.question_id === 37">
-                                <input type="range" min="1" max="5" value="3" class="slider conclusion1" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
+                                <input type="range" min="1" max="5" value="3" class="slider conclusion1" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question, sc.client.list[0].id)">
                             </div>
                             <span ng-show="question.question_id === 37" ng-repeat="response in question.responses | orderBy : 'id'">
                                 <span class="slider-values conclusion1">{{response.response_text}}</span>
                             </span>
                             <span ng-show="question.question_id === 38" id="conclusionQ2"></span>
                             <div class="slidecontainer" ng-show="question.question_id === 39">
-                                <input type="range" min="1" max="5" value="3" class="slider conclusion" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
+                                <input type="range" min="1" max="5" value="3" class="slider conclusion" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question, sc.client.list[0].id)">
                             </div>
                             <span ng-show="question.question_id === 39" ng-repeat="response in question.responses | orderBy : 'id'">
                                 <span class="slider-values conclusionQs">{{response.response_text}}</span>
                             </span>
                             <div class="slidecontainer" ng-show="question.question_id === 40">
-                                <input type="range" min="1" max="5" value="3" class="slider conclusion" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
+                                <input type="range" min="1" max="5" value="3" class="slider conclusion" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question, sc.client.list[0].id)">
                             </div>
                             <span ng-show="question.question_id === 40" ng-repeat="response in question.responses | orderBy : 'id'">
                                 <span class="slider-values conclusionQs">{{response.response_text}}</span>
                             </span>
                             <div class="slidecontainer" ng-show="question.question_id === 41">
-                                <input type="range" min="1" max="5" value="3" class="slider conclusion" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
+                                <input type="range" min="1" max="5" value="3" class="slider conclusion" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question, sc.client.list[0].id)">
                             </div>
                             <span ng-show="question.question_id === 41" ng-repeat="response in question.responses | orderBy : 'id'">
                                 <span class="slider-values conclusionQs">{{response.response_text}}</span>
                             </span>
                             <div class="slidecontainer" ng-show="question.question_id === 42">
-                                <input type="range" min="1" max="5" value="3" class="slider conclusion" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
+                                <input type="range" min="1" max="5" value="3" class="slider conclusion" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question, sc.client.list[0].id)">
                             </div>
                             <span ng-show="question.question_id === 42" ng-repeat="response in question.responses | orderBy : 'id'">
                                 <span class="slider-values conclusionQs">{{response.response_text}}</span>
@@ -75,8 +75,8 @@
                             <br>
                         </div>
                     </div>
-                    <a href="#/surveyFinished/">
-                        <button type="button" class="btn btn-danger" ng-click = "sc.saveResponsesUserInput(sc.lastQuestion)" >
+                    <a href="#/surveyFinished//{{sc.client.list[0].survey_hash}}">
+                        <button type="button" class="btn btn-danger" ng-click = "sc.saveResponsesUserInput(sc.lastQuestion, sc.client.list[0].id)" >
                             <span></span> Finish Survey
                         </button>
                     </a>

@@ -12,22 +12,22 @@
             <!--- tabs -->
             <ul class="nav nav-tabs" id="survey-background">
                 <li class="survey-tabs">
-                    <a href="#survey">My People</a>
+                    <a href="#survey/{{sc.client.list[0].survey_hash}}">My People</a>
                 </li>
                 <li class="survey-tabs">
-                    <a href="#location">My Workplace</a>
+                    <a href="#location/{{sc.client.list[0].survey_hash}}">My Workplace</a>
                 </li>
                 <li class="active survey-tabs">
-                    <a href="#amenities">My Amenities</a>
+                    <a href="#amenities/{{sc.client.list[0].survey_hash}}">My Amenities</a>
                 </li>
                 <li class="survey-tabs">
-                    <a href="#brand">My Company</a>
+                    <a href="#brand/{{sc.client.list[0].survey_hash}}">My Company</a>
                 </li>
                 <li class="survey-tabs">
-                    <a href="#retention">My Worklife</a>
+                    <a href="#retention/{{sc.client.list[0].survey_hash}}">My Worklife</a>
                 </li>
                 <li class="survey-tabs">
-                    <a href="#conclusion">My Satisfaction</a>
+                    <a href="#conclusion/{{sc.client.list[0].survey_hash}}">My Satisfaction</a>
                 </li>
             </ul>
             <!--- question block -->
@@ -37,13 +37,13 @@
                     <div class="survey-questions">{{question.question}}
                         <div ng-switch="question.display_id">
                             <div class="slidecontainer" ng-show="question.question_id === 10" ng-switch-when="slider">
-                                <input type="range" min="1" max="5" value="3" class="slider" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
+                                <input type="range" min="1" max="5" value="3" class="slider" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question, sc.client.list[0].id)">
                             </div>
                             <span ng-show="question.question_id === 10" ng-repeat="response in question.responses | orderBy:'id'">
                                 <span class="slider-numbers amenities1">{{response.response_text}}</span>
                             </span>
                             <div class="slidecontainer" ng-show="question.question_id === 11" ng-switch-when="slider">
-                                <input type="range" min="1" max="5" value="3" class="slider" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
+                                <input type="range" min="1" max="5" value="3" class="slider" ng-model="question.selectedResponse" ng-change="sc.saveResponses(question, sc.client.list[0].id)">
                             </div>
                             <span ng-show="question.question_id === 11" ng-repeat="response in question.responses | orderBy:'id'">
                                 <span class="slider-numbers amenities2">{{response.response_text}}</span>
@@ -53,35 +53,35 @@
                         <div ng-switch="question.display_id">
                             <div ng-show="question.question_id === 13">
                                 <div class="dropdown" ng-switch-when="dropdown">
-                                    <select ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)" class="amenitiesDropdown">
+                                    <select ng-model="question.selectedResponse" ng-change="sc.saveResponses(question, sc.client.list[0].id)" class="amenitiesDropdown">
                                         <option ng-repeat="response in question.responses" ng-value="response">{{response.response_text}}</option>
                                     </select>
                                 </div>
                             </div>
                             <div ng-show="question.question_id === 14">
                                 <div class="dropdown" ng-switch-when="dropdown" ng-show="question.question_id === 14">
-                                    <select ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)" class="amenitiesDropdown">
+                                    <select ng-model="question.selectedResponse" ng-change="sc.saveResponses(question, sc.client.list[0].id)" class="amenitiesDropdown">
                                         <option ng-repeat="response in question.responses" ng-value="response">{{response.response_text}}</option>
                                     </select>
                                 </div>
                             </div>
                             <div ng-show="question.question_id === 15">
                                 <div class="dropdown" ng-switch-when="dropdown" ng-show="question.question_id === 15">
-                                    <select ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)" class="amenitiesDropdown">
+                                    <select ng-model="question.selectedResponse" ng-change="sc.saveResponses(question, sc.client.list[0].id)" class="amenitiesDropdown">
                                         <option ng-repeat="response in question.responses" ng-value="response">{{response.response_text}}</option>
                                     </select>
                                 </div>
                             </div>
                             <div ng-show="question.question_id === 16">
                                 <div class="dropdown" ng-switch-when="dropdown" ng-show="question.question_id === 16">
-                                    <select ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)" class="amenitiesDropdown">
+                                    <select ng-model="question.selectedResponse" ng-change="sc.saveResponses(question, sc.client.list[0].id)" class="amenitiesDropdown">
                                         <option ng-repeat="response in question.responses" ng-value="response">{{response.response_text}}</option>
                                     </select>
                                 </div>
                             </div>
                             <div ng-show="question.question_id === 17">
                                 <div class="dropdown" ng-switch-when="dropdown" ng-show="question.question_id === 17">
-                                    <select ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)" class="amenitiesDropdown">
+                                    <select ng-model="question.selectedResponse" ng-change="sc.saveResponses(question, sc.client.list[0].id)" class="amenitiesDropdown">
                                         <option ng-repeat="response in question.responses" ng-value="response">{{response.response_text}}</option>
                                     </select>
                                     <br>
@@ -90,14 +90,14 @@
                             </div>
                             <div ng-show="question.question_id === 18">
                                 <div class="dropdown" ng-switch-when="dropdown" ng-show="question.question_id === 18">
-                                    <select ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)" class="amenitiesDropdown">
+                                    <select ng-model="question.selectedResponse" ng-change="sc.saveResponses(question, sc.client.list[0].id)" class="amenitiesDropdown">
                                         <option ng-repeat="response in question.responses" ng-value="response">{{response.response_text}}</option>
                                     </select>
                                 </div>
                             </div>
                             <div ng-show="question.question_id === 19">
                                 <div class="dropdown" ng-switch-when="dropdown" ng-show="question.question_id === 19">
-                                    <select ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)" class="amenitiesDropdown">
+                                    <select ng-model="question.selectedResponse" ng-change="sc.saveResponses(question, sc.client.list[0].id)" class="amenitiesDropdown">
                                         <option ng-repeat="response in question.responses" ng-value="response">{{response.response_text}}</option>
                                     </select>
                                     <br>
@@ -110,7 +110,7 @@
                     <br>
                 </div>
                 <div>
-                    <a href="#brand/">
+                    <a href="#brand/{{sc.client.list[0].survey_hash}}">
                         <button type="button" class="btn btn-danger">
                             <span></span> Next
                         </button>

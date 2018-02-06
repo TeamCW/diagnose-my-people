@@ -14,25 +14,25 @@
       <!--- tabs -->
       <ul class="nav nav-tabs">
         <li class="active survey-tabs">
-          <a href="#survey/">My People</a>
+          <a href="#survey/{{sc.client.list[0].survey_hash}}">My People</a>
         </li>
         <li class="survey-tabs">
-          <a href="#location/">My Workplace</a>
-        </li>
-        <br>
-        <li class="survey-tabs">
-          <a href="#amenities/">My Amenities</a>
+          <a href="#location/{{sc.client.list[0].survey_hash}}">My Workplace</a>
         </li>
         <br>
         <li class="survey-tabs">
-          <a href="#brand/">My Company</a>
+          <a href="#amenities/{{sc.client.list[0].survey_hash}}">My Amenities</a>
         </li>
         <br>
         <li class="survey-tabs">
-          <a href="#retention/">My Worklife</a>
+          <a href="#brand/{{sc.client.list[0].survey_hash}}">My Company</a>
+        </li>
+        <br>
+        <li class="survey-tabs">
+          <a href="#retention/{{sc.client.list[0].survey_hash}}">My Worklife</a>
         </li>
         <li class="survey-tabs">
-            <a href="#conclusion/">My Satisfaction</a>
+            <a href="#conclusion/{{sc.client.list[0].survey_hash}}">My Satisfaction</a>
         </li>
       </ul>
       <!--- question block -->
@@ -42,7 +42,7 @@
           <div ng-repeat="question in sc.demographics.list | limitTo:sc.demographicLimit">
             <p class="survey-questions">{{question.question}}</p>
             <p class="dropdown">
-              <select ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
+              <select ng-model="question.selectedResponse" ng-change="sc.saveResponses(question, sc.client.list[0].id)">
                 <option ng-repeat="response in question.responses" ng-value="response">{{response.response_text}}</option>
               </select>
               <br>
@@ -51,7 +51,7 @@
           </div>
         </div>
         <br>
-        <a href="#location/">
+        <a href="#location/{{sc.client.list[0].survey_hash}}">
           <button type="button" class="btn btn-danger">
             <span></span> Next
           </button>
@@ -60,3 +60,4 @@
     </div>
   </div>
 </div>
+{{sc.client.list[0].id}}

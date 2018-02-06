@@ -215,12 +215,15 @@ myApp.service('SurveyService', function ($http, $location) {
     }
 
     //adding question responses to the database
-    self.saveResponses = function (question) {
+    self.saveResponses = function (question, clientId) {
         console.log('in saveResponse', question);
         $http({
             method: 'POST',
             url: '/survey',
-            data: question
+            data: {
+                question,
+                clientId
+            }
         }).then(function (response) {
             console.log('saveResponse = response', response);
 
@@ -234,7 +237,10 @@ myApp.service('SurveyService', function ($http, $location) {
    $http({
        method: 'POST',
        url: '/survey/input',
-       data: lastQuestion
+       data: {
+        lastQuestion,
+        clientId
+    }
    }).then(function (response) {
        console.log('saveResponse = response', response);
 
