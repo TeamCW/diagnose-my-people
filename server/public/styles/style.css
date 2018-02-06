@@ -25,6 +25,15 @@
     margin: auto;
 }
 
+.survey-header {
+    height: 110px;
+    margin: auto;
+}
+
+.header-image {
+    max-height: 100px;
+}
+
 .md-button.header-btn {
     color: #6B6D6D;
 }
@@ -198,11 +207,12 @@
 }
 
 .finishPageBackground {
-    background-image: url('/images/cushman-landing2.png');
+    background-image: url('/images/cushman-landing-blank.png');
 }
 
 .finishPageH1 {
     color: white;
+padding: 60px;
 }
 /* End survey styling ^ */
 
