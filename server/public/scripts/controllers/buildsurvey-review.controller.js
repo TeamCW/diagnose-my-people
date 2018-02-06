@@ -10,7 +10,6 @@ myApp.controller('BuildSurveyReviewController',[ '$routeParams', function ($rout
         brandAdded: false,
         locationAdded: false,
         retainmentAdded: false,
-        spaceLayoutAdded: false,
         amenitiesRemove () {
             this.amenitiesAdded = false;
             self.refreshContactInformationURL();
@@ -27,19 +26,12 @@ myApp.controller('BuildSurveyReviewController',[ '$routeParams', function ($rout
             this.retainmentAdded = false;
             self.refreshContactInformationURL();
         },
-        spaceLayoutRemove () {
-            this.spaceLayoutAdded = false;
-            self.refreshContactInformationURL();
-        },
-
-
     };
 
     self.kpisAdded.amenitiesAdded = JSON.parse($routeParams.amenitiesAdded);
     self.kpisAdded.brandAdded = JSON.parse($routeParams.brandAdded);
     self.kpisAdded.locationAdded = JSON.parse($routeParams.locationAdded);
     self.kpisAdded.retainmentAdded = JSON.parse($routeParams.retainmentAdded);
-    self.kpisAdded.spaceLayoutAdded = JSON.parse($routeParams.spaceLayoutAdded);
 
     self.contactInformationURL = {urlString: '#/build-survey-contact-info/false/false/false/false/false'}
 
@@ -64,12 +56,6 @@ myApp.controller('BuildSurveyReviewController',[ '$routeParams', function ($rout
             urlString += '/false'
         };
         if (self.kpisAdded.retainmentAdded) {
-            urlString += '/true'
-        }
-        else {
-            urlString += '/false'
-        };
-        if (self.kpisAdded.spaceLayoutAdded) {
             urlString += '/true'
         }
         else {
