@@ -8,6 +8,7 @@ myApp.service('SurveyService', function ($http, $location) {
     self.brand = { list: [] };
     self.retention = { list: [] };
     self.conclusion = { list: [] };
+    self.client = { list: [] };
 
 
     self.selectedResponse = {};
@@ -240,7 +241,15 @@ myApp.service('SurveyService', function ($http, $location) {
    })
 };
 
-
+//get client info to display in header
+self.getClient = function () {
+    $http({
+        method: 'GET',
+        url: '/survey/client-info',
+    }).then(function (response) {
+        self.client.list = response.data;
+    });
+}
 
 
 
