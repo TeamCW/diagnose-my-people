@@ -250,6 +250,11 @@
 #conclusionQ2 {
     font-size-adjust: 40px;
 }
+
+.progress {
+    width: 700px;
+    margin-left: 200px;
+}
 /* End survey styling ^ */
 
 /* Landing page styling*/
