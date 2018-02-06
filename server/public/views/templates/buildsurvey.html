@@ -1,4 +1,4 @@
-
+<header ng-include="'/views/partials/header.html'" class=""></header>
 <div class="container">
     <h1>Build Your Survey</h1>
     <p>Select the categories below you would like in your survey.</p>
@@ -55,19 +55,6 @@
             <button ng-click="bs.toggleRetainment()" ng-show="bs.kpisAdded.retainmentAdded" class="btn btn-outline-danger">Remove from Survey</button>
         </div>
         <img src="../images/recruitment.png" class="col-6 img-thumbnail build-survey-pic">
-    </div>
-    <hr>
-    <h2>Space Layout</h2>
-    <div class="row">
-        <div class="col-6">
-            <p>
-                What do your people want the new space to be like.  What are the functions of the building that help them
-                with their jobs, what should be in the break space, and what kind of furniture doe they like.
-            </p>
-            <button ng-click="bs.toggleSpaceLayout()" ng-hide="bs.kpisAdded.spaceLayoutAdded" class="btn btn-outline-success">Add to Survey</button>
-            <button ng-click="bs.toggleSpaceLayout()" ng-show="bs.kpisAdded.spaceLayoutAdded" class="btn btn-outline-danger">Remove from Survey</button>
-        </div>
-        <img src="../images/space-layout.png" class="col-6 img-thumbnail build-survey-pic">
     </div>
     <hr>
     <a ng-href="{{bs.reviewBuildSurveyURL.urlString}}" class="btn btn-outline-danger">Review Survey </a>

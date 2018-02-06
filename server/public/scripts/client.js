@@ -35,11 +35,11 @@ myApp.config(function ($routeProvider, $locationProvider) {
       templateUrl: '/views/templates/buildsurvey.html',
       controller: 'BuildSurveyController as bs'
     })
-    .when('/build-survey-review/:amenitiesAdded/:brandAdded/:locationAdded/:retainmentAdded/:spaceLayoutAdded', {
+    .when('/build-survey-review/:amenitiesAdded/:brandAdded/:locationAdded/:retainmentAdded', {
       templateUrl: '/views/templates/build-survey-review.html',
       controller: 'BuildSurveyReviewController as br'
     })
-    .when('/build-survey-contact-info/:amenitiesAdded/:brandAdded/:locationAdded/:retainmentAdded/:spaceLayoutAdded', {
+    .when('/build-survey-contact-info/:amenitiesAdded/:brandAdded/:locationAdded/:retainmentAdded', {
       templateUrl: '/views/templates/build-survey-contact-info.html',
       controller: 'BuildSurveyContactInfoController as bc'
     })

@@ -222,4 +222,25 @@ router.post('/input', function (req, res) {
 });
 
 
+router.get('/client-info', function (req, res) {
+        pool.connect(function (errorConnectingToDatabase, client, done) {
+            if (errorConnectingToDatabase) {
+                console.log('error', errorConnectingToDatabase);
+                res.sendStatus(500);
+            } else {
+
+                client.query(`SELECT id, organization, logo_url, survey_hash FROM client;`,
+                    function (errorMakingDatabaseQuery, result) {
+                        done();
+                        if (errorMakingDatabaseQuery) {
+                            console.log('error', errorMakingDatabaseQuery);
+                            res.sendStatus(500);
+                        } else {
+                            res.send(result.rows);
+                        }
+                    });
+            }
+        });
+});
+
 module.exports = router;
