@@ -22,6 +22,7 @@ myApp.controller('SurveyController', function (SurveyService) {
   vm.saveResponses = SurveyService.saveResponses;
   vm.saveResponsesUserInput = SurveyService.saveResponsesUserInput;
   vm.lastQuestion = SurveyService.lastQuestion;
+  vm.client = SurveyService.client;
 
 
 
@@ -32,6 +33,7 @@ myApp.controller('SurveyController', function (SurveyService) {
   SurveyService.getBrand();
   SurveyService.getRetention();
   SurveyService.getConclusion();
+  SurveyService.getClient();
 
 
 });

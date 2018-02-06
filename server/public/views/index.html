@@ -1,54 +1,55 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Diagnose My People</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!--- styles -->        
-        <link rel="stylesheet" href="styles/bootstrap/dist/css/bootstrap.css">
-        <link rel="stylesheet" href="styles/style.css">
-        <link href="vendors/open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
-        
-        <!--- scripts -->
-        <script type="text/javascript" src="vendors/angular/angular.js"></script>
-        <script type="text/javascript" src="vendors/angular-route/angular-route.min.js"></script>
-        <script type="text/javascript" src="scripts/client.js"></script>
-        <script type="text/javascript" src="vendors/charts/dist/Chart.min.js"></script>
-        <script type="text/javascript" src="vendors/angular-charts/dist/angular-chart.min.js"></script>
+<head>
+    <title>Diagnose My People</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!--- controllers -->
-        <script type="text/javascript" src="scripts/controllers/buildsurvey.controller.js"></script>
-        <script type="text/javascript" src="scripts/controllers/buildsurvey-review.controller.js"></script>
-        <script type="text/javascript" src="scripts/controllers/buildsurvey-contact-info.controller.js"></script>
-        <script type="text/javascript" src="scripts/controllers/buildsurvey-thankyou.controller.js"></script>
-        <script type="text/javascript" src="scripts/controllers/info.controller.js"></script>
-        <script type="text/javascript" src="scripts/controllers/login.controller.js"></script>
-        <script type="text/javascript" src="scripts/controllers/user.controller.js"></script>
-        <script type="text/javascript" src="scripts/controllers/survey.controller.js"></script>
-        <script type="text/javascript" src="scripts/controllers/dashboard.controller.js"></script>
-        <script type="text/javascript" src="scripts/controllers/admin-survey-review.controller.js"></script>
+    <!--- styles -->
+    <link rel="stylesheet" href="styles/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link href="vendors/open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
+
+    <!--- scripts -->
+    <script type="text/javascript" src="vendors/angular/angular.js"></script>
+    <script type="text/javascript" src="vendors/angular-route/angular-route.min.js"></script>
+    <script type="text/javascript" src="scripts/client.js"></script>
+    <script type="text/javascript" src="vendors/charts/dist/Chart.min.js"></script>
+    <script type="text/javascript" src="vendors/angular-charts/dist/angular-chart.min.js"></script>
+
+    <!--- controllers -->
+    <script type="text/javascript" src="scripts/controllers/buildsurvey.controller.js"></script>
+    <script type="text/javascript" src="scripts/controllers/buildsurvey-review.controller.js"></script>
+    <script type="text/javascript" src="scripts/controllers/buildsurvey-contact-info.controller.js"></script>
+    <script type="text/javascript" src="scripts/controllers/buildsurvey-thankyou.controller.js"></script>
+    <script type="text/javascript" src="scripts/controllers/info.controller.js"></script>
+    <script type="text/javascript" src="scripts/controllers/login.controller.js"></script>
+    <script type="text/javascript" src="scripts/controllers/user.controller.js"></script>
+    <script type="text/javascript" src="scripts/controllers/survey.controller.js"></script>
+    <script type="text/javascript" src="scripts/controllers/dashboard.controller.js"></script>
+    <script type="text/javascript" src="scripts/controllers/admin-survey-review.controller.js"></script>
 
 
 
-        <!--- services -->
-        <script type="text/javascript" src="scripts/services/user.service.js"></script>
-        <script type="text/javascript" src="scripts/services/admin.service.js"></script>
-        <script type="text/javascript" src="scripts/services/survey.service.js"></script>
-        <script type="text/javascript" src="scripts/services/buildsurvey.service.js"></script>
-        <script type="text/javascript" src="scripts/services/dashboard.service.js"></script>
-        <script type="text/javascript" src="scripts/services/buildsurvey-contact-info.service.js"></script>
-        <script type="text/javascript" src="scripts/services/admin-survey-review.service.js"></script>
+    <!--- services -->
+    <script type="text/javascript" src="scripts/services/user.service.js"></script>
+    <script type="text/javascript" src="scripts/services/admin.service.js"></script>
+    <script type="text/javascript" src="scripts/services/survey.service.js"></script>
+    <script type="text/javascript" src="scripts/services/buildsurvey.service.js"></script>
+    <script type="text/javascript" src="scripts/services/dashboard.service.js"></script>
+    <script type="text/javascript" src="scripts/services/buildsurvey-contact-info.service.js"></script>
+    <script type="text/javascript" src="scripts/services/admin-survey-review.service.js"></script>
 
-        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-        <script src="https://static.filestackapi.com/v3/filestack.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://static.filestackapi.com/v3/filestack.js"></script>
 
-    </head>
+</head>
 
-    <body ng-app="myApp">
-      <header ng-include="'/views/partials/header.html'" class=""></header>
+<body ng-app="myApp">
 
-      <main ng-view></main>
+    <main ng-view></main>
 
-    </body>
+</body>
+
 </html>
