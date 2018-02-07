@@ -174,6 +174,7 @@ router.get('/conclusion', function (req, res) {
 
 router.post('/', function (req, res) {
     console.log('employee response:', req.body);
+    var employeeResponseClient = req.body.clientId;
     pool.connect(function (errorConnectingToDatabase, client, done) {
         if (errorConnectingToDatabase) {
             console.log('error', errorConnectingToDatabase);
@@ -202,8 +203,8 @@ router.post('/', function (req, res) {
 router.post('/input', function (req, res) {
     console.log('employee response:', req.body);
     var employeeResponseQuestionId = 43;
-    var employeeResponseInput = req.body.response_from_input;
-    var employeeResponseClient = 2;
+    var employeeResponseInput = req.body.lastQuestion.response_from_input;
+    var employeeResponseClient = req.body.clientId;
     pool.connect(function (errorConnectingToDatabase, client, done) {
         if (errorConnectingToDatabase) {
             console.log('error', errorConnectingToDatabase);
@@ -225,13 +226,15 @@ router.post('/input', function (req, res) {
 
 
 router.get('/client-info', function (req, res) {
+    var surveyHash = req.query.surveyHash;
         pool.connect(function (errorConnectingToDatabase, client, done) {
             if (errorConnectingToDatabase) {
                 console.log('error', errorConnectingToDatabase);
                 res.sendStatus(500);
             } else {
 
-                client.query(`SELECT id, organization, logo_url, survey_hash FROM client;`,
+                client.query(`SELECT id, organization, logo_url, survey_hash FROM client
+                WHERE survey_hash = $1;`, [surveyHash],
                     function (errorMakingDatabaseQuery, result) {
                         done();
                         if (errorMakingDatabaseQuery) {

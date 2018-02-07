@@ -1,3 +1,4 @@
+<header ng-include="'/views/partials/survey-header.html'" class=""></header>
 <div ng-cloak class="container-fluid survey-background">
     <div class="row">
         <div class="col-lg-10">
@@ -8,26 +9,28 @@
                 </div>
             </div>
             <!--- tabs -->
-            <ul class="nav nav-tabs" id="survey-background">
-                <li class="survey-tabs">
-                    <a href="#survey">My People</a>
-                </li>
-                <li class="survey-tabs">
-                    <a href="#location">My Workplace</a>
-                </li>
-                <li class="active survey-tabs">
-                    <a href="#amenities">My Amenities</a>
-                </li>
-                <li class="survey-tabs">
-                    <a href="#brand">My Company</a>
-                </li>
-                <li class="survey-tabs">
-                    <a href="#retention">My Worklife</a>
-                </li>
-                <li class="survey-tabs">
-                    <a href="#conclusion">My Satisfaction</a>
-                </li>
-            </ul>
+            <div class="row justify-content-md-center">
+                <ul class="nav nav-tabs" id="survey-background">
+                    <li class="survey-tabs">
+                        <a class="tab-no-decor" href="#survey/{{sc.client.list[0].survey_hash}}">My People</a>
+                    </li>
+                    <li class="survey-tabs">
+                        <a class="tab-no-decor" href="#location/{{sc.client.list[0].survey_hash}}">My Workplace</a>
+                    </li>
+                    <li class="active survey-tabs">
+                        <a class="active tab-no-decor" href="#amenities/{{sc.client.list[0].survey_hash}}">My Amenities</a>
+                    </li>
+                    <li class="survey-tabs">
+                        <a class="tab-no-decor" href="#brand/{{sc.client.list[0].survey_hash}}">My Company</a>
+                    </li>
+                    <li class="survey-tabs">
+                        <a class="tab-no-decor" href="#retention/{{sc.client.list[0].survey_hash}}">My Worklife</a>
+                    </li>
+                    <li class="survey-tabs">
+                        <a class="tab-no-decor" href="#conclusion/{{sc.client.list[0].survey_hash}}">My Satisfaction</a>
+                    </li>
+                </ul>
+            </div>
             <!--- question block -->
             <div class="well well-md">
                 <br>
@@ -73,14 +76,13 @@
                     </div>
                 </div>
                 <div>
-                    <a href="#brand">
-                        <button type="button" class="btn btn-danger" ng-click="sc.saveResponses( sc.slider.value)">
+                    <a href="#brand/{{sc.client.list[0].survey_hash}}">
+                        <button type="button" class="btn btn-danger" ng-click="sc.saveResponses( sc.slider.value, sc.client.list[0].id)">
                             <span></span> Next
                         </button>
                     </a>
                 </div>
             </div>
-
         </div>
     </div>
 </div>

@@ -53,7 +53,7 @@ myApp.service('SurveyService', function ($http, $location) {
     self.getLocation = function () {
         $http({
             method: 'GET',
-            url: 'survey/location'
+            url: 'survey/location',
         }).then(function (response) {
             for (let i = 0; i < response.data.length; i++) {
                 var newData = {
@@ -215,12 +215,13 @@ myApp.service('SurveyService', function ($http, $location) {
     }
 
     //adding question responses to the database
+
     self.saveResponses = function ( sliderValues, clientId) {
         console.log('in saveResponse', sliderValues);
         $http({
             method: 'POST',
             url: '/survey',
-            data: {sliderValues, clientID}
+            data: {sliderValues, clientId}
         }).then(function (response) {
             console.log('saveResponse = response', response);
 
@@ -242,10 +243,13 @@ myApp.service('SurveyService', function ($http, $location) {
 };
 
 //get client info to display in header
-self.getClient = function () {
+self.getClient = function (surveyHash) {
     $http({
         method: 'GET',
         url: '/survey/client-info',
+        params: {
+            surveyHash: surveyHash
+        }
     }).then(function (response) {
         self.client.list = response.data;
     });
