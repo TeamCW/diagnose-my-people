@@ -5,19 +5,18 @@
 
 {{dc.clientDemoData}}
 <br>
-<br>
-{{dc.ageDistributionInput}}
+<br> {{dc.ageDistributionInput}}
 <div class="container">
     <div>
         <h3>Demographics: Who Are Your People</h3>
         <br>
         <div class="row">
             <div class="col-6">
-                What are the age groups of your people?
+                What is the age distribution your people?
                 <canvas class="card" id="ageDistribution"></canvas>
             </div>
             <div class="col-6">
-                What departments do my people work in?
+                What departments do your people work in?
                 <canvas class="card" id="departmentDistribution"></canvas>
             </div>
         </div>
@@ -53,15 +52,38 @@
         <div class="row">
 
             <div class="col-6">
-                What mode do they commute by? 
-                <br>
-                What mode do they want to commute by?
+                What mode do they commute by?
+                <br> What mode do they want to commute by?
                 <canvas class="card" id="modeOfCommute"></canvas>
             </div>
             <div class="col-6">
-                <br>
-                How frequently would people like to work from home?
+                <br> How frequently would people like to work from home?
                 <canvas class="card" id="homeworkFrequency"></canvas>
+            </div>
+        </div>
+        <br>
+        <hr>
+    </div>
+    <div>
+        <h3>Amenities: What amenities help your people?</h3>
+        <br>
+        <div class="row">
+            <div class="col-6">
+                How frequent do your people use your current buildings amenities?
+                <canvas class="card" id="currentAmenityFrequency"></canvas>
+            </div>
+            <div class="col-6">
+                How frequent would your people use a 3rd workspace like a lounge, coffee shop or common space?
+                <canvas class="card" id="thirdSpaceFrequency"></canvas>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+
+            <div class="col-6">
+                What Amenities do your people value the most on a scale of 5?
+                <br> What mode do they want to commute by?
+                <canvas class="card" id="amenitiesValued"></canvas>
             </div>
         </div>
         <br>
