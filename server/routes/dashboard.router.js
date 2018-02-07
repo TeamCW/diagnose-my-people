@@ -6,15 +6,17 @@ var pool = require('../modules/pool.js');
 
 
 router.get('/demo', function (req, res) {
-    var clientId = req.params.id;
-    if (req.isAuthenticated()) {
+    console.log(req.query.clientId)
+    var clientId = req.query.clientId;
+    // if (req.isAuthenticated()) {
         pool.connect(function (errorConnectingToDatabase, client, done) {
             if (errorConnectingToDatabase) {
                 console.log('error', errorConnectingToDatabase);
                 res.sendStatus(500);
             } else {
-                client.query(`SELECT * FROM employee_results 
-                WHERE client_id = $1 AND question_id IN (1, 2, 3, 4); `, [clientId],
+                client.query(`SELECT employee_results.client_id, employee_results.question_id,possible_responses.response_text FROM employee_results 
+                JOIN possible_responses ON employee_results.response_id = possible_responses.id
+                WHERE employee_results.client_id = $1 AND employee_results.question_id IN (1, 2, 3, 4); `, [clientId],
                     function (errorMakingDatabaseQuery, result) {
                         done();
                         if (errorMakingDatabaseQuery) {
@@ -26,10 +28,10 @@ router.get('/demo', function (req, res) {
                     });
             }
         });
-    }
-    else {
-        res.sendStatus(403);
-    }
+    // }
+    // else {
+    //     res.sendStatus(403);
+    // }
 });
 
 router.get('/location', function (req, res) {

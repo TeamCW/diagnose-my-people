@@ -4,19 +4,24 @@ myApp.controller('DashboardController', ['DashboardService', 'AdminService', '$h
     vm.dashboardService = DashboardService;
     vm.responseData = { list: [] };
     vm.clientDemoData = DashboardService.clientDemoData;
-    vm.clientLocalData = DashboardService.clientLocalData;
-    vm.clientBrandData = DashboardService.clientBrandData;
-    vm.clientAmenData = DashboardService.clientAmenData;
-    vm.clientRetRecData = DashboardService.clientRetRecData;
-    vm.clientConclusionData = DashboardService.clientConclusionData;
+    // vm.clientLocalData = DashboardService.clientLocalData;
+    // vm.clientBrandData = DashboardService.clientBrandData;
+    // vm.clientAmenData = DashboardService.clientAmenData;
+    // vm.clientRetRecData = DashboardService.clientRetRecData;
+    // vm.clientConclusionData = DashboardService.clientConclusionData;
 
+    self.getClientResponsesDemo = DashboardService.getClientResponsesDemo 
     
-    DashboardService.getClientResponsesDemo($routeParams.clientId);
-    DashboardService.getClientResponsesLocal($routeParams.clientId);
-    DashboardService.getClientResponsesBrand($routeParams.clientId);
-    DashboardService.getClientResponsesAmen($routeParams.clientId);
-    DashboardService.getClientResponsesRetention($routeParams.clientId);
-    DashboardService.getClientResponsesConclusion($routeParams.clientId);
+    self.getClientResponsesDemo($routeParams.clientId )
+    // DashboardService.getClientResponsesLocal($routeParams.clientId);
+    // DashboardService.getClientResponsesBrand($routeParams.clientId);
+    // DashboardService.getClientResponsesAmen($routeParams.clientId);
+    // DashboardService.getClientResponsesRetention($routeParams.clientId);
+    // DashboardService.getClientResponsesConclusion($routeParams.clientId);
+
+
+    self.ageDistributionInput = DashboardService.ageDistributionInput
+
 
 
     
@@ -304,15 +309,15 @@ myApp.controller('DashboardController', ['DashboardService', 'AdminService', '$h
 
 
 
-    // vm.updateChart = function (responseData) {
-    //     for (var i = 0; i < responseData.length; i++) {
-    //         vm.barChart.config.data.labels.push(responseData[i].response_text);
-    //         vm.barChart.data.datasets[0].data.push(responseData[i].count);
-    //     }
-    //     console.log('labels:', vm.barChart.config.data.labels);
-    //     console.log('data:', vm.barChart.data.datasets[0].data);
-    //     vm.barChart.update();
-    // };
+    vm.updateChart = function (responseData) {
+        for (var i = 0; i < responseData.length; i++) {
+            vm.barChart.config.data.labels.push(responseData[i].response_text);
+            vm.barChart.data.datasets[0].data.push(responseData[i].count);
+        }
+        console.log('labels:', vm.barChart.config.data.labels);
+        console.log('data:', vm.barChart.data.datasets[0].data);
+        vm.barChart.update();
+    };
 
 
     // vm.getAgeGroups();

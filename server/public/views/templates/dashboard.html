@@ -1,15 +1,19 @@
 <header ng-include="'/views/partials/header.html'" class=""></header>
 <h1>Dashboard</h1>
 <a ng-href="/#user">Back To Admin Page</a>
+<button ng-click="self.ageDistribution.update();">Update Charts</button>
 
-
+{{dc.clientDemoData}}
+<br>
+<br>
+{{dc.ageDistributionInput}}
 <div class="container">
     <div>
         <h3>Demographics: Who Are Your People</h3>
         <br>
         <div class="row">
             <div class="col-6">
-                How old are your people?
+                What are the age groups of your people?
                 <canvas class="card" id="ageDistribution"></canvas>
             </div>
             <div class="col-6">
@@ -21,11 +25,11 @@
         <div class="row">
 
             <div class="col-6">
-                How do your people describe the current space?
+                What word do your people describe your current space as?
                 <canvas class="card" id="descriptionDistribution"></canvas>
             </div>
             <div class="col-6">
-                How long have your people worked for you?
+                How many years have your people worked for you?
                 <canvas class="card" id="experienceDistribution"></canvas>
             </div>
         </div>
@@ -37,7 +41,7 @@
         <br>
         <div class="row">
             <div class="col-6">
-                How long are your people's commute?
+                How long are your people's commutes?
                 <canvas class="card" id="commuteTimes"></canvas>
             </div>
             <div class="col-6">
@@ -49,23 +53,15 @@
         <div class="row">
 
             <div class="col-6">
+                What mode do they commute by? 
+                <br>
                 What mode do they want to commute by?
-                <canvas class="card" id="desiredModeOfCommute"></canvas>
+                <canvas class="card" id="modeOfCommute"></canvas>
             </div>
             <div class="col-6">
-                What mode do they commute by?
-                <canvas class="card" id="currentModeOfCommute"></canvas>
-            </div>
-        </div>
-        <br>
-        <div class="row">
-
-            <div class="col-6">
+                <br>
                 How frequently would people like to work from home?
                 <canvas class="card" id="homeworkFrequency"></canvas>
-            </div>
-            <div class="col-6">
-
             </div>
         </div>
         <br>
