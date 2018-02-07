@@ -11,9 +11,10 @@ myApp.controller('DashboardController', ['DashboardService', 'AdminService', '$h
     // vm.clientConclusionData = DashboardService.clientConclusionData;
 
     self.getClientResponsesDemo = DashboardService.getClientResponsesDemo 
-    
-    self.getClientResponsesDemo($routeParams.clientId )
-    // DashboardService.getClientResponsesLocal($routeParams.clientId);
+    self.getClientResponsesLocation = DashboardService.getClientResponsesLocation
+
+    self.getClientResponsesDemo($routeParams.clientId );
+    self.getClientResponsesLocation($routeParams.clientId);
     // DashboardService.getClientResponsesBrand($routeParams.clientId);
     // DashboardService.getClientResponsesAmen($routeParams.clientId);
     // DashboardService.getClientResponsesRetention($routeParams.clientId);
