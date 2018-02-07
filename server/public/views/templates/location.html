@@ -31,7 +31,7 @@
       <!--- question block -->
       <div class="well well-md">   
         <br>
-        <div ng-repeat="question in sc.location.list | limitTo:sc.locationLimit">
+        <div ng-repeat="question in sc.location.list | limitTo:sc.locationLimit | orderBy : 'value'">
           <div class="survey-questions">{{question.question}}
               <div class="dropdown" ng-show="question.question_id === 5">
                 <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question5">
@@ -46,10 +46,10 @@
                     </select>
               </div>
               <div ng-if="question.question_id === 8 && sc.location.list[3].responses" class="slider-location1">
-                  <rzslider rz-slider-model="sc.slider.value.question8" rz-slider-options="{showTicksValues: true, stepsArray: sc.location.list[3].responses}"></rzslider>
+                  <rzslider rz-slider-model="sc.slider.value.question8" rz-slider-options="{showTicksValues: false, stepsArray: sc.location.list[3].responses }"></rzslider>
               </div>
-              <div ng-if="question.question_id === 9 && sc.location.list[4].responses" class="slider-location1">
-                  <rzslider rz-slider-model="sc.slider.value.question9" rz-slider-options="{showTicksValues: true, stepsArray: sc.location.list[4].responses}"></rzslider>
+              <div ng-if="question.question_id === 9 && sc.location.list[4].responses" class="slider-location2">
+                  <rzslider rz-slider-model="sc.slider.value.question9" rz-slider-options="{showTicksValues: true, stepsArray: sc.location.list[4].responses }"></rzslider>
               </div>                 
               <br>
               <br>

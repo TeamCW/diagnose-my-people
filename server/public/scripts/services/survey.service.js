@@ -75,7 +75,7 @@ myApp.service('SurveyService', function ($http, $location) {
                     }//end id for loop
                     newData.responses.push(newResponse);
                 } //end response text for loop
-
+                newData.responses.sort(function(a, b){return a.value - b.value})
                 self.location.list.push(newData);//this fills up the questions array with the table from the database.
             }
             console.log('location info:', self.location.list);
