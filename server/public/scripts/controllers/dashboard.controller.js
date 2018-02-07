@@ -4,19 +4,24 @@ myApp.controller('DashboardController', ['DashboardService', 'AdminService', '$h
     vm.dashboardService = DashboardService;
     vm.responseData = { list: [] };
     vm.clientDemoData = DashboardService.clientDemoData;
-    vm.clientLocalData = DashboardService.clientLocalData;
-    vm.clientBrandData = DashboardService.clientBrandData;
-    vm.clientAmenData = DashboardService.clientAmenData;
-    vm.clientRetRecData = DashboardService.clientRetRecData;
-    vm.clientConclusionData = DashboardService.clientConclusionData;
+    // vm.clientLocalData = DashboardService.clientLocalData;
+    // vm.clientBrandData = DashboardService.clientBrandData;
+    // vm.clientAmenData = DashboardService.clientAmenData;
+    // vm.clientRetRecData = DashboardService.clientRetRecData;
+    // vm.clientConclusionData = DashboardService.clientConclusionData;
 
+    self.getClientResponsesDemo = DashboardService.getClientResponsesDemo 
     
-    DashboardService.getClientResponsesDemo($routeParams.clientId);
-    DashboardService.getClientResponsesLocal($routeParams.clientId);
-    DashboardService.getClientResponsesBrand($routeParams.clientId);
-    DashboardService.getClientResponsesAmen($routeParams.clientId);
-    DashboardService.getClientResponsesRetention($routeParams.clientId);
-    DashboardService.getClientResponsesConclusion($routeParams.clientId);
+    self.getClientResponsesDemo($routeParams.clientId )
+    // DashboardService.getClientResponsesLocal($routeParams.clientId);
+    // DashboardService.getClientResponsesBrand($routeParams.clientId);
+    // DashboardService.getClientResponsesAmen($routeParams.clientId);
+    // DashboardService.getClientResponsesRetention($routeParams.clientId);
+    // DashboardService.getClientResponsesConclusion($routeParams.clientId);
+
+
+
+
 
 
     

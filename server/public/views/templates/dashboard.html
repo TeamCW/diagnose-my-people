@@ -2,7 +2,7 @@
 <h1>Dashboard</h1>
 <a ng-href="/#user">Back To Admin Page</a>
 
-
+{{dc.clientDemoData}}
 <div class="container">
     <div>
         <h3>Demographics: Who Are Your People</h3>
@@ -37,7 +37,7 @@
         <br>
         <div class="row">
             <div class="col-6">
-                How long are your people's commute?
+                How long are your people's commutes?
                 <canvas class="card" id="commuteTimes"></canvas>
             </div>
             <div class="col-6">
@@ -49,23 +49,15 @@
         <div class="row">
 
             <div class="col-6">
+                What mode do they commute by? 
+                <br>
                 What mode do they want to commute by?
-                <canvas class="card" id="desiredModeOfCommute"></canvas>
+                <canvas class="card" id="modeOfCommute"></canvas>
             </div>
             <div class="col-6">
-                What mode do they commute by?
-                <canvas class="card" id="currentModeOfCommute"></canvas>
-            </div>
-        </div>
-        <br>
-        <div class="row">
-
-            <div class="col-6">
+                <br>
                 How frequently would people like to work from home?
                 <canvas class="card" id="homeworkFrequency"></canvas>
-            </div>
-            <div class="col-6">
-
             </div>
         </div>
         <br>
