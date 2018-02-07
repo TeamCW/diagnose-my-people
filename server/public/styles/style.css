@@ -123,12 +123,6 @@
     background-image: url('/images/cush-background-3.jpg');
 }
 
-.slider-numbers {
-    margin-right: 50px;
-    margin-left: 50px;
-    font-weight: normal;
-}
-
 .brand-survey-questions {
     font-weight: bold;
     margin-bottom: 2px;
@@ -161,11 +155,22 @@
     border-bottom: 20px;
 }
 
+.slider-numbers {
+    margin-right: 50px;
+    margin-left: 50px;
+    font-weight: normal;
+}
+
 .slider {
     width: 500px;
 }
 
 .slider-location1 {
+    width: 600px;
+    margin-left: 110px;
+}
+
+.slider-location2 {
     width: 600px;
     margin-left: 110px;
 }

@@ -75,7 +75,7 @@ myApp.service('SurveyService', function ($http, $location) {
                     }//end id for loop
                     newData.responses.push(newResponse);
                 } //end response text for loop
-
+                newData.responses.sort(function(a, b){return a.value - b.value})//sorting the response display for sliders
                 self.location.list.push(newData);//this fills up the questions array with the table from the database.
             }
             console.log('location info:', self.location.list);
@@ -108,7 +108,7 @@ myApp.service('SurveyService', function ($http, $location) {
                     }//end id for loop
                     newData.responses.push(newResponse);
                 } //end response text for loop
-
+                newData.responses.sort(function(a, b){return a.value - b.value})//sorting the response display for sliders
                 self.amenities.list.push(newData);//this fills up the questions array with the table from the database.
             }
             console.log('amenities info:', self.amenities.list);
@@ -141,7 +141,7 @@ myApp.service('SurveyService', function ($http, $location) {
                     }//end id for loop
                     newData.responses.push(newResponse);
                 } //end response text for loop
-
+                newData.responses.sort(function(a, b){return a.value - b.value})//sorting the response display for sliders
                 self.brand.list.push(newData);//this fills up the questions array with the table from the database.
             }
             console.log('brand info:', self.brand.list);
@@ -174,7 +174,7 @@ myApp.service('SurveyService', function ($http, $location) {
                     }//end id for loop
                     newData.responses.push(newResponse);
                 } //end response text for loop
-
+                newData.responses.sort(function(a, b){return a.value - b.value})//sorting the response display for sliders
                 self.retention.list.push(newData);//this fills up the questions array with the table from the database.
             }
             console.log('retention info:', self.retention.list);
@@ -207,7 +207,7 @@ myApp.service('SurveyService', function ($http, $location) {
                     }//end id for loop
                     newData.responses.push(newResponse);
                 } //end response text for loop
-
+                newData.responses.sort(function(a, b){return a.value - b.value})//sorting the response display for sliders
                 self.conclusion.list.push(newData);//this fills up the questions array with the table from the database.
             }
             console.log('conclusion info:', self.conclusion.list);
