@@ -22,9 +22,12 @@
 
 .header {
     height: 80px;
-    margin: auto;
+    margin-top: 15px;
 }
 
+.banner {
+    border-radius: 0.25em;
+}
 .survey-header {
     height: 190px;
     margin: auto;
@@ -128,6 +131,22 @@
 .brand-survey-questions {
     font-weight: bold;
     margin-bottom: 2px;
+}
+.active.survey-tabs {
+    background-color: #e4002b;
+}
+
+.tab-no-decor {
+    text-decoration: none;
+    color: black;
+}
+
+.tab-no-decor:hover {
+    text-decoration: none;
+    color: black;
+}
+.active.tab-no-decor {
+    color: white;
 }
 
 /* Begin Slider styling */
@@ -280,16 +299,26 @@ padding: 60px;
 }
 
 .jumbotron {
-    background-image: url('/images/cushman-landing2.png');
-    background-size: 1200px;
+    /* background-image: url('/images/cushman-landing-cut.png');
+    background-size: 100%;
     background-repeat: no-repeat;
-    background-color: #FC3257;
-    height: 280px;
+    background-color: #FC3257; */
+    /* height: 18em; */
     color: white;
 }
 
+.card {
+    background-color: #A7A8AA;
+    color: white;
+}
+
+.card.main {
+    background-color: #E4002B;
+    color: white;
+}
 .landing {
-    background: linear-gradient(#e4002b, black);
+    background-color: white;
+    /* background: linear-gradient(#e4002b, black); */
     background-repeat: repeat;
     /* background-image: url('/images/people.png'); */
     /* background-size: 1100px; */
