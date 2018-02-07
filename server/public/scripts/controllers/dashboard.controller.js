@@ -20,7 +20,7 @@ myApp.controller('DashboardController', ['DashboardService', 'AdminService', '$h
     // DashboardService.getClientResponsesConclusion($routeParams.clientId);
 
 
-
+    self.ageDistributionInput = DashboardService.ageDistributionInput
 
 
 
@@ -309,15 +309,15 @@ myApp.controller('DashboardController', ['DashboardService', 'AdminService', '$h
 
 
 
-    // vm.updateChart = function (responseData) {
-    //     for (var i = 0; i < responseData.length; i++) {
-    //         vm.barChart.config.data.labels.push(responseData[i].response_text);
-    //         vm.barChart.data.datasets[0].data.push(responseData[i].count);
-    //     }
-    //     console.log('labels:', vm.barChart.config.data.labels);
-    //     console.log('data:', vm.barChart.data.datasets[0].data);
-    //     vm.barChart.update();
-    // };
+    vm.updateChart = function (responseData) {
+        for (var i = 0; i < responseData.length; i++) {
+            vm.barChart.config.data.labels.push(responseData[i].response_text);
+            vm.barChart.data.datasets[0].data.push(responseData[i].count);
+        }
+        console.log('labels:', vm.barChart.config.data.labels);
+        console.log('data:', vm.barChart.data.datasets[0].data);
+        vm.barChart.update();
+    };
 
 
     // vm.getAgeGroups();

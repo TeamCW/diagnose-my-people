@@ -9,12 +9,20 @@ myApp.service('DashboardService', function ($http, $location) {
     self.clientAmenData = { list: [] };
     self.clientRetRecData = { list: [] };
     self.clientConclusionData = { list: [] };
+    self.ageDistributionInput = { labels: ['under 25', '26-35', '36-45', '46-55', '56+'], dataSets: [0, 0, 0, 0, 0] }
+
+    //data arrays for graphs
 
 
 
+    self.updateCharts = function () {
+        self.ageDistribution.update();
+    }
 
     self.getClientResponsesDemo = function (clientId) {
-        console.log('cleveland rocks', clientId);
+        console.log('getClientResponsesDemo(' + clientId + ')');
+        console.log(self.ageDistribution)
+        //reset ageDistributionInputs for chart
         $http({
             method: 'GET',
             url: '/dashboard/demo',
@@ -23,35 +31,75 @@ myApp.service('DashboardService', function ($http, $location) {
             self.clientDemoData.list = response.data;
             console.log('client dashboard demo response:', self.clientDemoData.list);
             //loop through Demographic Data
-            for (let index = 0; index < array.length; index++) {
-                const element = array[index];
+            for (let i = 0; i < self.clientDemoData.list.length; i++) {
+
                 //if statement checking if question is one
-                if (condition) {
+                if (self.clientDemoData.list[i].question_id == 1) {
                     //then statement for if question is one that adds 1 to each option in an array
+                    if (self.clientDemoData.list[i].response_text == '1991 or Later') {
+
+                        self.ageDistribution.config.data.datasets[0].data[0]++
+
+                    }
+                    if (self.clientDemoData.list[i].response_text == '1981 - 1990') {
+                        self.ageDistribution.config.data.datasets[0].data[1]++
+
+                    }
+                    if (self.clientDemoData.list[i].response_text == '1971 - 1980') {
+                        self.ageDistribution.config.data.datasets[0].data[2]++
+
+                    }
+                    if (self.clientDemoData.list[i].response_text == '1961 - 1970') {
+                        self.ageDistribution.config.data.datasets[0].data[3]++
+
+                    }
+                    if (self.clientDemoData.list[i].response_text == '1960 or Earlier') {
+                        self.ageDistribution.config.data.datasets[0].data[4]++
+
+                    }
+
                 }
+
                 //if statement checkin if question is two
-                if (condition) {
-                    //then statement for if question is two that adds 1 array index in an array
+                if (self.clientDemoData.list[i].question_id == 2) {
+                    //then statement for if question is two that adds 1 array index in an 
+                    for (let index = 0; index < self.departmentDistribution.config.data.labels.length - 1; index++) {
+                        if (self.clientDemoData.list[i].response_text == self.departmentDistribution.config.data.labels[index]) {
+                            self.departmentDistribution.config.data.datasets[0].data[index]++
+
+                        }
+
+                    }
+
                 }
                 //if statement checkin if question is three
-                if (condition) {
-                   //then statement for if question is three that adds 1 array index in an array 
+                if (self.clientDemoData.list[i].question_id == 3) {
+                    //then statement for if question is three that adds 1 array index in an array
+                    for (let index = 0; index < self.descriptionDistribution.config.data.labels.length; index++) {
+                        if (self.clientDemoData.list[i].response_text == self.descriptionDistribution.config.data.labels[index]) {
+                            self.descriptionDistribution.config.data.datasets[0].data[index]++
+
+                        }
+
+                    }
                 }
                 //if statement checkin if question is four
-                if (condition) {
+                if (self.clientDemoData.list[i].question_id == 4) {
                     //then statement for if question is four that adds 1 array index in an array
+                    for (let index = 0; index < self.experienceDistribution.config.data.labels.length - 1; index++) {
+                        if (self.clientDemoData.list[i].response_text == self.experienceDistribution.config.data.labels[index]) {
+                            self.experienceDistribution.config.data.datasets[0].data[index]++
+                        }
+                    }
                 }
 
-                
 
-                
-
-                
-
-                
-
-                
             }
+            console.log(self.experienceDistribution)
+            self.ageDistribution.update()
+            self.departmentDistribution.update()
+            self.descriptionDistribution.update()
+            self.experienceDistribution.update()
 
         });
     };
@@ -133,8 +181,8 @@ myApp.service('DashboardService', function ($http, $location) {
         data: {
             labels: ['under 25', '26-35', '36-45', '46-55', '56+'],
             datasets: [{
-                label: 'Employee Age Groups',
-                data: [23, 45, 54, 32, 20],
+                label: 'Age Groups',
+                data: [0, 0, 0, 0, 0],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.6)',
                     'rgba(54, 162, 235, 0.6)',
@@ -177,7 +225,7 @@ myApp.service('DashboardService', function ($http, $location) {
                 label: 'apples',
                 backgroundColor: "rgba(153,255,51,0.4)",
                 borderColor: "rgba(153,255,51,1)",
-                data: [53, 60, 89, 51, 31, 69, 40, 17, 24, 48, 77]
+                data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             }]
         }
     });
@@ -197,7 +245,7 @@ myApp.service('DashboardService', function ($http, $location) {
                     "#e74c3c",
                     "#34495e"
                 ],
-                data: [53, 14, 29, 19, 72, 34]
+                data: [0, 0, 0, 0, 0, 0]
             }]
         }
     });
@@ -217,7 +265,7 @@ myApp.service('DashboardService', function ($http, $location) {
                     "#e74c3c",
                     "#34495e"
                 ],
-                data: [79, 49, 11, 70]
+                data: [0, 0, 0, 0]
             }]
         }
     });
