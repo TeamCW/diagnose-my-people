@@ -232,7 +232,7 @@ myApp.service('SurveyService', function ($http, $location) {
 
 
      //adding last question response to the database
- self.saveResponsesUserInput = function (lastQuestion) {
+ self.saveResponsesUserInput = function (lastQuestion, clientId) {
    console.log('in saveResponsesUserInput', lastQuestion);
    $http({
        method: 'POST',

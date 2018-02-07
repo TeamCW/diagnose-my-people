@@ -200,7 +200,7 @@ router.post('/', function (req, res) {
 router.post('/input', function (req, res) {
     console.log('employee response:', req.body);
     var employeeResponseQuestionId = 43;
-    var employeeResponseInput = req.body.question.response_from_input;
+    var employeeResponseInput = req.body.lastQuestion.response_from_input;
     var employeeResponseClient = req.body.clientId;
     pool.connect(function (errorConnectingToDatabase, client, done) {
         if (errorConnectingToDatabase) {
