@@ -2,6 +2,9 @@ myApp.controller('SurveyController', function (SurveyService) {
   console.log('SurveyController created');
   var vm = this;
 
+
+  
+
   //setting the limit for displayed objects on the corresponding survey views
   vm.demographicLimit = 4;
   vm.locationLimit = 5;
@@ -34,6 +37,7 @@ myApp.controller('SurveyController', function (SurveyService) {
   SurveyService.getRetention();
   SurveyService.getConclusion();
   SurveyService.getClient();
+
 
 
 });

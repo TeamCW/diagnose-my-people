@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ngRoute', 'chart.js']);
+var myApp = angular.module('myApp', ['ngRoute', 'chart.js', 'rzModule']);
 
 /// Routes ///
 myApp.config(function ($routeProvider, $locationProvider) {
