@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ngRoute', 'chart.js']);
+var myApp = angular.module('myApp', ['ngRoute', 'chart.js', 'rzModule']);
 
 /// Routes ///
 myApp.config(function ($routeProvider, $locationProvider) {
@@ -27,7 +27,7 @@ myApp.config(function ($routeProvider, $locationProvider) {
       }
     })
     // Begin survey views
-    .when('/survey', {
+    .when('/survey/:surveyHash', {
       templateUrl: '/views/templates/survey.html',
       controller: 'SurveyController as sc'
     })
@@ -47,27 +47,27 @@ myApp.config(function ($routeProvider, $locationProvider) {
       templateUrl: '/views/templates/build-survey-thank-you.html',
       controller: 'BuildSurveyThankYouController as bt'
     })
-    .when('/location', {
+    .when('/location/:surveyHash', {
       templateUrl: '/views/templates/location.html',
       controller: 'SurveyController as sc'
     })
-    .when('/amenities', {
+    .when('/amenities/:surveyHash', {
       templateUrl: '/views/templates/amenities.html',
       controller: 'SurveyController as sc'
     })
-    .when('/brand', {
+    .when('/brand/:surveyHash', {
       templateUrl: '/views/templates/brand.html',
       controller: 'SurveyController as sc'
     })
-    .when('/retention', {
+    .when('/retention/:surveyHash', {
       templateUrl: '/views/templates/retention.html',
       controller: 'SurveyController as sc'
     })
-    .when('/conclusion', {
+    .when('/conclusion/:surveyHash', {
       templateUrl: '/views/templates/conclusion.html',
       controller: 'SurveyController as sc'
     })
-    .when('/surveyFinished', {
+    .when('/surveyFinished/:surveyHash', {
       templateUrl: '/views/templates/surveyFinished.html',
       controller: 'SurveyController as sc'
     })

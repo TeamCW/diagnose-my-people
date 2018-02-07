@@ -172,36 +172,66 @@ router.get('/conclusion', function (req, res) {
     });
 });
 
+// router.post('/', function (req, res) {
+//     console.log('employee response:', req.body);
+//     var employeeResponseClient = req.body.clientId;
+//     pool.connect(function (errorConnectingToDatabase, client, done) {
+//         if (errorConnectingToDatabase) {
+//             console.log('error', errorConnectingToDatabase);
+//             res.sendStatus(500);
+//         } else {
+//             var responseArray = [];
+//             for(var property in req.body.sliderValues) {
+//                 console.log('value in for-in loop:', req.body.sliderValues[property])
+//             client.query(`INSERT INTO employee_results (question_id, response_id, client_id)
+//             VALUES ((SELECT question_id FROM possible_responses
+//             WHERE possible_responses.id = $1), $1, $2); `, [req.body.sliderValues[property], employeeResponseClient],
+//                 function (errorMakingDatabaseQuery, result) {
+//                     done();
+//                     if (errorMakingDatabaseQuery) {
+//                         console.log('error', errorMakingDatabaseQuery);
+//                         res.sendStatus(500);
+//                     } else {
+//                         res.send(result.rows);
+//                     }
+//                 });
+//         }
+//     }
+//     });
+// });
+
+
 router.post('/', function (req, res) {
     console.log('employee response:', req.body);
-    var employeeResponseQuestionId = req.body.question_id;
-    var employeeResponseId = req.body.selectedResponse.id;
-    var employeeResponseClient = 2;
+    var employeeResponseClient = req.body.clientId;
     pool.connect(function (errorConnectingToDatabase, client, done) {
         if (errorConnectingToDatabase) {
-            console.log('error', errorConnectingToDatabase);
+            console.log('Error connecting to database', errorConnectingToDatabase);
             res.sendStatus(500);
         } else {
-            client.query(`INSERT INTO employee_results (question_id, response_id, client_id) VALUES ($1, $2, $3); `, [employeeResponseQuestionId, employeeResponseId, employeeResponseClient],
-                function (errorMakingDatabaseQuery, result) {
-                    done();
-                    if (errorMakingDatabaseQuery) {
-                        console.log('error', errorMakingDatabaseQuery);
-                        res.sendStatus(500);
-                    } else {
-                        res.send(result.rows);
-                    }
-                });
+            var responseArray = [];
+            for(var property in req.body.sliderValues) {
+                console.log('value in for-in loop:', req.body.sliderValues[property])
+            var newPromise = client.query(`INSERT INTO employee_results (question_id, response_id, client_id)
+            VALUES ((SELECT question_id FROM possible_responses
+            WHERE possible_responses.id = $1), $1, $2); `, [req.body.sliderValues[property], employeeResponseClient]);
+                responseArray.push(newPromise);
+            }
         }
+        Promise.all(responseArray).then(function (resultOfAllPromises) {
+            res.sendStatus(201);
+        }).catch(function (err) {
+            console.log('Promise.all did not work!', err);
+            res.sendStatus(500);
+        })
     });
-});
-
+})
 
 router.post('/input', function (req, res) {
     console.log('employee response:', req.body);
     var employeeResponseQuestionId = 43;
-    var employeeResponseInput = req.body.response_from_input;
-    var employeeResponseClient = 2;
+    var employeeResponseInput = req.body.lastQuestion.response_from_input;
+    var employeeResponseClient = req.body.clientId;
     pool.connect(function (errorConnectingToDatabase, client, done) {
         if (errorConnectingToDatabase) {
             console.log('error', errorConnectingToDatabase);
@@ -223,13 +253,15 @@ router.post('/input', function (req, res) {
 
 
 router.get('/client-info', function (req, res) {
+    var surveyHash = req.query.surveyHash;
         pool.connect(function (errorConnectingToDatabase, client, done) {
             if (errorConnectingToDatabase) {
                 console.log('error', errorConnectingToDatabase);
                 res.sendStatus(500);
             } else {
 
-                client.query(`SELECT id, organization, logo_url, survey_hash FROM client;`,
+                client.query(`SELECT id, organization, logo_url, survey_hash FROM client
+                WHERE survey_hash = $1;`, [surveyHash],
                     function (errorMakingDatabaseQuery, result) {
                         done();
                         if (errorMakingDatabaseQuery) {

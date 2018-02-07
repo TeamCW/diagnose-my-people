@@ -35,8 +35,8 @@ myApp.service('SurveyService', function ($http, $location) {
                 for (let k = 0; k < response.data[i].responses.length; k++) {
                     for (let j = 0; j < response.data[i].response_ids.length; j++) {
                         var newResponse = {
-                            id: response.data[i].response_ids[k],
-                            response_text: response.data[i].responses[k]
+                            value: response.data[i].response_ids[k],
+                            legend: response.data[i].responses[k]
 
                         }//end constructor
                     }//end id for loop
@@ -53,7 +53,7 @@ myApp.service('SurveyService', function ($http, $location) {
     self.getLocation = function () {
         $http({
             method: 'GET',
-            url: 'survey/location'
+            url: 'survey/location',
         }).then(function (response) {
             for (let i = 0; i < response.data.length; i++) {
                 var newData = {
@@ -68,14 +68,14 @@ myApp.service('SurveyService', function ($http, $location) {
                 for (let k = 0; k < response.data[i].responses.length; k++) {
                     for (let j = 0; j < response.data[i].response_ids.length; j++) {
                         var newResponse = {
-                            id: response.data[i].response_ids[k],
-                            response_text: response.data[i].responses[k]
+                            value: response.data[i].response_ids[k],
+                            legend: response.data[i].responses[k]
 
                         }//end constructor
                     }//end id for loop
                     newData.responses.push(newResponse);
                 } //end response text for loop
-
+                newData.responses.sort(function(a, b){return a.value - b.value})//sorting the response display for sliders
                 self.location.list.push(newData);//this fills up the questions array with the table from the database.
             }
             console.log('location info:', self.location.list);
@@ -101,14 +101,14 @@ myApp.service('SurveyService', function ($http, $location) {
                 for (let k = 0; k < response.data[i].responses.length; k++) {
                     for (let j = 0; j < response.data[i].response_ids.length; j++) {
                         var newResponse = {
-                            id: response.data[i].response_ids[k],
-                            response_text: response.data[i].responses[k]
+                            value: response.data[i].response_ids[k],
+                            legend: response.data[i].responses[k]
 
                         }//end constructor
                     }//end id for loop
                     newData.responses.push(newResponse);
                 } //end response text for loop
-
+                newData.responses.sort(function(a, b){return a.value - b.value})//sorting the response display for sliders
                 self.amenities.list.push(newData);//this fills up the questions array with the table from the database.
             }
             console.log('amenities info:', self.amenities.list);
@@ -134,14 +134,14 @@ myApp.service('SurveyService', function ($http, $location) {
                 for (let k = 0; k < response.data[i].responses.length; k++) {
                     for (let j = 0; j < response.data[i].response_ids.length; j++) {
                         var newResponse = {
-                            id: response.data[i].response_ids[k],
-                            response_text: response.data[i].responses[k]
+                            value: response.data[i].response_ids[k],
+                            legend: response.data[i].responses[k]
 
                         }//end constructor
                     }//end id for loop
                     newData.responses.push(newResponse);
                 } //end response text for loop
-
+                newData.responses.sort(function(a, b){return a.value - b.value})//sorting the response display for sliders
                 self.brand.list.push(newData);//this fills up the questions array with the table from the database.
             }
             console.log('brand info:', self.brand.list);
@@ -167,14 +167,14 @@ myApp.service('SurveyService', function ($http, $location) {
                 for (let k = 0; k < response.data[i].responses.length; k++) {
                     for (let j = 0; j < response.data[i].response_ids.length; j++) {
                         var newResponse = {
-                            id: response.data[i].response_ids[k],
-                            response_text: response.data[i].responses[k]
+                            value: response.data[i].response_ids[k],
+                            legend: response.data[i].responses[k]
 
                         }//end constructor
                     }//end id for loop
                     newData.responses.push(newResponse);
                 } //end response text for loop
-
+                newData.responses.sort(function(a, b){return a.value - b.value})//sorting the response display for sliders
                 self.retention.list.push(newData);//this fills up the questions array with the table from the database.
             }
             console.log('retention info:', self.retention.list);
@@ -200,14 +200,14 @@ myApp.service('SurveyService', function ($http, $location) {
                 for (let k = 0; k < response.data[i].responses.length; k++) {
                     for (let j = 0; j < response.data[i].response_ids.length; j++) {
                         var newResponse = {
-                            id: response.data[i].response_ids[k],
-                            response_text: response.data[i].responses[k]
+                            value: response.data[i].response_ids[k],
+                            legend: response.data[i].responses[k]
 
                         }//end constructor
                     }//end id for loop
                     newData.responses.push(newResponse);
                 } //end response text for loop
-
+                newData.responses.sort(function(a, b){return a.value - b.value})//sorting the response display for sliders
                 self.conclusion.list.push(newData);//this fills up the questions array with the table from the database.
             }
             console.log('conclusion info:', self.conclusion.list);
@@ -215,12 +215,13 @@ myApp.service('SurveyService', function ($http, $location) {
     }
 
     //adding question responses to the database
-    self.saveResponses = function (question) {
-        console.log('in saveResponse', question);
+
+    self.saveResponses = function ( sliderValues, clientId) {
+        console.log('in saveResponse', sliderValues);
         $http({
             method: 'POST',
             url: '/survey',
-            data: question
+            data: {sliderValues, clientId}
         }).then(function (response) {
             console.log('saveResponse = response', response);
 
@@ -229,12 +230,12 @@ myApp.service('SurveyService', function ($http, $location) {
 
 
      //adding last question response to the database
- self.saveResponsesUserInput = function (lastQuestion) {
+ self.saveResponsesUserInput = function (lastQuestion, clientId) {
    console.log('in saveResponsesUserInput', lastQuestion);
    $http({
        method: 'POST',
        url: '/survey/input',
-       data: lastQuestion
+       data: {lastQuestion, clientId}
    }).then(function (response) {
        console.log('saveResponse = response', response);
 
@@ -242,10 +243,13 @@ myApp.service('SurveyService', function ($http, $location) {
 };
 
 //get client info to display in header
-self.getClient = function () {
+self.getClient = function (surveyHash) {
     $http({
         method: 'GET',
         url: '/survey/client-info',
+        params: {
+            surveyHash: surveyHash
+        }
     }).then(function (response) {
         self.client.list = response.data;
     });
