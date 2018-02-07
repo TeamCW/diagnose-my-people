@@ -145,8 +145,9 @@
     width: 500px;
 }
 
-.slider.location1 {
+.slider-location1 {
     width: 600px;
+    margin-left: 110px;
 }
 
 .slider.brand5 {

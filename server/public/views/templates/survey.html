@@ -37,19 +37,31 @@
         <br>
         <div>
           <div ng-repeat="question in sc.demographics.list | limitTo:sc.demographicLimit">
-            <p class="survey-questions">{{question.question}}</p>
-            <p class="dropdown">
-              <select ng-model="question.selectedResponse" ng-change="sc.saveResponses(question)">
-                <option ng-repeat="response in question.responses" ng-value="response">{{response.response_text}}</option>
-              </select>
+            <div class="survey-questions">{{question.question}}
+            <div class="dropdown" ng-show="question.question_id === 1">
+                <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question1">
+                </select>
+            </div>
               <br>
+              <div class="dropdown" ng-show="question.question_id === 2">
+                  <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question2">
+                  </select>
+              </div>
               <br>
-            </p>
+              <div class="dropdown" ng-show="question.question_id === 3">
+                  <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question3">
+                  </select>
+              </div>
+              <br>
+              <div class="dropdown" ng-show="question.question_id === 4">
+                  <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question4">
+                  </select>
+              </div>
           </div>
         </div>
         <br>
         <a href="#location">
-          <button type="button" class="btn btn-danger">
+          <button type="button" class="btn btn-danger" ng-click="sc.saveResponses( sc.slider.value)">
             <span></span> Next
           </button>
         </a>

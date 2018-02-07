@@ -35,8 +35,8 @@ myApp.service('SurveyService', function ($http, $location) {
                 for (let k = 0; k < response.data[i].responses.length; k++) {
                     for (let j = 0; j < response.data[i].response_ids.length; j++) {
                         var newResponse = {
-                            id: response.data[i].response_ids[k],
-                            response_text: response.data[i].responses[k]
+                            value: response.data[i].response_ids[k],
+                            legend: response.data[i].responses[k]
 
                         }//end constructor
                     }//end id for loop
@@ -68,8 +68,8 @@ myApp.service('SurveyService', function ($http, $location) {
                 for (let k = 0; k < response.data[i].responses.length; k++) {
                     for (let j = 0; j < response.data[i].response_ids.length; j++) {
                         var newResponse = {
-                            id: response.data[i].response_ids[k],
-                            response_text: response.data[i].responses[k]
+                            value: response.data[i].response_ids[k],
+                            legend: response.data[i].responses[k]
 
                         }//end constructor
                     }//end id for loop
@@ -101,8 +101,8 @@ myApp.service('SurveyService', function ($http, $location) {
                 for (let k = 0; k < response.data[i].responses.length; k++) {
                     for (let j = 0; j < response.data[i].response_ids.length; j++) {
                         var newResponse = {
-                            id: response.data[i].response_ids[k],
-                            response_text: response.data[i].responses[k]
+                            value: response.data[i].response_ids[k],
+                            legend: response.data[i].responses[k]
 
                         }//end constructor
                     }//end id for loop
@@ -134,8 +134,8 @@ myApp.service('SurveyService', function ($http, $location) {
                 for (let k = 0; k < response.data[i].responses.length; k++) {
                     for (let j = 0; j < response.data[i].response_ids.length; j++) {
                         var newResponse = {
-                            id: response.data[i].response_ids[k],
-                            response_text: response.data[i].responses[k]
+                            value: response.data[i].response_ids[k],
+                            legend: response.data[i].responses[k]
 
                         }//end constructor
                     }//end id for loop
@@ -167,8 +167,8 @@ myApp.service('SurveyService', function ($http, $location) {
                 for (let k = 0; k < response.data[i].responses.length; k++) {
                     for (let j = 0; j < response.data[i].response_ids.length; j++) {
                         var newResponse = {
-                            id: response.data[i].response_ids[k],
-                            response_text: response.data[i].responses[k]
+                            value: response.data[i].response_ids[k],
+                            legend: response.data[i].responses[k]
 
                         }//end constructor
                     }//end id for loop
@@ -200,8 +200,8 @@ myApp.service('SurveyService', function ($http, $location) {
                 for (let k = 0; k < response.data[i].responses.length; k++) {
                     for (let j = 0; j < response.data[i].response_ids.length; j++) {
                         var newResponse = {
-                            id: response.data[i].response_ids[k],
-                            response_text: response.data[i].responses[k]
+                            value: response.data[i].response_ids[k],
+                            legend: response.data[i].responses[k]
 
                         }//end constructor
                     }//end id for loop
@@ -215,12 +215,12 @@ myApp.service('SurveyService', function ($http, $location) {
     }
 
     //adding question responses to the database
-    self.saveResponses = function (question) {
-        console.log('in saveResponse', question);
+    self.saveResponses = function ( sliderValues) {
+        console.log('in saveResponse', sliderValues);
         $http({
             method: 'POST',
             url: '/survey',
-            data: question
+            data: sliderValues
         }).then(function (response) {
             console.log('saveResponse = response', response);
 
