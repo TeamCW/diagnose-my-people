@@ -1,4 +1,4 @@
-myApp.controller('SurveyController', function (SurveyService) {
+myApp.controller('SurveyController', function (SurveyService, $routeParams) {
   console.log('SurveyController created');
   var vm = this;
 
@@ -30,13 +30,13 @@ myApp.controller('SurveyController', function (SurveyService) {
 
 
   //GET request functions for the survey views
-  SurveyService.getDemographics();
-  SurveyService.getLocation();
-  SurveyService.getAmenities();
-  SurveyService.getBrand();
-  SurveyService.getRetention();
-  SurveyService.getConclusion();
-  SurveyService.getClient();
+  SurveyService.getDemographics($routeParams.surveyHash);
+  SurveyService.getLocation($routeParams.surveyHash);
+  SurveyService.getAmenities($routeParams.surveyHash);
+  SurveyService.getBrand($routeParams.surveyHash);
+  SurveyService.getRetention($routeParams.surveyHash);
+  SurveyService.getConclusion($routeParams.surveyHash);
+  SurveyService.getClient($routeParams.surveyHash);
 
 
 
