@@ -174,15 +174,17 @@ router.get('/conclusion', function (req, res) {
 
 router.post('/', function (req, res) {
     console.log('employee response:', req.body);
-    var employeeResponseQuestionId = req.body.question.question_id;
-    var employeeResponseId = req.body.question.selectedResponse.id;
     var employeeResponseClient = req.body.clientId;
     pool.connect(function (errorConnectingToDatabase, client, done) {
         if (errorConnectingToDatabase) {
             console.log('error', errorConnectingToDatabase);
             res.sendStatus(500);
         } else {
-            client.query(`INSERT INTO employee_results (question_id, response_id, client_id) VALUES ($1, $2, $3); `, [employeeResponseQuestionId, employeeResponseId, employeeResponseClient],
+            for(value.property in req.body) {
+                console.log('value in for-in loop:', value)
+            client.query(`INSERT INTO employee_results (question_id, response_id, client_id)
+            VALUES ((SELECT question_id FROM possible_responses
+            WHERE possible_responses.id = $1), $1, $2); `, [value, employeeResponseClient],
                 function (errorMakingDatabaseQuery, result) {
                     done();
                     if (errorMakingDatabaseQuery) {
@@ -193,6 +195,7 @@ router.post('/', function (req, res) {
                     }
                 });
         }
+    }
     });
 });
 
