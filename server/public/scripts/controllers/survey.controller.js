@@ -3,7 +3,6 @@ myApp.controller('SurveyController', function (SurveyService, $routeParams) {
   var vm = this;
 
 
-  
 
   //setting the limit for displayed objects on the corresponding survey views
   vm.demographicLimit = 4;
@@ -37,7 +36,6 @@ myApp.controller('SurveyController', function (SurveyService, $routeParams) {
   SurveyService.getRetention($routeParams.surveyHash);
   SurveyService.getConclusion($routeParams.surveyHash);
   SurveyService.getClient($routeParams.surveyHash);
-
 
 
 });
