@@ -2,21 +2,44 @@
 <div class="container-fluid">
     <div class="row justify-content-md-center">
         <div class="col-md-4">
-            <div class="card admin-review-cards" style="height: 10rem;">
+            <div class="card admin-review-cards">
                 <div class="card-body">
-                    <h3 class="card-title">Custom Survey For: </h3>
-                    <h2 class="card-text">{{asr.client.survey[0].client_organization}}</h2>
+                    <h2 class="card-text admin">{{asr.client.survey[0].client_organization}}</h2>
+                    <img class="admin-image" src="{{asr.client.survey[0].logo_url}}" alt="">
                 </div>
             </div>
         </div>
-        <div class="col-md-8">
-            <div class="card admin-review-cards" style="height: 10rem;">
+        <div class="col-md-5">
+            <div class="card admin-review-cards">
                 <div class="card-body">
                     <h4>Point of Contact: {{asr.client.survey[0].client_name}}</h4>
-                    <span><strong>Phone: </strong>{{asr.client.survey[0].client_number}}</span>
-                    <div><strong>Email: </strong>{{asr.client.survey[0].client_email}}</div>
                     <div>
-                        <strong>Survey URL: </strong>{{asr.client.survey[0].survey_url}}</div>
+                        <strong>Email: </strong>{{asr.client.survey[0].client_email}}</div>
+                    <span>
+                        <strong>Phone: </strong>{{asr.client.survey[0].client_number}}</span>
+                    <div>
+                        <strong>Client Comments: </strong>{{asr.client.survey[0].comments}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card admin-review-cards">
+                <div class="card-body">
+                    <div style="padding: 5px">
+                        <a class="btn btn-light" ng-href="#/dashboard/{{asr.client.survey[0].client_id}}">
+                            <img class="icon" src="vendors/open-iconic/svg/bar-chart.svg" alt="bar-chart">
+                        </a>
+                        <span>Go to Dashboard</span>
+
+                    </div>
+                    <div style="padding: 5px">
+
+                        <a class="btn btn-light" ng-href="/#/survey/{{asr.client.survey[0].survey_url}}">
+                            <img class="icon" src="vendors/open-iconic/svg/document.svg">
+                        </a>
+                        <span>Go to Survey</span>
+
+                    </div>
                 </div>
             </div>
         </div>
@@ -28,7 +51,7 @@
         <br>
         <span>Categories To Add: </span>
         <span ng-repeat="kpi in asr.notSelectedArray.list" for="categories">
-            <button class="btn btn-danger btn-sm"ng-model="kpi.id" ng-click="asr.addClientCategory(kpi, asr.client.survey[0].client_id)">+ {{kpi.kpi}}</button>
+            <button class="btn btn-danger btn-sm" ng-model="kpi.id" ng-click="asr.addClientCategory(kpi, asr.client.survey[0].client_id)">+ {{kpi.kpi}}</button>
         </span>
     </div>
     <div>
