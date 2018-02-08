@@ -38,15 +38,15 @@
         <div ng-repeat="question in sc.location.list | limitTo:sc.locationLimit">
           <div class="survey-questions">{{question.question}}
               <div class="dropdown" ng-show="question.question_id === 5">
-                <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question5">
+                <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question5" class="locationDropDowns">
                 </select>
               </div>
               <div class="dropdown" ng-show="question.question_id === 6">
-                  <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question6">
+                  <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question6" class="locationDropDowns">
                     </select>
               </div>
               <div class="dropdown" ng-show="question.question_id === 7">
-                  <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question7">
+                  <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question7" class="locationDropDowns">
                     </select>
               </div>
               <div ng-if="question.question_id === 8 && sc.location.list[3].responses" class="slider-location1">
