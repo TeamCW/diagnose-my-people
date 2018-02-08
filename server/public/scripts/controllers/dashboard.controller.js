@@ -15,13 +15,14 @@ myApp.controller('DashboardController', ['DashboardService', 'AdminService', '$h
     vm.getClientResponsesAmenities = DashboardService.getClientResponsesAmenities;
     vm.getClientResponsesBrand = DashboardService.getClientResponsesBrand;
     vm.getClientResponsesRetention = DashboardService.getClientResponsesRetention;
+    vm.getClientResponsesConclusion = DashboardService.getClientResponsesConclusion
 
     vm.getClientResponsesDemo($routeParams.clientId );
     vm.getClientResponsesLocation($routeParams.clientId);
     vm.getClientResponsesAmenities($routeParams.clientId);
     vm.getClientResponsesBrand($routeParams.clientId);
     vm.getClientResponsesRetention($routeParams.clientId);
-    
+    vm.getClientResponsesConclusion($routeParams.clientId);
 
 
 
