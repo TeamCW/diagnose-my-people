@@ -186,7 +186,7 @@ VALUES ('When were you born?', 1, 1),
 
 
 
-INSERT INTO possible_responses (id, question_id, response_text, style_id)
+INSERT INTO possible_responses (question_id, response_text, style_id)
 VALUES (1, '1960 or Earlier', 1), (1, '1961 - 1970', 1), (1, '1971 - 1980', 1), (1, '1981 - 1990', 1), (1, '1991 or Later', 1),
 (2, 'Customer/Account Services', 4), (2, 'Finance', 4), (2, 'Sales', 4), (2, 'Administrative', 4), (2, 'Research', 4), (2, 'Management', 4), (2, 'Legal', 4), (2, 'Executive', 4), (2, 'Marketing', 4), (2, 'Creative', 4), (2, 'Other', 4),
 (3, 'Creative', 3), (3, 'Corporate', 3), (3, 'Healthcare', 3), (3, 'General Office', 3), (3, 'Technology', 3), (3, 'Other', 3), (4, '0-1', 2),

@@ -64,16 +64,18 @@ router.get('/location', function (req, res) {
 
 
 
+
 router.get('/amenities', function (req, res) {
-    var clientId = req.params.id;
+    var clientId = req.query.clientId;
     if (req.isAuthenticated()) {
         pool.connect(function (errorConnectingToDatabase, client, done) {
             if (errorConnectingToDatabase) {
                 console.log('error', errorConnectingToDatabase);
                 res.sendStatus(500);
             } else {
-                client.query(`SELECT * FROM employee_results 
-                WHERE client_id = $1 AND question_id IN (10, 11, 12, 13, 14, 15, 16, 17, 18, 19); `, [clientId],
+                client.query(`SELECT employee_results.client_id, employee_results.question_id,possible_responses.response_text FROM employee_results 
+                JOIN possible_responses ON employee_results.response_id = possible_responses.id
+                WHERE employee_results.client_id = $1 AND employee_results.question_id IN (10, 11, 12, 13, 14, 15, 16, 17, 18, 19);`, [clientId],
                     function (errorMakingDatabaseQuery, result) {
                         done();
                         if (errorMakingDatabaseQuery) {

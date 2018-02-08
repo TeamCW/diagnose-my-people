@@ -170,6 +170,20 @@ myApp.service('DashboardService', function ($http, $location) {
         });
     };
 
+    
+    self.getClientResponsesAmenities = function (clientId) {
+        $http({
+            method: 'GET',
+            url: '/dashboard/amenities',
+            params: {
+                clientId: clientId
+            }
+        }).then(function (response) {
+            self.clientAmenData.list = response.data;
+            console.log('client dashboard amenities response:', self.clientAmenData.list);
+        });
+    };
+
 
     // self.getClientResponsesBrand = function (clientId) {
     //     $http({
@@ -184,18 +198,7 @@ myApp.service('DashboardService', function ($http, $location) {
     //     });
     // };
 
-    // self.getClientResponsesAmen = function (clientId) {
-    //     $http({
-    //         method: 'GET',
-    //         url: '/dashboard/amenities',
-    //         params: {
-    //             clientId: clientId
-    //         }
-    //     }).then(function (response) {
-    //         self.clientAmenData.list = response.data;
-    //         console.log('client dashboard amenities response:', self.clientAmenData.list);
-    //     });
-    // };
+
 
     // self.getClientResponsesRetention = function (clientId) {
     //     $http({
@@ -351,7 +354,7 @@ myApp.service('DashboardService', function ($http, $location) {
     self.parkingSatisfaction = new Chart(parkingSatisfaction, {
         type: 'bar',
         data: {
-            labels: ['Very Dissatisfied', 'Dissatisfied', 'Neutral', 'Satisfied', 'Very Satisfied'],
+            labels: ['Very Dissatisfied', 'Dissatisfied', 'No Opinion', 'Satisfied', 'Very Satisfied'],
             datasets: [{
                 label: 'Public Transit',
                 data: [0, 0, 0, 0, 0],
@@ -419,7 +422,7 @@ myApp.service('DashboardService', function ($http, $location) {
     self.homeworkFrequency = new Chart(homeworkFrequency, {
         type: 'pie',
         data: {
-            labels: ["Never", "Rarely", "Half the Time", "Often", "Most of the Time"],
+            labels: ["Never", "Rarely", "About Half", "Often", "Very Often"],
             datasets: [{
                 backgroundColor: [
                     '#ff0000',
