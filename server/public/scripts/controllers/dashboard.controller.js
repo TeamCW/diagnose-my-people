@@ -14,15 +14,15 @@ myApp.controller('DashboardController', ['DashboardService', 'AdminService', '$h
     vm.getClientResponsesLocation = DashboardService.getClientResponsesLocation;
     vm.getClientResponsesAmenities = DashboardService.getClientResponsesAmenities;
     vm.getClientResponsesBrand = DashboardService.getClientResponsesBrand;
+    vm.getClientResponsesRetention = DashboardService.getClientResponsesRetention;
 
     vm.getClientResponsesDemo($routeParams.clientId );
     vm.getClientResponsesLocation($routeParams.clientId);
     vm.getClientResponsesAmenities($routeParams.clientId);
-    vm.getClientResponsesBrand($routeParams.clientId)
-    // DashboardService.getClientResponsesBrand($routeParams.clientId);
-    // DashboardService.getClientResponsesAmen($routeParams.clientId);
-    // DashboardService.getClientResponsesRetention($routeParams.clientId);
-    // DashboardService.getClientResponsesConclusion($routeParams.clientId);
+    vm.getClientResponsesBrand($routeParams.clientId);
+    vm.getClientResponsesRetention($routeParams.clientId);
+    
+
 
 
     // Get KPI that client selected for the survey

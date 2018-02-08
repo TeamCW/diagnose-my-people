@@ -351,6 +351,24 @@ myApp.service('DashboardService', function ($http, $location) {
                 publicTransitAverage += ((j + 1) * publicTransitCount[j]);
             }
 
+            //gets total number of responses for each question
+            let foodAndEntertainmentTotalResponses = foodAndEntertainmentRatingCount.reduce((a, b) => a + b, 0);
+            let conferenceRoomTotalResponses = conferenceRoomRatingCount.reduce((a, b) => a + b, 0);
+            let greenSpaceTotalResponses = greenSpaceRatingCount.reduce((a, b) => a + b, 0);
+            let showerLockerTotalResponses = showerLockerRatingCount.reduce((a, b) => a + b, 0);
+            let fitnessCenterTotalResponses = fitnessCenterRatingCount.reduce((a, b) => a + b, 0);
+            let parkingResponses = parkingRatingCount.reduce((a, b) => a + b, 0);
+            let publicTransitResponses = publicTransitCount.reduce((a, b) => a + b, 0);
+
+            //divides the total by number of responses to get averages
+            foodAndEntertainmentAverage /= foodAndEntertainmentTotalResponses;
+            conferenceRoomAverage /= conferenceRoomTotalResponses;
+            greenSpaceAverage /= greenSpaceTotalResponses;
+            showerLockerAverage /= showerLockerTotalResponses;
+            fitnessCenterAverage /= fitnessCenterTotalResponses;
+            parkingAverage /= parkingResponses;
+            publicTransitAverage /= publicTransitResponses;
+
             //assign averages for values in amenitiesValued
             self.amenitiesValued.config.data.datasets[0].data[0] += foodAndEntertainmentAverage;
             self.amenitiesValued.config.data.datasets[0].data[1] += conferenceRoomAverage;
@@ -462,31 +480,212 @@ myApp.service('DashboardService', function ($http, $location) {
 
 
 
-    // self.getClientResponsesRetention = function (clientId) {
-    //     $http({
-    //         method: 'GET',
-    //         url: '/dashboard/retention',
-    //         params: {
-    //             clientId: clientId
-    //         }
-    //     }).then(function (response) {
-    //         self.clientRetRecData.list = response.data;
-    //         console.log('client dashboard retention response:', self.clientRetRecData.list);
-    //     });
-    // };
+    self.getClientResponsesRetention = function (clientId) {
+        $http({
+            method: 'GET',
+            url: '/dashboard/retention',
+            params: {
+                clientId: clientId
+            }
+        }).then(function (response) {
+            self.clientRetRecData.list = response.data;
+            console.log('client dashboard retention response:', self.clientRetRecData.list);
 
-    // self.getClientResponsesConclusion = function (clientId) {
-    //     $http({
-    //         method: 'GET',
-    //         url: '/dashboard/conclusion',
-    //         params: {
-    //             clientId: clientId
-    //         }
-    //     }).then(function (response) {
-    //         self.clientConclusionData.list = response.data;
-    //         console.log('client dashboard conclusion response:', self.clientConclusionData.list);
-    //     });
-    // };
+            //declaring counts of inputs for questions 31-36 going into whereTheyWork graph
+            let homeCount = [0, 0, 0, 0, 0, 0]
+            let officeDeskCount = [0, 0, 0, 0, 0, 0]
+            let elseWhereInOfficeCount = [0, 0, 0, 0, 0, 0]
+            let coffeeShopCount = [0, 0, 0, 0, 0, 0]
+            let clientSiteCount = [0, 0, 0, 0, 0, 0]
+            let otherCount = [0, 0, 0, 0, 0, 0]
+            for (let i = 0; i < self.clientRetRecData.list.length; i++) {
+                //daylightAccess data compiler
+                if (self.clientRetRecData.list[i].question_id == 27) {
+                    for (let index = 0; index < self.daylightAccess.config.data.labels.length; index++) {
+                        if (self.clientRetRecData.list[i].response_text == self.daylightAccess.config.data.labels[index]) {
+                            self.daylightAccess.config.data.datasets[0].data[index]++
+
+                        }
+                    }
+                }
+                //locationImpact data compiler
+                if (self.clientRetRecData.list[i].question_id == 28) {
+                    for (let index = 0; index < self.locationImpact.config.data.labels.length; index++) {
+                        if (self.clientRetRecData.list[i].response_text == self.locationImpact.config.data.labels[index]) {
+                            self.locationImpact.config.data.datasets[0].data[index]++
+
+                        }
+                    }
+                }
+                //sufficiency data compiler
+                if (self.clientRetRecData.list[i].question_id == 29) {
+                    for (let index = 0; index < self.sufficiency.config.data.labels.length; index++) {
+                        if (self.clientRetRecData.list[i].response_text == self.sufficiency.config.data.labels[index]) {
+                            self.sufficiency.config.data.datasets[0].data[index]++
+
+                        }
+                    }
+                }
+                //whereTheyWork Compiler home
+                if (self.clientRetRecData.list[i].question_id == 31) {
+                    //create an array with index for each value 1-5
+                    //check percentage of time spent working
+                    let possibleResponses = ['0-10%', '10-20%', ' 20-40%', '40-60%', '60-80%', '80-100%']
+                    for (let index = 0; index < homeCount.length; index++) {
+                        //add 1 to corresponding index count of the array
+                        if (self.clientRetRecData.list[i].response_text == possibleResponses[index]) {
+                            homeCount[index]++
+                            console.log('++')
+                        }
+                    }
+
+                }
+                //whereTheyWork Compiler Office Desk
+                if (self.clientRetRecData.list[i].question_id == 32) {
+                    //create an array with index for each value 1-5
+                    //check percentage of time spent working
+                    let possibleResponses = ['0-10%', '10-20%', ' 20-40%', '40-60%', '60-80%', '80-100%']
+                    for (let index = 0; index < officeDeskCount.length; index++) {
+                        //add 1 to corresponding index count of the array
+                        if (self.clientRetRecData.list[i].response_text == possibleResponses[index]) {
+                            officeDeskCount[index]++
+                            console.log('++')
+                        }
+                    }
+
+                }
+                //whereTheyWork Compiler Elsewhere in Office
+                if (self.clientRetRecData.list[i].question_id == 33) {
+                    //create an array with index for each value 1-5
+                    //check percentage of time spent working
+                    let possibleResponses = ['0-10%', '10-20%', ' 20-40%', '40-60%', '60-80%', '80-100%']
+                    for (let index = 0; index < elseWhereInOfficeCount.length; index++) {
+                        //add 1 to corresponding index count of the array
+                        if (self.clientRetRecData.list[i].response_text == possibleResponses[index]) {
+                            elseWhereInOfficeCount[index]++
+                            console.log('++')
+                        }
+                    }
+
+                }
+                //whereTheyWork Compiler Coffee Shop
+                if (self.clientRetRecData.list[i].question_id == 33) {
+                    //create an array with index for each value 1-5
+                    //check percentage of time spent working
+                    let possibleResponses = ['0-10%', '10-20%', ' 20-40%', '40-60%', '60-80%', '80-100%']
+                    for (let index = 0; index < coffeeShopCount.length; index++) {
+                        //add 1 to corresponding index count of the array
+                        if (self.clientRetRecData.list[i].response_text == possibleResponses[index]) {
+                            coffeeShopCount[index]++
+                            console.log('++')
+                        }
+                    }
+
+                }
+                //whereTheyWork Compiler Coffee Shop
+                if (self.clientRetRecData.list[i].question_id == 33) {
+                    //create an array with index for each value 1-5
+                    //check percentage of time spent working
+                    let possibleResponses = ['0-10%', '10-20%', ' 20-40%', '40-60%', '60-80%', '80-100%']
+                    for (let index = 0; index < coffeeShopCount.length; index++) {
+                        //add 1 to corresponding index count of the array
+                        if (self.clientRetRecData.list[i].response_text == possibleResponses[index]) {
+                            coffeeShopCount[index]++
+                            console.log('++')
+                        }
+                    }
+
+                }
+                //whereTheyWork Compiler On site with Client
+                if (self.clientRetRecData.list[i].question_id == 33) {
+                    //create an array with index for each value 1-5
+                    //check percentage of time spent working
+                    let possibleResponses = ['0-10%', '10-20%', ' 20-40%', '40-60%', '60-80%', '80-100%']
+                    for (let index = 0; index < clientSiteCount.length; index++) {
+                        //add 1 to corresponding index count of the array
+                        if (self.clientRetRecData.list[i].response_text == possibleResponses[index]) {
+                            clientSiteCount[index]++
+                            console.log('++')
+                        }
+                    }
+
+                }
+                //whereTheyWork Compiler Other
+                if (self.clientRetRecData.list[i].question_id == 33) {
+                    //create an array with index for each value 1-5
+                    //check percentage of time spent working
+                    let possibleResponses = ['0-10%', '10-20%', ' 20-40%', '40-60%', '60-80%', '80-100%']
+                    for (let index = 0; index < otherCount.length; index++) {
+                        //add 1 to corresponding index count of the array
+                        if (self.clientRetRecData.list[i].response_text == possibleResponses[index]) {
+                            otherCount[index]++
+                            console.log('++')
+                        }
+                    }
+
+                }
+
+            }
+
+            //calculate weighted averages value from 1-5 value array
+            let homeAverage = 0;
+            let officeDeskAverage = 0;
+            let elseWhereInOfficeAverage = 0;
+            let coffeeShopAverage = 0;
+            let clientSiteAverage = 0;
+            let otherAverage = 0;
+            for (let j = 0; j < 6; j++) {
+                homeAverage += ((j * 20) * homeCount[j]);
+                officeDeskAverage += ((j * 20) * officeDeskCount[j]);
+                elseWhereInOfficeAverage += ((j * 20) * elseWhereInOfficeCount[j]);
+                coffeeShopAverage += ((j * 20) * coffeeShopCount[j]);
+                clientSiteAverage += ((j * 20) * clientSiteCount[j]);
+                otherAverage += ((j * 20) * otherCount[j]);
+            }
+            //gets total number of responses for each question
+            let homeTotalResponses = homeCount.reduce((a, b) => a + b, 0);
+            let officeDeskTotalResponses = officeDeskCount.reduce((a, b) => a + b, 0);
+            let elseWhereInOfficeTotalResponses = elseWhereInOfficeCount.reduce((a, b) => a + b, 0);
+            let coffeeShopTotalResponses = coffeeShopCount.reduce((a, b) => a + b, 0);
+            let clientSiteTotalResponses = clientSiteCount.reduce((a, b) => a + b, 0);
+            let otherTotalResponses = otherCount.reduce((a, b) => a + b, 0);
+
+            //divides the total by number of responses to get averages
+            homeAverage /= homeTotalResponses;
+            officeDeskAverage /= officeDeskTotalResponses;
+            elseWhereInOfficeAverage /= elseWhereInOfficeTotalResponses;
+            coffeeShopAverage /= coffeeShopTotalResponses;
+            clientSiteAverage /= clientSiteTotalResponses;
+            otherAverage /= otherTotalResponses;
+
+            //assign averages for values in whereTheyWork
+            self.whereTheyWork.config.data.datasets[0].data[0] += homeAverage;
+            self.whereTheyWork.config.data.datasets[0].data[1] += officeDeskAverage;
+            self.whereTheyWork.config.data.datasets[0].data[2] += elseWhereInOfficeAverage;
+            self.whereTheyWork.config.data.datasets[0].data[3] += coffeeShopAverage;
+            self.whereTheyWork.config.data.datasets[0].data[4] += clientSiteAverage;
+            self.whereTheyWork.config.data.datasets[0].data[5] += otherAverage;
+
+            console.log(self.whereTheyWork.config.data.datasets[0].data)
+            self.daylightAccess.update();
+            self.locationImpact.update();
+            self.sufficiency.update();
+            self.whereTheyWork.update();
+        });
+    };
+
+    self.getClientResponsesConclusion = function (clientId) {
+        $http({
+            method: 'GET',
+            url: '/dashboard/conclusion',
+            params: {
+                clientId: clientId
+            }
+        }).then(function (response) {
+            self.clientConclusionData.list = response.data;
+            console.log('client dashboard conclusion response:', self.clientConclusionData.list);
+        });
+    };
 
 
 
