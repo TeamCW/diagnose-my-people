@@ -370,18 +370,95 @@ myApp.service('DashboardService', function ($http, $location) {
     };
 
 
-    // self.getClientResponsesBrand = function (clientId) {
-    //     $http({
-    //         method: 'GET',
-    //         url: '/dashboard/brand',
-    //         params: {
-    //             clientId: clientId
-    //         }
-    //     }).then(function (response) {
-    //         self.clientBrandData.list = response.data;
-    //         console.log('client dashboard brand response:', self.clientBrandData.list);
-    //     });
-    // };
+    self.getClientResponsesBrand = function (clientId) {
+        $http({
+            method: 'GET',
+            url: '/dashboard/brand',
+            params: {
+                clientId: clientId
+            }
+        }).then(function (response) {
+            self.clientBrandData.list = response.data;
+            console.log('client dashboard brand response:', self.clientBrandData.list);
+
+            // 20, 21, 22, 23, 24, 25, 26
+
+            //for statement of request
+            for (let i = 0; i < self.clientBrandData.list.length; i++) {
+                //stateOfSustainability data compiler
+                if (self.clientBrandData.list[i].question_id == 20) {
+                    for (let index = 0; index < self.stateOfSustainability.config.data.labels.length; index++) {
+                        if (self.clientBrandData.list[i].response_text == self.stateOfSustainability.config.data.labels[index]) {
+                            self.stateOfSustainability.config.data.datasets[0].data[index]++
+
+                        }
+                    }
+                }
+                //brandReflection data compiler
+                if (self.clientBrandData.list[i].question_id == 21) {
+                    for (let index = 0; index < self.brandReflection.config.data.labels.length; index++) {
+                        if (self.clientBrandData.list[i].response_text == self.brandReflection.config.data.labels[index]) {
+                            self.brandReflection.config.data.datasets[0].data[index]++
+
+                        }
+                    }
+                }
+                //currentImpression data compiler
+                if (self.clientBrandData.list[i].question_id == 22) {
+                    for (let index = 0; index < self.currentImpression.config.data.labels.length; index++) {
+                        if (self.clientBrandData.list[i].response_text == self.currentImpression.config.data.labels[index]) {
+                            self.currentImpression.config.data.datasets[0].data[index]++
+
+                        }
+                    }
+                }
+                //currentExposure data compiler
+                if (self.clientBrandData.list[i].question_id == 23) {
+                    for (let index = 0; index < self.currentExposure.config.data.labels.length; index++) {
+                        if (self.clientBrandData.list[i].response_text == self.currentExposure.config.data.labels[index]) {
+                            self.currentExposure.config.data.datasets[0].data[index]++
+
+                        }
+                    }
+                }
+                //publicExposureImportance data compiler
+                if (self.clientBrandData.list[i].question_id == 24) {
+                    for (let index = 0; index < self.publicExposureImportance.config.data.labels.length; index++) {
+                        if (self.clientBrandData.list[i].response_text == self.publicExposureImportance.config.data.labels[index]) {
+                            self.publicExposureImportance.config.data.datasets[0].data[index]++
+
+                        }
+                    }
+                }
+                //publicExposureChange data compiler
+                if (self.clientBrandData.list[i].question_id == 25) {
+                    for (let index = 0; index < self.publicExposureChange.config.data.labels.length; index++) {
+                        if (self.clientBrandData.list[i].response_text == self.publicExposureChange.config.data.labels[index]) {
+                            self.publicExposureChange.config.data.datasets[0].data[index]++
+
+                        }
+                    }
+                }
+                //spaceComparability data compiler
+                if (self.clientBrandData.list[i].question_id == 26) {
+                    for (let index = 0; index < self.spaceComparability.config.data.labels.length; index++) {
+                        if (self.clientBrandData.list[i].response_text == self.spaceComparability.config.data.labels[index]) {
+                            self.spaceComparability.config.data.datasets[0].data[index]++
+
+                        }
+                    }
+                }
+
+            }
+            self.stateOfSustainability.update();
+            self.brandReflection.update();
+            self.currentImpression.update();
+            self.currentExposure.update();
+            self.publicExposureImportance.update();
+            self.publicExposureChange.update();
+            self.spaceComparability.update();
+        });
+    };
 
 
 
@@ -768,7 +845,7 @@ myApp.service('DashboardService', function ($http, $location) {
             labels: ["Unfavorable", "Needs Improvement", "No Opinion", "Good", "Excellent"],
             datasets: [{
                 label: '',
-                data: [1, 2, 3, 4],
+                data: [0, 0, 0, 0, 0],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.6)',
                     'rgba(54, 162, 235, 0.6)',
@@ -793,10 +870,10 @@ myApp.service('DashboardService', function ($http, $location) {
     self.publicExposureImportance = new Chart(publicExposureImportance, {
         type: 'bar',
         data: {
-            labels: ["Not Applicable", "Minimal", "Imortant", "Very Important", "Essential"],
+            labels: ["Not Applicable", "Minimal", "Important", "Very Important", "Essential"],
             datasets: [{
                 label: 'Employee Age Groups',
-                data: [1, 2, 3, 4],
+                data: [0, 0, 0, 0, 0],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.6)',
                     'rgba(54, 162, 235, 0.6)',
@@ -824,7 +901,7 @@ myApp.service('DashboardService', function ($http, $location) {
             labels: ["Not Applicable", "Minimal", "Impactful", "Very Impactful", "Critical"],
             datasets: [{
                 label: 'Employee Age Groups',
-                data: [1, 2, 3, 4],
+                data: [0, 0, 0, 0, 0],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.6)',
                     'rgba(54, 162, 235, 0.6)',
@@ -860,7 +937,7 @@ myApp.service('DashboardService', function ($http, $location) {
                     "#e74c3c",
                     "#34495e"
                 ],
-                data: [12, 19, 3, 17, 28]
+                data: [0, 0, 0, 0, 0]
             }]
         }
     });
@@ -882,7 +959,7 @@ myApp.service('DashboardService', function ($http, $location) {
                     "#e74c3c",
                     "#34495e"
                 ],
-                data: [12, 19, 3, 17, 28]
+                data: [0, 0, 0, 0, 0]
             }]
         }
     });
@@ -894,7 +971,7 @@ myApp.service('DashboardService', function ($http, $location) {
             labels: ["Not Applicable", "Minimal", "Impactful", "Very Impactful", "Crucial"],
             datasets: [{
                 label: 'Location Satisfaction Impact',
-                data: [1, 2, 3, 4],
+                data: [0, 0, 0, 0, 0],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.6)',
                     'rgba(54, 162, 235, 0.6)',
@@ -922,7 +999,7 @@ myApp.service('DashboardService', function ($http, $location) {
             labels: ["Not Applicable", "Poorly", "Satisfactory", "Very Well", "Exceptional"],
             datasets: [{
                 label: 'Sufficiency Rating',
-                data: [1, 2, 3, 4],
+                data: [0, 0, 0, 0, 0],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.6)',
                     'rgba(54, 162, 235, 0.6)',
@@ -952,7 +1029,7 @@ myApp.service('DashboardService', function ($http, $location) {
                 label: 'Where they Work',
                 backgroundColor: "rgba(153,255,51,0.4)",
                 borderColor: "rgba(153,255,51,1)",
-                data: [12, 19, 3, 17, 28, 24, 7]
+                data: [0, 0, 0, 0, 0, 0]
             }]
         }
     });
@@ -966,7 +1043,7 @@ myApp.service('DashboardService', function ($http, $location) {
                 label: 'Influence Level',
                 backgroundColor: "rgba(153,255,51,0.4)",
                 borderColor: "rgba(153,255,51,1)",
-                data: [12, 19, 3, 17, 28, 24, 7]
+                data: [0, 0, 0, 0]
             }]
         }
     });
@@ -978,7 +1055,7 @@ myApp.service('DashboardService', function ($http, $location) {
             labels: ["Not Applicable", "Poorly", "Satisfactory", "Very Well", "Exceptional"],
             datasets: [{
                 label: 'Satisfaction',
-                data: [1, 2, 3, 4],
+                data: [0, 0, 0, 0, 0],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.6)',
                     'rgba(54, 162, 235, 0.6)',
