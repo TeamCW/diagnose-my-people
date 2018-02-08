@@ -7,7 +7,7 @@
 <br>
 <br> {{dc.ageDistributionInput}}
 <div class="container">
-    <div ng-if="dc.demo" >
+    <div >
         <h3>Demographics: Who Are Your People</h3>
         <br>
         <div class="row">
@@ -35,7 +35,7 @@
         <br>
         <hr>
     </div>
-    <div ng-if="dc.locat" >
+    <div  >
         <h3>Location: Where Are Your People?</h3>
         <br>
         <div class="row">
@@ -64,7 +64,7 @@
         <br>
         <hr>
     </div>
-    <div ng-if="dc.amen" >
+    <div >
         <h3>Amenities: What amenities help your people?</h3>
         <br>
         <div class="row">
@@ -82,14 +82,13 @@
 
             <div class="col-6">
                 What Amenities do your people value the most on a scale of 5?
-                <br> What mode do they want to commute by?
                 <canvas id="amenitiesValued"></canvas>
             </div>
         </div>
         <br>
         <hr>
     </div>
-    <div ng-if="dc.brand" >
+    <div >
         <h3>Brand: What do my people our workplace brand?</h3>
         <br>
         <div class="row">
@@ -124,6 +123,13 @@
                 <canvas id="publicExposureImportance"></canvas>
             </div>
             <div class="col-6">
+                How much impact do your people think a new space would have on your public face?
+                <br>
+                <canvas id="publicExposureChange"></canvas>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
                 How do your people think your current space compares with others they visited and worked in?
                 <br>
                 <canvas id="spaceComparability"></canvas>
@@ -132,7 +138,7 @@
         <br>
         <hr>
     </div>
-    <div ng-if="dc.retRec" >
+    <div  >
         <h3>Recruitment and Retention: Do your people want to work in your space?</h3>
         <br>
         <div class="row">
@@ -163,8 +169,8 @@
         <br>
         <hr>
     </div>
-    <div ng-if="dc.conc" >
-        <h3>Satisfaction? Are your people satisfied with your current space?</h3>
+    <div >
+        <h3>Satisfaction: Are your people satisfied with your current space?</h3>
         <br>
         <div class="row">
 
@@ -202,10 +208,10 @@
 
 
 
+<!-- Examples of chart.js graphs -->
 
 
-
-    <div class="container">
+    <!-- <div class="container">
         <div class="row">
             <div class="col-6">
                 How old are your people?
@@ -250,7 +256,7 @@
                 Who are your people?
                 <canvas class="card" id="bubbleChart"></canvas>
             </div>
-        </div>
+        </div> -->
 
 
 
