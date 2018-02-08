@@ -1,5 +1,5 @@
 <header ng-include="'/views/partials/survey-header.html'" class=""></header>
-<div ng-cloak class="container-fluid survey-background">
+<div ng-cloak class="container-fluid survey-background-long">
     <div class="row">
         <div class="col-lg-10">
             <div class="progress">
@@ -10,7 +10,7 @@
             </div>
             <!--- tabs -->
             <div class="row justify-content-md-center">
-                <ul class="nav nav-tabs" id="survey-background">
+                <ul class="nav nav-tabs">
                     <li class="survey-tabs">
                         <a class="tab-no-decor" href="#survey/{{sc.client.list[0].survey_hash}}">My People</a>
                     </li>
@@ -36,13 +36,14 @@
                 <br>
                 <div ng-repeat="question in sc.amenities.list | limitTo:sc.amenitiesLimit">
                     <div class="survey-questions">{{question.question}}
-                        <div ng-if="question.question_id === 10 && sc.amenities.list[0].responses" class="slider-location1">
+                        <div ng-if="question.question_id === 10 && sc.amenities.list[0].responses" class="slider-amenities">
                             <rzslider rz-slider-model="sc.slider.value.question10" rz-slider-options="{showTicksValues: true, stepsArray: sc.amenities.list[0].responses}"></rzslider>
                         </div>
-                        <div ng-if="question.question_id === 11 && sc.amenities.list[1].responses" class="slider-location1">
+                        <div ng-if="question.question_id === 11 && sc.amenities.list[1].responses" class="slider-amenities">
                             <rzslider rz-slider-model="sc.slider.value.question11" rz-slider-options="{showTicksValues: true, stepsArray: sc.amenities.list[1].responses}"></rzslider>
                         </div>
-                        <div ng-show="question.question_id === 12"></div>
+                        <!-- Dropdown block -->
+                        <div class="amenitiesWordBlock"  ng-show="question.question_id === 12"></div>
                         <div class="dropdown" ng-show="question.question_id === 13">
                             <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question13" class="amenitiesDropdown">
                             </select>

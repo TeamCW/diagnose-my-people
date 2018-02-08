@@ -131,7 +131,7 @@ ALTER TABLE "selected_kpi" ADD CONSTRAINT "selected_kpi_fk1" FOREIGN KEY ("kpi_i
 
 
 INSERT INTO category (kpi)
-VALUES ('Demographic'),('Location'),('Amenities'),('Brand'),('Retention'),('Conclusion');
+VALUES ('demographic'),('location'),('amenities'),('brand'),('retention'),('conclusion');
 
 INSERT INTO question_styles (display_style_type)
 VALUES ('dropdown'), ('slider'), ('text_input'), ('blank');
@@ -169,7 +169,7 @@ VALUES ('When were you born?', 1, 1),
 ('Please rate your current work areas access to daylight and natural views', 5, 2),
 ('How much impact does your location have on your workplace satisfaction?', 5, 2),
 ('How well does your current work environment provide the space to meet you and your teams needs?', 5, 2),
-('Where are you working during an average work week? (Please equal 100%)', 5, 4),
+('Where are you working during an average work week?', 5, 4),
 ('Home:', 5, 1),
 ('Office desk:', 5, 1),
 ('Elsewhere in the office:', 5, 1),

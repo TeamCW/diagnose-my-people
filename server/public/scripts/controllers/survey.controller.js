@@ -3,13 +3,12 @@ myApp.controller('SurveyController', function (SurveyService, $routeParams) {
   var vm = this;
 
 
-  
 
   //setting the limit for displayed objects on the corresponding survey views
   vm.demographicLimit = 4;
   vm.locationLimit = 5;
   vm.amenitiesLimit = 10;
-  vm.brandLimit = 8;
+  vm.brandLimit = 7;
   vm.retentionLimit = 10;
   vm.conclusionLimit = 7;
 
@@ -37,7 +36,6 @@ myApp.controller('SurveyController', function (SurveyService, $routeParams) {
   SurveyService.getRetention($routeParams.surveyHash);
   SurveyService.getConclusion($routeParams.surveyHash);
   SurveyService.getClient($routeParams.surveyHash);
-
 
 
 });

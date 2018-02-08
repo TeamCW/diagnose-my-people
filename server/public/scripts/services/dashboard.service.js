@@ -6,7 +6,7 @@ myApp.service('DashboardService', function ($http, $location) {
     self.clientDemoData = { list: [] };
     self.clientLocationData = { list: [] };
     self.clientBrandData = { list: [] };
-    self.clientAmenData = { list: [] };
+    self.clientAmenitiesData = { list: [] };
     self.clientRetRecData = { list: [] };
     self.clientConclusionData = { list: [] };
     self.ageDistributionInput = { labels: ['under 25', '26-35', '36-45', '46-55', '56+'], dataSets: [0, 0, 0, 0, 0] }
@@ -32,7 +32,7 @@ myApp.service('DashboardService', function ($http, $location) {
             }
         }).then(function (response) {
             self.responseData.list = response.data;
-            console.log('Selected KPI for client:', self.responseData.list );
+            console.log('Selected KPI for client:', self.responseData.list);
             for (var i = 0; i < self.responseData.list.length; i++) {
                 if (self.responseData.list[i].kpi_id == 2){
                     self.locat.locat = !self.locat.locat;
@@ -211,7 +211,7 @@ myApp.service('DashboardService', function ($http, $location) {
         });
     };
 
-    
+
     self.getClientResponsesAmenities = function (clientId) {
         $http({
             method: 'GET',
@@ -220,8 +220,157 @@ myApp.service('DashboardService', function ($http, $location) {
                 clientId: clientId
             }
         }).then(function (response) {
-            self.clientAmenData.list = response.data;
-            console.log('client dashboard amenities response:', self.clientAmenData.list);
+            self.clientAmenitiesData.list = response.data;
+            console.log('client dashboard amenities response:', self.clientAmenitiesData.list);
+            // 10, 11, 13, 14, 15, 16, 17, 18, 19
+
+            //declaring counts of inputs for questions 13-19 going into amenitiesValued graph
+            let foodAndEntertainmentRatingCount = [0, 0, 0, 0, 0]
+            let conferenceRoomRatingCount = [0, 0, 0, 0, 0]
+            let greenSpaceRatingCount = [0, 0, 0, 0, 0]
+            let showerLockerRatingCount = [0, 0, 0, 0, 0]
+            let fitnessCenterRatingCount = [0, 0, 0, 0, 0]
+            let parkingRatingCount = [0, 0, 0, 0, 0]
+            let publicTransitCount = [0, 0, 0, 0, 0]
+            for (let i = 0; i < self.clientAmenitiesData.list.length; i++) {
+                //currentAmenityFrequency Compiler
+                if (self.clientAmenitiesData.list[i].question_id == 10) {
+                    for (let index = 0; index < self.commuteTimes.config.data.labels.length; index++) {
+                        if (self.clientAmenitiesData.list[i].response_text == self.currentAmenityFrequency.config.data.labels[index]) {
+                            self.currentAmenityFrequency.config.data.datasets[0].data[index]++
+                            console.log('++')
+                        }
+                    }
+                }
+                //thirdSpaceFrequency Compiler
+                if (self.clientAmenitiesData.list[i].question_id == 11) {
+                    for (let index = 0; index < self.thirdSpaceFrequency.config.data.labels.length; index++) {
+                        if (self.clientAmenitiesData.list[i].response_text == self.thirdSpaceFrequency.config.data.labels[index]) {
+                            self.thirdSpaceFrequency.config.data.datasets[0].data[index]++
+                            console.log('++')
+                        }
+                    }
+                }
+                //amenitiesValued Compiler Food and Entertainment
+                if (self.clientAmenitiesData.list[i].question_id == 13) {
+                    //create an array with index for each value 1-5
+                    //check value 1-5 of amenity
+                    for (let index = 0; index < foodAndEntertainmentRatingCount.length; index++) {
+                        //add 1 to corresponding index count of the array
+                        if (self.clientAmenitiesData.list[i].response_text == index + 1) {
+                            foodAndEntertainmentRatingCount[index]++
+                        }
+                    }
+
+                }
+                //amenitiesValued Compiler Conference Room
+                if (self.clientAmenitiesData.list[i].question_id == 14) {
+                    //create an array with index for each value 1-5
+                    //check value 1-5 of amenity
+                    for (let index = 0; index < conferenceRoomRatingCount.length; index++) {
+                        //add 1 to corresponding index count of the array
+                        if (self.clientAmenitiesData.list[i].response_text == index + 1) {
+                            conferenceRoomRatingCount[index]++
+                        }
+                    }
+
+                }
+                //amenitiesValued Compiler Green Space
+                if (self.clientAmenitiesData.list[i].question_id == 15) {
+                    //create an array with index for each value 1-5
+                    //check value 1-5 of amenity
+                    for (let index = 0; index < greenSpaceRatingCount.length; index++) {
+                        //add 1 to corresponding index count of the array
+                        if (self.clientAmenitiesData.list[i].response_text == index + 1) {
+                            greenSpaceRatingCount[index]++
+                        }
+                    }
+
+                }
+                //amenitiesValued Compiler Shower/Locker Room
+                if (self.clientAmenitiesData.list[i].question_id == 16) {
+                    //create an array with index for each value 1-5
+                    //check value 1-5 of amenity
+                    for (let index = 0; index < showerLockerRatingCount.length; index++) {
+                        //add 1 to corresponding index count of the array
+                        if (self.clientAmenitiesData.list[i].response_text == index + 1) {
+                            showerLockerRatingCount[index]++
+                        }
+                    }
+
+                }
+                //amenitiesValued Compiler Fitness Center
+                if (self.clientAmenitiesData.list[i].question_id == 17) {
+                    //create an array with index for each value 1-5
+                    //check value 1-5 of amenity
+                    for (let index = 0; index < fitnessCenterRatingCount.length; index++) {
+                        //add 1 to corresponding index count of the array
+                        if (self.clientAmenitiesData.list[i].response_text == index + 1) {
+                            fitnessCenterRatingCount[index]++
+                        }
+                    }
+
+                }
+                //amenitiesValued Compiler Parking
+                if (self.clientAmenitiesData.list[i].question_id == 18) {
+                    //create an array with index for each value 1-5
+                    //check value 1-5 of amenity
+                    for (let index = 0; index < parkingRatingCount.length; index++) {
+                        //add 1 to corresponding index count of the array
+                        if (self.clientAmenitiesData.list[i].response_text == index + 1) {
+                            parkingRatingCount[index]++
+                        }
+                    }
+
+                }
+                //amenitiesValued Compiler Public Transit
+                if (self.clientAmenitiesData.list[i].question_id == 19) {
+                    //create an array with index for each value 1-5
+                    //check value 1-5 of amenity
+                    for (let index = 0; index < publicTransitCount.length; index++) {
+                        //add 1 to corresponding index count of the array
+                        if (self.clientAmenitiesData.list[i].response_text == index + 1) {
+                            publicTransitCount[index]++
+                        }
+                    }
+
+                }
+
+
+            }
+            //calculate weighted averages value from 1-5 value array
+            let foodAndEntertainmentAverage = 0;
+            let conferenceRoomAverage = 0;
+            let greenSpaceAverage = 0;
+            let showerLockerAverage = 0;
+            let fitnessCenterAverage = 0;
+            let parkingAverage = 0;
+            let publicTransitAverage = 0;
+            for (let j = 0; j < 5; j++) {
+                foodAndEntertainmentAverage += ((j + 1) * foodAndEntertainmentRatingCount[j]);
+                conferenceRoomAverage += ((j + 1) * conferenceRoomRatingCount[j]);
+                greenSpaceAverage += ((j + 1) * greenSpaceRatingCount[j]);
+                showerLockerAverage += ((j + 1) * showerLockerRatingCount[j]);
+                fitnessCenterAverage += ((j + 1) * fitnessCenterRatingCount[j]);
+                parkingAverage += ((j + 1) * parkingRatingCount[j]);
+                publicTransitAverage += ((j + 1) * publicTransitCount[j]);
+            }
+
+            //assign averages for values in amenitiesValued
+            self.amenitiesValued.config.data.datasets[0].data[0] += foodAndEntertainmentAverage;
+            self.amenitiesValued.config.data.datasets[0].data[1] += conferenceRoomAverage;
+            self.amenitiesValued.config.data.datasets[0].data[2] += greenSpaceAverage;
+            self.amenitiesValued.config.data.datasets[0].data[3] += showerLockerAverage;
+            self.amenitiesValued.config.data.datasets[0].data[4] += fitnessCenterAverage;
+            self.amenitiesValued.config.data.datasets[0].data[5] += parkingAverage;
+            self.amenitiesValued.config.data.datasets[0].data[6] += publicTransitAverage;
+
+            console.log(self.amenitiesValued.config.data.datasets[0].data)
+
+            self.currentAmenityFrequency.update()
+            self.thirdSpaceFrequency.update()
+            self.amenitiesValued.update()
+
         });
     };
 
@@ -318,7 +467,7 @@ myApp.service('DashboardService', function ($http, $location) {
 
             ],
             datasets: [{
-                label: 'apples',
+                label: 'departments',
                 backgroundColor: "rgba(153,255,51,0.4)",
                 borderColor: "rgba(153,255,51,1)",
                 data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
@@ -472,7 +621,7 @@ myApp.service('DashboardService', function ($http, $location) {
                     '#00cc00',
                     '#0066cc'
                 ],
-                data: [0,0,0,0,0]
+                data: [0, 0, 0, 0, 0]
             }]
         }
     });
@@ -481,10 +630,10 @@ myApp.service('DashboardService', function ($http, $location) {
     self.currentAmenityFrequency = new Chart(currentAmenityFrequency, {
         type: 'bar',
         data: {
-            labels: ['Never','Once','Twice','Often','Daily'],
+            labels: ['Never', 'Once', 'Twice', 'Often', 'Daily'],
             datasets: [{
                 label: 'Frequency of Amenity Usage',
-                data: [0,0,0,0,0],
+                data: [0, 0, 0, 0, 0],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.6)',
                     'rgba(54, 162, 235, 0.6)',
@@ -509,10 +658,10 @@ myApp.service('DashboardService', function ($http, $location) {
     self.thirdSpaceFrequency = new Chart(thirdSpaceFrequency, {
         type: 'bar',
         data: {
-            labels: ['Never','Rarely','A few times','Often','Daily'],
+            labels: ['Never', 'Rarely', 'Sometimes', 'Often', 'Daily'],
             datasets: [{
                 label: 'Frequency of 3rd workpace Usage',
-                data: [0,0,0,0,0],
+                data: [0, 0, 0, 0, 0],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.6)',
                     'rgba(54, 162, 235, 0.6)',
@@ -542,7 +691,7 @@ myApp.service('DashboardService', function ($http, $location) {
                 label: 'Average ranking on scale of 5 for amenity importance',
                 backgroundColor: "rgba(153,255,51,0.4)",
                 borderColor: "rgba(153,255,51,1)",
-                data: [0,0,0,0,0,0,0]
+                data: [0, 0, 0, 0, 0, 0, 0]
             }]
         }
     });
@@ -551,10 +700,10 @@ myApp.service('DashboardService', function ($http, $location) {
     self.stateOfSustainability = new Chart(stateOfSustainability, {
         type: 'bar',
         data: {
-            labels: [1, 2, 3, 4],
+            labels: ['Very Poor', 'Poor', 'No Opinion', 'Good', 'Very Good'],
             datasets: [{
                 label: 'Employee Age Groups',
-                data: [1, 2, 3, 4],
+                data: [0, 0, 0, 0, 0],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.6)',
                     'rgba(54, 162, 235, 0.6)',
@@ -579,7 +728,7 @@ myApp.service('DashboardService', function ($http, $location) {
     self.brandReflection = new Chart(brandReflection, {
         type: 'pie',
         data: {
-            labels: ["M", "T", "W", "T", "F", "S", "S"],
+            labels: ["Very Poor", "Poor", "No Opinion", "Good", "Very Good"],
             datasets: [{
                 backgroundColor: [
                     "#2ecc71",
@@ -590,7 +739,7 @@ myApp.service('DashboardService', function ($http, $location) {
                     "#e74c3c",
                     "#34495e"
                 ],
-                data: [12, 19, 3, 17, 28, 24, 7]
+                data: [0, 0, 0, 0, 0]
             }]
         }
     });
@@ -599,7 +748,7 @@ myApp.service('DashboardService', function ($http, $location) {
     self.currentImpression = new Chart(currentImpression, {
         type: 'pie',
         data: {
-            labels: ["M", "T", "W", "T", "F", "S", "S"],
+            labels: ["Very Poor", "Poor", "No Opinion", "Good", "Very Good"],
             datasets: [{
                 backgroundColor: [
                     "#2ecc71",
@@ -610,7 +759,7 @@ myApp.service('DashboardService', function ($http, $location) {
                     "#e74c3c",
                     "#34495e"
                 ],
-                data: [12, 19, 3, 17, 28, 24, 7]
+                data: [0, 0, 0, 0, 0]
             }]
         }
     });
@@ -621,9 +770,9 @@ myApp.service('DashboardService', function ($http, $location) {
     self.currentExposure = new Chart(currentExposure, {
         type: 'bar',
         data: {
-            labels: [1, 2, 3, 4],
+            labels: ["Unfavorable", "Needs Improvement", "No Opinion", "Good", "Excellent"],
             datasets: [{
-                label: 'Employee Age Groups',
+                label: '',
                 data: [1, 2, 3, 4],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.6)',
@@ -649,7 +798,35 @@ myApp.service('DashboardService', function ($http, $location) {
     self.publicExposureImportance = new Chart(publicExposureImportance, {
         type: 'bar',
         data: {
-            labels: [1, 2, 3, 4],
+            labels: ["Not Applicable", "Minimal", "Imortant", "Very Important", "Essential"],
+            datasets: [{
+                label: 'Employee Age Groups',
+                data: [1, 2, 3, 4],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(54, 162, 235, 0.6)',
+                    'rgba(255, 206, 86, 0.6)',
+                    'rgba(75, 192, 192, 0.6)'
+                ],
+
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+    var publicExposureChange = document.getElementById("publicExposureChange");
+    self.publicExposureChange = new Chart(publicExposureChange, {
+        type: 'bar',
+        data: {
+            labels: ["Not Applicable", "Minimal", "Impactful", "Very Impactful", "Critical"],
             datasets: [{
                 label: 'Employee Age Groups',
                 data: [1, 2, 3, 4],
@@ -677,7 +854,7 @@ myApp.service('DashboardService', function ($http, $location) {
     self.spaceComparability = new Chart(spaceComparability, {
         type: 'pie',
         data: {
-            labels: ["M", "T", "W", "T", "F", "S", "S"],
+            labels: ["Very Inferior", "Inferior", "Same", "Superior", "Highly Superior"],
             datasets: [{
                 backgroundColor: [
                     "#2ecc71",
@@ -688,16 +865,18 @@ myApp.service('DashboardService', function ($http, $location) {
                     "#e74c3c",
                     "#34495e"
                 ],
-                data: [12, 19, 3, 17, 28, 24, 7]
+                data: [12, 19, 3, 17, 28]
             }]
         }
     });
+
+
 
     var daylightAccess = document.getElementById("daylightAccess");
     self.daylightAccess = new Chart(daylightAccess, {
         type: 'pie',
         data: {
-            labels: ["M", "T", "W", "T", "F", "S", "S"],
+            labels: ["Very Poor", "Poor", "No Opinion", "Good", "Very Good"],
             datasets: [{
                 backgroundColor: [
                     "#2ecc71",
@@ -708,7 +887,7 @@ myApp.service('DashboardService', function ($http, $location) {
                     "#e74c3c",
                     "#34495e"
                 ],
-                data: [12, 19, 3, 17, 28, 24, 7]
+                data: [12, 19, 3, 17, 28]
             }]
         }
     });
@@ -717,9 +896,9 @@ myApp.service('DashboardService', function ($http, $location) {
     self.locationImpact = new Chart(locationImpact, {
         type: 'bar',
         data: {
-            labels: [1, 2, 3, 4],
+            labels: ["Not Applicable", "Minimal", "Impactful", "Very Impactful", "Crucial"],
             datasets: [{
-                label: 'Employee Age Groups',
+                label: 'Location Satisfaction Impact',
                 data: [1, 2, 3, 4],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.6)',
@@ -745,9 +924,9 @@ myApp.service('DashboardService', function ($http, $location) {
     self.sufficiency = new Chart(sufficiency, {
         type: 'bar',
         data: {
-            labels: [1, 2, 3, 4],
+            labels: ["Not Applicable", "Poorly", "Satisfactory", "Very Well", "Exceptional"],
             datasets: [{
-                label: 'Employee Age Groups',
+                label: 'Sufficiency Rating',
                 data: [1, 2, 3, 4],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.6)',
@@ -773,17 +952,12 @@ myApp.service('DashboardService', function ($http, $location) {
     self.whereTheyWork = new Chart(whereTheyWork, {
         type: 'radar',
         data: {
-            labels: ["M", "T", "W", "T", "F", "S", "S"],
+            labels: ["Home", "Office Desk", "Elsewhere in Office", "Coffee Shop", "On-site with Client", "Other"],
             datasets: [{
-                label: 'apples',
+                label: 'Where they Work',
                 backgroundColor: "rgba(153,255,51,0.4)",
                 borderColor: "rgba(153,255,51,1)",
                 data: [12, 19, 3, 17, 28, 24, 7]
-            }, {
-                label: 'oranges',
-                backgroundColor: "rgba(255,153,0,0.4)",
-                borderColor: "rgba(255,153,0,1)",
-                data: [30, 29, 5, 5, 20, 3, 10]
             }]
         }
     });
@@ -792,17 +966,12 @@ myApp.service('DashboardService', function ($http, $location) {
     self.fruitsOfSpace = new Chart(fruitsOfSpace, {
         type: 'radar',
         data: {
-            labels: ["M", "T", "W", "T", "F", "S", "S"],
+            labels: ["Postive Culture", "Employee Wellbeing", "Worker Productivity", "Engagment among coworkers"],
             datasets: [{
-                label: 'apples',
+                label: 'Influence Level',
                 backgroundColor: "rgba(153,255,51,0.4)",
                 borderColor: "rgba(153,255,51,1)",
                 data: [12, 19, 3, 17, 28, 24, 7]
-            }, {
-                label: 'oranges',
-                backgroundColor: "rgba(255,153,0,0.4)",
-                borderColor: "rgba(255,153,0,1)",
-                data: [30, 29, 5, 5, 20, 3, 10]
             }]
         }
     });
@@ -811,9 +980,9 @@ myApp.service('DashboardService', function ($http, $location) {
     self.satisfaction = new Chart(satisfaction, {
         type: 'bar',
         data: {
-            labels: [1, 2, 3, 4],
+            labels: ["Not Applicable", "Poorly", "Satisfactory", "Very Well", "Exceptional"],
             datasets: [{
-                label: 'Employee Age Groups',
+                label: 'Satisfaction',
                 data: [1, 2, 3, 4],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.6)',
@@ -834,7 +1003,7 @@ myApp.service('DashboardService', function ($http, $location) {
             }
         }
     });
-    
+
 
 
 }); //end service    
