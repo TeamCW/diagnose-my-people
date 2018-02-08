@@ -4,7 +4,7 @@ myApp.service('DashboardService', function ($http, $location) {
     self.responseData = { list: [] };
     self.clientData = { list: [] };
     self.clientDemoData = { list: [] };
-    self.clientLocalData = { list: [] };
+    self.clientLocationData = { list: [] };
     self.clientBrandData = { list: [] };
     self.clientAmenData = { list: [] };
     self.clientRetRecData = { list: [] };
@@ -60,7 +60,7 @@ myApp.service('DashboardService', function ($http, $location) {
 
                 }
 
-                //if statement checkin if question is two
+                //if statement checking if question is two
                 if (self.clientDemoData.list[i].question_id == 2) {
                     //then statement for if question is two that adds 1 array index in an 
                     for (let index = 0; index < self.departmentDistribution.config.data.labels.length - 1; index++) {
@@ -72,7 +72,7 @@ myApp.service('DashboardService', function ($http, $location) {
                     }
 
                 }
-                //if statement checkin if question is three
+                //if statement checking if question is three
                 if (self.clientDemoData.list[i].question_id == 3) {
                     //then statement for if question is three that adds 1 array index in an array
                     for (let index = 0; index < self.descriptionDistribution.config.data.labels.length; index++) {
@@ -83,10 +83,10 @@ myApp.service('DashboardService', function ($http, $location) {
 
                     }
                 }
-                //if statement checkin if question is four
+                //if statement checking if question is four
                 if (self.clientDemoData.list[i].question_id == 4) {
                     //then statement for if question is four that adds 1 array index in an array
-                    for (let index = 0; index < self.experienceDistribution.config.data.labels.length - 1; index++) {
+                    for (let index = 0; index < self.experienceDistribution.config.data.labels.length; index++) {
                         if (self.clientDemoData.list[i].response_text == self.experienceDistribution.config.data.labels[index]) {
                             self.experienceDistribution.config.data.datasets[0].data[index]++
                         }
@@ -105,18 +105,84 @@ myApp.service('DashboardService', function ($http, $location) {
     };
 
 
-    // self.getClientResponsesLocal = function (clientId) {
-    //     $http({
-    //         method: 'GET',
-    //         url: '/dashboard/location',
-    //         params: {
-    //             clientId: clientId
-    //         }
-    //     }).then(function (response) {
-    //         self.clientLocalData.list = response.data;
-    //         console.log('client dashboard location response:', self.clientLocalData.list);
-    //     });
-    // };
+    self.getClientResponsesLocation = function (clientId) {
+        $http({
+            method: 'GET',
+            url: '/dashboard/location',
+            params: {
+                clientId: clientId
+            }
+        }).then(function (response) {
+            self.clientLocationData.list = response.data;
+            console.log('client dashboard location response:', self.clientLocationData.list);
+
+            //for statement of request
+            for (let i = 0; i < self.clientLocationData.list.length; i++) {
+                //commuteTimes data compiler
+                if (self.clientLocationData.list[i].question_id == 5) {
+                    for (let index = 0; index < self.commuteTimes.config.data.labels.length; index++) {
+                        if (self.clientLocationData.list[i].response_text == self.commuteTimes.config.data.labels[index]) {
+                            self.commuteTimes.config.data.datasets[0].data[index]++
+
+                        }
+                    }
+                }
+                //currentmode of commute for modeOfCommute data compiler
+                if (self.clientLocationData.list[i].question_id == 6) {
+                    for (let index = 0; index < self.modeOfCommute.config.data.labels.length; index++) {
+                        if (self.clientLocationData.list[i].response_text == self.modeOfCommute.config.data.labels[index]) {
+                            self.modeOfCommute.config.data.datasets[0].data[index]++
+
+                        }
+                    }
+                }
+                //desiredmode of commute for modeOfCommute data compiler
+                if (self.clientLocationData.list[i].question_id == 7) {
+                    for (let index = 0; index < self.modeOfCommute.config.data.labels.length; index++) {
+                        if (self.clientLocationData.list[i].response_text == self.modeOfCommute.config.data.labels[index]) {
+                            self.modeOfCommute.config.data.datasets[1].data[index]++
+
+                        }
+                    }
+                }
+                //parkingSatisfaction data compiler
+                if (self.clientLocationData.list[i].question_id == 8) {
+                    for (let index = 0; index < self.parkingSatisfaction.config.data.labels.length; index++) {
+                        if (self.clientLocationData.list[i].response_text == self.parkingSatisfaction.config.data.labels[index]) {
+                            self.parkingSatisfaction.config.data.datasets[0].data[index]++
+
+                        }
+                    }
+                }
+                //
+                if (self.clientLocationData.list[i].question_id == 9) {
+                    for (let index = 0; index < self.homeworkFrequency.config.data.labels.length; index++) {
+                        if (self.clientLocationData.list[i].response_text == self.homeworkFrequency.config.data.labels[index]) {
+                            self.homeworkFrequency.config.data.datasets[0].data[index]++
+                        }
+                    }
+                }
+            }
+            self.commuteTimes.update()
+            self.modeOfCommute.update()
+            self.parkingSatisfaction.update()
+            self.homeworkFrequency.update()
+        });
+    };
+
+    
+    self.getClientResponsesAmenities = function (clientId) {
+        $http({
+            method: 'GET',
+            url: '/dashboard/amenities',
+            params: {
+                clientId: clientId
+            }
+        }).then(function (response) {
+            self.clientAmenData.list = response.data;
+            console.log('client dashboard amenities response:', self.clientAmenData.list);
+        });
+    };
 
 
     // self.getClientResponsesBrand = function (clientId) {
@@ -132,18 +198,7 @@ myApp.service('DashboardService', function ($http, $location) {
     //     });
     // };
 
-    // self.getClientResponsesAmen = function (clientId) {
-    //     $http({
-    //         method: 'GET',
-    //         url: '/dashboard/amenities',
-    //         params: {
-    //             clientId: clientId
-    //         }
-    //     }).then(function (response) {
-    //         self.clientAmenData.list = response.data;
-    //         console.log('client dashboard amenities response:', self.clientAmenData.list);
-    //     });
-    // };
+
 
     // self.getClientResponsesRetention = function (clientId) {
     //     $http({
@@ -277,7 +332,7 @@ myApp.service('DashboardService', function ($http, $location) {
             labels: ['5-10 minutes', '10-20 minutes', '20-30 minutes', '30-40 minutes', '40+ minutes'],
             datasets: [{
                 label: 'Commute times',
-                data: [5, 10, 30, 20, 15],
+                data: [0, 0, 0, 0, 0],
                 backgroundColor: []
             }
             ]
@@ -299,10 +354,10 @@ myApp.service('DashboardService', function ($http, $location) {
     self.parkingSatisfaction = new Chart(parkingSatisfaction, {
         type: 'bar',
         data: {
-            labels: ['Very Dissatisfied', 'Dissatisfied', 'Neutral', 'Satisfied', 'Very Satisfied'],
+            labels: ['Very Dissatisfied', 'Dissatisfied', 'No Opinion', 'Satisfied', 'Very Satisfied'],
             datasets: [{
                 label: 'Public Transit',
-                data: [5, 10, 30, 20, 15],
+                data: [0, 0, 0, 0, 0],
                 backgroundColor: []
             }
             ]
@@ -333,7 +388,7 @@ myApp.service('DashboardService', function ($http, $location) {
             ],
             datasets: [{
                 label: 'Current Mode',
-                data: [5, 10, 30, 20],
+                data: [0, 0, 0, 0],
                 backgroundColor: [
                     'rgb(255, 0, 0)',
                     'rgb(255, 0, 0)',
@@ -342,7 +397,7 @@ myApp.service('DashboardService', function ($http, $location) {
                 ]
             }, {
                 label: 'Desired Mode',
-                data: [5, 50, 2, 9],
+                data: [0, 0, 0, 0],
                 backgroundColor: [
                     'rgb(0, 0, 255)',
                     'rgb(0, 0, 255)',
@@ -367,7 +422,7 @@ myApp.service('DashboardService', function ($http, $location) {
     self.homeworkFrequency = new Chart(homeworkFrequency, {
         type: 'pie',
         data: {
-            labels: ["Never", "Rarely", "Half the Time", "Often", "Most of the Time"],
+            labels: ["Never", "Rarely", "About Half", "Often", "Very Often"],
             datasets: [{
                 backgroundColor: [
                     '#ff0000',
@@ -376,7 +431,77 @@ myApp.service('DashboardService', function ($http, $location) {
                     '#00cc00',
                     '#0066cc'
                 ],
-                data: [12, 19, 3, 17, 28]
+                data: [0,0,0,0,0]
+            }]
+        }
+    });
+
+    var currentAmenityFrequency = document.getElementById("currentAmenityFrequency");
+    self.currentAmenityFrequency = new Chart(currentAmenityFrequency, {
+        type: 'bar',
+        data: {
+            labels: ['Never','Once','Twice','Often','Daily'],
+            datasets: [{
+                label: 'Frequency of Amenity Usage',
+                data: [0,0,0,0,0],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(54, 162, 235, 0.6)',
+                    'rgba(255, 206, 86, 0.6)',
+                    'rgba(75, 192, 192, 0.6)'
+                ],
+
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+    var thirdSpaceFrequency = document.getElementById("thirdSpaceFrequency");
+    self.thirdSpaceFrequency = new Chart(thirdSpaceFrequency, {
+        type: 'bar',
+        data: {
+            labels: ['Never','Rarely','A few times','Often','Daily'],
+            datasets: [{
+                label: 'Frequency of 3rd workpace Usage',
+                data: [0,0,0,0,0],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(54, 162, 235, 0.6)',
+                    'rgba(255, 206, 86, 0.6)',
+                    'rgba(75, 192, 192, 0.6)'
+                ],
+
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+    var amenitiesValued = document.getElementById("amenitiesValued");
+    self.amenitiesValued = new Chart(amenitiesValued, {
+        type: 'radar',
+        data: {
+            labels: ["Food and Entertainment", "Conference Room", "Green Space", "Shower/Locker Room", "Fitness Center", "Parking", "Public Transit"],
+            datasets: [{
+                label: 'Average ranking on scale of 5 for amenity importance',
+                backgroundColor: "rgba(153,255,51,0.4)",
+                borderColor: "rgba(153,255,51,1)",
+                data: [0,0,0,0,0,0,0]
             }]
         }
     });
