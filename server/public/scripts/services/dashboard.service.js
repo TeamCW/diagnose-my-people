@@ -13,6 +13,42 @@ myApp.service('DashboardService', function ($http, $location) {
 
     //data arrays for graphs
 
+    //get selected kpi section
+    var demo = true;
+    var locat = false;
+    var brand = false;
+    var retRec = false;
+    var amen = false;
+    var conc = true;
+
+
+    self.getSelectedKpi = function (clientId) {
+        $http({
+            method: 'GET',
+            url: '/dashboard/kpi/',
+            params: {
+                clientId: clientId
+            }
+        }).then(function (response) {
+            self.responseData.list = response.data;
+            console.log('Selected KPI for client:', self.responseData.list );
+            for (var i = 0; i < self.responseData.list.length; i++) {
+                if (self.responseData.list[i].kpi_id = 2){
+                    locat = true;
+                }
+                if (self.responseData.list[i].kpi_id = 3) {
+                    amen = true;
+                }
+                if (self.responseData.list[i].kpi_id = 4) {
+                    brand = true;
+                }
+                if (self.responseData.list[i].kpi_id = 5) {
+                    retRec = true;
+                }
+            }
+        });
+    };
+
 
 
     self.updateCharts = function () {

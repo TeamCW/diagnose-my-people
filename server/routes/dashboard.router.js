@@ -5,6 +5,38 @@ var pool = require('../modules/pool.js');
 
 
 
+
+
+router.get('/kpi', function (req, res) {
+    console.log(req.query.clientId)
+    var clientId = req.query.clientId;
+    if (req.isAuthenticated()) {
+        pool.connect(function (errorConnectingToDatabase, client, done) {
+            if (errorConnectingToDatabase) {
+                console.log('error', errorConnectingToDatabase);
+                res.sendStatus(500);
+            } else {
+                client.query(`SELECT kpi_id, category.kpi from selected_kpi
+                INNER JOIN category on selected_kpi.kpi_id = category.id
+                WHERE client_id = $1; `, [clientId],
+                    function (errorMakingDatabaseQuery, result) {
+                        done();
+                        if (errorMakingDatabaseQuery) {
+                            console.log('error', errorMakingDatabaseQuery);
+                            res.sendStatus(500);
+                        } else {
+                            res.send(result.rows);
+                        }
+                    });
+            }
+        });
+    }
+    else {
+        res.sendStatus(403);
+    }
+});
+
+
 router.get('/demo', function (req, res) {
     console.log(req.query.clientId)
     var clientId = req.query.clientId;
