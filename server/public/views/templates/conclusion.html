@@ -1,5 +1,5 @@
 <header ng-include="'/views/partials/survey-header.html'" class=""></header>
-<div ng-cloak class="container-fluid survey-background">
+<div ng-cloak class="container-fluid survey-background-long">
     <div class="row">
         <div class="col-lg-10">
             <div class="progress">
@@ -37,32 +37,26 @@
                 <br>
                 <div ng-repeat="question in sc.conclusion.list | limitTo:sc.conclusionLimit">
                     <div class="survey-questions">{{question.question}}
-                        <div ng-if="question.question_id === 37 && sc.conclusion.list[0].responses" class="slider-location1">
+                        <div ng-if="question.question_id === 37 && sc.conclusion.list[0].responses" class="slider-conclusion">
                             <rzslider rz-slider-model="sc.slider.value.question37" rz-slider-options="{showTicksValues: true, stepsArray: sc.conclusion.list[0].responses}"></rzslider>
                         </div>
-                        <br>
-                        <div ng-if="question.question_id === 39 && sc.conclusion.list[2].responses" class="slider-location1">
+                        <!-- Dropdown block -->
+                        <div ng-show="question.question_id === 38"></div>
+                        <div ng-if="question.question_id === 39 && sc.conclusion.list[2].responses" class="slider-conclusion">
                             <rzslider rz-slider-model="sc.slider.value.question39" rz-slider-options="{showTicksValues: true, stepsArray: sc.conclusion.list[2].responses}"></rzslider>
                         </div>
-                        <br>
-                        <div ng-if="question.question_id === 40 && sc.conclusion.list[3].responses" class="slider-location1">
+                        <div ng-if="question.question_id === 40 && sc.conclusion.list[3].responses" class="slider-conclusion">
                             <rzslider rz-slider-model="sc.slider.value.question40" rz-slider-options="{showTicksValues: true, stepsArray: sc.conclusion.list[3].responses}"></rzslider>
                         </div>
-                        <br>
-                        <div ng-if="question.question_id === 41 && sc.conclusion.list[4].responses" class="slider-location1">
+                        <div ng-if="question.question_id === 41 && sc.conclusion.list[4].responses" class="slider-conclusion">
                             <rzslider rz-slider-model="sc.slider.value.question41" rz-slider-options="{showTicksValues: true, stepsArray: sc.conclusion.list[4].responses}"></rzslider>
                         </div>
-                        <br>
-                        <div ng-if="question.question_id === 42 && sc.conclusion.list[5].responses" class="slider-location1">
+                        <div ng-if="question.question_id === 42 && sc.conclusion.list[5].responses" class="slider-conclusion">
                             <rzslider rz-slider-model="sc.slider.value.question42" rz-slider-options="{showTicksValues: true, stepsArray: sc.conclusion.list[5].responses}"></rzslider>
                         </div>
-                        <br>
                         <div ng-show="question.question_id === 43">
-
                             <input class="largeText" type="text" ng-model="sc.lastQuestion.response_from_input">
-
                         </div>
-                        <br>
                     </div>
                 </div>
                 <a href="#/surveyFinished/{{sc.client.list[0].survey_hash}}">
@@ -73,8 +67,4 @@
             </div>
         </div>
     </div>
-</div>
-</div>
-</div>
-</div>
 </div>

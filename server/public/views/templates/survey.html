@@ -43,22 +43,19 @@
           <div ng-repeat="question in sc.demographics.list | limitTo:sc.demographicLimit">
             <div class="survey-questions">{{question.question}}
               <div class="dropdown" ng-show="question.question_id === 1">
-                <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question1">
+                <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question1" class="demographicsDropdowns">
                 </select>
               </div>
-              <br>
               <div class="dropdown" ng-show="question.question_id === 2">
-                <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question2">
+                <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question2" class="demographicsDropdowns">
                 </select>
               </div>
-              <br>
               <div class="dropdown" ng-show="question.question_id === 3">
-                <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question3">
+                <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question3" class="demographicsDropdowns">
                 </select>
               </div>
-              <br>
               <div class="dropdown" ng-show="question.question_id === 4">
-                <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question4">
+                <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question4" class="demographicsDropdowns">
                 </select>
               </div>
             </div>
@@ -73,3 +70,4 @@
       </div>
     </div>
   </div>
+</div>
