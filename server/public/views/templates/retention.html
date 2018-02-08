@@ -1,5 +1,5 @@
 <header ng-include="'/views/partials/survey-header.html'" class=""></header>
-<div ng-cloak class="container-fluid survey-background">
+<div ng-cloak class="container-fluid survey-background-long">
     <div class="row">
         <div class="col-lg-10">
             <div class="progress">
@@ -37,41 +37,39 @@
                 <br>
                 <div ng-repeat="question in sc.retention.list | limitTo:sc.retentionLimit">
                     <div class="survey-questions">{{question.question}}
-                        <div ng-if="question.question_id === 27 && sc.retention.list[0].responses" class="slider-location1">
+                        <div ng-if="question.question_id === 27 && sc.retention.list[0].responses" class="slider-retention">
                             <rzslider rz-slider-model="sc.slider.value.question27" rz-slider-options="{showTicksValues: true, stepsArray: sc.retention.list[0].responses}"></rzslider>
                         </div>
-                        <br>
-                        <div ng-if="question.question_id === 28 && sc.retention.list[1].responses" class="slider-location1">
+                        <div ng-if="question.question_id === 28 && sc.retention.list[1].responses" class="slider-retention">
                             <rzslider rz-slider-model="sc.slider.value.question28" rz-slider-options="{showTicksValues: true, stepsArray: sc.retention.list[1].responses}"></rzslider>
                         </div>
-                        <br>
-                        <div ng-if="question.question_id === 29 && sc.retention.list[2].responses" class="slider-location1">
+                        <div ng-if="question.question_id === 29 && sc.retention.list[2].responses" class="slider-retention">
                             <rzslider rz-slider-model="sc.slider.value.question29" rz-slider-options="{showTicksValues: true, stepsArray: sc.retention.list[2].responses}"></rzslider>
                         </div>
-                        <br>
+                        <!-- Dropdown block -->
                         <div ng-show="question.question_id === 30"></div>
                         <div class="dropdown" ng-show="question.question_id === 31">
-                            <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question31">
+                            <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question31" class="retentionDropdown">
                             </select>
                         </div>
                         <div class="dropdown" ng-show="question.question_id === 32">
-                            <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question32">
+                            <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question32" class="retentionDropdown">
                             </select>
                         </div>
                         <div class="dropdown" ng-show="question.question_id === 33">
-                            <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question33">
+                            <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question33" class="retentionDropdown">
                             </select>
                         </div>
                         <div class="dropdown" ng-show="question.question_id === 34">
-                            <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question34">
+                            <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question34" class="retentionDropdown">
                             </select>
                         </div>
                         <div class="dropdown" ng-show="question.question_id === 35">
-                            <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question35">
+                            <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question35" class="retentionDropdown">
                             </select>
                         </div>
                         <div class="dropdown" ng-show="question.question_id === 36">
-                            <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question36">
+                            <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question36" class="retentionDropdown">
                             </select>
                         </div>
                     </div>

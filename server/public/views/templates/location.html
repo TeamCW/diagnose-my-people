@@ -49,10 +49,11 @@
                   <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question7" class="locationDropDowns">
                     </select>
               </div>
-              <div ng-if="question.question_id === 8 && sc.location.list[3].responses" class="slider-location1">
+              <!-- slider block -->
+              <div ng-if="question.question_id === 8 && sc.location.list[3].responses" class="slider-location">
                   <rzslider rz-slider-model="sc.slider.value.question8" rz-slider-options="{showTicksValues: true, stepsArray: sc.location.list[3].responses }"></rzslider>
               </div>
-              <div ng-if="question.question_id === 9 && sc.location.list[4].responses" class="slider-location2">
+              <div ng-if="question.question_id === 9 && sc.location.list[4].responses" class="slider-location">
                   <rzslider rz-slider-model="sc.slider.value.question9" rz-slider-options="{showTicksValues: true, stepsArray: sc.location.list[4].responses }"></rzslider>
               </div>                 
               <br>
@@ -68,3 +69,5 @@
         </div>
       </div>
     </div>
+  </div>
+</div>

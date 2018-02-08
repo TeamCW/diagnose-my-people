@@ -1,5 +1,5 @@
 <header ng-include="'/views/partials/survey-header.html'" class=""></header>
-<div ng-cloak class="container-fluid survey-background">
+<div ng-cloak class="container-fluid survey-background-long">
     <div class="row">
         <div class="col-lg-10">
             <div class="progress">
@@ -38,34 +38,27 @@
                     <br>
                     <div ng-repeat="question in sc.brand.list | limitTo:sc.brandLimit">
                         <div class="brand-survey-questions">{{question.question}}
-                            <div ng-if="question.question_id === 20 && sc.brand.list[0].responses" class="slider-location1">
+                            <div ng-if="question.question_id === 20 && sc.brand.list[0].responses" class="slider-brand">
                                 <rzslider rz-slider-model="sc.slider.value.question20" rz-slider-options="{showTicksValues: true, stepsArray: sc.brand.list[0].responses}"></rzslider>
                             </div>
-                            <br>
-                            <div ng-if="question.question_id === 21 && sc.brand.list[1].responses" class="slider-location1">
+                            <div ng-if="question.question_id === 21 && sc.brand.list[1].responses" class="slider-brand">
                                 <rzslider rz-slider-model="sc.slider.value.question21" rz-slider-options="{showTicksValues: true, stepsArray: sc.brand.list[1].responses}"></rzslider>
                             </div>
-                            <br>
-                            <div ng-if="question.question_id === 22 && sc.brand.list[2].responses" class="slider-location1">
+                            <div ng-if="question.question_id === 22 && sc.brand.list[2].responses" class="slider-brand">
                                 <rzslider rz-slider-model="sc.slider.value.question22" rz-slider-options="{showTicksValues: true, stepsArray: sc.brand.list[2].responses}"></rzslider>
                             </div>
-                            <br>
-                            <div ng-if="question.question_id === 23 && sc.brand.list[3].responses" class="slider-location1">
+                            <div ng-if="question.question_id === 23 && sc.brand.list[3].responses" class="slider-brand">
                                 <rzslider rz-slider-model="sc.slider.value.question23" rz-slider-options="{showTicksValues: true, stepsArray: sc.brand.list[3].responses}"></rzslider>
                             </div>
-                            <br>
-                            <div ng-if="question.question_id === 24 && sc.brand.list[4].responses" class="slider-location1">
+                            <div ng-if="question.question_id === 24 && sc.brand.list[4].responses" class="slider-brand">
                                 <rzslider rz-slider-model="sc.slider.value.question24" rz-slider-options="{showTicksValues: true, stepsArray: sc.brand.list[4].responses}"></rzslider>
                             </div>
-                            <br>
-                            <div ng-if="question.question_id === 25 && sc.brand.list[5].responses" class="slider-location1">
+                            <div ng-if="question.question_id === 25 && sc.brand.list[5].responses" class="slider-brand">
                                 <rzslider rz-slider-model="sc.slider.value.question25" rz-slider-options="{showTicksValues: true, stepsArray: sc.brand.list[5].responses}"></rzslider>
                             </div>
-                            <br>
-                            <div ng-if="question.question_id === 26 && sc.brand.list[6].responses" class="slider-location1">
+                            <div ng-if="question.question_id === 26 && sc.brand.list[6].responses" class="slider-brand">
                                 <rzslider rz-slider-model="sc.slider.value.question26" rz-slider-options="{showTicksValues: true, stepsArray: sc.brand.list[6].responses}"></rzslider>
                             </div>
-                            <br>
                         </div>
                         <br>
                     </div>

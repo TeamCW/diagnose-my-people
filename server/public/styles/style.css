@@ -116,7 +116,12 @@
 
 .survey-background {
     background-image: url('/images/red-city.jpg');
-    padding-bottom: 500px;
+    background-size: 100% 100%;
+}
+
+.survey-background-long {
+    background-image: url('/images/red-city.jpg');
+    background-size: 100% 50%;
 }
 
 .survey-head {
@@ -155,101 +160,40 @@
     border-bottom: 20px;
 }
 
-.slider-numbers {
-    margin-right: 50px;
-    margin-left: 50px;
+.slider-location {
+    width: 600px;
+    margin-left: 100px;
     font-weight: normal;
 }
 
-.slider {
-    width: 500px;
-}
-
-.slider-location1 {
+.slider-amenities {
     width: 600px;
-    margin-left: 110px;
-}
-
-.slider-location2 {
-    width: 600px;
-    margin-left: 110px;
-}
-
-.slider.brand5 {
-    width: 600px;
-}
-
-.slider.brand6 {
-    width: 600px;
-}
-
-.slider.conclusion {
-    width: 600px;
-}
-
-.slider.retention2{
-    width: 600px;
-}
-
-.slider.retention3 {
-    width: 600px;
-}
-
-.slider.conclusion1 {
-    width: 600px;
-}
-
-.slider-values.retention2{
-    margin-right: 20px;
-    margin-left: 20px;
+    margin-left: 100px;
     font-weight: normal;
 }
 
-.slider-values.retention3 {
-    margin-right: 20px;
-    margin-left: 20px;
-    font-weight: normal;
+.slider-brand {
+    margin-top: 10px;
+    margin-bottom: 100px;
+    margin-left: 100px;
+    width: 600px;
+    font-weight: normal;   
 }
 
-.slider-numbers.location {
-    margin-left: 20px;
-    margin-right: 20px;
-    padding-top: 5px;
-    padding-bottom: 15px;
+.slider-retention {
+    margin-top: 10px;
+    margin-bottom: 100px;
+    margin-left: 100px;
+    width: 600px;
+    font-weight: normal;   
 }
 
-.slider-numbers.location2 {
-    margin-left: 30px;
-    margin-right: 30px;
-}
-
-.slider-numbers.amenities1 {
-    margin-left: 35px;
-    margin-right: 35px;
-}
-
-.slider-numbers.amenities2 {
-    margin-left: 30px;
-    margin-right: 30px;
-}
-
-.slider-values.conclusion1 {
-    margin-right: 30px;
-    margin-left: 30px;
-    font-weight: normal;
-}
-
-.slider-values.conclusionQs {
-    margin-left: 30px;
-    margin-right: 30px; 
-}
-
-.slidebox {
-    margin-bottom: 30px;
-}
-
-#slidebox-brandQ1 {
-    border-top: 40px;
+.slider-conclusion {
+    margin-top: 10px;
+    margin-bottom: 100px;
+    margin-left: 100px;
+    width: 600px;
+    font-weight: normal;   
 }
 
 /* End Slider styling */
@@ -288,6 +232,11 @@
     padding-bottom: 20px;
 }
 
+.retentionDropdown {
+    margin-top: 15px;
+    padding-bottom: 20px; 
+}
+
 /* End DropDown styling */
 
 .finishPageBackground {
@@ -299,9 +248,6 @@
     padding: 60px;
 }
 
-#conclusionQ2 {
-    font-size-adjust: 40px;
-}
 
 .progress {
     width: 700px;
@@ -309,8 +255,10 @@
 }
 
 .amenitiesWordBlock {
-    padding-bottom: 20px;
+    padding-bottom: 10px;
 }
+
+
 /* End survey styling ^ */
 
 /* Landing page styling*/
