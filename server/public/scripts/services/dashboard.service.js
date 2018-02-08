@@ -506,8 +506,294 @@ myApp.service('DashboardService', function ($http, $location) {
         }
     });
 
+    var stateOfSustainability = document.getElementById("stateOfSustainability");
+    self.stateOfSustainability = new Chart(stateOfSustainability, {
+        type: 'bar',
+        data: {
+            labels: [1, 2, 3, 4],
+            datasets: [{
+                label: 'Employee Age Groups',
+                data: [1, 2, 3, 4],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(54, 162, 235, 0.6)',
+                    'rgba(255, 206, 86, 0.6)',
+                    'rgba(75, 192, 192, 0.6)'
+                ],
+
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+    var brandReflection = document.getElementById("brandReflection");
+    self.brandReflection = new Chart(brandReflection, {
+        type: 'pie',
+        data: {
+            labels: ["M", "T", "W", "T", "F", "S", "S"],
+            datasets: [{
+                backgroundColor: [
+                    "#2ecc71",
+                    "#3498db",
+                    "#95a5a6",
+                    "#9b59b6",
+                    "#f1c40f",
+                    "#e74c3c",
+                    "#34495e"
+                ],
+                data: [12, 19, 3, 17, 28, 24, 7]
+            }]
+        }
+    });
+
+    var currentImpression = document.getElementById("currentImpression");
+    self.currentImpression = new Chart(currentImpression, {
+        type: 'pie',
+        data: {
+            labels: ["M", "T", "W", "T", "F", "S", "S"],
+            datasets: [{
+                backgroundColor: [
+                    "#2ecc71",
+                    "#3498db",
+                    "#95a5a6",
+                    "#9b59b6",
+                    "#f1c40f",
+                    "#e74c3c",
+                    "#34495e"
+                ],
+                data: [12, 19, 3, 17, 28, 24, 7]
+            }]
+        }
+    });
 
 
+
+    var currentExposure = document.getElementById("currentExposure");
+    self.currentExposure = new Chart(currentExposure, {
+        type: 'bar',
+        data: {
+            labels: [1, 2, 3, 4],
+            datasets: [{
+                label: 'Employee Age Groups',
+                data: [1, 2, 3, 4],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(54, 162, 235, 0.6)',
+                    'rgba(255, 206, 86, 0.6)',
+                    'rgba(75, 192, 192, 0.6)'
+                ],
+
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+    var publicExposureImportance = document.getElementById("publicExposureImportance");
+    self.publicExposureImportance = new Chart(publicExposureImportance, {
+        type: 'bar',
+        data: {
+            labels: [1, 2, 3, 4],
+            datasets: [{
+                label: 'Employee Age Groups',
+                data: [1, 2, 3, 4],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(54, 162, 235, 0.6)',
+                    'rgba(255, 206, 86, 0.6)',
+                    'rgba(75, 192, 192, 0.6)'
+                ],
+
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+    var spaceComparability = document.getElementById("spaceComparability");
+    self.spaceComparability = new Chart(spaceComparability, {
+        type: 'pie',
+        data: {
+            labels: ["M", "T", "W", "T", "F", "S", "S"],
+            datasets: [{
+                backgroundColor: [
+                    "#2ecc71",
+                    "#3498db",
+                    "#95a5a6",
+                    "#9b59b6",
+                    "#f1c40f",
+                    "#e74c3c",
+                    "#34495e"
+                ],
+                data: [12, 19, 3, 17, 28, 24, 7]
+            }]
+        }
+    });
+
+    var daylightAccess = document.getElementById("daylightAccess");
+    self.daylightAccess = new Chart(daylightAccess, {
+        type: 'pie',
+        data: {
+            labels: ["M", "T", "W", "T", "F", "S", "S"],
+            datasets: [{
+                backgroundColor: [
+                    "#2ecc71",
+                    "#3498db",
+                    "#95a5a6",
+                    "#9b59b6",
+                    "#f1c40f",
+                    "#e74c3c",
+                    "#34495e"
+                ],
+                data: [12, 19, 3, 17, 28, 24, 7]
+            }]
+        }
+    });
+
+    var locationImpact = document.getElementById("locationImpact");
+    self.locationImpact = new Chart(locationImpact, {
+        type: 'bar',
+        data: {
+            labels: [1, 2, 3, 4],
+            datasets: [{
+                label: 'Employee Age Groups',
+                data: [1, 2, 3, 4],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(54, 162, 235, 0.6)',
+                    'rgba(255, 206, 86, 0.6)',
+                    'rgba(75, 192, 192, 0.6)'
+                ],
+
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+    var sufficiency = document.getElementById("sufficiency");
+    self.sufficiency = new Chart(sufficiency, {
+        type: 'bar',
+        data: {
+            labels: [1, 2, 3, 4],
+            datasets: [{
+                label: 'Employee Age Groups',
+                data: [1, 2, 3, 4],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(54, 162, 235, 0.6)',
+                    'rgba(255, 206, 86, 0.6)',
+                    'rgba(75, 192, 192, 0.6)'
+                ],
+
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+    var whereTheyWork = document.getElementById("whereTheyWork");
+    self.whereTheyWork = new Chart(whereTheyWork, {
+        type: 'radar',
+        data: {
+            labels: ["M", "T", "W", "T", "F", "S", "S"],
+            datasets: [{
+                label: 'apples',
+                backgroundColor: "rgba(153,255,51,0.4)",
+                borderColor: "rgba(153,255,51,1)",
+                data: [12, 19, 3, 17, 28, 24, 7]
+            }, {
+                label: 'oranges',
+                backgroundColor: "rgba(255,153,0,0.4)",
+                borderColor: "rgba(255,153,0,1)",
+                data: [30, 29, 5, 5, 20, 3, 10]
+            }]
+        }
+    });
+
+    var fruitsOfSpace = document.getElementById("fruitsOfSpace");
+    self.fruitsOfSpace = new Chart(fruitsOfSpace, {
+        type: 'radar',
+        data: {
+            labels: ["M", "T", "W", "T", "F", "S", "S"],
+            datasets: [{
+                label: 'apples',
+                backgroundColor: "rgba(153,255,51,0.4)",
+                borderColor: "rgba(153,255,51,1)",
+                data: [12, 19, 3, 17, 28, 24, 7]
+            }, {
+                label: 'oranges',
+                backgroundColor: "rgba(255,153,0,0.4)",
+                borderColor: "rgba(255,153,0,1)",
+                data: [30, 29, 5, 5, 20, 3, 10]
+            }]
+        }
+    });
+
+    var satisfaction = document.getElementById("satisfaction");
+    self.satisfaction = new Chart(satisfaction, {
+        type: 'bar',
+        data: {
+            labels: [1, 2, 3, 4],
+            datasets: [{
+                label: 'Employee Age Groups',
+                data: [1, 2, 3, 4],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(54, 162, 235, 0.6)',
+                    'rgba(255, 206, 86, 0.6)',
+                    'rgba(75, 192, 192, 0.6)'
+                ],
+
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+    
 
 
 }); //end service    
