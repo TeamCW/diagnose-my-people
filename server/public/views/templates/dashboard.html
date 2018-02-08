@@ -7,7 +7,7 @@
 <br>
 <br> {{dc.ageDistributionInput}}
 <div class="container">
-    <div>
+    <div ng-if="dc.demo" >
         <h3>Demographics: Who Are Your People</h3>
         <br>
         <div class="row">
@@ -35,7 +35,7 @@
         <br>
         <hr>
     </div>
-    <div>
+    <div ng-if="dc.locat" >
         <h3>Location: Where Are Your People?</h3>
         <br>
         <div class="row">
@@ -64,7 +64,7 @@
         <br>
         <hr>
     </div>
-    <div>
+    <div ng-if="dc.amen" >
         <h3>Amenities: What amenities help your people?</h3>
         <br>
         <div class="row">
@@ -89,7 +89,7 @@
         <br>
         <hr>
     </div>
-    <div>
+    <div ng-if="dc.brand" >
         <h3>Brand: What do my people our workplace brand?</h3>
         <br>
         <div class="row">
@@ -132,7 +132,7 @@
         <br>
         <hr>
     </div>
-    <div>
+    <div ng-if="dc.retRec" >
         <h3>Recruitment and Retention: Do your people want to work in your space?</h3>
         <br>
         <div class="row">
@@ -158,7 +158,7 @@
         <br>
         <hr>
     </div>
-    <div>
+    <div ng-if="dc.conc" >
         <h3>Satisfaction? Are your people satisfied with your current space?</h3>
         <br>
         <div class="row">

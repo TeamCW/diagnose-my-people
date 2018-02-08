@@ -23,6 +23,17 @@ myApp.controller('DashboardController', ['DashboardService', 'AdminService', '$h
     // DashboardService.getClientResponsesConclusion($routeParams.clientId);
 
 
+    // Get KPI that client selected for the survey
+    self.getSelectedKpi = DashboardService.getSelectedKpi;
+    self.getSelectedKpi ($routeParams.clientId ) 
+    self.demo = DashboardService.demo;
+    self.locat = DashboardService.locat;
+    self.brand = DashboardService.brand;
+    self.retRec = DashboardService.retRec;
+    self.amen = DashboardService.amen;
+    self.conc = DashboardService.conc;
+
+
     self.ageDistributionInput = DashboardService.ageDistributionInput
 
 

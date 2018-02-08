@@ -131,7 +131,7 @@ ALTER TABLE "selected_kpi" ADD CONSTRAINT "selected_kpi_fk1" FOREIGN KEY ("kpi_i
 
 
 INSERT INTO category (kpi)
-VALUES ('demographic'),('location'),('amenities'),('brand'),('retention'),('conclusion');
+VALUES ('Demographic'),('Location'),('Amenities'),('Brand'),('Retention'),('Conclusion');
 
 INSERT INTO question_styles (display_style_type)
 VALUES ('dropdown'), ('slider'), ('text_input'), ('blank');
