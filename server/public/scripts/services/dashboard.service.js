@@ -14,15 +14,16 @@ myApp.service('DashboardService', function ($http, $location) {
     //data arrays for graphs
 
     //get selected kpi section
-    var demo = true;
-    var locat = false;
-    var brand = false;
-    var retRec = false;
-    var amen = false;
-    var conc = true;
+
 
 
     self.getSelectedKpi = function (clientId) {
+        self.demo = true
+        self.locat = {locat: false}
+        self.brand = {brand: false}
+        self.retRec = {retrec: false}
+        self.amen = {amen: false}
+        self.conc = true;
         $http({
             method: 'GET',
             url: '/dashboard/kpi/',
@@ -33,19 +34,23 @@ myApp.service('DashboardService', function ($http, $location) {
             self.responseData.list = response.data;
             console.log('Selected KPI for client:', self.responseData.list );
             for (var i = 0; i < self.responseData.list.length; i++) {
-                if (self.responseData.list[i].kpi_id = 2){
-                    locat = true;
+                if (self.responseData.list[i].kpi_id == 2){
+                    self.locat.locat = !self.locat.locat;
                 }
-                if (self.responseData.list[i].kpi_id = 3) {
-                    amen = true;
+                if (self.responseData.list[i].kpi_id == 3) {
+                    self.amen.amen = !self.amen.amen;
                 }
-                if (self.responseData.list[i].kpi_id = 4) {
-                    brand = true;
+                if (self.responseData.list[i].kpi_id == 4) {
+                    self.brand.brand = !self.brand.brand;
                 }
-                if (self.responseData.list[i].kpi_id = 5) {
-                    retRec = true;
+                if (self.responseData.list[i].kpi_id == 5) {
+                    self.retRec.retRec = !self.retRec.retRec;
                 }
             }
+            console.log('locat:', self.locat.locat);
+            console.log('brand:', self.brand.brand);
+            console.log('retRec:', self.retRec.retRec);
+            console.log('amen:', self.amen.amen);
         });
     };
 
