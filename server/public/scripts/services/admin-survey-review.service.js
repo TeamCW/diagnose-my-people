@@ -51,10 +51,6 @@ myApp.service('AdminSurveyReviewService', ['$http', '$location', function ($http
     //add a KPI category to client survey
     self.addClientCategory = function (newCategory, clientId) {
         console.log('newCategory', newCategory);
-        // swal({
-        //     text: "Category added!",
-        //     icon: "success",
-        // });
         $http({
             method: 'POST',
             url: '/admin-survey-review/',
@@ -89,7 +85,7 @@ myApp.service('AdminSurveyReviewService', ['$http', '$location', function ($http
                         self.getNotSelected(clientId);
                     });
                 } else {
-                    swal("File not deleted");
+                    swal("Category not deleted");
                 }
             });
     };

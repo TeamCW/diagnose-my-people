@@ -2,6 +2,7 @@ myApp.service('SurveyService', function ($http, $location) {
     console.log('SurveyService Loaded');
     var self = this;
 
+
     self.demographics = { list: [] };
     self.location = { list: [] };
     self.amenities = { list: [] };
@@ -13,6 +14,7 @@ myApp.service('SurveyService', function ($http, $location) {
 
     self.selectedResponse = {};
     self.lastQuestion = {};
+
 
 
     //request to populate demographic questions and possible answers.

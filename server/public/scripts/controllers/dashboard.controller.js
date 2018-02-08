@@ -2,7 +2,6 @@ myApp.controller('DashboardController', ['DashboardService', 'AdminService', '$h
     console.log('DashboardController created');
     var vm = this;
     vm.dashboardService = DashboardService;
-    vm.responseData = { list: [] };
     vm.clientDemoData = DashboardService.clientDemoData;
     // vm.clientLocalData = DashboardService.clientLocalData;
     // vm.clientBrandData = DashboardService.clientBrandData;
@@ -26,15 +25,20 @@ myApp.controller('DashboardController', ['DashboardService', 'AdminService', '$h
 
 
 
-    // Get KPI that client selected for the survey
-    // self.getSelectedKpi = DashboardService.getSelectedKpi;
-    // self.getSelectedKpi ($routeParams.clientId ) 
-    // self.demo = DashboardService.demo;
-    // self.locat = DashboardService.locat;
-    // self.brand = DashboardService.brand;
-    // self.retRec = DashboardService.retRec;
-    // self.amen = DashboardService.amen;
-    // self.conc = DashboardService.conc;
+
+
+            // Get KPI that client selected for the survey 
+            vm.getSelectedKpi = DashboardService.getSelectedKpi;
+            vm.getSelectedKpi ($routeParams.clientId );
+            vm.demo = DashboardService.demo;
+            vm.locat = DashboardService.locat;
+            vm.brand = DashboardService.brand;
+            vm.retRec = DashboardService.retRec;
+            vm.amen = DashboardService.amen;
+            vm.conc = DashboardService.conc;
+            console.log('controller booleans:',vm.demo, vm.brand, vm.retRec, vm.locat, vm.amen, vm.conc)
+
+
 
 
 
@@ -337,6 +341,7 @@ myApp.controller('DashboardController', ['DashboardService', 'AdminService', '$h
 
 
     // vm.getAgeGroups();
+
 
 
 }]);//end controller

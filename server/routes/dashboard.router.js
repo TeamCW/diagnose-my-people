@@ -16,8 +16,7 @@ router.get('/kpi', function (req, res) {
                 console.log('error', errorConnectingToDatabase);
                 res.sendStatus(500);
             } else {
-                client.query(`SELECT kpi_id, category.kpi from selected_kpi
-                INNER JOIN category on selected_kpi.kpi_id = category.id
+                client.query(`SELECT kpi_id from selected_kpi
                 WHERE client_id = $1; `, [clientId],
                     function (errorMakingDatabaseQuery, result) {
                         done();
@@ -25,6 +24,7 @@ router.get('/kpi', function (req, res) {
                             console.log('error', errorMakingDatabaseQuery);
                             res.sendStatus(500);
                         } else {
+                            console.log('result:', result)
                             res.send(result.rows);
                         }
                     });

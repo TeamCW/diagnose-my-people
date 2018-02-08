@@ -2,12 +2,13 @@
 <h1>Dashboard</h1>
 <a ng-href="/#user">Back To Admin Page</a>
 <button ng-click="self.ageDistribution.update();">Update Charts</button>
+{{dc.demo}} {{dc.locat.locat}} {{dc.brand.brand}} {{dc.retRec.retRec}} {{dc.amen.amen}} {{dc.conc}}
 
 {{dc.clientDemoData}}
 <br>
 <br> {{dc.ageDistributionInput}}
 <div class="container">
-    <div >
+    <div ng-show="dc.demo" >
         <h3>Demographics: Who Are Your People</h3>
         <br>
         <div class="row">
@@ -35,7 +36,7 @@
         <br>
         <hr>
     </div>
-    <div  >
+    <div ng-show="dc.locat.locat" >
         <h3>Location: Where Are Your People?</h3>
         <br>
         <div class="row">
@@ -64,7 +65,7 @@
         <br>
         <hr>
     </div>
-    <div >
+    <div ng-show="dc.amen.amen" >
         <h3>Amenities: What amenities help your people?</h3>
         <br>
         <div class="row">
@@ -88,8 +89,10 @@
         <br>
         <hr>
     </div>
-    <div >
+
+    <div ng-show="dc.brand.brand" >
         <h3>Brand: How do your people feel about your brand?</h3>
+
         <br>
         <div class="row">
             <div class="col-6">
@@ -138,7 +141,9 @@
         <br>
         <hr>
     </div>
-    <div  >
+
+    <div ng-show="dc.retRec.retRec" >
+
         <h3>Recruitment and Retention: Do your people want to work in your space?</h3>
         <br>
         <div class="row">
@@ -169,8 +174,9 @@
         <br>
         <hr>
     </div>
-    <div >
-        <h3>Satisfaction: Are your people satisfied with your current space?</h3>
+
+    <div ng-show="dc.conc" >
+        <h3>Satisfaction? Are your people satisfied with your current space?</h3>
         <br>
         <div class="row">
 
