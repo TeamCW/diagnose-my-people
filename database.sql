@@ -186,7 +186,7 @@ VALUES ('When were you born?', 1, 1),
 
 
 
-INSERT INTO possible_responses (id, question_id, response_text, style_id)
+INSERT INTO possible_responses (question_id, response_text, style_id)
 VALUES (1, '1960 or Earlier', 1), (1, '1961 - 1970', 1), (1, '1971 - 1980', 1), (1, '1981 - 1990', 1), (1, '1991 or Later', 1),
 (2, 'Customer/Account Services', 4), (2, 'Finance', 4), (2, 'Sales', 4), (2, 'Administrative', 4), (2, 'Research', 4), (2, 'Management', 4), (2, 'Legal', 4), (2, 'Executive', 4), (2, 'Marketing', 4), (2, 'Creative', 4), (2, 'Other', 4),
 (3, 'Creative', 3), (3, 'Corporate', 3), (3, 'Healthcare', 3), (3, 'General Office', 3), (3, 'Technology', 3), (3, 'Other', 3), (4, '0-1', 2),
@@ -195,7 +195,8 @@ VALUES (1, '1960 or Earlier', 1), (1, '1961 - 1970', 1), (1, '1971 - 1980', 1), 
 (6, 'Public Transit', 2), (6, 'Driving', 2), (6, 'Walking/Biking', 2), (6, 'Rideshare', 2),
 (7, 'Public Transit', 2), (7, 'Driving', 2), (7, 'Walking/Biking', 2), (7, 'Rideshare', 2),
 (8, 'Very Dissatisfied', 1), (8, 'Dissatisfied', 1), (8, 'No Opinion', 1), (8, 'Satisfied', 1), (8, 'Very Satisfied', 1),
-(9, 'Never', 1), (9, 'Rarely', 1), (9, 'About Half', 1), (9, 'Often', 1), (9, 'Very Often', 1), (10, 'Never', 3), (10, 'Once', 3), (10, 'Twice', 3), (10, 'Often', 3), (10, 'Daily', 3), (11, 'Never', 1),
+(9, 'Never', 1), (9, 'Rarely', 1), (9, 'About Half', 1), (9, 'Often', 1), (9, 'Very Often', 1),
+(10, 'Never', 3), (10, 'Once', 3), (10, 'Twice', 3), (10, 'Often', 3), (10, 'Daily', 3), (11, 'Never', 1),
 (11, 'Rarely', 1), (11, 'Sometimes', 1), (11, 'Often', 1), (11, 'Daily', 1),
 (12, '00', 1),
 (13, '1', 1), (13, '2', 1), (13, '3', 1), (13, '4', 1), (13, '5', 1), (14, '1', 1), (14, '2', 1), (14, '3', 1), (14, '4', 1), (14, '5', 1), (15, '1', 1), (15, '2', 1), (15, '3', 1), (15, '4', 1), (15, '5', 1), (16, '1', 1), (16, '2', 1), (16, '3', 1), (16, '4', 1), (16, '5', 1), (17, '1', 1), (17, '2', 1), (17, '3', 1), (17, '4', 1), (17, '5', 1), (18, '1', 1), (18, '2', 1), (18, '3', 1), (18, '4', 1), (18, '5', 1), (19, '1', 1), (19, '2', 1), (19, '3', 1), (19, '4', 1), (19, '5', 1), 
