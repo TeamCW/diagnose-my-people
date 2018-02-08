@@ -39,7 +39,6 @@
       <!--- question block -->
       <div class="well well-md">
         <br>
-        <div>
           <div ng-repeat="question in sc.demographics.list | limitTo:sc.demographicLimit">
             <div class="survey-questions">{{question.question}}
               <div class="dropdown" ng-show="question.question_id === 1">
@@ -70,4 +69,3 @@
       </div>
     </div>
   </div>
-</div>
