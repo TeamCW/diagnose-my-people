@@ -2,10 +2,12 @@
 <div ng-cloak class="container-fluid survey-background-long">
     <div class="row">
         <div class="col-lg-10">
-            <div class="progress">
-                <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
-                    style="width:40%">
-                    40%
+            <div class="row justify-content-md-center">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
+                        style="width:40%">
+                        40%
+                    </div>
                 </div>
             </div>
             <!--- tabs -->
@@ -43,33 +45,40 @@
                             <rzslider rz-slider-model="sc.slider.value.question11" rz-slider-options="{showTicksValues: true, stepsArray: sc.amenities.list[1].responses}"></rzslider>
                         </div>
                         <!-- Dropdown block -->
-                        <div class="amenitiesWordBlock"  ng-show="question.question_id === 12"></div>
+                        <div class="amenitiesWordBlock" ng-show="question.question_id === 12"></div>
                         <div class="dropdown" ng-show="question.question_id === 13">
-                            <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question13" class="amenitiesDropdown">
+                            <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question13"
+                                class="amenitiesDropdown">
                             </select>
                         </div>
                         <div class="dropdown" ng-show="question.question_id === 14">
-                            <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question14" class="amenitiesDropdown">
+                            <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question14"
+                                class="amenitiesDropdown">
                             </select>
                         </div>
                         <div class="dropdown" ng-show="question.question_id === 15">
-                            <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question15" class="amenitiesDropdown">
+                            <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question15"
+                                class="amenitiesDropdown">
                             </select>
                         </div>
                         <div class="dropdown" ng-show="question.question_id === 16">
-                            <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question16" class="amenitiesDropdown">
+                            <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question16"
+                                class="amenitiesDropdown">
                             </select>
                         </div>
                         <div class="dropdown" ng-show="question.question_id === 17">
-                            <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question17" class="amenitiesDropdown">
+                            <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question17"
+                                class="amenitiesDropdown">
                             </select>
                         </div>
                         <div class="dropdown" ng-show="question.question_id === 18">
-                            <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question18" class="amenitiesDropdown">
+                            <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question18"
+                                class="amenitiesDropdown">
                             </select>
                         </div>
                         <div class="dropdown" ng-show="question.question_id === 19">
-                            <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question19" class="amenitiesDropdown">
+                            <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question19"
+                                class="amenitiesDropdown">
                             </select>
                         </div>
                         <br>
