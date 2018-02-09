@@ -356,14 +356,32 @@ myApp.service('DashboardService', function ($http, $location) {
                 publicTransitAverage += ((j + 1) * publicTransitCount[j]);
             }
 
+            //gets total number of responses for each question
+            let foodAndEntertainmentTotalResponses = foodAndEntertainmentRatingCount.reduce((a, b) => a + b, 0);
+            let conferenceRoomTotalResponses = conferenceRoomRatingCount.reduce((a, b) => a + b, 0);
+            let greenSpaceTotalResponses = greenSpaceRatingCount.reduce((a, b) => a + b, 0);
+            let showerLockerTotalResponses = showerLockerRatingCount.reduce((a, b) => a + b, 0);
+            let fitnessCenterTotalResponses = fitnessCenterRatingCount.reduce((a, b) => a + b, 0);
+            let parkingResponses = parkingRatingCount.reduce((a, b) => a + b, 0);
+            let publicTransitResponses = publicTransitCount.reduce((a, b) => a + b, 0);
+
+            //divides the total by number of responses to get averages
+            foodAndEntertainmentAverage /= foodAndEntertainmentTotalResponses;
+            conferenceRoomAverage /= conferenceRoomTotalResponses;
+            greenSpaceAverage /= greenSpaceTotalResponses;
+            showerLockerAverage /= showerLockerTotalResponses;
+            fitnessCenterAverage /= fitnessCenterTotalResponses;
+            parkingAverage /= parkingResponses;
+            publicTransitAverage /= publicTransitResponses;
+
             //assign averages for values in amenitiesValued
-            self.amenitiesValued.config.data.datasets[0].data[0] += foodAndEntertainmentAverage;
-            self.amenitiesValued.config.data.datasets[0].data[1] += conferenceRoomAverage;
-            self.amenitiesValued.config.data.datasets[0].data[2] += greenSpaceAverage;
-            self.amenitiesValued.config.data.datasets[0].data[3] += showerLockerAverage;
-            self.amenitiesValued.config.data.datasets[0].data[4] += fitnessCenterAverage;
-            self.amenitiesValued.config.data.datasets[0].data[5] += parkingAverage;
-            self.amenitiesValued.config.data.datasets[0].data[6] += publicTransitAverage;
+            self.amenitiesValued.config.data.datasets[0].data[0] += foodAndEntertainmentAverage.toFixed(2);
+            self.amenitiesValued.config.data.datasets[0].data[1] += conferenceRoomAverage.toFixed(2);
+            self.amenitiesValued.config.data.datasets[0].data[2] += greenSpaceAverage.toFixed(2);
+            self.amenitiesValued.config.data.datasets[0].data[3] += showerLockerAverage.toFixed(2);
+            self.amenitiesValued.config.data.datasets[0].data[4] += fitnessCenterAverage.toFixed(2);
+            self.amenitiesValued.config.data.datasets[0].data[5] += parkingAverage.toFixed(2);
+            self.amenitiesValued.config.data.datasets[0].data[6] += publicTransitAverage.toFixed(2);
 
             console.log(self.amenitiesValued.config.data.datasets[0].data)
 
@@ -375,46 +393,398 @@ myApp.service('DashboardService', function ($http, $location) {
     };
 
 
-    // self.getClientResponsesBrand = function (clientId) {
-    //     $http({
-    //         method: 'GET',
-    //         url: '/dashboard/brand',
-    //         params: {
-    //             clientId: clientId
-    //         }
-    //     }).then(function (response) {
-    //         self.clientBrandData.list = response.data;
-    //         console.log('client dashboard brand response:', self.clientBrandData.list);
-    //     });
-    // };
+    self.getClientResponsesBrand = function (clientId) {
+        $http({
+            method: 'GET',
+            url: '/dashboard/brand',
+            params: {
+                clientId: clientId
+            }
+        }).then(function (response) {
+            self.clientBrandData.list = response.data;
+            console.log('client dashboard brand response:', self.clientBrandData.list);
+
+            // 20, 21, 22, 23, 24, 25, 26
+
+            //for statement of request
+            for (let i = 0; i < self.clientBrandData.list.length; i++) {
+                //stateOfSustainability data compiler
+                if (self.clientBrandData.list[i].question_id == 20) {
+                    for (let index = 0; index < self.stateOfSustainability.config.data.labels.length; index++) {
+                        if (self.clientBrandData.list[i].response_text == self.stateOfSustainability.config.data.labels[index]) {
+                            self.stateOfSustainability.config.data.datasets[0].data[index]++
+
+                        }
+                    }
+                }
+                //brandReflection data compiler
+                if (self.clientBrandData.list[i].question_id == 21) {
+                    for (let index = 0; index < self.brandReflection.config.data.labels.length; index++) {
+                        if (self.clientBrandData.list[i].response_text == self.brandReflection.config.data.labels[index]) {
+                            self.brandReflection.config.data.datasets[0].data[index]++
+
+                        }
+                    }
+                }
+                //currentImpression data compiler
+                if (self.clientBrandData.list[i].question_id == 22) {
+                    for (let index = 0; index < self.currentImpression.config.data.labels.length; index++) {
+                        if (self.clientBrandData.list[i].response_text == self.currentImpression.config.data.labels[index]) {
+                            self.currentImpression.config.data.datasets[0].data[index]++
+
+                        }
+                    }
+                }
+                //currentExposure data compiler
+                if (self.clientBrandData.list[i].question_id == 23) {
+                    for (let index = 0; index < self.currentExposure.config.data.labels.length; index++) {
+                        if (self.clientBrandData.list[i].response_text == self.currentExposure.config.data.labels[index]) {
+                            self.currentExposure.config.data.datasets[0].data[index]++
+
+                        }
+                    }
+                }
+                //publicExposureImportance data compiler
+                if (self.clientBrandData.list[i].question_id == 24) {
+                    for (let index = 0; index < self.publicExposureImportance.config.data.labels.length; index++) {
+                        if (self.clientBrandData.list[i].response_text == self.publicExposureImportance.config.data.labels[index]) {
+                            self.publicExposureImportance.config.data.datasets[0].data[index]++
+
+                        }
+                    }
+                }
+                //publicExposureChange data compiler
+                if (self.clientBrandData.list[i].question_id == 25) {
+                    for (let index = 0; index < self.publicExposureChange.config.data.labels.length; index++) {
+                        if (self.clientBrandData.list[i].response_text == self.publicExposureChange.config.data.labels[index]) {
+                            self.publicExposureChange.config.data.datasets[0].data[index]++
+
+                        }
+                    }
+                }
+                //spaceComparability data compiler
+                if (self.clientBrandData.list[i].question_id == 26) {
+                    for (let index = 0; index < self.spaceComparability.config.data.labels.length; index++) {
+                        if (self.clientBrandData.list[i].response_text == self.spaceComparability.config.data.labels[index]) {
+                            self.spaceComparability.config.data.datasets[0].data[index]++
+
+                        }
+                    }
+                }
+
+            }
+            self.stateOfSustainability.update();
+            self.brandReflection.update();
+            self.currentImpression.update();
+            self.currentExposure.update();
+            self.publicExposureImportance.update();
+            self.publicExposureChange.update();
+            self.spaceComparability.update();
+        });
+    };
 
 
 
-    // self.getClientResponsesRetention = function (clientId) {
-    //     $http({
-    //         method: 'GET',
-    //         url: '/dashboard/retention',
-    //         params: {
-    //             clientId: clientId
-    //         }
-    //     }).then(function (response) {
-    //         self.clientRetRecData.list = response.data;
-    //         console.log('client dashboard retention response:', self.clientRetRecData.list);
-    //     });
-    // };
+    self.getClientResponsesRetention = function (clientId) {
+        $http({
+            method: 'GET',
+            url: '/dashboard/retention',
+            params: {
+                clientId: clientId
+            }
+        }).then(function (response) {
+            self.clientRetRecData.list = response.data;
+            console.log('client dashboard retention response:', self.clientRetRecData.list);
 
-    // self.getClientResponsesConclusion = function (clientId) {
-    //     $http({
-    //         method: 'GET',
-    //         url: '/dashboard/conclusion',
-    //         params: {
-    //             clientId: clientId
-    //         }
-    //     }).then(function (response) {
-    //         self.clientConclusionData.list = response.data;
-    //         console.log('client dashboard conclusion response:', self.clientConclusionData.list);
-    //     });
-    // };
+            //declaring counts of inputs for questions 31-36 going into whereTheyWork graph
+            let homeCount = [0, 0, 0, 0, 0, 0]
+            let officeDeskCount = [0, 0, 0, 0, 0, 0]
+            let elseWhereInOfficeCount = [0, 0, 0, 0, 0, 0]
+            let coffeeShopCount = [0, 0, 0, 0, 0, 0]
+            let clientSiteCount = [0, 0, 0, 0, 0, 0]
+            let otherCount = [0, 0, 0, 0, 0, 0]
+            for (let i = 0; i < self.clientRetRecData.list.length; i++) {
+                //daylightAccess data compiler
+                if (self.clientRetRecData.list[i].question_id == 27) {
+                    for (let index = 0; index < self.daylightAccess.config.data.labels.length; index++) {
+                        if (self.clientRetRecData.list[i].response_text == self.daylightAccess.config.data.labels[index]) {
+                            self.daylightAccess.config.data.datasets[0].data[index]++
+
+                        }
+                    }
+                }
+                //locationImpact data compiler
+                if (self.clientRetRecData.list[i].question_id == 28) {
+                    for (let index = 0; index < self.locationImpact.config.data.labels.length; index++) {
+                        if (self.clientRetRecData.list[i].response_text == self.locationImpact.config.data.labels[index]) {
+                            self.locationImpact.config.data.datasets[0].data[index]++
+
+                        }
+                    }
+                }
+                //sufficiency data compiler
+                if (self.clientRetRecData.list[i].question_id == 29) {
+                    for (let index = 0; index < self.sufficiency.config.data.labels.length; index++) {
+                        if (self.clientRetRecData.list[i].response_text == self.sufficiency.config.data.labels[index]) {
+                            self.sufficiency.config.data.datasets[0].data[index]++
+
+                        }
+                    }
+                }
+                //whereTheyWork Compiler home
+                if (self.clientRetRecData.list[i].question_id == 31) {
+                    //create an array with index for each value 1-5
+                    //check percentage of time spent working
+                    let possibleResponses = ['0-10%', '10-20%', ' 20-40%', '40-60%', '60-80%', '80-100%']
+                    for (let index = 0; index < homeCount.length; index++) {
+                        //add 1 to corresponding index count of the array
+                        if (self.clientRetRecData.list[i].response_text == possibleResponses[index]) {
+                            homeCount[index]++
+                            console.log('++')
+                        }
+                    }
+
+                }
+                //whereTheyWork Compiler Office Desk
+                if (self.clientRetRecData.list[i].question_id == 32) {
+                    //create an array with index for each value 1-5
+                    //check percentage of time spent working
+                    let possibleResponses = ['0-10%', '10-20%', ' 20-40%', '40-60%', '60-80%', '80-100%']
+                    for (let index = 0; index < officeDeskCount.length; index++) {
+                        //add 1 to corresponding index count of the array
+                        if (self.clientRetRecData.list[i].response_text == possibleResponses[index]) {
+                            officeDeskCount[index]++
+                            console.log('++')
+                        }
+                    }
+
+                }
+                //whereTheyWork Compiler Elsewhere in Office
+                if (self.clientRetRecData.list[i].question_id == 33) {
+                    //create an array with index for each value 1-5
+                    //check percentage of time spent working
+                    let possibleResponses = ['0-10%', '10-20%', ' 20-40%', '40-60%', '60-80%', '80-100%']
+                    for (let index = 0; index < elseWhereInOfficeCount.length; index++) {
+                        //add 1 to corresponding index count of the array
+                        if (self.clientRetRecData.list[i].response_text == possibleResponses[index]) {
+                            elseWhereInOfficeCount[index]++
+                            console.log('++')
+                        }
+                    }
+
+                }
+
+                //whereTheyWork Compiler Coffee Shop
+                if (self.clientRetRecData.list[i].question_id == 34) {
+                    //create an array with index for each value 1-5
+                    //check percentage of time spent working
+                    let possibleResponses = ['0-10%', '10-20%', ' 20-40%', '40-60%', '60-80%', '80-100%']
+                    for (let index = 0; index < coffeeShopCount.length; index++) {
+                        //add 1 to corresponding index count of the array
+                        if (self.clientRetRecData.list[i].response_text == possibleResponses[index]) {
+                            coffeeShopCount[index]++
+                            console.log('++')
+                        }
+                    }
+
+                }
+                //whereTheyWork Compiler On site with Client
+                if (self.clientRetRecData.list[i].question_id == 35) {
+                    //create an array with index for each value 1-5
+                    //check percentage of time spent working
+                    let possibleResponses = ['0-10%', '10-20%', ' 20-40%', '40-60%', '60-80%', '80-100%']
+                    for (let index = 0; index < clientSiteCount.length; index++) {
+                        //add 1 to corresponding index count of the array
+                        if (self.clientRetRecData.list[i].response_text == possibleResponses[index]) {
+                            clientSiteCount[index]++
+                            console.log('++')
+                        }
+                    }
+
+                }
+                //whereTheyWork Compiler Other
+                if (self.clientRetRecData.list[i].question_id == 36) {
+                    //create an array with index for each value 1-5
+                    //check percentage of time spent working
+                    let possibleResponses = ['0-10%', '10-20%', ' 20-40%', '40-60%', '60-80%', '80-100%']
+                    for (let index = 0; index < otherCount.length; index++) {
+                        //add 1 to corresponding index count of the array
+                        if (self.clientRetRecData.list[i].response_text == possibleResponses[index]) {
+                            otherCount[index]++
+                            console.log('++')
+                        }
+                    }
+
+                }
+
+            }
+
+            //calculate weighted averages value from 1-5 value array
+            let homeAverage = 0;
+            let officeDeskAverage = 0;
+            let elseWhereInOfficeAverage = 0;
+            let coffeeShopAverage = 0;
+            let clientSiteAverage = 0;
+            let otherAverage = 0;
+            for (let j = 0; j < 6; j++) {
+                homeAverage += ((j * 20) * homeCount[j]);
+                officeDeskAverage += ((j * 20) * officeDeskCount[j]);
+                elseWhereInOfficeAverage += ((j * 20) * elseWhereInOfficeCount[j]);
+                coffeeShopAverage += ((j * 20) * coffeeShopCount[j]);
+                clientSiteAverage += ((j * 20) * clientSiteCount[j]);
+                otherAverage += ((j * 20) * otherCount[j]);
+            }
+            //gets total number of responses for each question
+            let homeTotalResponses = homeCount.reduce((a, b) => a + b, 0);
+            let officeDeskTotalResponses = officeDeskCount.reduce((a, b) => a + b, 0);
+            let elseWhereInOfficeTotalResponses = elseWhereInOfficeCount.reduce((a, b) => a + b, 0);
+            let coffeeShopTotalResponses = coffeeShopCount.reduce((a, b) => a + b, 0);
+            let clientSiteTotalResponses = clientSiteCount.reduce((a, b) => a + b, 0);
+            let otherTotalResponses = otherCount.reduce((a, b) => a + b, 0);
+
+            //divides the total by number of responses to get averages
+            homeAverage /= homeTotalResponses;
+            officeDeskAverage /= officeDeskTotalResponses;
+            elseWhereInOfficeAverage /= elseWhereInOfficeTotalResponses;
+            coffeeShopAverage /= coffeeShopTotalResponses;
+            clientSiteAverage /= clientSiteTotalResponses;
+            otherAverage /= otherTotalResponses;
+
+
+            //assign averages for values in whereTheyWork
+            self.whereTheyWork.config.data.datasets[0].data[0] += parseInt(homeAverage);
+            self.whereTheyWork.config.data.datasets[0].data[1] += parseInt(officeDeskAverage);
+            self.whereTheyWork.config.data.datasets[0].data[2] += parseInt(elseWhereInOfficeAverage);
+            self.whereTheyWork.config.data.datasets[0].data[3] += parseInt(coffeeShopAverage);
+            self.whereTheyWork.config.data.datasets[0].data[4] += parseInt(clientSiteAverage);
+            self.whereTheyWork.config.data.datasets[0].data[5] += parseInt(otherAverage);
+
+            console.log(self.whereTheyWork.config.data.datasets[0].data)
+            self.daylightAccess.update();
+            self.locationImpact.update();
+            self.sufficiency.update();
+            self.whereTheyWork.update();
+        });
+    };
+
+    self.getClientResponsesConclusion = function (clientId) {
+        $http({
+            method: 'GET',
+            url: '/dashboard/conclusion',
+            params: {
+                clientId: clientId
+            }
+        }).then(function (response) {
+            self.clientConclusionData.list = response.data;
+            console.log('client dashboard conclusion response:', self.clientConclusionData.list);
+            //declaring counts of inputs for questions 31-36 going into whereTheyWork graph
+            let positiveCultureCount = [0, 0, 0, 0, 0]
+            let employeeWellBeingCount = [0, 0, 0, 0, 0]
+            let workerProductivityCount = [0, 0, 0, 0, 0]
+            let engagmentCount = [0, 0, 0, 0, 0]
+            for (let i = 0; i < self.clientConclusionData.list.length; i++) {
+                //satisfaction data compiler
+                if (self.clientConclusionData.list[i].question_id == 37) {
+                    for (let index = 0; index < self.satisfaction.config.data.labels.length; index++) {
+                        if (self.clientConclusionData.list[i].response_text == self.satisfaction.config.data.labels[index]) {
+                            self.satisfaction.config.data.datasets[0].data[index]++
+
+                        }
+                    }
+                }
+                //fruitsOfSpace Compiler Positive Culture
+                if (self.clientConclusionData.list[i].question_id == 39) {
+                    //create an array with index for each value 1-5
+                    //check percentage of time spent working
+                    let possibleResponses = ['Not Applicable','Poorly','Satisfactory','Very Well','Exceptional']
+                    for (let index = 0; index < positiveCultureCount.length; index++) {
+                        //add 1 to corresponding index count of the array
+                        if (self.clientConclusionData.list[i].response_text == possibleResponses[index]) {
+                            positiveCultureCount[index]++
+                        }
+                    }
+
+                }
+                //fruitsOfSpace Compiler Employee Wellbeing
+                if (self.clientConclusionData.list[i].question_id == 40) {
+                    //create an array with index for each value 1-5
+                    //check percentage of time spent working
+                    let possibleResponses = ['Not Applicable','Poorly','Satisfactory','Very Well','Exceptional']
+                    for (let index = 0; index < employeeWellBeingCount.length; index++) {
+                        //add 1 to corresponding index count of the array
+                        if (self.clientConclusionData.list[i].response_text == possibleResponses[index]) {
+                            employeeWellBeingCount[index]++
+                        }
+                    }
+
+                }
+                //fruitsOfSpace Compiler Worker Productivity
+                if (self.clientConclusionData.list[i].question_id == 41) {
+                    //create an array with index for each value 1-5
+                    //check percentage of time spent working
+                    let possibleResponses = ['Not Applicable','Poorly','Satisfactory','Very Well','Exceptional']
+                    for (let index = 0; index < workerProductivityCount.length; index++) {
+                        //add 1 to corresponding index count of the array
+                        if (self.clientConclusionData.list[i].response_text == possibleResponses[index]) {
+                            workerProductivityCount[index]++
+                        }
+                    }
+
+                }
+                //fruitsOfSpace Compiler Engagement
+                if (self.clientConclusionData.list[i].question_id == 42) {
+                    //create an array with index for each value 1-5
+                    //check percentage of time spent working
+                    let possibleResponses = ['Not Applicable','Poorly','Satisfactory','Very Well','Exceptional']
+                    for (let index = 0; index < engagmentCount.length; index++) {
+                        //add 1 to corresponding index count of the array
+                        if (self.clientConclusionData.list[i].response_text == possibleResponses[index]) {
+                            engagmentCount[index]++
+                        }
+                    }
+
+                }
+            }
+             //calculate weighted averages value from 1-5 value array
+             let positiveCultureAverage = 0;
+             let employeeWellBeingAverage = 0;
+             let workerProductivityAverage = 0;
+             let engagmentAverage = 0;
+             for (let j = 0; j < 5; j++) {
+                positiveCultureAverage += ((j + 1) * positiveCultureCount[j]);
+                employeeWellBeingAverage += ((j + 1) * employeeWellBeingCount[j]);
+                workerProductivityAverage += ((j + 1) * workerProductivityCount[j]);
+                engagmentAverage += ((j + 1) * engagmentCount[j]);
+             }
+            //  //gets total number of responses for each question
+            //  let positiveCultureTotalResponses = positiveCultureCount.reduce((a, b) => a + b, 0);
+            //  let employeeWellBeingTotalResponses = employeeWellBeingCount.reduce((a, b) => a + b, 0);
+            //  let workerProductivityTotalResponses = workerProductivityCount.reduce((a, b) => a + b, 0);
+            //  let engagmentTotalResponses = engagmentCount.reduce((a, b) => a + b, 0);
+ 
+            //  //divides the total by number of responses to get averages
+            //  positiveCultureAverage /= positiveCultureTotalResponses;
+            //  employeeWellBeingAverage /= employeeWellBeingTotalResponses;
+            //  workerProductivityAverage /= workerProductivityTotalResponses;
+            //  engagmentAverage /= engagmentTotalResponses;
+
+             
+ 
+ 
+             //assign averages for values in whereTheyWork
+             self.fruitsOfSpace.config.data.datasets[0].data[0] += positiveCultureAverage
+             self.fruitsOfSpace.config.data.datasets[0].data[1] += employeeWellBeingAverage
+             self.fruitsOfSpace.config.data.datasets[0].data[2] += workerProductivityAverage
+             self.fruitsOfSpace.config.data.datasets[0].data[3] += engagmentAverage
+
+             console.log('fruits',self.fruitsOfSpace.config.data.datasets[0].data)
+             self.fruitsOfSpace.update();
+             self.satisfaction.update();
+
+
+
+        });
+    };
 
 
 
@@ -773,7 +1143,7 @@ myApp.service('DashboardService', function ($http, $location) {
             labels: ["Unfavorable", "Needs Improvement", "No Opinion", "Good", "Excellent"],
             datasets: [{
                 label: '',
-                data: [1, 2, 3, 4],
+                data: [0, 0, 0, 0, 0],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.6)',
                     'rgba(54, 162, 235, 0.6)',
@@ -798,10 +1168,10 @@ myApp.service('DashboardService', function ($http, $location) {
     self.publicExposureImportance = new Chart(publicExposureImportance, {
         type: 'bar',
         data: {
-            labels: ["Not Applicable", "Minimal", "Imortant", "Very Important", "Essential"],
+            labels: ["Not Applicable", "Minimal", "Important", "Very Important", "Essential"],
             datasets: [{
                 label: 'Employee Age Groups',
-                data: [1, 2, 3, 4],
+                data: [0, 0, 0, 0, 0],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.6)',
                     'rgba(54, 162, 235, 0.6)',
@@ -829,7 +1199,7 @@ myApp.service('DashboardService', function ($http, $location) {
             labels: ["Not Applicable", "Minimal", "Impactful", "Very Impactful", "Critical"],
             datasets: [{
                 label: 'Employee Age Groups',
-                data: [1, 2, 3, 4],
+                data: [0, 0, 0, 0, 0],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.6)',
                     'rgba(54, 162, 235, 0.6)',
@@ -865,7 +1235,7 @@ myApp.service('DashboardService', function ($http, $location) {
                     "#e74c3c",
                     "#34495e"
                 ],
-                data: [12, 19, 3, 17, 28]
+                data: [0, 0, 0, 0, 0]
             }]
         }
     });
@@ -887,7 +1257,7 @@ myApp.service('DashboardService', function ($http, $location) {
                     "#e74c3c",
                     "#34495e"
                 ],
-                data: [12, 19, 3, 17, 28]
+                data: [0, 0, 0, 0, 0]
             }]
         }
     });
@@ -899,7 +1269,7 @@ myApp.service('DashboardService', function ($http, $location) {
             labels: ["Not Applicable", "Minimal", "Impactful", "Very Impactful", "Crucial"],
             datasets: [{
                 label: 'Location Satisfaction Impact',
-                data: [1, 2, 3, 4],
+                data: [0, 0, 0, 0, 0],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.6)',
                     'rgba(54, 162, 235, 0.6)',
@@ -927,7 +1297,7 @@ myApp.service('DashboardService', function ($http, $location) {
             labels: ["Not Applicable", "Poorly", "Satisfactory", "Very Well", "Exceptional"],
             datasets: [{
                 label: 'Sufficiency Rating',
-                data: [1, 2, 3, 4],
+                data: [0, 0, 0, 0, 0],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.6)',
                     'rgba(54, 162, 235, 0.6)',
@@ -957,7 +1327,7 @@ myApp.service('DashboardService', function ($http, $location) {
                 label: 'Where they Work',
                 backgroundColor: "rgba(153,255,51,0.4)",
                 borderColor: "rgba(153,255,51,1)",
-                data: [12, 19, 3, 17, 28, 24, 7]
+                data: [0, 0, 0, 0, 0, 0]
             }]
         }
     });
@@ -971,7 +1341,7 @@ myApp.service('DashboardService', function ($http, $location) {
                 label: 'Influence Level',
                 backgroundColor: "rgba(153,255,51,0.4)",
                 borderColor: "rgba(153,255,51,1)",
-                data: [12, 19, 3, 17, 28, 24, 7]
+                data: [0, 0, 0, 0]
             }]
         }
     });
@@ -980,10 +1350,10 @@ myApp.service('DashboardService', function ($http, $location) {
     self.satisfaction = new Chart(satisfaction, {
         type: 'bar',
         data: {
-            labels: ["Not Applicable", "Poorly", "Satisfactory", "Very Well", "Exceptional"],
+            labels: ["Unsatisfactory", "Poor", "Satisfactory", "Good", "Excellent"],
             datasets: [{
                 label: 'Satisfaction',
-                data: [1, 2, 3, 4],
+                data: [0, 0, 0, 0, 0],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.6)',
                     'rgba(54, 162, 235, 0.6)',
