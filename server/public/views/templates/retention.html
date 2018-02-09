@@ -38,14 +38,16 @@
                 <br>
                 <div ng-repeat="question in sc.retention.list | limitTo:sc.retentionLimit">
                     <div class="survey-questions">{{question.question}}
-                        <div ng-if="question.question_id === 27 && sc.retention.list[0].responses" class="slider-retention">
-                            <rzslider rz-slider-model="sc.slider.value.question27" rz-slider-options="{showTicksValues: true, stepsArray: sc.retention.list[0].responses}"></rzslider>
-                        </div>
-                        <div ng-if="question.question_id === 28 && sc.retention.list[1].responses" class="slider-retention">
-                            <rzslider rz-slider-model="sc.slider.value.question28" rz-slider-options="{showTicksValues: true, stepsArray: sc.retention.list[1].responses}"></rzslider>
-                        </div>
-                        <div ng-if="question.question_id === 29 && sc.retention.list[2].responses" class="slider-retention">
-                            <rzslider rz-slider-model="sc.slider.value.question29" rz-slider-options="{showTicksValues: true, stepsArray: sc.retention.list[2].responses}"></rzslider>
+                        <div class="row justify-content-md-center">
+                            <div ng-if="question.question_id === 27 && sc.retention.list[0].responses" class="slider-retention">
+                                <rzslider rz-slider-model="sc.slider.value.question27" rz-slider-options="{showTicksValues: true, stepsArray: sc.retention.list[0].responses}"></rzslider>
+                            </div>
+                            <div ng-if="question.question_id === 28 && sc.retention.list[1].responses" class="slider-retention">
+                                <rzslider rz-slider-model="sc.slider.value.question28" rz-slider-options="{showTicksValues: true, stepsArray: sc.retention.list[1].responses}"></rzslider>
+                            </div>
+                            <div ng-if="question.question_id === 29 && sc.retention.list[2].responses" class="slider-retention">
+                                <rzslider rz-slider-model="sc.slider.value.question29" rz-slider-options="{showTicksValues: true, stepsArray: sc.retention.list[2].responses}"></rzslider>
+                            </div>
                         </div>
                         <!-- Dropdown block -->
                         <div ng-show="question.question_id === 30"></div>
@@ -82,8 +84,13 @@
                     </div>
                 </div>
                 <div>
+                    <h5>Please enter any additional comments about your Worklife</h5>
+                    <input class="mediumText" type="text" ng-model="sc.lastQuestion.response_from_input">
+                </div>
+                <br>
+                <div>
                     <a href="#conclusion/{{sc.client.list[0].survey_hash}}">
-                        <button type="button" class="btn btn-danger" ng-click="sc.saveResponses( sc.slider.value, sc.client.list[0].id)">
+                        <button type="button" class="btn btn-danger" ng-click="sc.saveResponsesUserInput(sc.lastQuestion, sc.client.list[0].id); sc.saveResponses( sc.slider.value, sc.client.list[0].id)">
                             <span></span> Next
                         </button>
                     </a>
