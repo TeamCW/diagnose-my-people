@@ -1,10 +1,15 @@
 <header ng-include="'/views/partials/header.html'" class=""></header>
 <h1>Dashboard</h1>
-<a ng-href="/#user">Back To Admin Page</a>
-<button ng-click="self.ageDistribution.update();">Update Charts</button>
+<span>
+        <a ng-href="#/user" class="no_underline">
+            <img class="icon" src="vendors/open-iconic/svg/arrow-thick-left.svg"> Back to Admin
+        </a>
+    </span>
+<!-- <a ng-href="/#user">Back To Admin Page</a> -->
+<!-- <button ng-click="self.ageDistribution.update();">Update Charts</button>
 {{dc.demo}} {{dc.locat.locat}} {{dc.brand.brand}} {{dc.retRec.retRec}} {{dc.amen.amen}} {{dc.conc}}
 
-{{dc.clientDemoData}}
+{{dc.clientDemoData}} -->
 <br>
 <br> {{dc.ageDistributionInput}}
 <div class="container">
@@ -91,7 +96,8 @@
     </div>
 
     <div ng-show="dc.brand.brand" >
-        <h3>Brand: What do my people our workplace brand?</h3>
+        <h3>Brand: How do your people feel about your brand?</h3>
+
         <br>
         <div class="row">
             <div class="col-6">
@@ -191,15 +197,10 @@
             </div>
         </div>
         <br>
-        <div class="row">
-            <div class="col-6">
-                Employee Comments:
-
-            </div>
-        </div>
         <br>
         <hr>
     </div>
+        
 
 
 
