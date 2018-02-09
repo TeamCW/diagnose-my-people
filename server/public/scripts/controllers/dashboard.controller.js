@@ -1,4 +1,4 @@
-myApp.controller('DashboardController', ['DashboardService', 'AdminService', '$http', '$routeParams',function (DashboardService, AdminService, $http, $routeParams) {
+myApp.controller('DashboardController', ['DashboardService', 'AdminService', '$http', '$routeParams', function (DashboardService, AdminService, $http, $routeParams) {
     console.log('DashboardController created');
     var vm = this;
     vm.dashboardService = DashboardService;
@@ -9,11 +9,11 @@ myApp.controller('DashboardController', ['DashboardService', 'AdminService', '$h
     // vm.clientRetRecData = DashboardService.clientRetRecData;
     // vm.clientConclusionData = DashboardService.clientConclusionData;
 
-    vm.getClientResponsesDemo = DashboardService.getClientResponsesDemo 
+    vm.getClientResponsesDemo = DashboardService.getClientResponsesDemo
     vm.getClientResponsesLocation = DashboardService.getClientResponsesLocation
     vm.getClientResponsesAmenities = DashboardService.getClientResponsesAmenities
 
-    vm.getClientResponsesDemo($routeParams.clientId );
+    vm.getClientResponsesDemo($routeParams.clientId);
     vm.getClientResponsesLocation($routeParams.clientId);
     vm.getClientResponsesAmenities($routeParams.clientId)
     // DashboardService.getClientResponsesBrand($routeParams.clientId);
@@ -24,24 +24,44 @@ myApp.controller('DashboardController', ['DashboardService', 'AdminService', '$h
 
 
 
-            // Get KPI that client selected for the survey 
-            vm.getSelectedKpi = DashboardService.getSelectedKpi;
-            vm.getSelectedKpi ($routeParams.clientId );
-            vm.demo = DashboardService.demo;
-            vm.locat = DashboardService.locat;
-            vm.brand = DashboardService.brand;
-            vm.retRec = DashboardService.retRec;
-            vm.amen = DashboardService.amen;
-            vm.conc = DashboardService.conc;
-            console.log('controller booleans:',vm.demo, vm.brand, vm.retRec, vm.locat, vm.amen, vm.conc)
+    // Get KPI that client selected for the survey 
+    vm.getSelectedKpi = DashboardService.getSelectedKpi;
+    vm.getSelectedKpi($routeParams.clientId);
+    vm.demo = DashboardService.demo;
+    vm.locat = DashboardService.locat;
+    vm.brand = DashboardService.brand;
+    vm.retRec = DashboardService.retRec;
+    vm.amen = DashboardService.amen;
+    vm.conc = DashboardService.conc;
+    console.log('controller booleans:', vm.demo, vm.brand, vm.retRec, vm.locat, vm.amen, vm.conc)
+
+
+    //blurb functions
+    vm.newComment = ""
+    vm.responseData = DashboardService.responseData;
+    vm.addBlurbDemo = function() {
+        DashboardService.addBlurbDemo(vm.newComment,$routeParams.clientId);
+      };
+    vm.addBlurbLocation = function() {
+        DashboardService.addBlurbLocation(vm.newComment,$routeParams.clientId);
+      };
+    vm.addBlurbBrand = function() {
+        DashboardService.addBlurbBrand(vm.newComment,$routeParams.clientId);
+      };
+    vm.addBlurbAmen = function() {
+        DashboardService.addBlurbAmen(vm.newComment,$routeParams.clientId);
+      };
+    vm.addBlurbRet = function() {
+        DashboardService.addBlurbRet(vm.newComment,$routeParams.clientId);
+      };
+    vm.addBlurbConc = function() {
+        DashboardService.addBlurbConc(vm.newComment,$routeParams.clientId);
+      };
 
 
 
 
 
-
-
-    
     // var barChart = document.getElementById("barChart");
     // vm.barChart = new Chart(barChart, {
     //     type: 'bar',

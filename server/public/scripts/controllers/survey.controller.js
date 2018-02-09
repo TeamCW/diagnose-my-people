@@ -3,6 +3,18 @@ myApp.controller('SurveyController', function (SurveyService, $routeParams) {
   var vm = this;
 
 
+ // Get KPI that client selected for the survey 
+ vm.getSelectedKpi = SurveyService.getSelectedKpi;
+ vm.getSelectedKpi($routeParams.surveyHash);
+ 
+ vm.demo = SurveyService.demo;
+ vm.locat = SurveyService.locat;
+ vm.branding = SurveyService.branding;
+ vm.retRec = SurveyService.retRec;
+ vm.amen = SurveyService.amen;
+ vm.conc = SurveyService.conc;
+ console.log('controller booleans:',vm.demo, vm.branding, vm.retRec, vm.locat, vm.amen, vm.conc)
+
 
   //setting the limit for displayed objects on the corresponding survey views
   vm.demographicLimit = 4;
@@ -36,6 +48,11 @@ myApp.controller('SurveyController', function (SurveyService, $routeParams) {
   SurveyService.getRetention($routeParams.surveyHash);
   SurveyService.getConclusion($routeParams.surveyHash);
   SurveyService.getClient($routeParams.surveyHash);
+
+ 
+  
+
+
 
 
 });
