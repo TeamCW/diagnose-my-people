@@ -1,6 +1,7 @@
 <header ng-include="'/views/partials/header.html'" class=""></header>
 <div class="container">
     <h1>Your Survey Review</h1>
+    <h4>These are the catergories you selected along with the survey questions that will be included</h4>
     <table class="table table-bordered">
         <tr>
             <td>
@@ -84,7 +85,6 @@
                             <li>How important is it for our business to have a public face?</li>
                             <li>How impactful would a new location be to our companies public face?</li>
                             <li>How does our current space compare to other office spaces you have worked in or visited?</li>
-                            <li>How do you perceive our company’s stance on environmental stewardship and sustainability?</li>
                         </ul>
                     </li>
                 </ul>
@@ -103,7 +103,7 @@
                             <li>Please rate your current work areas access to daylight and natural views</li>
                             <li>How much impact does your location have on your workplace satisfaction?</li>
                             <li>How well does your current work environment provide the space to meet you and your teams needs?</li>
-                            <li>Where are you working during an average work week? (Please equal 100%)
+                            <li>Where are you working during an average work week?
                                 <ul>
                                     <li>Home</li>
                                     <li>Office desk</li>
@@ -149,7 +149,7 @@
         </tr>
     </table>
 
-    <a href="{{br.contactInformationURL.urlString}}" class="btn btn-outline-danger">Submit</a>
+    <a href="{{br.contactInformationURL.urlString}}" class="btn btn-outline-danger">Next</a>
 
 
 </div>
