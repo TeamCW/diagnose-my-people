@@ -16,16 +16,16 @@
                     <li class="survey-tabs">
                         <a class="tab-no-decor" href="#survey/{{sc.client.list[0].survey_hash}}">My People</a>
                     </li>
-                    <li class="survey-tabs">
+                    <li class="survey-tabs" ng-if="sc.locat.locat" >
                         <a class="tab-no-decor" href="#location/{{sc.client.list[0].survey_hash}}">My Workplace</a>
                     </li>
-                    <li class="survey-tabs">
+                    <li class="survey-tabs" ng-if="sc.amen.amen" >
                         <a class="tab-no-decor" href="#amenities/{{sc.client.list[0].survey_hash}}">My Amenities</a>
                     </li>
-                    <li class="survey-tabs">
+                    <li class="survey-tabs" ng-if="sc.branding.branding" >
                         <a class="tab-no-decor" href="#brand/{{sc.client.list[0].survey_hash}}">My Company</a>
                     </li>
-                    <li class="active survey-tabs">
+                    <li class="active survey-tabs" ng-if="sc.retRec.retRec" >
                         <a class="active tab-no-decor" href="#retention/{{sc.client.list[0].survey_hash}}">My Worklife</a>
                     </li>
                     <li class="survey-tabs">

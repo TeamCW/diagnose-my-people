@@ -16,7 +16,7 @@ router.get('/kpi', function (req, res) {
                 console.log('error', errorConnectingToDatabase);
                 res.sendStatus(500);
             } else {
-                client.query(`SELECT kpi_id from selected_kpi
+                client.query(`SELECT kpi_id, notes_added from selected_kpi
                 WHERE client_id = $1; `, [clientId],
                     function (errorMakingDatabaseQuery, result) {
                         done();
@@ -24,7 +24,6 @@ router.get('/kpi', function (req, res) {
                             console.log('error', errorMakingDatabaseQuery);
                             res.sendStatus(500);
                         } else {
-                            console.log('result:', result)
                             res.send(result.rows);
                         }
                     });
@@ -35,6 +34,34 @@ router.get('/kpi', function (req, res) {
         res.sendStatus(403);
     }
 });
+
+router.put('/blurb', function (req, res) {
+    console.log('req.body:', req.body)
+    var blurbToEdit = req.body;
+    if (req.isAuthenticated()) {
+        pool.connect(function (errorConnectingToDatabase, client, done) {
+            if (errorConnectingToDatabase) {
+                console.log('Error connecting to database', errorConnectingToDatabase);
+                res.sendStatus(500);
+            } else {
+                client.query(`UPDATE selected_kpi SET "notes_added"=$1
+            WHERE "client_id" = $2 AND "kpi_id" = $3;`, [blurbToEdit.newComment, blurbToEdit.clientId, blurbToEdit.kpi], function (errorMakingQuery, result) {
+                        done();
+                        if (errorMakingQuery) {
+                            console.log('Error making query', errorMakingQuery);
+                            res.sendStatus(500);
+                        } else {
+                            console.log('this updated');
+                            res.sendStatus(200);
+                        }
+                    });
+            }
+        });
+    }
+    else {
+        res.sendStatus(403);
+    }
+})
 
 
 router.get('/demo', function (req, res) {
