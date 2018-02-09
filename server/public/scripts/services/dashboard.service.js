@@ -19,11 +19,23 @@ myApp.service('DashboardService', function ($http, $location) {
 
     self.getSelectedKpi = function (clientId) {
         self.demo = true
-        self.locat = { locat: false }
-        self.brand = { brand: false }
-        self.retRec = { retrec: false }
-        self.amen = { amen: false }
+        self.demoBlurb = {blurb: false}
+        self.demoBlurbText = {};
+        self.locat = {locat: false}
+        self.locatBlurb = {blurb: false}
+        self.locatBlurbText = {};
+        self.brand = {brand: false}
+        self.brandBlurb = {blurb: false}
+        self.brandBlurbText = {};
+        self.retRec = {retRec: false}
+        self.retRecBlurb = {blurb: false}
+        self.retRecBlurbText = {};
+        self.amen = {amen: false}
+        self.amenBlurb = {blurb: false}
+        self.amenBlurbText = {};
         self.conc = true;
+        self.concBlurb = {blurb: false}
+        self.concBlurbText = {};
         $http({
             method: 'GET',
             url: '/dashboard/kpi/',
@@ -47,12 +59,136 @@ myApp.service('DashboardService', function ($http, $location) {
                     self.retRec.retRec = !self.retRec.retRec;
                 }
             }
+            for (var i = 0; i < self.responseData.list.length; i++) {
+                if (self.responseData.list[i].kpi_id == 1 && self.responseData.list[i].notes_added){
+                    self.demoBlurb.blurb = !self.demoBlurb.blurb;
+                    self.demoBlurbText.text = self.responseData.list[i].notes_added;
+                }
+                if (self.responseData.list[i].kpi_id == 2 && self.responseData.list[i].notes_added){
+                    self.locatBlurb.blurb = !self.locatBlurb.blurb;
+                    self.locatBlurbText.text = self.responseData.list[i].notes_added
+                }
+                if (self.responseData.list[i].kpi_id == 3 && self.responseData.list[i].notes_added ){
+                    self.amenBlurb.blurb = !self.amenBlurb.blurb;
+                    self.amenBlurbText.text = self.responseData.list[i].notes_added;
+                }
+                if (self.responseData.list[i].kpi_id == 4 && self.responseData.list[i].notes_added ){
+                    self.brandBlurb.blurb = !self.brandBlurb.blurb;
+                    self.brandBlurbText.text = self.responseData.list[i].notes_added;
+                }
+                if (self.responseData.list[i].kpi_id == 5 && self.responseData.list[i].notes_added ){
+                    self.retRecBlurb.blurb = !self.retRecBlurb.blurb;
+                    self.retRecBlurbText.text = self.responseData.list[i].notes_added;
+                }
+                if (self.responseData.list[i].kpi_id == 6 && self.responseData.list[i].notes_added ){
+                    self.concBlurb.blurb = !self.concBlurb.blurb;
+                    self.concBlurbText.text = self.responseData.list[i].notes_added;
+                }
+            }
             console.log('locat:', self.locat.locat);
             console.log('brand:', self.brand.brand);
             console.log('retRec:', self.retRec.retRec);
             console.log('amen:', self.amen.amen);
+            console.log('demoBlurb:', self.demoBlurb.blurb);
+            console.log('locatBlurb:', self.locatBlurb.blurb);
+            console.log('brandBlurb:', self.brandBlurb.blurb);
+            console.log('retRecBlurb:', self.retRecBlurb.blurb);
+            console.log('amenBlurb:', self.amenBlurb.blurb);
+            console.log('concBlurb:', self.concBlurb.blurb);
+            
         });
     };
+
+    self.addBlurbDemo = function (newComment, clientId) {
+        console.log('newComment', newComment);
+        console.log('clientId', clientId);
+        var kpi = '1';
+        $http({
+            method: 'PUT',
+            url: '/dashboard/blurb',
+            data: {
+                newComment, clientId, kpi
+            }
+        }).then(function (response) {
+            console.log('response:',response)
+            self.getSelectedKpi(clientId);
+        });
+    }
+
+    self.addBlurbLocation = function (newComment, clientId) {
+        console.log('newComment', newComment);
+        console.log('clientId', clientId);
+        var kpi = '2';
+        $http({
+            method: 'PUT',
+            url: '/dashboard/blurb',
+            data: {
+                newComment, clientId, kpi
+            }
+        }).then(function (response) {
+            self.getSelectedKpi(clientId);
+        });
+    }
+
+    self.addBlurbAmen = function (newComment, clientId) {
+        console.log('newComment', newComment);
+        console.log('clientId', clientId);
+        var kpi = '3'
+        $http({
+            method: 'PUT',
+            url: '/dashboard/blurb',
+            data: {
+                newComment, clientId, kpi
+            }
+        }).then(function (response) {
+            self.getSelectedKpi(clientId);
+        });
+    }
+
+    self.addBlurbBrand = function (newComment, clientId) {
+        console.log('newComment', newComment);
+        console.log('clientId', clientId);
+        var kpi = '4';
+        $http({
+            method: 'PUT',
+            url: '/dashboard/blurb',
+            data: {
+                newComment, clientId, kpi
+            }
+        }).then(function (response) {
+            self.getSelectedKpi(clientId);
+        });
+    }
+
+    self.addBlurbRet = function (newComment, clientId) {
+        console.log('newComment', newComment);
+        console.log('clientId', clientId);
+        var kpi = '5';
+        $http({
+            method: 'PUT',
+            url: '/dashboard/blurb',
+            data: {
+                newComment, clientId, kpi
+            }
+        }).then(function (response) {
+            self.getSelectedKpi(clientId);
+        });
+    }
+
+    self.addBlurbConc = function (newComment, clientId) {
+        console.log('newComment', newComment);
+        console.log('clientId', clientId);
+        var kpi = '6';
+        $http({
+            method: 'PUT',
+            url: '/dashboard/blurb',
+            data: {
+                newComment, clientId, kpi
+            }
+        }).then(function (response) {
+            self.getSelectedKpi(clientId);
+        });
+    }
 
 
 

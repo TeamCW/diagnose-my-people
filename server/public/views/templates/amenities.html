@@ -16,16 +16,16 @@
                     <li class="survey-tabs">
                         <a class="tab-no-decor" href="#survey/{{sc.client.list[0].survey_hash}}">My People</a>
                     </li>
-                    <li class="survey-tabs">
+                    <li class="survey-tabs" ng-if="sc.locat.locat" >
                         <a class="tab-no-decor" href="#location/{{sc.client.list[0].survey_hash}}">My Workplace</a>
                     </li>
-                    <li class="active survey-tabs">
+                    <li class="active survey-tabs" ng-if="sc.amen.amen" >
                         <a class="active tab-no-decor" href="#amenities/{{sc.client.list[0].survey_hash}}">My Amenities</a>
                     </li>
-                    <li class="survey-tabs">
+                    <li class="survey-tabs" ng-if="sc.branding.branding" >
                         <a class="tab-no-decor" href="#brand/{{sc.client.list[0].survey_hash}}">My Company</a>
                     </li>
-                    <li class="survey-tabs">
+                    <li class="survey-tabs" ng-if="sc.retRec.retRec" >
                         <a class="tab-no-decor" href="#retention/{{sc.client.list[0].survey_hash}}">My Worklife</a>
                     </li>
                     <li class="survey-tabs">
@@ -38,11 +38,13 @@
                 <br>
                 <div ng-repeat="question in sc.amenities.list | limitTo:sc.amenitiesLimit">
                     <div class="survey-questions">{{question.question}}
-                        <div ng-if="question.question_id === 10 && sc.amenities.list[0].responses" class="slider-amenities">
-                            <rzslider rz-slider-model="sc.slider.value.question10" rz-slider-options="{showTicksValues: true, stepsArray: sc.amenities.list[0].responses}"></rzslider>
-                        </div>
-                        <div ng-if="question.question_id === 11 && sc.amenities.list[1].responses" class="slider-amenities">
-                            <rzslider rz-slider-model="sc.slider.value.question11" rz-slider-options="{showTicksValues: true, stepsArray: sc.amenities.list[1].responses}"></rzslider>
+                        <div class="row justify-content-md-center">
+                            <div ng-if="question.question_id === 10 && sc.amenities.list[0].responses" class="slider-amenities">
+                                <rzslider rz-slider-model="sc.slider.value.question10" rz-slider-options="{showTicksValues: true, stepsArray: sc.amenities.list[0].responses}"></rzslider>
+                            </div>
+                            <div ng-if="question.question_id === 11 && sc.amenities.list[1].responses" class="slider-amenities">
+                                <rzslider rz-slider-model="sc.slider.value.question11" rz-slider-options="{showTicksValues: true, stepsArray: sc.amenities.list[1].responses}"></rzslider>
+                            </div>
                         </div>
                         <!-- Dropdown block -->
                         <div class="amenitiesWordBlock" ng-show="question.question_id === 12"></div>
@@ -86,11 +88,27 @@
                     </div>
                 </div>
                 <div>
-                    <a href="#brand/{{sc.client.list[0].survey_hash}}">
-                        <button type="button" class="btn btn-danger" ng-click="sc.saveResponses( sc.slider.value, sc.client.list[0].id)">
+
+                    <h5>Please enter any additional comments about your Amenities</h5>
+                    <input class="mediumText" type="text" ng-model="sc.lastQuestion.response_from_input">
+                </div>
+                <br>
+                <div>
+                    <a href="#brand/{{sc.client.list[0].survey_hash}}" ng-if="sc.branding.branding">
+                        <button type="button" class="btn btn-danger" ng-click="sc.saveResponsesUserInput(sc.lastQuestion, sc.client.list[0].id); sc.saveResponses( sc.slider.value, sc.client.list[0].id)">
                             <span></span> Next
                         </button>
                     </a>
+                    <a href="#retention/{{sc.client.list[0].survey_hash}}" ng-if="sc.retRec.retRec && !sc.branding.branding" >
+                        <button type="button" class="btn btn-danger" ng-click="sc.saveResponses( sc.slider.value, sc.client.list[0].id)">
+                          <span></span> Next
+                        </button>
+                      </a>
+                      <a href="#conclusion/{{sc.client.list[0].survey_hash}}" ng-if="!sc.branding.branding && !sc.retRec.retRec;" >
+                        <button type="button" class="btn btn-danger" ng-click="sc.saveResponses( sc.slider.value, sc.client.list[0].id)">
+                          <span></span> Next
+                        </button>
+                      </a>
                 </div>
             </div>
         </div>

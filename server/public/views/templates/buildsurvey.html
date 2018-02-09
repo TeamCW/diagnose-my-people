@@ -1,7 +1,7 @@
 <header ng-include="'/views/partials/header.html'" class=""></header>
 <div class="container">
     <h1>Build Your Survey</h1>
-    <p>Select the categories below you would like in your survey.</p>
+    <p>Select the categories below you would like to include in your survey.</p>
     <button ng-click="bs.toggleLocation();bs.toggleBrand();bs.toggleAmenities();bs.toggleRetainment();kpisAdded.allAdded = !kpisAdded.allAdded" ng-hide="kpisAdded.allAdded"
         class="btn btn-outline-success">Add All Categories</button>
     <button ng-click="bs.toggleLocation();bs.toggleBrand();bs.toggleAmenities();bs.toggleRetainment();kpisAdded.allAdded = !kpisAdded.allAdded" ng-show="kpisAdded.allAdded"
@@ -11,8 +11,7 @@
     <div class="row">
         <div class="col-6">
             <p>
-                Location is a major concern for your people. What factors of location are most important to them? This section will Compile
-                information on what is truly important for the location for your peoples transit. We will use this information
+                Location is a major concern for your people. What factors of location are most important to them? We will use this information
                 to compile information on Parking, Exposure, Transit and Drive Time.
             </p>
             <button ng-click="bs.toggleLocation()" ng-hide="bs.kpisAdded.locationAdded" class="btn btn-outline-success">Add to Survey</button>
@@ -25,8 +24,8 @@
     <div class="row">
         <div class="col-6">
             <p>
-                What's most important for your employees. Do they want a building close to restaurants, bars, free parking? Find out by polling.
-                We will use this data to report what amenities they want geographically, internal, or in an office building
+                Which amenities are most important for your employees? Do they want a building close to restaurants, entertainment, or free parking? 
+                Are they interested in an on-site coffee shop or fitness center? We will use this data to report what amenities they want geographically, internally, or in an office building.
 
             </p>
             <button ng-click="bs.toggleAmenities()" ng-hide="bs.kpisAdded.amenitiesAdded" class="btn btn-outline-success">Add to Survey</button>
@@ -39,8 +38,7 @@
     <div class="row">
         <div class="col-6">
             <p>
-                What about your brand is most important to your people in your new location? We will find what signage for your brand, the
-                exposure,
+                How do people perceive your brand? Diagnose the impact that your space has on your company culture and image.
             </p>
             <button ng-click="bs.toggleBrand()" ng-hide="bs.kpisAdded.brandAdded" class="btn btn-outline-success">Add to Survey</button>
             <button ng-click="bs.toggleBrand()" ng-show="bs.kpisAdded.brandAdded" class="btn btn-outline-danger">Remove from Survey</button>
@@ -48,12 +46,11 @@
         <img src="../images/brand.png" class="col-6 img-thumbnail build-survey-pic">
     </div>
     <hr>
-    <h2>Recruitment and Retainment</h2>
+    <h2>Recruitment and Retention</h2>
     <div class="row">
         <div class="col-6">
             <p>
-                What about a new building is most important to your people. We wil give you information on their desire for the culture,
-                their well being, the brand, and on being able to be collaboritive.
+                The workspace is now a part of the compensation model for most organizations. Diagnose your people's preferences for culture, well-being, and how your space fosters collaboration.
             </p>
             <button ng-click="bs.toggleRetainment()" ng-hide="bs.kpisAdded.retainmentAdded" class="btn btn-outline-success">Add to Survey</button>
             <button ng-click="bs.toggleRetainment()" ng-show="bs.kpisAdded.retainmentAdded" class="btn btn-outline-danger">Remove from Survey</button>
