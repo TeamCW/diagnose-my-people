@@ -132,8 +132,11 @@
     background-size: 100% 50%;
 }
 
-.survey-head {
-    background-image: url('/images/cush-background-3.jpg');
+.survey-header {
+    background-image: url('/images/lighter-red-background.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    /* background-image: url('/images/cush-background-3.jpg'); */
 }
 
 .brand-survey-questions {
@@ -323,7 +326,7 @@
 }
 
 .heading {
-    color: white;
+    /* color: white; */
     /* background-color: rgba(0, 0, 0, 0.452);     */
     margin-top: 130px;
     font-family: 'Arial';
