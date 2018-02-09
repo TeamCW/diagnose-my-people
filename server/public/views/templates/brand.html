@@ -36,10 +36,10 @@
             <!--- question block -->
             <div class="well well-md">
                 <br>
-                <div>
-                    <br>
-                    <div ng-repeat="question in sc.brand.list | limitTo:sc.brandLimit">
-                        <div class="brand-survey-questions">{{question.question}}
+                <br>
+                <div ng-repeat="question in sc.brand.list | limitTo:sc.brandLimit">
+                    <div class="brand-survey-questions">{{question.question}}
+                        <div class="row justify-content-md-center">
                             <div ng-if="question.question_id === 20 && sc.brand.list[0].responses" class="slider-brand">
                                 <rzslider rz-slider-model="sc.slider.value.question20" rz-slider-options="{showTicksValues: true, stepsArray: sc.brand.list[0].responses}"></rzslider>
                             </div>
@@ -64,8 +64,15 @@
                         </div>
                         <br>
                     </div>
+                </div>
+                <div>
+                    <h5>Please enter any additional comments about your Company</h5>
+                    <input class="mediumText" type="text" ng-model="sc.lastQuestion.response_from_input">
+                </div>
+                <br>
+                <div>
                     <a href="#retention/{{sc.client.list[0].survey_hash}}">
-                        <button type="button" class="btn btn-danger" ng-click="sc.saveResponses( sc.slider.value, sc.client.list[0].id)">
+                        <button type="button" class="btn btn-danger" ng-click="sc.saveResponsesUserInput(sc.lastQuestion, sc.client.list[0].id); sc.saveResponses( sc.slider.value, sc.client.list[0].id)">
                             <span></span> Next
                         </button>
                     </a>
