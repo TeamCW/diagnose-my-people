@@ -19,10 +19,10 @@ myApp.service('DashboardService', function ($http, $location) {
 
     self.getSelectedKpi = function (clientId) {
         self.demo = true
-        self.locat = {locat: false}
-        self.brand = {brand: false}
-        self.retRec = {retrec: false}
-        self.amen = {amen: false}
+        self.locat = { locat: false }
+        self.brand = { brand: false }
+        self.retRec = { retrec: false }
+        self.amen = { amen: false }
         self.conc = true;
         $http({
             method: 'GET',
@@ -34,7 +34,7 @@ myApp.service('DashboardService', function ($http, $location) {
             self.responseData.list = response.data;
             console.log('Selected KPI for client:', self.responseData.list);
             for (var i = 0; i < self.responseData.list.length; i++) {
-                if (self.responseData.list[i].kpi_id == 2){
+                if (self.responseData.list[i].kpi_id == 2) {
                     self.locat.locat = !self.locat.locat;
                 }
                 if (self.responseData.list[i].kpi_id == 3) {
@@ -696,7 +696,7 @@ myApp.service('DashboardService', function ($http, $location) {
                 if (self.clientConclusionData.list[i].question_id == 39) {
                     //create an array with index for each value 1-5
                     //check percentage of time spent working
-                    let possibleResponses = ['Not Applicable','Poorly','Satisfactory','Very Well','Exceptional']
+                    let possibleResponses = ['Not Applicable', 'Poorly', 'Satisfactory', 'Very Well', 'Exceptional']
                     for (let index = 0; index < positiveCultureCount.length; index++) {
                         //add 1 to corresponding index count of the array
                         if (self.clientConclusionData.list[i].response_text == possibleResponses[index]) {
@@ -709,7 +709,7 @@ myApp.service('DashboardService', function ($http, $location) {
                 if (self.clientConclusionData.list[i].question_id == 40) {
                     //create an array with index for each value 1-5
                     //check percentage of time spent working
-                    let possibleResponses = ['Not Applicable','Poorly','Satisfactory','Very Well','Exceptional']
+                    let possibleResponses = ['Not Applicable', 'Poorly', 'Satisfactory', 'Very Well', 'Exceptional']
                     for (let index = 0; index < employeeWellBeingCount.length; index++) {
                         //add 1 to corresponding index count of the array
                         if (self.clientConclusionData.list[i].response_text == possibleResponses[index]) {
@@ -722,7 +722,7 @@ myApp.service('DashboardService', function ($http, $location) {
                 if (self.clientConclusionData.list[i].question_id == 41) {
                     //create an array with index for each value 1-5
                     //check percentage of time spent working
-                    let possibleResponses = ['Not Applicable','Poorly','Satisfactory','Very Well','Exceptional']
+                    let possibleResponses = ['Not Applicable', 'Poorly', 'Satisfactory', 'Very Well', 'Exceptional']
                     for (let index = 0; index < workerProductivityCount.length; index++) {
                         //add 1 to corresponding index count of the array
                         if (self.clientConclusionData.list[i].response_text == possibleResponses[index]) {
@@ -735,7 +735,7 @@ myApp.service('DashboardService', function ($http, $location) {
                 if (self.clientConclusionData.list[i].question_id == 42) {
                     //create an array with index for each value 1-5
                     //check percentage of time spent working
-                    let possibleResponses = ['Not Applicable','Poorly','Satisfactory','Very Well','Exceptional']
+                    let possibleResponses = ['Not Applicable', 'Poorly', 'Satisfactory', 'Very Well', 'Exceptional']
                     for (let index = 0; index < engagmentCount.length; index++) {
                         //add 1 to corresponding index count of the array
                         if (self.clientConclusionData.list[i].response_text == possibleResponses[index]) {
@@ -745,41 +745,41 @@ myApp.service('DashboardService', function ($http, $location) {
 
                 }
             }
-             //calculate weighted averages value from 1-5 value array
-             let positiveCultureAverage = 0;
-             let employeeWellBeingAverage = 0;
-             let workerProductivityAverage = 0;
-             let engagmentAverage = 0;
-             for (let j = 0; j < 5; j++) {
+            //calculate weighted averages value from 1-5 value array
+            let positiveCultureAverage = 0;
+            let employeeWellBeingAverage = 0;
+            let workerProductivityAverage = 0;
+            let engagmentAverage = 0;
+            for (let j = 0; j < 5; j++) {
                 positiveCultureAverage += ((j + 1) * positiveCultureCount[j]);
                 employeeWellBeingAverage += ((j + 1) * employeeWellBeingCount[j]);
                 workerProductivityAverage += ((j + 1) * workerProductivityCount[j]);
                 engagmentAverage += ((j + 1) * engagmentCount[j]);
-             }
+            }
             //  //gets total number of responses for each question
             //  let positiveCultureTotalResponses = positiveCultureCount.reduce((a, b) => a + b, 0);
             //  let employeeWellBeingTotalResponses = employeeWellBeingCount.reduce((a, b) => a + b, 0);
             //  let workerProductivityTotalResponses = workerProductivityCount.reduce((a, b) => a + b, 0);
             //  let engagmentTotalResponses = engagmentCount.reduce((a, b) => a + b, 0);
- 
+
             //  //divides the total by number of responses to get averages
             //  positiveCultureAverage /= positiveCultureTotalResponses;
             //  employeeWellBeingAverage /= employeeWellBeingTotalResponses;
             //  workerProductivityAverage /= workerProductivityTotalResponses;
             //  engagmentAverage /= engagmentTotalResponses;
 
-             
- 
- 
-             //assign averages for values in whereTheyWork
-             self.fruitsOfSpace.config.data.datasets[0].data[0] += positiveCultureAverage
-             self.fruitsOfSpace.config.data.datasets[0].data[1] += employeeWellBeingAverage
-             self.fruitsOfSpace.config.data.datasets[0].data[2] += workerProductivityAverage
-             self.fruitsOfSpace.config.data.datasets[0].data[3] += engagmentAverage
 
-             console.log('fruits',self.fruitsOfSpace.config.data.datasets[0].data)
-             self.fruitsOfSpace.update();
-             self.satisfaction.update();
+
+
+            //assign averages for values in whereTheyWork
+            self.fruitsOfSpace.config.data.datasets[0].data[0] += positiveCultureAverage
+            self.fruitsOfSpace.config.data.datasets[0].data[1] += employeeWellBeingAverage
+            self.fruitsOfSpace.config.data.datasets[0].data[2] += workerProductivityAverage
+            self.fruitsOfSpace.config.data.datasets[0].data[3] += engagmentAverage
+
+            console.log('fruits', self.fruitsOfSpace.config.data.datasets[0].data)
+            self.fruitsOfSpace.update();
+            self.satisfaction.update();
 
 
 
@@ -799,10 +799,13 @@ myApp.service('DashboardService', function ($http, $location) {
                 label: 'Age Groups',
                 data: [0, 0, 0, 0, 0],
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.6)',
-                    'rgba(54, 162, 235, 0.6)',
-                    'rgba(255, 206, 86, 0.6)',
-                    'rgba(75, 192, 192, 0.6)'
+
+                    'rgba(155,211,221,1)',
+                    'rgba(0, 147, 178, 1)',
+                    'rgba(105, 107, 107, 1)',
+                    'rgba(0, 56, 101, 1)',
+                    'rgba(181, 189, 0, 1)'
+
                 ],
 
             }]
@@ -837,9 +840,9 @@ myApp.service('DashboardService', function ($http, $location) {
 
             ],
             datasets: [{
-                label: 'departments',
-                backgroundColor: "rgba(153,255,51,0.4)",
-                borderColor: "rgba(153,255,51,1)",
+                label: 'Departments',
+                backgroundColor: "rgba(255,197,163,.4)",
+                borderColor: "rgba(255,103,31,1)",
                 data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             }]
         }
@@ -847,19 +850,12 @@ myApp.service('DashboardService', function ($http, $location) {
 
     var descriptionDistribution = document.getElementById("descriptionDistribution");
     self.descriptionDistribution = new Chart(descriptionDistribution, {
-        type: 'polarArea',
+        type: 'radar',
         data: {
             labels: ["Creative", "Corporate", "Healthcare", "General Office", "Technology", "Other"],
             datasets: [{
-                backgroundColor: [
-                    "#2ecc71",
-                    "#3498db",
-                    "#95a5a6",
-                    "#9b59b6",
-                    "#f1c40f",
-                    "#e74c3c",
-                    "#34495e"
-                ],
+                backgroundColor: "rgba(222,225,170,.4)",
+                borderColor: "rgba(181,189,0,1)",
                 data: [0, 0, 0, 0, 0, 0]
             }]
         }
@@ -872,13 +868,13 @@ myApp.service('DashboardService', function ($http, $location) {
             labels: ['0-3', '3-5', '5-10', '10+'],
             datasets: [{
                 backgroundColor: [
-                    "#2ecc71",
-                    "#3498db",
-                    "#95a5a6",
-                    "#9b59b6",
-                    "#f1c40f",
-                    "#e74c3c",
-                    "#34495e"
+                    'rgba(155,211,221,1)',
+                    'rgba(0, 147, 178, 1)',
+                    'rgba(105, 107, 107, 1)',
+                    'rgba(0, 56, 101, 1)',
+                    'rgba(181, 189, 0, 1)',
+                    'rgba(255, 103, 31, 1)',
+                    'rgba(82, 97, 128, 1)'
                 ],
                 data: [0, 0, 0, 0]
             }]
@@ -891,9 +887,17 @@ myApp.service('DashboardService', function ($http, $location) {
         data: {
             labels: ['5-10 minutes', '10-20 minutes', '20-30 minutes', '30-40 minutes', '40+ minutes'],
             datasets: [{
-                label: 'Commute times',
+                label: 'Commute Length',
                 data: [0, 0, 0, 0, 0],
-                backgroundColor: []
+                backgroundColor: [
+
+                    'rgba(155,211,221,1)',
+                    'rgba(0, 147, 178, 1)',
+                    'rgba(105, 107, 107, 1)',
+                    'rgba(0, 56, 101, 1)',
+                    'rgba(181, 189, 0, 1)'
+
+                ],
             }
             ]
 
@@ -916,9 +920,17 @@ myApp.service('DashboardService', function ($http, $location) {
         data: {
             labels: ['Very Dissatisfied', 'Dissatisfied', 'No Opinion', 'Satisfied', 'Very Satisfied'],
             datasets: [{
-                label: 'Public Transit',
+                label: 'Parking Satisfaction',
                 data: [0, 0, 0, 0, 0],
-                backgroundColor: []
+                backgroundColor: [
+
+                    'rgba(155,211,221,1)',
+                    'rgba(0, 147, 178, 1)',
+                    'rgba(105, 107, 107, 1)',
+                    'rgba(0, 56, 101, 1)',
+                    'rgba(181, 189, 0, 1)'
+
+                ],
             }
             ]
 
@@ -947,22 +959,22 @@ myApp.service('DashboardService', function ($http, $location) {
 
             ],
             datasets: [{
-                label: 'Current Mode',
+                label: 'Current Mode of Commute',
                 data: [0, 0, 0, 0],
                 backgroundColor: [
-                    'rgb(255, 0, 0)',
-                    'rgb(255, 0, 0)',
-                    'rgb(255, 0, 0)',
-                    'rgb(255, 0, 0)',
+                    'rgb(0, 56, 101)',
+                    'rgb(0, 56, 101)',
+                    'rgb(0, 56, 101)',
+                    'rgb(0, 56, 101)',
                 ]
             }, {
                 label: 'Desired Mode',
                 data: [0, 0, 0, 0],
                 backgroundColor: [
-                    'rgb(0, 0, 255)',
-                    'rgb(0, 0, 255)',
-                    'rgb(0, 0, 255)',
-                    'rgb(0, 0, 255)',
+                    'rgb(181, 189, 0)',
+                    'rgb(181, 189, 0)',
+                    'rgb(181, 189, 0)',
+                    'rgb(181, 189, 0)',
                 ]
             }
             ]
@@ -985,11 +997,13 @@ myApp.service('DashboardService', function ($http, $location) {
             labels: ["Never", "Rarely", "About Half", "Often", "Very Often"],
             datasets: [{
                 backgroundColor: [
-                    '#ff0000',
-                    '#ff9900',
-                    '#ffff00',
-                    '#00cc00',
-                    '#0066cc'
+
+                    'rgba(155,211,221,1)',
+                    'rgba(0, 147, 178, 1)',
+                    'rgba(105, 107, 107, 1)',
+                    'rgba(0, 56, 101, 1)',
+                    'rgba(181, 189, 0, 1)'
+
                 ],
                 data: [0, 0, 0, 0, 0]
             }]
@@ -1005,10 +1019,13 @@ myApp.service('DashboardService', function ($http, $location) {
                 label: 'Frequency of Amenity Usage',
                 data: [0, 0, 0, 0, 0],
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.6)',
-                    'rgba(54, 162, 235, 0.6)',
-                    'rgba(255, 206, 86, 0.6)',
-                    'rgba(75, 192, 192, 0.6)'
+
+                    'rgba(155,211,221,1)',
+                    'rgba(0, 147, 178, 1)',
+                    'rgba(105, 107, 107, 1)',
+                    'rgba(0, 56, 101, 1)',
+                    'rgba(181, 189, 0, 1)'
+
                 ],
 
             }]
@@ -1033,10 +1050,13 @@ myApp.service('DashboardService', function ($http, $location) {
                 label: 'Frequency of 3rd workpace Usage',
                 data: [0, 0, 0, 0, 0],
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.6)',
-                    'rgba(54, 162, 235, 0.6)',
-                    'rgba(255, 206, 86, 0.6)',
-                    'rgba(75, 192, 192, 0.6)'
+
+                    'rgba(155,211,221,1)',
+                    'rgba(0, 147, 178, 1)',
+                    'rgba(105, 107, 107, 1)',
+                    'rgba(0, 56, 101, 1)',
+                    'rgba(181, 189, 0, 1)'
+
                 ],
 
             }]
@@ -1059,8 +1079,8 @@ myApp.service('DashboardService', function ($http, $location) {
             labels: ["Food and Entertainment", "Conference Room", "Green Space", "Shower/Locker Room", "Fitness Center", "Parking", "Public Transit"],
             datasets: [{
                 label: 'Average ranking on scale of 5 for amenity importance',
-                backgroundColor: "rgba(153,255,51,0.4)",
-                borderColor: "rgba(153,255,51,1)",
+                backgroundColor: "rgba(255,197,163,.4)",
+                borderColor: "rgba(255,103,31,1)",
                 data: [0, 0, 0, 0, 0, 0, 0]
             }]
         }
@@ -1075,10 +1095,13 @@ myApp.service('DashboardService', function ($http, $location) {
                 label: 'Employee Age Groups',
                 data: [0, 0, 0, 0, 0],
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.6)',
-                    'rgba(54, 162, 235, 0.6)',
-                    'rgba(255, 206, 86, 0.6)',
-                    'rgba(75, 192, 192, 0.6)'
+
+                    'rgba(155,211,221,1)',
+                    'rgba(0, 147, 178, 1)',
+                    'rgba(105, 107, 107, 1)',
+                    'rgba(0, 56, 101, 1)',
+                    'rgba(181, 189, 0, 1)'
+
                 ],
 
             }]
@@ -1101,13 +1124,13 @@ myApp.service('DashboardService', function ($http, $location) {
             labels: ["Very Poor", "Poor", "No Opinion", "Good", "Very Good"],
             datasets: [{
                 backgroundColor: [
-                    "#2ecc71",
-                    "#3498db",
-                    "#95a5a6",
-                    "#9b59b6",
-                    "#f1c40f",
-                    "#e74c3c",
-                    "#34495e"
+
+                    'rgba(155,211,221,1)',
+                    'rgba(0, 147, 178, 1)',
+                    'rgba(105, 107, 107, 1)',
+                    'rgba(0, 56, 101, 1)',
+                    'rgba(181, 189, 0, 1)'
+
                 ],
                 data: [0, 0, 0, 0, 0]
             }]
@@ -1121,13 +1144,13 @@ myApp.service('DashboardService', function ($http, $location) {
             labels: ["Very Poor", "Poor", "No Opinion", "Good", "Very Good"],
             datasets: [{
                 backgroundColor: [
-                    "#2ecc71",
-                    "#3498db",
-                    "#95a5a6",
-                    "#9b59b6",
-                    "#f1c40f",
-                    "#e74c3c",
-                    "#34495e"
+
+                    'rgba(155,211,221,1)',
+                    'rgba(0, 147, 178, 1)',
+                    'rgba(105, 107, 107, 1)',
+                    'rgba(0, 56, 101, 1)',
+                    'rgba(181, 189, 0, 1)'
+
                 ],
                 data: [0, 0, 0, 0, 0]
             }]
@@ -1145,10 +1168,13 @@ myApp.service('DashboardService', function ($http, $location) {
                 label: '',
                 data: [0, 0, 0, 0, 0],
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.6)',
-                    'rgba(54, 162, 235, 0.6)',
-                    'rgba(255, 206, 86, 0.6)',
-                    'rgba(75, 192, 192, 0.6)'
+
+                    'rgba(155,211,221,1)',
+                    'rgba(0, 147, 178, 1)',
+                    'rgba(105, 107, 107, 1)',
+                    'rgba(0, 56, 101, 1)',
+                    'rgba(181, 189, 0, 1)'
+
                 ],
 
             }]
@@ -1173,10 +1199,13 @@ myApp.service('DashboardService', function ($http, $location) {
                 label: 'Employee Age Groups',
                 data: [0, 0, 0, 0, 0],
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.6)',
-                    'rgba(54, 162, 235, 0.6)',
-                    'rgba(255, 206, 86, 0.6)',
-                    'rgba(75, 192, 192, 0.6)'
+
+                    'rgba(155,211,221,1)',
+                    'rgba(0, 147, 178, 1)',
+                    'rgba(105, 107, 107, 1)',
+                    'rgba(0, 56, 101, 1)',
+                    'rgba(181, 189, 0, 1)'
+
                 ],
 
             }]
@@ -1201,10 +1230,13 @@ myApp.service('DashboardService', function ($http, $location) {
                 label: 'Employee Age Groups',
                 data: [0, 0, 0, 0, 0],
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.6)',
-                    'rgba(54, 162, 235, 0.6)',
-                    'rgba(255, 206, 86, 0.6)',
-                    'rgba(75, 192, 192, 0.6)'
+
+                    'rgba(155,211,221,1)',
+                    'rgba(0, 147, 178, 1)',
+                    'rgba(105, 107, 107, 1)',
+                    'rgba(0, 56, 101, 1)',
+                    'rgba(181, 189, 0, 1)'
+
                 ],
 
             }]
@@ -1227,13 +1259,13 @@ myApp.service('DashboardService', function ($http, $location) {
             labels: ["Very Inferior", "Inferior", "Same", "Superior", "Highly Superior"],
             datasets: [{
                 backgroundColor: [
-                    "#2ecc71",
-                    "#3498db",
-                    "#95a5a6",
-                    "#9b59b6",
-                    "#f1c40f",
-                    "#e74c3c",
-                    "#34495e"
+
+                    'rgba(155,211,221,1)',
+                    'rgba(0, 147, 178, 1)',
+                    'rgba(105, 107, 107, 1)',
+                    'rgba(0, 56, 101, 1)',
+                    'rgba(181, 189, 0, 1)'
+
                 ],
                 data: [0, 0, 0, 0, 0]
             }]
@@ -1249,13 +1281,13 @@ myApp.service('DashboardService', function ($http, $location) {
             labels: ["Very Poor", "Poor", "No Opinion", "Good", "Very Good"],
             datasets: [{
                 backgroundColor: [
-                    "#2ecc71",
-                    "#3498db",
-                    "#95a5a6",
-                    "#9b59b6",
-                    "#f1c40f",
-                    "#e74c3c",
-                    "#34495e"
+
+                    'rgba(155,211,221,1)',
+                    'rgba(0, 147, 178, 1)',
+                    'rgba(105, 107, 107, 1)',
+                    'rgba(0, 56, 101, 1)',
+                    'rgba(181, 189, 0, 1)'
+
                 ],
                 data: [0, 0, 0, 0, 0]
             }]
@@ -1271,10 +1303,13 @@ myApp.service('DashboardService', function ($http, $location) {
                 label: 'Location Satisfaction Impact',
                 data: [0, 0, 0, 0, 0],
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.6)',
-                    'rgba(54, 162, 235, 0.6)',
-                    'rgba(255, 206, 86, 0.6)',
-                    'rgba(75, 192, 192, 0.6)'
+
+                    'rgba(155,211,221,1)',
+                    'rgba(0, 147, 178, 1)',
+                    'rgba(105, 107, 107, 1)',
+                    'rgba(0, 56, 101, 1)',
+                    'rgba(181, 189, 0, 1)'
+
                 ],
 
             }]
@@ -1299,10 +1334,13 @@ myApp.service('DashboardService', function ($http, $location) {
                 label: 'Sufficiency Rating',
                 data: [0, 0, 0, 0, 0],
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.6)',
-                    'rgba(54, 162, 235, 0.6)',
-                    'rgba(255, 206, 86, 0.6)',
-                    'rgba(75, 192, 192, 0.6)'
+
+                    'rgba(155,211,221,1)',
+                    'rgba(0, 147, 178, 1)',
+                    'rgba(105, 107, 107, 1)',
+                    'rgba(0, 56, 101, 1)',
+                    'rgba(181, 189, 0, 1)'
+
                 ],
 
             }]
@@ -1325,8 +1363,8 @@ myApp.service('DashboardService', function ($http, $location) {
             labels: ["Home", "Office Desk", "Elsewhere in Office", "Coffee Shop", "On-site with Client", "Other"],
             datasets: [{
                 label: 'Where they Work',
-                backgroundColor: "rgba(153,255,51,0.4)",
-                borderColor: "rgba(153,255,51,1)",
+                backgroundColor: "rgba(222,225,170,.4)",
+                borderColor: "rgba(181,189,0,1)",
                 data: [0, 0, 0, 0, 0, 0]
             }]
         }
@@ -1339,8 +1377,8 @@ myApp.service('DashboardService', function ($http, $location) {
             labels: ["Postive Culture", "Employee Wellbeing", "Worker Productivity", "Engagment among coworkers"],
             datasets: [{
                 label: 'Influence Level',
-                backgroundColor: "rgba(153,255,51,0.4)",
-                borderColor: "rgba(153,255,51,1)",
+                backgroundColor: "rgba(255,197,163,.4)",
+                borderColor: "rgba(255,103,31,1)",
                 data: [0, 0, 0, 0]
             }]
         }
@@ -1355,10 +1393,13 @@ myApp.service('DashboardService', function ($http, $location) {
                 label: 'Satisfaction',
                 data: [0, 0, 0, 0, 0],
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.6)',
-                    'rgba(54, 162, 235, 0.6)',
-                    'rgba(255, 206, 86, 0.6)',
-                    'rgba(75, 192, 192, 0.6)'
+
+                    'rgba(155,211,221,1)',
+                    'rgba(0, 147, 178, 1)',
+                    'rgba(105, 107, 107, 1)',
+                    'rgba(0, 56, 101, 1)',
+                    'rgba(181, 189, 0, 1)'
+
                 ],
 
             }]
