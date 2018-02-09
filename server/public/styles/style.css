@@ -32,10 +32,11 @@
 .survey-header {
     height: 190px;
     margin: auto;
+    opacity: .85;
 }
 
 .header-image {
-    max-height: 100px;
+    max-height: 200px;
 }
 
 .admin-image {
@@ -135,8 +136,11 @@
 }
 
 .survey-background {
-    background-image: url('/images/red-city.jpg');
-    background-size: 100% 100%;
+    background-image: url('/images/cushman-wakefield-buildings.png');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .survey-background-long {
@@ -144,11 +148,13 @@
     background-size: 100% 50%;
 }
 
+
 .survey-header {
     background-image: url('/images/lighter-red-background.jpg');
     background-repeat: no-repeat;
     background-size: 100% 100%;
     /* background-image: url('/images/cush-background-3.jpg'); */
+
 }
 
 .brand-survey-questions {

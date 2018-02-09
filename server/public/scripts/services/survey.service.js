@@ -10,6 +10,7 @@ myApp.service('SurveyService', function ($http, $location) {
     self.retention = { list: [] };
     self.conclusion = { list: [] };
     self.client = { list: [] };
+    self.responseData = { list: [] };
 
 
     self.selectedResponse = {};
@@ -261,6 +262,45 @@ self.addCount = function() {
     self.userCount++;
     console.log('User Count:', self.userCount);
 }
+
+self.getSelectedKpi = function (surveyHash) {
+    self.demo = true
+    self.locat = {locat: false}
+    self.branding = {branding: false}
+    self.retRec = {retRec: false}
+    self.amen = {amen: false}
+    self.conc = true;
+    $http({
+        method: 'GET',
+        url: '/survey/kpi/',
+        params: {
+            surveyHash: surveyHash
+        }
+    }).then(function (response) {
+        self.responseData.list = response.data;
+        console.log('Selected KPI for client:', self.responseData.list);
+        for (var i = 0; i < self.responseData.list.length; i++) {
+            if (self.responseData.list[i].kpi_id == 2){
+                self.locat.locat = !self.locat.locat;
+            }
+            if (self.responseData.list[i].kpi_id == 3) {
+                self.amen.amen = !self.amen.amen;
+            }
+            if (self.responseData.list[i].kpi_id == 4) {
+                self.branding.branding = !self.branding.branding;
+            }
+            if (self.responseData.list[i].kpi_id == 5) {
+                self.retRec.retRec = !self.retRec.retRec;
+            }
+        }
+        console.log('locat:', self.locat.locat);
+        console.log('branding:', self.branding.branding);
+        console.log('retRec:', self.retRec.retRec);
+        console.log('amen:', self.amen.amen);
+    });
+};
+
+
 
 });//end service
 
