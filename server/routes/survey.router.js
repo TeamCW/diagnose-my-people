@@ -275,4 +275,35 @@ router.get('/client-info', function (req, res) {
         });
 });
 
+
+
+router.get('/kpi', function (req, res) {
+    var surveyHash = req.query.surveyHash;
+    console.log('hash for survey kpis:',req.query.surveyHash)
+        pool.connect(function (errorConnectingToDatabase, client, done) {
+            if (errorConnectingToDatabase) {
+                console.log('error', errorConnectingToDatabase);
+                res.sendStatus(500);
+            } else {
+
+                client.query(`SELECT kpi_id from selected_kpi
+                INNER JOIN client ON selected_kpi.client_id = client.id
+                WHERE survey_hash = $1; `, [surveyHash],
+                    function (errorMakingDatabaseQuery, result) {
+                        done();
+                        if (errorMakingDatabaseQuery) {
+                            console.log('error', errorMakingDatabaseQuery);
+                            res.sendStatus(500);
+                        } else {
+                            console.log('results:', result.rows);
+                            res.send(result.rows);
+                        }
+                    });
+            }
+        });
+});
+
+
+
+
 module.exports = router;

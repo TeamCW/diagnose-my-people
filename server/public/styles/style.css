@@ -32,10 +32,11 @@
 .survey-header {
     height: 190px;
     margin: auto;
+    opacity: .85;
 }
 
 .header-image {
-    max-height: 100px;
+    max-height: 200px;
 }
 
 .admin-image {
@@ -98,34 +99,49 @@
 }
 
 .survey-tabs {
-    border-top: 3px;
+    border-top: 1px;
     border-radius: 3px;
-    border-left: 2px;
-    border-right: 2px;
-    border-top-style: ridge;
-    border-right-style: ridge;
-    border-left-style: ridge;
+    border-left: 1px;
+    border-right: 1px;
+    border-top-style: inset;
+    border-right-style: inset;
+    border-left-style: inset;
     border-bottom-style: none;
     padding-right: 5px;
     padding-left: 5px;
     border-color: rgb(221, 217, 217);
-    background-color:rgb(247, 242, 242);
+    background-color:rgb(228, 222, 222);
     color: black;
+    width: 139px;
+    height: 40px;
+    text-align: center;
   }
 
   .well-md {
-    background-color: rgb(247, 242, 242);
+    background-color: rgb(228, 222, 222);
     text-align: center;
     margin-left: 200px;
     margin-bottom: 60px;
     border-radius: 5px;
     padding-bottom: 60px;
     opacity: none;
+    border-left: 1px;
+    border-right: 1px;
+    border-bottom: 1px;
+    border-top: none;
+    border-left-style: inset;
+    border-right-style: inset;
+    border-bottom-style: inset;
+    border-color: rgb(221, 217, 217);
+
 }
 
 .survey-background {
-    background-image: url('/images/red-city.jpg');
-    background-size: 100% 100%;
+    background-image: url('/images/cushman-wakefield-buildings.png');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .survey-background-long {
@@ -133,11 +149,13 @@
     background-size: 100% 50%;
 }
 
+
 .survey-header {
     background-image: url('/images/lighter-red-background.jpg');
     background-repeat: no-repeat;
     background-size: 100% 100%;
     /* background-image: url('/images/cush-background-3.jpg'); */
+
 }
 
 .brand-survey-questions {
@@ -174,20 +192,17 @@
 
 .slider-location {
     width: 600px;
-    margin-left: 100px;
     font-weight: normal;
 }
 
 .slider-amenities {
     width: 600px;
-    margin-left: 100px;
     font-weight: normal;
 }
 
 .slider-brand {
     margin-top: 10px;
     margin-bottom: 100px;
-    margin-left: 100px;
     width: 600px;
     font-weight: normal;   
 }
@@ -195,7 +210,6 @@
 .slider-retention {
     margin-top: 10px;
     margin-bottom: 100px;
-    margin-left: 100px;
     width: 600px;
     font-weight: normal;   
 }
@@ -203,7 +217,6 @@
 .slider-conclusion {
     margin-top: 10px;
     margin-bottom: 100px;
-    margin-left: 100px;
     width: 600px;
     font-weight: normal;   
 }
@@ -213,6 +226,12 @@
 .smallInput {
     width: 40px;
     border-radius: 5px;
+}
+
+.mediumText {
+    width: 350px;
+    height: 50px;
+    border-radius: 3px;
 }
 
 .largeText {
