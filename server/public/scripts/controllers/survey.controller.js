@@ -25,7 +25,7 @@ myApp.controller('SurveyController', function (SurveyService, $routeParams) {
   vm.saveResponsesUserInput = SurveyService.saveResponsesUserInput;
   vm.lastQuestion = SurveyService.lastQuestion;
   vm.client = SurveyService.client;
-
+  vm.addCount = SurveyService.addCount;
 
 
   //GET request functions for the survey views

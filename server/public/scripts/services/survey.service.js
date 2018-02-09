@@ -15,7 +15,7 @@ myApp.service('SurveyService', function ($http, $location) {
     self.selectedResponse = {};
     self.lastQuestion = {};
 
-
+    self.userCount = 0;
 
     //request to populate demographic questions and possible answers.
     self.getDemographics = function () {
@@ -257,7 +257,10 @@ self.getClient = function (surveyHash) {
     });
 }
 
-
+self.addCount = function() {
+    self.userCount++;
+    console.log('User Count:', self.userCount);
+}
 
 });//end service
 
