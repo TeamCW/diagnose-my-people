@@ -1,13 +1,18 @@
 <header ng-include="'/views/partials/header.html'" class=""></header>
 <!-- <div ng-include="'views/partials/nav.html'"></div> -->
+
 <div class="container">
+        <div>
+                <img class="banner" src="/images/cushman-landing-cut.png" alt="" width=100%>
+            </div>
+            <br>
     <h1 id="welcome" class="lead">Welcome, {{uc.userObject.userName}}!</h1>
     <button class="btn btn-outline-danger" id="logout" ng-click="uc.userService.logout()">Log Out</button>
 </div>
 
 <div class="container">
     <nav class="navbar navbar-light" style="background-color: white">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav" style="color: #6b6d6d;">Filter By:
             <li class="nav-item">
                 <button class="btn btn-outline-danger" ng-click="pending = false; inProgress = false; finished = false;">All</button>
             </li>

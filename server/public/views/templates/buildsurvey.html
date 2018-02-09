@@ -1,62 +1,107 @@
 <header ng-include="'/views/partials/header.html'" class=""></header>
 <div class="container">
-    <h1>Build Your Survey</h1>
-    <p>Select the categories below you would like to include in your survey.</p>
-    <button ng-click="bs.toggleLocation();bs.toggleBrand();bs.toggleAmenities();bs.toggleRetainment();kpisAdded.allAdded = !kpisAdded.allAdded" ng-hide="kpisAdded.allAdded"
-        class="btn btn-outline-success">Add All Categories</button>
-    <button ng-click="bs.toggleLocation();bs.toggleBrand();bs.toggleAmenities();bs.toggleRetainment();kpisAdded.allAdded = !kpisAdded.allAdded" ng-show="kpisAdded.allAdded"
-        class="btn btn-outline-danger">Remove All Categories</button>
+    <div>
+        <img class="banner" src="/images/build-banner.png" alt="" width=100%>
+    </div>
+    <!-- <h1>Build Your Survey</h1>
+    <p>Select the categories below you would like to include in your survey.</p> -->
+    <br>
+    <button ng-click="bs.toggleLocation();bs.toggleBrand();bs.toggleAmenities();bs.toggleRetainment();kpisAdded.allAdded = !kpisAdded.allAdded"
+        ng-hide="kpisAdded.allAdded" class="btn btn-outline-success">Add All Categories</button>
+    <button ng-click="bs.toggleLocation();bs.toggleBrand();bs.toggleAmenities();bs.toggleRetainment();kpisAdded.allAdded = !kpisAdded.allAdded"
+        ng-show="kpisAdded.allAdded" class="btn btn-outline-danger">Remove All Categories</button>
     <hr>
     <h2>Location</h2>
     <div class="row">
-        <div class="col-6">
+        <div class="col-8">
             <p>
-                Location is a major concern for your people. What factors of location are most important to them? We will use this information
-                to compile information on Parking, Exposure, Transit and Drive Time.
+                Location is a major concern for your people. What factors are most important to them? We will use this information to compile
+                information on Parking, Exposure, Transit and Drive Time.
             </p>
+            <p>Questions Included:</p>
+            <ul class="build-list">
+                <li>What is your average commute time?</li>
+                <li>How do you currently commute to work?</li>
+                <li>How do you prefer to commute to work?</li>
+                <li>How satisfied are you with parking arrangements at your current work setting?</li>
+                <li>If a partial “work from home” policy was implemented, would you see yourself using this as an alternative
+                    working style?</li>
+            </ul>
             <button ng-click="bs.toggleLocation()" ng-hide="bs.kpisAdded.locationAdded" class="btn btn-outline-success">Add to Survey</button>
             <button ng-click="bs.toggleLocation()" ng-show="bs.kpisAdded.locationAdded" class="btn btn-outline-danger">Remove from Survey</button>
         </div>
-        <img src="../images/location.png" class="col-6 img-thumbnail build-survey-pic">
+        <img src="../images/location.png" class="col-4 img-thumbnail build-survey-pic">
     </div>
     <hr>
     <h2>Amenities</h2>
     <div class="row">
-        <div class="col-6">
+        <div class="col-8">
             <p>
-                Which amenities are most important for your employees? Do they want a building close to restaurants, entertainment, or free parking? 
-                Are they interested in an on-site coffee shop or fitness center? We will use this data to report what amenities they want geographically, internally, or in an office building.
-
+                Which amenities are most important for your employees? Do they want a building close to restaurants, entertainment, or free
+                parking? Are they interested in an on-site coffee shop or fitness center? We will use this data to report
+                what amenities they want geographically, internally, or in an office building.
             </p>
+            <p>Questions Included:</p>
+            <ul class="build-list">
+                <li>Please rate how often you use your current building’s amenities, such as a fitness center or lounge area,
+                    in an average week.</li>
+                <li>If a ‘3rd work space’ was available in your building, such as a coffee shop, lounge or common space, how
+                    often do you think you would use it in a week?</li>
+                <li>Please rate the following amenities you would like to have in an ideal location: (1 being no preference,
+                    5 being highly preferable): Food and Entertainment, Conference Room, Green Space, Shower/Locker Room,
+                    Fitness Center, Parking, Public Transit.
+                </li>
+
+            </ul>
             <button ng-click="bs.toggleAmenities()" ng-hide="bs.kpisAdded.amenitiesAdded" class="btn btn-outline-success">Add to Survey</button>
             <button ng-click="bs.toggleAmenities()" ng-show="bs.kpisAdded.amenitiesAdded" class="btn btn-outline-danger">Remove from Survey</button>
         </div>
-        <img src="../images/amenities.png" class="col-6 img-thumbnail build-survey-pic">
+        <img src="../images/amenities.png" class="col-4 img-thumbnail build-survey-pic">
     </div>
     <hr>
     <h2>Brand</h2>
     <div class="row">
-        <div class="col-6">
+        <div class="col-8">
             <p>
                 How do people perceive your brand? Diagnose the impact that your space has on your company culture and image.
             </p>
+            <p>Questions Included:</p>
+            <ul class="build-list">
+                <li>How do you perceive our company’s stance on environmental stewardship and sustainability?</li>
+                <li>How well do you feel our current facility reflects our company’s brand and mission statement?</li>
+                <li>What kind of impression do you feel our current work space has on our customers?</li>
+                </li>
+                <li>How would you rate our company’s current public exposure?</li>
+                <li>How important is it for our business to have a public face?</li>
+                <li>How impactful would a new location be to our companies public face?</li>
+                <li>How does our current space compare to other office spaces you have worked in or visited?</li>
+            </ul>
             <button ng-click="bs.toggleBrand()" ng-hide="bs.kpisAdded.brandAdded" class="btn btn-outline-success">Add to Survey</button>
             <button ng-click="bs.toggleBrand()" ng-show="bs.kpisAdded.brandAdded" class="btn btn-outline-danger">Remove from Survey</button>
         </div>
-        <img src="../images/brand.png" class="col-6 img-thumbnail build-survey-pic">
+        <img src="../images/brand.png" class="col-4 img-thumbnail build-survey-pic">
     </div>
     <hr>
     <h2>Recruitment and Retention</h2>
     <div class="row">
-        <div class="col-6">
+        <div class="col-8">
             <p>
-                The workspace is now a part of the compensation model for most organizations. Diagnose your people's preferences for culture, well-being, and how your space fosters collaboration.
+                The workspace is now a part of the compensation model for most organizations. Diagnose your people's preferences for culture,
+                well-being, and how your space fosters collaboration.
             </p>
+            <p>Questions Included:</p>
+            <ul class="build-list">
+                <li>Please rate your current work areas access to daylight and natural views</li>
+                <li>How much impact does your location have on your workplace satisfaction?</li>
+                <li>How well does your current work environment provide the space to meet you and your teams needs?</li>
+                <li>Where are you working during an average work week?
+                </li>
+            </ul>
             <button ng-click="bs.toggleRetainment()" ng-hide="bs.kpisAdded.retainmentAdded" class="btn btn-outline-success">Add to Survey</button>
             <button ng-click="bs.toggleRetainment()" ng-show="bs.kpisAdded.retainmentAdded" class="btn btn-outline-danger">Remove from Survey</button>
         </div>
-        <img src="../images/recruitment.png" class="col-6 img-thumbnail build-survey-pic">
+        <img src="../images/recruitment.png" class="col-4 img-thumbnail build-survey-pic">
     </div>
     <hr>
-    <a ng-href="{{bs.reviewBuildSurveyURL.urlString}}" class="btn btn-outline-danger">Review Survey </a>
+    <a href="{{bs.reviewBuildSurveyURL.urlString}}" class="btn btn-outline-danger">Review Survey </a>
     <div class="space"></div>
