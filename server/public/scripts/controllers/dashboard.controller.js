@@ -9,17 +9,20 @@ myApp.controller('DashboardController', ['DashboardService', 'AdminService', '$h
     // vm.clientRetRecData = DashboardService.clientRetRecData;
     // vm.clientConclusionData = DashboardService.clientConclusionData;
 
-    vm.getClientResponsesDemo = DashboardService.getClientResponsesDemo 
-    vm.getClientResponsesLocation = DashboardService.getClientResponsesLocation
-    vm.getClientResponsesAmenities = DashboardService.getClientResponsesAmenities
+    vm.getClientResponsesDemo = DashboardService.getClientResponsesDemo;
+    vm.getClientResponsesLocation = DashboardService.getClientResponsesLocation;
+    vm.getClientResponsesAmenities = DashboardService.getClientResponsesAmenities;
+    vm.getClientResponsesBrand = DashboardService.getClientResponsesBrand;
+    vm.getClientResponsesRetention = DashboardService.getClientResponsesRetention;
+    vm.getClientResponsesConclusion = DashboardService.getClientResponsesConclusion
 
     vm.getClientResponsesDemo($routeParams.clientId );
     vm.getClientResponsesLocation($routeParams.clientId);
-    vm.getClientResponsesAmenities($routeParams.clientId)
-    // DashboardService.getClientResponsesBrand($routeParams.clientId);
-    // DashboardService.getClientResponsesAmen($routeParams.clientId);
-    // DashboardService.getClientResponsesRetention($routeParams.clientId);
-    // DashboardService.getClientResponsesConclusion($routeParams.clientId);
+    vm.getClientResponsesAmenities($routeParams.clientId);
+    vm.getClientResponsesBrand($routeParams.clientId);
+    vm.getClientResponsesRetention($routeParams.clientId);
+    vm.getClientResponsesConclusion($routeParams.clientId);
+
 
 
 
