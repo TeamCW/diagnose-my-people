@@ -1,10 +1,12 @@
 <header ng-include="'/views/partials/header.html'" class=""></header>
-<div class="container">
+<div class="landing">
     <div>
-        <img class="banner" src="/images/build-banner.png" alt="" width=100%>
+        <img class="banner" src="/images/cushman-landing-cut.png" alt="" width=100%>
     </div>
     <!-- <h1>Build Your Survey</h1>
     <p>Select the categories below you would like to include in your survey.</p> -->
+    <br>
+    <h4>Select the categories below you would like to include in your survey</h4>
     <br>
     <button ng-click="bs.toggleLocation();bs.toggleBrand();bs.toggleAmenities();bs.toggleRetainment();kpisAdded.allAdded = !kpisAdded.allAdded"
         ng-hide="kpisAdded.allAdded" class="btn btn-outline-success">Add All Categories</button>
