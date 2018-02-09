@@ -20,15 +20,29 @@ myApp.service('AdminService', function ($http, $location) {
     }//end getClientInfo
 
     self.deleteClient = function (clientToDelete) {
-        $http({
-            method: 'DELETE',
-            url: '/admin/' + clientToDelete.id,
-        }).then(function (response) {
-            self.getClientInfo();
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this client!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
         })
+            .then((willDelete) => {
+                if (willDelete) {
+                    swal("Client deleted!", {
+                        icon: "success",
+                    });
+                    $http({
+                        method: 'DELETE',
+                        url: '/admin/' + clientToDelete.id,
+                    }).then(function (response) {
+                        self.getClientInfo();
+                    });
+                } else {
+                    swal("Client not deleted");
+                }
+            });
     }//end deleteClient
-
-
 
     self.editClient = function(clientToEdit){
         console.log('clientToEdit:', clientToEdit)

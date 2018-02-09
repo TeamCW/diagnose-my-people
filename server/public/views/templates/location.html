@@ -2,10 +2,12 @@
 <div ng-cloak class="container-fluid survey-background">
   <div class="row">
     <div class="col-lg-10">
-      <div class="progress">
-        <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"
-          style="width:25%">
-          25%
+      <div class="row justify-content-md-center">
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"
+            style="width:25%">
+            25%
+          </div>
         </div>
       </div>
       <!--- tabs -->
@@ -36,32 +38,45 @@
         <br>
         <div ng-repeat="question in sc.location.list | limitTo:sc.locationLimit">
           <div class="survey-questions">{{question.question}}
-              <div class="dropdown" ng-show="question.question_id === 5">
-                <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question5" class="locationDropDowns">
-                </select>
-              </div>
-              <div class="dropdown" ng-show="question.question_id === 6">
-                  <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question6" class="locationDropDowns">
-                    </select>
-              </div>
-              <div class="dropdown" ng-show="question.question_id === 7">
-                  <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question7" class="locationDropDowns">
-                    </select>
-              </div>
-              <!-- slider block -->
+            <div class="dropdown" ng-show="question.question_id === 5">
+              <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question5"
+                class="locationDropDowns">
+              </select>
+            </div>
+            <div class="dropdown" ng-show="question.question_id === 6">
+              <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question6"
+                class="locationDropDowns">
+              </select>
+            </div>
+            <div class="dropdown" ng-show="question.question_id === 7">
+              <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question7"
+                class="locationDropDowns">
+              </select>
+            </div>
+            <!-- slider block -->
+            <div class="row justify-content-md-center">
               <div ng-if="question.question_id === 8 && sc.location.list[3].responses" class="slider-location">
-                  <rzslider rz-slider-model="sc.slider.value.question8" rz-slider-options="{showTicksValues: true, stepsArray: sc.location.list[3].responses }"></rzslider>
+                <rzslider rz-slider-model="sc.slider.value.question8" rz-slider-options="{showTicksValues: true, stepsArray: sc.location.list[3].responses }"></rzslider>
               </div>
               <div ng-if="question.question_id === 9 && sc.location.list[4].responses" class="slider-location">
-                  <rzslider rz-slider-model="sc.slider.value.question9" rz-slider-options="{showTicksValues: true, stepsArray: sc.location.list[4].responses }"></rzslider>
-              </div>                 
-              <br>
-              <br>
+                <rzslider rz-slider-model="sc.slider.value.question9" rz-slider-options="{showTicksValues: true, stepsArray: sc.location.list[4].responses }"></rzslider>
+              </div>
+            </div>
+            <br>
+            <br>
           </div>
         </div>
+        <br>
         <div>
+          <h5>Please enter any additional comments about your Workplace</h5>
+          <input class="mediumText" type="text" ng-model="sc.lastQuestion.response_from_input">
+        </div>
+        <br>
+        <div>
+
           <a href="#amenities/{{sc.client.list[0].survey_hash}}" ng-if="sc.amen.amen">
-            <button type="button" class="btn btn-danger" ng-click="sc.saveResponses( sc.slider.value, sc.client.list[0].id)">
+            <button type="button" class="btn btn-danger" ng-click="sc.saveResponsesUserInput(sc.lastQuestion, sc.client.list[0].id); sc.saveResponses( sc.slider.value, sc.client.list[0].id)">
+
               <span></span> Next
             </button>
           </a>
