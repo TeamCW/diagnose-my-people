@@ -47,41 +47,41 @@ myApp.service('DashboardService', function ($http, $location) {
             console.log('Selected KPI for client:', self.responseData.list);
             for (var i = 0; i < self.responseData.list.length; i++) {
                 if (self.responseData.list[i].kpi_id == 2){
-                    self.locat.locat = !self.locat.locat;
+                    self.locat.locat = true;
                 }
                 if (self.responseData.list[i].kpi_id == 3) {
-                    self.amen.amen = !self.amen.amen;
+                    self.amen.amen = true;
                 }
                 if (self.responseData.list[i].kpi_id == 4) {
-                    self.brand.brand = !self.brand.brand;
+                    self.brand.brand = true;
                 }
                 if (self.responseData.list[i].kpi_id == 5) {
-                    self.retRec.retRec = !self.retRec.retRec;
+                    self.retRec.retRec = true;
                 }
             }
             for (var i = 0; i < self.responseData.list.length; i++) {
                 if (self.responseData.list[i].kpi_id == 1 && self.responseData.list[i].notes_added){
-                    self.demoBlurb.blurb = !self.demoBlurb.blurb;
+                    self.demoBlurb.blurb = true;
                     self.demoBlurbText.text = self.responseData.list[i].notes_added;
                 }
                 if (self.responseData.list[i].kpi_id == 2 && self.responseData.list[i].notes_added){
-                    self.locatBlurb.blurb = !self.locatBlurb.blurb;
+                    self.locatBlurb.blurb = true;
                     self.locatBlurbText.text = self.responseData.list[i].notes_added
                 }
                 if (self.responseData.list[i].kpi_id == 3 && self.responseData.list[i].notes_added ){
-                    self.amenBlurb.blurb = !self.amenBlurb.blurb;
+                    self.amenBlurb.blurb = true;
                     self.amenBlurbText.text = self.responseData.list[i].notes_added;
                 }
                 if (self.responseData.list[i].kpi_id == 4 && self.responseData.list[i].notes_added ){
-                    self.brandBlurb.blurb = !self.brandBlurb.blurb;
+                    self.brandBlurb.blurb = true;
                     self.brandBlurbText.text = self.responseData.list[i].notes_added;
                 }
                 if (self.responseData.list[i].kpi_id == 5 && self.responseData.list[i].notes_added ){
-                    self.retRecBlurb.blurb = !self.retRecBlurb.blurb;
+                    self.retRecBlurb.blurb = true;
                     self.retRecBlurbText.text = self.responseData.list[i].notes_added;
                 }
                 if (self.responseData.list[i].kpi_id == 6 && self.responseData.list[i].notes_added ){
-                    self.concBlurb.blurb = !self.concBlurb.blurb;
+                    self.concBlurb.blurb = true;
                     self.concBlurbText.text = self.responseData.list[i].notes_added;
                 }
             }

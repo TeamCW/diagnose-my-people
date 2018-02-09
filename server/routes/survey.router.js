@@ -251,6 +251,30 @@ router.post('/input', function (req, res) {
     });
 });
 
+router.post('/comment', function (req, res) {
+    console.log('employee response:', req.body);
+    var employeeResponseKpi = req.body.additionalComment.kpi;
+    var employeeResponseInput = req.body.additionalComment.response_from_input;
+    var employeeResponseClient = req.body.clientId;
+    pool.connect(function (errorConnectingToDatabase, client, done) {
+        if (errorConnectingToDatabase) {
+            console.log('error', errorConnectingToDatabase);
+            res.sendStatus(500);
+        } else {
+            client.query(`INSERT INTO employee_kpi_comments (kpi_id, response_from_input, client_id) VALUES ($1, $2, $3); `, [employeeResponseKpi, employeeResponseInput, employeeResponseClient],
+                function (errorMakingDatabaseQuery, result) {
+                    done();
+                    if (errorMakingDatabaseQuery) {
+                        console.log('error', errorMakingDatabaseQuery);
+                        res.sendStatus(500);
+                    } else {
+                        res.send(result.rows);
+                    }
+                });
+        }
+    });
+});
+
 
 router.get('/client-info', function (req, res) {
     var surveyHash = req.query.surveyHash;
