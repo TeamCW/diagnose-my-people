@@ -1,84 +1,127 @@
 <header ng-include="'/views/partials/header.html'" class=""></header>
-<h1>Dashboard</h1>
-<span>
-    <a ng-href="#/user" class="no_underline">
-        <img class="icon" src="vendors/open-iconic/svg/arrow-thick-left.svg"> Back to Admin
-    </a>
-</span>
-<!-- <a ng-href="/#user">Back To Admin Page</a> -->
-<!-- <button ng-click="self.ageDistribution.update();">Update Charts</button>
-{{dc.demo}} {{dc.locat.locat}} {{dc.brand.brand}} {{dc.retRec.retRec}} {{dc.amen.amen}} {{dc.conc}}
 
-{{dc.clientDemoData}} -->
+<div class="container-fluid dashboard-background">
 
-<br>
-<br> 
-<div class="container">
-    <div ng-show="dc.demo">
-        <h3>Demographics: Who Are Your People</h3>
-        <button class="btn btn-outline-danger"  ng-click="edit=true" ng-hide="edit || dc.dashboardService.demoBlurbText.text">Add Comment</button>
-        <button class="btn btn-outline-danger" ng-show="edit"  ng-click="dc.addBlurbDemo(dc.newComment,$routeParams.clientId); edit = !edit">Submit</button>
-        <input type="textarea" ng-show="edit" ng-model="dc.newComment" ng-value="dc.dashboardService.demoBlurbText.text" >
-        <button class="btn btn-outline-danger" ng-show="edit" ng-click="edit = !edit">Cancel</button>
-        <button class="btn btn-outline-danger" ng-if="dc.dashboardService.demoBlurbText.text"  ng-hide="edit"  ng-click="edit=true">Edit</button>
-        <p ng-hide="edit" ng-show="dc.dashboardService.demoBlurbText.text"> {{dc.dashboardService.demoBlurbText.text}} </p>
-        <br>
-        <div class="row">
-            <div class="col-6">
-                What is the age distribution your people?
-                <canvas id="ageDistribution"></canvas>
-            </div>
-            <div class="col-6">
-                What departments do your people work in?
-                <canvas id="departmentDistribution"></canvas>
-            </div>
-        </div>
-        <br>
-        <div class="row">
-
-            <div class="col-6">
-                What word do your people describe your current space as?
-                <canvas id="descriptionDistribution"></canvas>
-            </div>
-            <div class="col-6">
-                How many years have your people worked for you?
-                <canvas id="experienceDistribution"></canvas>
-            </div>
-        </div>
-        <br>
+    <div class="container dashboard-container-background">
+        <a class="linkfloatright" ng-href="/#user">Back To Admin Page</a>
+        <h1>Your Dashboard</h1>
         <hr>
-    </div>
-    <div ng-show="dc.locat.locat">
-        <h3>Location: Where Are Your People?</h3>
-        <button class="btn btn-outline-danger"  ng-click="edit=true" ng-hide="edit || dc.dashboardService.locatBlurbText.text">Add Comment</button>
-        <button class="btn btn-outline-danger" ng-show="edit"  ng-click="dc.addBlurbLocation(dc.newComment,$routeParams.clientId); edit = !edit">Submit</button>
-        <input type="textarea" ng-show="edit" ng-model="dc.newComment" ng-value="dc.dashboardService.locatBlurbText.text" >
-        <button class="btn btn-outline-danger" ng-show="edit" ng-click="edit = !edit">Cancel</button>
-        <button class="btn btn-outline-danger" ng-if="dc.dashboardService.locatBlurbText.text"  ng-hide="edit"  ng-click="edit=true">Edit</button>
-        <p ng-hide="edit" ng-if="dc.dashboardService.locatBlurbText.text"> {{dc.dashboardService.locatBlurbText.text}} </p>
         <br>
-        <div class="row">
-            <div class="col-6">
-                How long are your people's commutes?
-                <canvas id="commuteTimes"></canvas>
+        <div ng-show="dc.demo">
+            <div>
+               <h2>Demographics</h2>
+              <button class="btn btn-outline-danger"  ng-click="edit=true" ng-hide="edit || dc.dashboardService.demoBlurbText.text">Add Comment</button>
+              <button class="btn btn-outline-danger" ng-show="edit"  ng-click="dc.addBlurbDemo(dc.newComment,$routeParams.clientId); edit = !edit">Submit</button>
+              <input type="textarea" ng-show="edit" ng-model="dc.newComment" ng-value="dc.dashboardService.demoBlurbText.text" >
+              <button class="btn btn-outline-danger" ng-show="edit" ng-click="edit = !edit">Cancel</button>
+              <button class="btn btn-outline-danger" ng-if="dc.dashboardService.demoBlurbText.text"  ng-hide="edit"  ng-click="edit=true">Edit</button>
+              <p ng-hide="edit" ng-show="dc.dashboardService.demoBlurbText.text"> {{dc.dashboardService.demoBlurbText.text}} </p>
+              <br>
             </div>
-            <div class="col-6">
-                Are your people satisfied with current parking arrangement?
-                <canvas id="parkingSatisfaction"></canvas>
-            </div>
-        </div>
-        <br>
-        <div class="row">
+            <br>
+            <div class="row">
 
-            <div class="col-6">
-                What mode do they commute by?
-                <br> What mode do they want to commute by?
-                <canvas id="modeOfCommute"></canvas>
+                <div class="col-6 dashboardpadding">
+                    <div class="card text-center">
+                        <div class="chartcardheaderspace"></div>
+                        <div class="kpi-chart-title">What is the age distribution of your people?</div>
+
+                        <canvas id="ageDistribution"></canvas>
+                        <div class="chartcardfooterspace"></div>
+                    </div>
+
+                </div>
+                <div class="col-6 dashboardpadding">
+                    <div class="card text-center">
+                        <div class="chartcardheaderspace"></div>
+                        <div class="kpi-chart-title">What departments do your people work in?</div>
+                        <canvas id="departmentDistribution"></canvas>
+                        <div class="chartcardfooterspace"></div>
+                    </div>
+                </div>
             </div>
-            <div class="col-6">
-                <br> How frequently would people like to work from home?
-                <canvas id="homeworkFrequency"></canvas>
+            <br>
+            <div class="row">
+                <div class="col-6 dashboardpadding">
+                    <div class="card text-center">
+                        <div class="chartcardheaderspace"></div>
+                        <div class="kpi-chart-title">What do your people describe your current space as?</div>
+                        <canvas id="descriptionDistribution"></canvas>
+                        <div class="chartcardfooterspace"></div>
+                    </div>
+                </div>
+                <div class="col-6 dashboardpadding">
+                    <div class="card text-center">
+                        <div class="chartcardheaderspace"></div>
+                        <div class="kpi-chart-title">How is the experience distribution of your people?</div>
+                        <canvas id="experienceDistribution"></canvas>
+                        <div class="chartcardfooterspace"></div>
+                    </div>
+                </div>
+                <br>
+                <hr>
             </div>
+            <div ng-show="dc.locat.locat" >
+
+                    <h2>Location</h2>
+                 
+                  <button class="btn btn-outline-danger"  ng-click="edit=true" ng-hide="edit || dc.dashboardService.locatBlurbText.text">Add Comment</button>
+                  <button class="btn btn-outline-danger" ng-show="edit"  ng-click="dc.addBlurbLocation(dc.newComment,$routeParams.clientId); edit = !edit">Submit</button>
+                  <input type="textarea" ng-show="edit" ng-model="dc.newComment" ng-value="dc.dashboardService.locatBlurbText.text" >
+                   <button class="btn btn-outline-danger" ng-show="edit" ng-click="edit = !edit">Cancel</button>
+                   <button class="btn btn-outline-danger" ng-if="dc.dashboardService.locatBlurbText.text"  ng-hide="edit"  ng-click="edit=true">Edit</button>
+                    <p ng-hide="edit" ng-if="dc.dashboardService.locatBlurbText.text"> {{dc.dashboardService.locatBlurbText.text}} </p>
+                 <br>
+                <br>
+                <div class="row">
+                    <div class="col-6 dashboardpadding">
+                        <div class="card text-center">
+                            <div class="chartcardheaderspace"></div>
+                            <div class="kpi-chart-title">How long are your people's commutes?</div>
+
+                            <canvas id="commuteTimes"></canvas>
+                            <div class="chartcardfooterspace"></div>
+                        </div>
+                    </div>
+                    <div class="col-6 dashboardpadding">
+                        <div class="card text-center">
+                            <div class="chartcardheaderspace"></div>
+                            <div class="kpi-chart-title">Are your people satisfied with the current parking arrangement?</div>
+
+                            <canvas id="parkingSatisfaction"></canvas>
+                            <div class="chartcardfooterspace"></div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+
+                    <div class="col-6 dashboardpadding">
+                        <div class="card text-center">
+                            <div class="chartcardheaderspace"></div>
+                            <div class="kpi-chart-title">
+                                What mode do they commute by?
+                                <br> What mode do they want to commute by?
+                            </div>
+
+                            <canvas id="modeOfCommute"></canvas>
+                            <div class="chartcardfooterspace"></div>
+                        </div>
+                    </div>
+                    <div class="col-6 dashboardpadding">
+                        <div class="card text-center">
+                            <div class="chartcardheaderspace"></div>
+                            <div class="kpi-chart-title">How frequently would people like to work from home?</div>
+
+                            <canvas id="homeworkFrequency"></canvas>
+                            <div class="chartcardfooterspace"></div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <hr>
+            </div>
+<<<<<<< HEAD
         </div>
         <br>
         <hr>
@@ -86,29 +129,54 @@
     <div ng-show="dc.amen.amen">
         <h3>Amenities: What amenities help your people?</h3>
         <button class="btn btn-outline-danger"  ng-click="edit=true" ng-hide="edit || dc.dashboardService.amenBlurbText.text">Add Comment</button>
+=======
+            <div ng-show="dc.amen.amen">
+                    <h2>Amenities</h2>
+                <button class="btn btn-outline-danger"  ng-click="edit=true" ng-hide="edit || dc.dashboardService.amenBlurbText.text">Add Comment</button>
+>>>>>>> master
         <button class="btn btn-outline-danger" ng-show="edit"  ng-click="dc.addBlurbAmen(dc.newComment,$routeParams.clientId); edit = !edit">Submit</button>
         <input type="textarea" ng-show="edit" ng-model="dc.newComment" ng-value="dc.dashboardService.amenBlurbText.text" >
         <button class="btn btn-outline-danger" ng-show="edit" ng-click="edit = !edit">Cancel</button>
         <button class="btn btn-outline-danger" ng-if="dc.dashboardService.amenBlurbText.text"  ng-hide="edit"  ng-click="edit=true">Edit</button>
         <p ng-hide="edit" ng-if="dc.dashboardService.amenBlurbText.text"> {{dc.dashboardService.amenBlurbText.text}} </p>
-        <br>
-        <div class="row">
-            <div class="col-6">
-                How frequent do your people use your current buildings amenities?
-                <canvas id="currentAmenityFrequency"></canvas>
-            </div>
-            <div class="col-6">
-                How frequent would your people use a 3rd workspace like a lounge, coffee shop or common space?
-                <canvas id="thirdSpaceFrequency"></canvas>
-            </div>
-        </div>
-        <br>
-        <div class="row">
+                <br>
+                <div class="row">
+                    <div class="col-6 dashboardpadding">
+                        <div class="card text-center">
+                            <div class="chartcardheaderspace"></div>
+                            <div class="kpi-chart-title">How frequent do your people use your current buildings amenities?</div>
 
-            <div class="col-6">
-                What Amenities do your people value the most on a scale of 5?
-                <canvas id="amenitiesValued"></canvas>
+                            <canvas id="currentAmenityFrequency"></canvas>
+                            <div class="chartcardfooterspace"></div>
+                        </div>
+                    </div>
+                    <div class="col-6 dashboardpadding">
+                        <div class="card text-center">
+                            <div class="chartcardheaderspace"></div>
+                            <div class="kpi-chart-title">How frequent would your people use a 3rd workspace like a lounge, coffee shop or common space?</div>
+
+                            <canvas id="thirdSpaceFrequency"></canvas>
+                            <div class="chartcardfooterspace"></div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+
+                    <div class="col-6 dashboardpadding">
+                        <div class="card text-center">
+                            <div class="chartcardheaderspace"></div>
+                            <div class="kpi-chart-title">What Amenities do your people value the most on a scale of 5?</div>
+
+                            <canvas id="amenitiesValued"></canvas>
+                            <div class="chartcardfooterspace"></div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <hr>
             </div>
+<<<<<<< HEAD
         </div>
         <br>
         <hr>
@@ -116,32 +184,103 @@
 
     <div ng-show="dc.brand.brand">
         <h3>Brand: How do your people feel about your brand?</h3>
+=======
+            <div ng-show="dc.brand.brand">
+                <div>
+                    <h2>Brand</h2>
+                </div>
+          <h3>Brand: How do your people feel about your brand?</h3>
+>>>>>>> master
         <button class="btn btn-outline-danger"  ng-click="edit=true" ng-hide="edit || dc.dashboardService.brandBlurbText.text">Add Comment</button>
         <button class="btn btn-outline-danger" ng-show="edit"  ng-click="dc.addBlurbBrand(dc.newComment,$routeParams.clientId); edit = !edit">Submit</button>
         <input type="textarea" ng-show="edit" ng-model="dc.newComment" ng-value="dc.dashboardService.brandBlurbText.text" >
         <button class="btn btn-outline-danger" ng-show="edit" ng-click="edit = !edit">Cancel</button>
         <button class="btn btn-outline-danger" ng-if="dc.dashboardService.brandBlurbText.text"  ng-hide="edit"  ng-click="edit=true">Edit</button>
         <p ng-hide="edit" ng-if="dc.dashboardService.brandBlurbText.text"> {{dc.dashboardService.brandBlurbText.text}} </p>
-        <br>
-        <div class="row">
-            <div class="col-6">
-                How do your people feel about enviromental stewardship and sustainability?
                 <br>
-                <canvas id="stateOfSustainability"></canvas>
-            </div>
-            <div class="col-6">
-                Do your people think you current space reflects your brand and mission?
+                <div class="row">
+                    <div class="col-6 dashboardpadding">
+                        <div class="card text-center">
+                            <div class="chartcardheaderspace"></div>
+                            <div class="kpi-chart-title">How do your people feel about enviromental stewardship and sustainability?</div>
+
+                            <br>
+                            <canvas id="stateOfSustainability"></canvas>
+                            <div class="chartcardfooterspace"></div>
+                        </div>
+                    </div>
+                    <div class="col-6 dashboardpadding">
+                        <div class="card text-center">
+                            <div class="chartcardheaderspace"></div>
+                            <div class="kpi-chart-title">Do your people think you current space reflects your brand and mission?</div>
+
+                            <br>
+                            <canvas id="brandReflection"></canvas>
+                            <div class="chartcardfooterspace"></div>
+                        </div>
+                    </div>
+                </div>
                 <br>
-                <canvas id="brandReflection"></canvas>
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-6">
-                What impression are your people seeing others have about your current space?
+                <div class="row">
+                    <div class="col-6 dashboardpadding">
+                        <div class="card text-center">
+                            <div class="chartcardheaderspace"></div>
+                            <div class="kpi-chart-title">What impression are your people seeing others have about your current space?</div>
+
+                            <br>
+                            <canvas id="currentImpression"></canvas>
+                            <div class="chartcardfooterspace"></div>
+                        </div>
+                    </div>
+                    <div class="col-6 dashboardpadding">
+                        <div class="card text-center">
+                            <div class="chartcardheaderspace"></div>
+                            <div class="kpi-chart-title">How do your people rate your current public exposure?</div>
+
+                            <br>
+                            <canvas id="currentExposure"></canvas>
+                            <div class="chartcardfooterspace"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 dashboardpadding">
+                        <div class="card text-center">
+                            <div class="chartcardheaderspace"></div>
+                            <div class="kpi-chart-title">How much importance do your people place on the company having a public face?</div>
+
+                            <br>
+                            <canvas id="publicExposureImportance"></canvas>
+                            <div class="chartcardfooterspace"></div>
+                        </div>
+                    </div>
+                    <div class="col-6 dashboardpadding">
+                        <div class="card text-center">
+                            <div class="chartcardheaderspace"></div>
+                            <div class="kpi-chart-title">How much impact do your people think a new space would have on your public face?</div>
+
+                            <br>
+                            <canvas id="publicExposureChange"></canvas>
+                            <div class="chartcardfooterspace"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 dashboardpadding">
+                        <div class="card text-center">
+                            <div class="chartcardheaderspace"></div>
+                            <div class="kpi-chart-title">How do your people think your current space compares with others they visited and worked in?</div>
+
+                            <br>
+                            <canvas id="spaceComparability"></canvas>
+                            <div class="chartcardfooterspace"></div>
+                        </div>
+                    </div>
+                </div>
                 <br>
-                <canvas id="currentImpression"></canvas>
+                <hr>
             </div>
+<<<<<<< HEAD
             <div class="col-6">
                 How do your people rate your current public exposure?
                 <br>
@@ -175,40 +314,109 @@
 
         <h3>Recruitment and Retention: Do your people want to work in your space?</h3>
         <button class="btn btn-outline-danger"  ng-click="edit=true" ng-hide="edit || dc.dashboardService.retRecBlurbText.text">Add Comment</button>
+=======
+            <div ng-show="dc.retRec.retRec">
+                    <h2>Recruitment and Retention</h2>
+                     <button class="btn btn-outline-danger"  ng-click="edit=true" ng-hide="edit || dc.dashboardService.retRecBlurbText.text">Add Comment</button>
+>>>>>>> master
         <button class="btn btn-outline-danger" ng-show="edit"  ng-click="dc.addBlurbRet(dc.newComment,$routeParams.clientId); edit = !edit">Submit</button>
         <input type="textarea" ng-show="edit" ng-model="dc.newComment" ng-value="dc.dashboardService.retRecBlurbText.text" >
         <button class="btn btn-outline-danger" ng-show="edit" ng-click="edit = !edit">Cancel</button>
         <button class="btn btn-outline-danger" ng-if="dc.dashboardService.retRecBlurbText.text"  ng-hide="edit"  ng-click="edit=true">Edit</button>
         <p ng-hide="edit" ng-if="dc.dashboardService.retRecBlurbText.text"> {{dc.dashboardService.retRecBlurbText.text}} </p>
         <br>
-        <div class="row">
-            <div class="col-6">
-                How do your people feel about their current access to natural views and daylight?
                 <br>
-                <canvas id="daylightAccess"></canvas>
-            </div>
-            <div class="col-6">
-                How impactful is your location on your people's workplace satisfaction?
+                <div class="row">
+                    <div class="col-6 dashboardpadding">
+                        <div class="card text-center">
+                            <div class="chartcardheaderspace"></div>
+                            <div class="kpi-chart-title">How do your people feel about their current access to natural views and daylight?</div>
+
+                            <br>
+                            <canvas id="daylightAccess"></canvas>
+                            <div class="chartcardfooterspace"></div>
+                        </div>
+                    </div>
+                    <div class="col-6 dashboardpadding">
+                        <div class="card text-center">
+                            <div class="chartcardheaderspace"></div>
+                            <div class="kpi-chart-title">How impactful is location on your people's workplace satisfaction?</div>
+
+                            <br>
+                            <canvas id="locationImpact"></canvas>
+                            <div class="chartcardfooterspace"></div>
+                        </div>
+                    </div>
+                </div>
                 <br>
-                <canvas id="locationImpact"></canvas>
+                <div class="row">
+                    <div class="col-6 dashboardpadding">
+                        <div class="card text-center">
+                            <div class="chartcardheaderspace"></div>
+                            <div class="kpi-chart-title">Is the current space meeting your people's needs?</div>
+
+                            <br>
+                            <canvas id="sufficiency"></canvas>
+                            <div class="chartcardfooterspace"></div>
+                        </div>
+                    </div>
+                    <div class="col-6 dashboardpadding">
+                        <div class="card text-center">
+                            <div class="chartcardheaderspace"></div>
+                            <div class="kpi-chart-title">Where do they work?</div>
+
+                            <br>
+                            <canvas id="whereTheyWork"></canvas>
+                            <div class="chartcardfooterspace"></div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <hr>
             </div>
+            <div ng-show="dc.conc">
+                    <h2>Satisfaction</h2>
+                <button class="btn btn-outline-danger"  ng-click="edit=true" ng-hide="edit || dc.dashboardService.concBlurbText.text">Add Comment</button>
+                <button class="btn btn-outline-danger" ng-show="edit"  ng-click="dc.addBlurbConc(dc.newComment,$routeParams.clientId); edit = !edit">Submit</button>
+                <input type="textarea" ng-show="edit" ng-model="dc.newComment" ng-value="dc.dashboardService.concBlurbText.text" >
+                <button class="btn btn-outline-danger" ng-show="edit" ng-click="edit = !edit">Cancel</button>
+                <button class="btn btn-outline-danger" ng-if="dc.dashboardService.concBlurbText.text"  ng-hide="edit"  ng-click="edit=true">Edit</button>
+                 <p ng-hide="edit" ng-if="dc.dashboardService.concBlurbText.text"> {{dc.dashboardService.concBlurbText.text}} </p>
+                <br>
+                <div class="row">
+
+                    <div class="col-6 dashboardpadding">
+                        <div class="card text-center">
+                            <div class="chartcardheaderspace"></div>
+                            <div class="kpi-chart-title">What do your people think your current space fosters?</div>
+                            <br>
+                            <canvas id="fruitsOfSpace"></canvas>
+                            <div class="chartcardfooterspace"></div>
+                        </div>
+                    </div>
+                    <div class="col-6 dashboardpadding">
+                        <div class="card text-center">
+                            <div class="chartcardheaderspace"></div>
+                            <div class="kpi-chart-title">What is there satisfaction with the current space?</div>
+                            <br>
+                            <canvas id="satisfaction"></canvas>
+                            <div class="chartcardfooterspace"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-12">
+                    Employee Comments:
+                    <div></div>
+                </div>
+            </div>
+            <br>
+            <hr>
         </div>
-        <br>
-        <div class="row">
-            <div class="col-6">
-                Is your current space meeting your people's needs?
-                <br>
-                <canvas id="sufficiency"></canvas>
-            </div>
-            <div class="col-6">
-                Where do your people work during the average week?
-                <br>
-                <canvas id="whereTheyWork"></canvas>
-            </div>
-        </div>
-        <br>
-        <hr>
     </div>
+<<<<<<< HEAD
 
     <div ng-show="dc.conc">
         <h3>Satisfaction? Are your people satisfied with your current space?</h3>
@@ -308,4 +516,6 @@
 
 
 
+=======
+>>>>>>> master
 </div>

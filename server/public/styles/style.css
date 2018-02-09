@@ -313,10 +313,6 @@
     color: white;
 }
 
-.card {
-    background-color: #A7A8AA;
-    color: white;
-}
 
 .card.main {
     background-color: #E4002B;
@@ -435,4 +431,37 @@ select {
     font-family: Arial, Helvetica, sans-serif;
     color: #6b6d6d;
     font-size: .8em;
+}
+
+.dashboardpadding {
+    padding: 1em;
+}
+
+.dashboardmargin {
+    margin: 10px;
+}
+
+.kpi-chart-title {
+    min-height: 4em;
+}
+
+.chartcardfooterspace {
+    min-height: 4em;
+}
+
+.chartcardheaderspace {
+    min-height: 1em;
+}
+
+.linkfloatright {
+    float: right;
+}
+
+.dashboard-background {
+    background-color: white;
+}
+
+.dashboard-container-background {
+    background-color: white;
+>>>>>>> master
 }
