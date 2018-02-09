@@ -302,6 +302,13 @@
     background-color: #E4002B;
     color: white;
 }
+
+.card.about {
+    background-color: #A7A8AA;
+    color: white;
+    height: 100%;
+    /* height: 34em; */
+}
 .landing {
     background-color: white;
     /* background: linear-gradient(#e4002b, black); */
