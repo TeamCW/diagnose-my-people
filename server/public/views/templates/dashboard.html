@@ -1,4 +1,5 @@
 <header ng-include="'/views/partials/header.html'" class=""></header>
+
 <div class="container-fluid dashboard-background">
 
     <div class="container dashboard-container-background">
@@ -120,9 +121,19 @@
                 <br>
                 <hr>
             </div>
+<<<<<<< HEAD
+        </div>
+        <br>
+        <hr>
+    </div>
+    <div ng-show="dc.amen.amen">
+        <h3>Amenities: What amenities help your people?</h3>
+        <button class="btn btn-outline-danger"  ng-click="edit=true" ng-hide="edit || dc.dashboardService.amenBlurbText.text">Add Comment</button>
+=======
             <div ng-show="dc.amen.amen">
                     <h2>Amenities</h2>
                 <button class="btn btn-outline-danger"  ng-click="edit=true" ng-hide="edit || dc.dashboardService.amenBlurbText.text">Add Comment</button>
+>>>>>>> master
         <button class="btn btn-outline-danger" ng-show="edit"  ng-click="dc.addBlurbAmen(dc.newComment,$routeParams.clientId); edit = !edit">Submit</button>
         <input type="textarea" ng-show="edit" ng-model="dc.newComment" ng-value="dc.dashboardService.amenBlurbText.text" >
         <button class="btn btn-outline-danger" ng-show="edit" ng-click="edit = !edit">Cancel</button>
@@ -165,11 +176,21 @@
                 <br>
                 <hr>
             </div>
+<<<<<<< HEAD
+        </div>
+        <br>
+        <hr>
+    </div>
+
+    <div ng-show="dc.brand.brand">
+        <h3>Brand: How do your people feel about your brand?</h3>
+=======
             <div ng-show="dc.brand.brand">
                 <div>
                     <h2>Brand</h2>
                 </div>
           <h3>Brand: How do your people feel about your brand?</h3>
+>>>>>>> master
         <button class="btn btn-outline-danger"  ng-click="edit=true" ng-hide="edit || dc.dashboardService.brandBlurbText.text">Add Comment</button>
         <button class="btn btn-outline-danger" ng-show="edit"  ng-click="dc.addBlurbBrand(dc.newComment,$routeParams.clientId); edit = !edit">Submit</button>
         <input type="textarea" ng-show="edit" ng-model="dc.newComment" ng-value="dc.dashboardService.brandBlurbText.text" >
@@ -259,9 +280,45 @@
                 <br>
                 <hr>
             </div>
+<<<<<<< HEAD
+            <div class="col-6">
+                How do your people rate your current public exposure?
+                <br>
+                <canvas id="currentExposure"></canvas>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                How much importance do your people place on the company having a public face?
+                <br>
+                <canvas id="publicExposureImportance"></canvas>
+            </div>
+            <div class="col-6">
+                How much impact do your people think a new space would have on your public face?
+                <br>
+                <canvas id="publicExposureChange"></canvas>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                How do your people think your current space compares with others they visited and worked in?
+                <br>
+                <canvas id="spaceComparability"></canvas>
+            </div>
+        </div>
+        <br>
+        <hr>
+    </div>
+
+    <div ng-show="dc.retRec.retRec">
+
+        <h3>Recruitment and Retention: Do your people want to work in your space?</h3>
+        <button class="btn btn-outline-danger"  ng-click="edit=true" ng-hide="edit || dc.dashboardService.retRecBlurbText.text">Add Comment</button>
+=======
             <div ng-show="dc.retRec.retRec">
                     <h2>Recruitment and Retention</h2>
                      <button class="btn btn-outline-danger"  ng-click="edit=true" ng-hide="edit || dc.dashboardService.retRecBlurbText.text">Add Comment</button>
+>>>>>>> master
         <button class="btn btn-outline-danger" ng-show="edit"  ng-click="dc.addBlurbRet(dc.newComment,$routeParams.clientId); edit = !edit">Submit</button>
         <input type="textarea" ng-show="edit" ng-model="dc.newComment" ng-value="dc.dashboardService.retRecBlurbText.text" >
         <button class="btn btn-outline-danger" ng-show="edit" ng-click="edit = !edit">Cancel</button>
@@ -359,4 +416,106 @@
             <hr>
         </div>
     </div>
+<<<<<<< HEAD
+
+    <div ng-show="dc.conc">
+        <h3>Satisfaction? Are your people satisfied with your current space?</h3>
+        <button class="btn btn-outline-danger"  ng-click="edit=true" ng-hide="edit || dc.dashboardService.concBlurbText.text">Add Comment</button>
+        <button class="btn btn-outline-danger" ng-show="edit"  ng-click="dc.addBlurbConc(dc.newComment,$routeParams.clientId); edit = !edit">Submit</button>
+        <input type="textarea" ng-show="edit" ng-model="dc.newComment" ng-value="dc.dashboardService.concBlurbText.text" >
+        <button class="btn btn-outline-danger" ng-show="edit" ng-click="edit = !edit">Cancel</button>
+        <button class="btn btn-outline-danger" ng-if="dc.dashboardService.concBlurbText.text"  ng-hide="edit"  ng-click="edit=true">Edit</button>
+        <p ng-hide="edit" ng-if="dc.dashboardService.concBlurbText.text"> {{dc.dashboardService.concBlurbText.text}} </p>
+        <br>
+        <div class="row">
+
+            <div class="col-6">
+                What do your people think your current space fosters?
+                <br>
+                <canvas id="fruitsOfSpace"></canvas>
+            </div>
+            <div class="col-6">
+                What is your people's overall satisfaction?
+                <br>
+                <canvas id="satisfaction"></canvas>
+            </div>
+        </div>
+        <br>
+        <br>
+        <hr>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Examples of chart.js graphs -->
+
+
+    <!-- <div class="container">
+        <div class="row">
+            <div class="col-6">
+                How old are your people?
+                <canvas class="card" id="barChart"></canvas>
+            </div>
+            <div class="col-6">
+                What is departments do my people work in?
+                <canvas class="card" id="lineChart"></canvas>
+            </div>
+        </div>
+
+        <hr>
+        <div class="row">
+            <div class="col-6">
+                To Whom are your people?
+                <canvas class="card" id="pieChart"></canvas>
+            </div>
+            <div class="col-6">
+                From Which are your people?
+                <canvas class="card" id="doughnutChart"></canvas>
+            </div>
+
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-6">
+                What are your people?
+                <canvas class="card" id="polarChart"></canvas>
+            </div>
+            <div class="col-6">
+                When are your people?
+                <canvas class="card" id="radarChart"></canvas>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-6">
+                Where are your people?
+                <canvas class="card" id="mixedChart"></canvas>
+            </div>
+            <div class="col-6">
+                Who are your people?
+                <canvas class="card" id="bubbleChart"></canvas>
+            </div>
+        </div> -->
+
+
+
+
+
+
+
+
+
+
+=======
+>>>>>>> master
 </div>
