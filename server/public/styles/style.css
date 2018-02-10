@@ -312,10 +312,6 @@
     color: white;
 }
 
-.card {
-    background-color: #A7A8AA;
-    color: white;
-}
 
 .card.main {
     background-color: #E4002B;
@@ -421,4 +417,36 @@ select {
 .adminTable {
     
     border-collapse: collapse; 
+}
+
+.dashboardpadding {
+    padding: 1em;
+}
+
+.dashboardmargin {
+    margin: 10px;
+}
+
+.kpi-chart-title {
+    min-height: 4em;
+}
+
+.chartcardfooterspace {
+    min-height: 4em;
+}
+
+.chartcardheaderspace {
+    min-height: 1em;
+}
+
+.linkfloatright {
+    float: right;
+}
+
+.dashboard-background {
+    background-color: white;
+}
+
+.dashboard-container-background {
+    background-color: white;
 }
