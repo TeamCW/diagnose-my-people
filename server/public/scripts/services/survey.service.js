@@ -232,6 +232,60 @@ myApp.service('SurveyService', function ($http, $location) {
     };
 
 
+    self.saveEmployeeLocationComments = function (additionalComment, clientId) {
+        console.log('in saveResponsesUserInput', additionalComment);
+        additionalComment.kpi = '2';
+        $http({
+            method: 'POST',
+            url: '/survey/comment',
+            data: {additionalComment, clientId}
+        }).then(function (response) {
+            console.log('saveComment = response', response);
+     
+        })
+     };
+
+     self.saveEmployeeAmenitiesComments = function (additionalComment, clientId) {
+        console.log('in saveResponsesUserInput', additionalComment);
+        additionalComment.kpi = '3';
+        $http({
+            method: 'POST',
+            url: '/survey/comment',
+            data: {additionalComment, clientId}
+        }).then(function (response) {
+            console.log('saveComment = response', response);
+     
+        })
+     };
+
+     self.saveEmployeeBrandComments = function (additionalComment, clientId) {
+        console.log('in saveResponsesUserInput', additionalComment);
+        additionalComment.kpi = '4';
+        $http({
+            method: 'POST',
+            url: '/survey/comment',
+            data: {additionalComment, clientId}
+        }).then(function (response) {
+            console.log('saveComment = response', response);
+     
+        })
+     };
+
+     self.saveEmployeeRetentionComments = function (additionalComment, clientId) {
+        console.log('in saveResponsesUserInput', additionalComment);
+        additionalComment.kpi = '5';
+        $http({
+            method: 'POST',
+            url: '/survey/comment',
+            data: {additionalComment, clientId}
+        }).then(function (response) {
+            console.log('saveComment = response', response);
+     
+        })
+     };
+    
+
+
      //adding last question response to the database
  self.saveResponsesUserInput = function (lastQuestion, clientId) {
    console.log('in saveResponsesUserInput', lastQuestion);
@@ -276,16 +330,16 @@ self.getSelectedKpi = function (surveyHash) {
         console.log('Selected KPI for client:', self.responseData.list);
         for (var i = 0; i < self.responseData.list.length; i++) {
             if (self.responseData.list[i].kpi_id == 2){
-                self.locat.locat = !self.locat.locat;
+                self.locat.locat = true;
             }
             if (self.responseData.list[i].kpi_id == 3) {
-                self.amen.amen = !self.amen.amen;
+                self.amen.amen = true;
             }
             if (self.responseData.list[i].kpi_id == 4) {
-                self.branding.branding = !self.branding.branding;
+                self.branding.branding = true;
             }
             if (self.responseData.list[i].kpi_id == 5) {
-                self.retRec.retRec = !self.retRec.retRec;
+                self.retRec.retRec = true;
             }
         }
         console.log('locat:', self.locat.locat);
