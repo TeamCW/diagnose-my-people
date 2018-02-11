@@ -107,6 +107,18 @@ CREATE TABLE "client" (
 
 
 
+CREATE TABLE "employee_kpi_comments" (
+	"id" serial NOT NULL,
+	"client_id" integer NOT NULL,
+	"kpi_id" integer NOT NULL,
+	"response_from_input" varchar,
+	CONSTRAINT employee_kpi_comments_pk PRIMARY KEY ("id")
+) WITH (
+  OIDS=FALSE
+);
+
+
+
 
 ALTER TABLE "questions" ADD CONSTRAINT "questions_fk0" FOREIGN KEY ("kpi_id") REFERENCES "category"("id");
 ALTER TABLE "questions" ADD CONSTRAINT "questions_fk1" FOREIGN KEY ("style_id") REFERENCES "question_styles"("id");
@@ -123,6 +135,11 @@ ALTER TABLE "employee_results" ADD CONSTRAINT "employee_results_fk2" FOREIGN KEY
 
 ALTER TABLE "selected_kpi" ADD CONSTRAINT "selected_kpi_fk0" FOREIGN KEY ("client_id") REFERENCES "client"("id") ON DELETE CASCADE;
 ALTER TABLE "selected_kpi" ADD CONSTRAINT "selected_kpi_fk1" FOREIGN KEY ("kpi_id") REFERENCES "category"("id");
+
+
+ALTER TABLE "employee_kpi_comments" ADD CONSTRAINT "employee_kpi_comments_fk0" FOREIGN KEY ("client_id") REFERENCES "client"("id") ON DELETE CASCADE;
+ALTER TABLE "employee_kpi_comments" ADD CONSTRAINT "employee_kpi_comments_fk1" FOREIGN KEY ("kpi_id") REFERENCES "category"("id");
+
 
 
 

@@ -1,5 +1,9 @@
 <header ng-include="'/views/partials/header.html'" class=""></header>
-<div class="container-fluid">
+<div class="landing">
+        <div>
+                <img class="banner" src="/images/cushman-landing-cut.png" alt="" width=100%>
+            </div>
+            <br>
     <div class="row justify-content-md-center">
         <div class="col-md-4">
             <div class="card admin-review-cards">
@@ -44,6 +48,9 @@
             </div>
         </div>
     </div>
+    <br>
+    <hr>
+    <h4>Selected Survey Categories</h4>
     <br>
     <button ng-hide="addCategory" class="btn btn-outline-danger" ng-click="asr.getNotSelected(); addCategory = !addCategory">Add Survey Category</button>
     <button ng-show="addCategory" class="btn btn-outline-danger " ng-click="addCategory = !addCategory">Done Adding</button>

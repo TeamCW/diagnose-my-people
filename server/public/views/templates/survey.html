@@ -5,8 +5,8 @@
         </div>
     </div>
     <div class="row justify-content-md-center">
-        <div class="col-md-1.5">
-                <h2 class="survey-title">{{sc.client.list[0].organization}} Workspace Survey</h2>
+        <div class="col-md-1.5 company-name">
+                <h2>{{sc.client.list[0].organization}} Workspace Survey</h2>
         </div>
     </div>
   <div class="row">
@@ -25,19 +25,19 @@
           <li class="active survey-tabs">
             <a class="active tab-no-decor" href="#survey/{{sc.client.list[0].survey_hash}}">My People</a>
           </li>
-          <li class="survey-tabs" ng-if="sc.locat.locat"  >
+          <li class="survey-tabs" ng-show="sc.surveyService.locat.locat"  >
             <a class="tab-no-decor" href="#location/{{sc.client.list[0].survey_hash}}">My Workplace</a>
           </li>
           <br>
-          <li class="survey-tabs" ng-if="sc.amen.amen" >
+          <li class="survey-tabs" ng-show="sc.surveyService.amen.amen" >
             <a class="tab-no-decor" href="#amenities/{{sc.client.list[0].survey_hash}}">My Amenities</a>
           </li>
           <br>
-          <li class="survey-tabs" ng-if="sc.branding.branding" >
+          <li class="survey-tabs" ng-show="sc.surveyService.branding.branding" >
             <a class="tab-no-decor" href="#brand/{{sc.client.list[0].survey_hash}}">My Company</a>
           </li>
           <br>
-          <li class="survey-tabs" ng-if="sc.retRec.retRec" >
+          <li class="survey-tabs" ng-show="sc.surveyService.retRec.retRec" >
             <a class="tab-no-decor" href="#retention/{{sc.client.list[0].survey_hash}}">My Worklife</a>
           </li>
           <li class="survey-tabs">
@@ -69,28 +69,28 @@
             </div>
           </div>
           <br>
-          <a href="#location/{{sc.client.list[0].survey_hash}}" ng-if="sc.locat.locat" >
-            <button type="button" class="btn btn-danger" ng-click="sc.saveResponses( sc.slider.value, sc.client.list[0].id)">
+          <a href="#location/{{sc.client.list[0].survey_hash}}" ng-if="sc.surveyService.locat.locat" >
+            <button type="button" class="btn btn-danger" ng-click="sc.saveResponsesUserInput(sc.lastQuestion, sc.client.list[0].id); sc.saveResponses( sc.slider.value, sc.client.list[0].id)">
               <span></span> Next
             </button>
           </a>
-          <a href="#amenities/{{sc.client.list[0].survey_hash}}" ng-if="sc.amen.amen && !sc.locat.locat" >
-            <button type="button" class="btn btn-danger" ng-click="sc.saveResponses( sc.slider.value, sc.client.list[0].id)">
+          <a href="#amenities/{{sc.client.list[0].survey_hash}}" ng-if="sc.surveyService.amen.amen && !sc.surveyService.locat.locat" >
+            <button type="button" class="btn btn-danger" ng-click="sc.saveResponsesUserInput(sc.lastQuestion, sc.client.list[0].id); sc.saveResponses( sc.slider.value, sc.client.list[0].id)">
               <span></span> Next
             </button>
           </a>
-          <a href="#brand{{sc.client.list[0].survey_hash}}" ng-if="sc.branding.branding && !sc.amen.amen && !sc.locat.locat" >
-            <button type="button" class="btn btn-danger" ng-click="sc.saveResponses( sc.slider.value, sc.client.list[0].id)">
+          <a href="#brand{{sc.client.list[0].survey_hash}}" ng-if="sc.surveyService.branding.branding && !sc.surveyService.amen.amen && !sc.surveyService.locat.locat" >
+            <button type="button" class="btn btn-danger" ng-click="sc.saveResponsesUserInput(sc.lastQuestion, sc.client.list[0].id); sc.saveResponses( sc.slider.value, sc.client.list[0].id)">
               <span></span> Next
             </button>
           </a>
-          <a href="#retention/{{sc.client.list[0].survey_hash}}" ng-if="sc.retRec.retRec && !sc.branding.branding && !sc.amen.amen && !sc.locat.locat" >
-            <button type="button" class="btn btn-danger" ng-click="sc.saveResponses( sc.slider.value, sc.client.list[0].id)">
+          <a href="#retention/{{sc.client.list[0].survey_hash}}" ng-if="sc.surveyService.retRec.retRec && !sc.surveyService.branding.branding && !sc.surveyService.amen.amen && !sc.surveyService.locat.locat" >
+            <button type="button" class="btn btn-danger" ng-click="sc.saveResponsesUserInput(sc.lastQuestion, sc.client.list[0].id); sc.saveResponses( sc.slider.value, sc.client.list[0].id)">
               <span></span> Next
             </button>
           </a>
-          <a href="#conclusion/{{sc.client.list[0].survey_hash}}" ng-if="!sc.locat.locat && !sc.amen.amen && !sc.branding.branding && !sc.retRec.retRec;" >
-            <button type="button" class="btn btn-danger" ng-click="sc.saveResponses( sc.slider.value, sc.client.list[0].id)">
+          <a href="#conclusion/{{sc.client.list[0].survey_hash}}" ng-if="!sc.surveyService.locat.locat && !sc.surveyService.amen.amen && !sc.surveyService.branding.branding && !sc.surveyService.retRec.retRec;" >
+            <button type="button" class="btn btn-danger" ng-click="sc.saveResponsesUserInput(sc.lastQuestion, sc.client.list[0].id); sc.saveResponses( sc.slider.value, sc.client.list[0].id)">
               <span></span> Next
             </button>
           </a>

@@ -7,12 +7,7 @@ myApp.controller('SurveyController', function (SurveyService, $routeParams) {
  vm.getSelectedKpi = SurveyService.getSelectedKpi;
  vm.getSelectedKpi($routeParams.surveyHash);
  
- vm.demo = SurveyService.demo;
- vm.locat = SurveyService.locat;
- vm.branding = SurveyService.branding;
- vm.retRec = SurveyService.retRec;
- vm.amen = SurveyService.amen;
- vm.conc = SurveyService.conc;
+
  console.log('controller booleans:',vm.demo, vm.branding, vm.retRec, vm.locat, vm.amen, vm.conc)
 
 
@@ -38,6 +33,12 @@ myApp.controller('SurveyController', function (SurveyService, $routeParams) {
   vm.lastQuestion = SurveyService.lastQuestion;
   vm.client = SurveyService.client;
   vm.addCount = SurveyService.addCount;
+  vm.saveEmployeeLocationComments = SurveyService.saveEmployeeLocationComments;
+  vm.saveEmployeeAmenitiesComments = SurveyService.saveEmployeeAmenitiesComments;
+  vm.saveEmployeeBrandComments = SurveyService.saveEmployeeBrandComments;
+  vm.saveEmployeeRetentionComments = SurveyService.saveEmployeeRetentionComments;
+  vm.additionalComment = SurveyService.additionalComment;
+
 
 
   //GET request functions for the survey views

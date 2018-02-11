@@ -25,20 +25,20 @@
                     <li class="survey-tabs">
                         <a class="tab-no-decor" href="#survey/{{sc.client.list[0].survey_hash}}">My People</a>
                     </li>
-                    <li class="survey-tabs">
+                    <li class="survey-tabs" ng-show="sc.surveyService.locat.locat">
                         <a class="tab-no-decor" href="#location/{{sc.client.list[0].survey_hash}}">My Workplace</a>
                     </li>
-                    <li class="survey-tabs">
+                    <li class="survey-tabs" ng-show="sc.surveyService.amen.amen">
                         <a class="tab-no-decor" href="#amenities/{{sc.client.list[0].survey_hash}}">My Amenities</a>
                     </li>
-                    <li class="survey-tabs">
-                        <a class="tab-no-decor" href="#brand/{{sc.client.list[0].survey_hash}}">My Company</a>
+                    <li class="active survey-tabs" ng-show="sc.surveyService.branding.branding">
+                        <a class="active tab-no-decor" href="#brand/{{sc.client.list[0].survey_hash}}">My Company</a>
                     </li>
-                    <li class="survey-tabs">
+                    <li class="survey-tabs" ng-show="sc.surveyService.retRec.retRec">
                         <a class="tab-no-decor" href="#retention/{{sc.client.list[0].survey_hash}}">My Worklife</a>
                     </li>
-                    <li class="active survey-tabs">
-                        <a class="active tab-no-decor" href="#conclusion/{{sc.client.list[0].survey_hash}}">My Satisfaction</a>
+                    <li class="survey-tabs">
+                        <a class="tab-no-decor" href="#conclusion/{{sc.client.list[0].survey_hash}}">My Satisfaction</a>
                     </li>
                 </ul>
             </div>
