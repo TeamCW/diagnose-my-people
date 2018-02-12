@@ -13,7 +13,7 @@ router.get('/', function (req, res) {
                 res.sendStatus(500);
             } else {
 
-                client.query(`SELECT * FROM client;`,
+                client.query(`SELECT * FROM client ORDER BY point_of_contact;`,
                     function (errorMakingDatabaseQuery, result) {
                         done();
                         if (errorMakingDatabaseQuery) {
