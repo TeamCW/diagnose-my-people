@@ -4,9 +4,11 @@
             <img class="header-image" src="{{sc.client.list[0].logo_url}}" alt="" style="padding: 17px">
         </div>
     </div>
+
     <div class="row justify-content-md-center companyName">
         <div class="col-md-1.5 company-name">
             <h2>{{sc.client.list[0].organization}} Workspace Survey</h2>
+
         </div>
     </div>
     <div class="row">
@@ -89,6 +91,8 @@
                     <a href="#conclusion/{{sc.client.list[0].survey_hash}}" ng-if="!sc.surveyService.retRec.retRec;">
                         <button type="button" class="btn btn-danger" ng-click="sc.saveEmployeeBrandComments(sc.additionalComment, sc.client.list[0].id); sc.saveResponses( sc.slider.value, sc.client.list[0].id)">
                             <span></span> Next
+
+
                         </button>
                     </a>
                 </div>

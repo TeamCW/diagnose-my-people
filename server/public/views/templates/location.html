@@ -1,4 +1,5 @@
 <div ng-cloak class="container-fluid survey-background">
+
   <div class="row justify-content-md-center">
     <div class="col-md-1.5">
       <img class="header-image" src="{{sc.client.list[0].logo_url}}" alt="" style="padding: 17px">
@@ -9,6 +10,7 @@
       <h2>{{sc.client.list[0].organization}} Workspace Survey</h2>
     </div>
   </div>
+
   <div class="row">
     <div class="col-lg-10">
       <div class="row justify-content-md-center">
@@ -65,7 +67,7 @@
             <!-- slider block -->
             <div class="row justify-content-md-center">
               <div ng-if="question.question_id === 8 && sc.location.list[3].responses" class="slider-location">
-                <rzslider rz-slider-model="sc.slider.value.question8" rz-slider-options="{showTicksValues: true, stepsArray: sc.location.list[3].responses }"></rzslider>
+                <rzslider rz-slider-model="sc.slider.value.question8" rz-slider-options="{showTicksValues: true, stepsArray: sc.location.list[3].responses }" class="slider-color"></rzslider>
               </div>
               <div ng-if="question.question_id === 9 && sc.location.list[4].responses" class="slider-location">
                 <rzslider rz-slider-model="sc.slider.value.question9" rz-slider-options="{showTicksValues: true, stepsArray: sc.location.list[4].responses }"></rzslider>

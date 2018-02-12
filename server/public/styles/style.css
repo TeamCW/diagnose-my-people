@@ -138,23 +138,15 @@
 }
 
 .survey-background {
+
     background-image: url('/images/redwall.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
+
 }
 
-.survey-background-long {
-    background-image: url('/images/red-city.jpg');
-    background-size: 100% 50%;
-}
-
-
-.survey-header {
-    background-image: url('/images/lighter-red-background.jpg');
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    /* background-image: url('/images/cush-background-3.jpg'); */
-
+.survey-title {
+    color: white;
 }
 
 .brand-survey-questions {
@@ -162,7 +154,7 @@
     margin-bottom: 2px;
 }
 .active.survey-tabs {
-    background-color: #e4002b;
+    background-color: #c20e0e;
 }
 
 .tab-no-decor {
@@ -316,6 +308,10 @@
 
 .card.main {
     background-color: #E4002B;
+    color: white;
+}
+
+.card-white {
     color: white;
 }
 
