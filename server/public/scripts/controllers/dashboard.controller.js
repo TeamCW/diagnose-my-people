@@ -15,7 +15,8 @@ myApp.controller('DashboardController', ['DashboardService', 'AdminService', '$h
     vm.getClientResponsesAmenities = DashboardService.getClientResponsesAmenities;
     vm.getClientResponsesBrand = DashboardService.getClientResponsesBrand;
     vm.getClientResponsesRetention = DashboardService.getClientResponsesRetention;
-    vm.getClientResponsesConclusion = DashboardService.getClientResponsesConclusion
+    vm.getClientResponsesConclusion = DashboardService.getClientResponsesConclusion;
+    vm.getEmployeeComments = DashboardService.getEmployeeComments;
 
 
     vm.getClientResponsesDemo($routeParams.clientId);
@@ -24,6 +25,7 @@ myApp.controller('DashboardController', ['DashboardService', 'AdminService', '$h
     vm.getClientResponsesBrand($routeParams.clientId);
     vm.getClientResponsesRetention($routeParams.clientId);
     vm.getClientResponsesConclusion($routeParams.clientId);
+    vm.getEmployeeComments($routeParams.clientId);
 
 
 
