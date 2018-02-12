@@ -15,6 +15,7 @@ myApp.service('SurveyService', function ($http, $location) {
 
     self.selectedResponse = {};
     self.lastQuestion = {};
+    self.additionalComment = {};
 
 
 
@@ -333,13 +334,13 @@ self.getSelectedKpi = function (surveyHash) {
                 self.locat.locat = true;
             }
             if (self.responseData.list[i].kpi_id == 3) {
-                self.amen.amen = true;
+                self.amen = {amen: true};
             }
             if (self.responseData.list[i].kpi_id == 4) {
-                self.branding.branding = true;
+                self.branding = {branding: true};
             }
             if (self.responseData.list[i].kpi_id == 5) {
-                self.retRec.retRec = true;
+                self.retRec = {retRec: true};
             }
         }
         console.log('locat:', self.locat.locat);

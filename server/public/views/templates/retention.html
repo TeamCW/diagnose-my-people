@@ -1,5 +1,14 @@
-<header ng-include="'/views/partials/survey-header.html'" class=""></header>
-<div ng-cloak class="container-fluid survey-background-long">
+<div ng-cloak class="container-fluid survey-background">
+    <div class="row justify-content-md-center">
+        <div class="col-md-1.5">
+            <img class="header-image" src="{{sc.client.list[0].logo_url}}" alt="" style="padding: 17px">
+        </div>
+    </div>
+    <div class="row justify-content-md-center companyName">
+        <div class="col-md-1.5 company-name">
+            <h2>{{sc.client.list[0].organization}} Workspace Survey</h2>
+        </div>
+    </div>
     <div class="row">
         <div class="col-lg-10">
             <div class="row justify-content-md-center">
@@ -14,18 +23,18 @@
             <div class="row justify-content-md-center">
                 <ul class="nav nav-tabs">
                     <li class="survey-tabs">
-                        <a class="tab-no-decor" href="#survey/{{sc.client.list[0].survey_hash}}">My People</a>
+                        <a class="tab-no-decor" href="#survey/{{sc.client.list[0].survey_hash}}">Getting Started</a>
                     </li>
-                    <li class="survey-tabs" ng-show="sc.surveyService.locat.locat" >
+                    <li class="survey-tabs" ng-show="sc.surveyService.locat.locat">
                         <a class="tab-no-decor" href="#location/{{sc.client.list[0].survey_hash}}">My Workplace</a>
                     </li>
-                    <li class="survey-tabs" ng-show="sc.surveyService.amen.amen" >
+                    <li class="survey-tabs" ng-show="sc.surveyService.amen.amen">
                         <a class="tab-no-decor" href="#amenities/{{sc.client.list[0].survey_hash}}">My Amenities</a>
                     </li>
-                    <li class="survey-tabs" ng-show="sc.surveyService.branding.branding" >
+                    <li class="survey-tabs" ng-show="sc.surveyService.branding.branding">
                         <a class="tab-no-decor" href="#brand/{{sc.client.list[0].survey_hash}}">My Company</a>
                     </li>
-                    <li class="active survey-tabs" ng-show="sc.surveyService.retRec.retRec" >
+                    <li class="active survey-tabs" ng-show="sc.surveyService.retRec.retRec">
                         <a class="active tab-no-decor" href="#retention/{{sc.client.list[0].survey_hash}}">My Worklife</a>
                     </li>
                     <li class="survey-tabs">
@@ -85,7 +94,7 @@
                 </div>
                 <div>
                     <h5>Please enter any additional comments about your Worklife</h5>
-                    <input class="mediumText" type="text" ng-model="sc.additionalComment.response_from_input">
+                    <textarea class="mediumText" type="text" ng-model="sc.additionalComment.response_from_input"></textarea>
                 </div>
                 <br>
                 <div>

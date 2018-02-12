@@ -8,7 +8,7 @@ myApp.controller('SurveyController', function (SurveyService, $routeParams) {
  vm.getSelectedKpi($routeParams.surveyHash);
  
 
- console.log('controller booleans:',vm.demo, vm.branding, vm.retRec, vm.locat, vm.amen, vm.conc)
+ 
 
 
   //setting the limit for displayed objects on the corresponding survey views
@@ -37,6 +37,7 @@ myApp.controller('SurveyController', function (SurveyService, $routeParams) {
   vm.saveEmployeeBrandComments = SurveyService.saveEmployeeBrandComments;
   vm.saveEmployeeRetentionComments = SurveyService.saveEmployeeRetentionComments;
   vm.additionalComment = SurveyService.additionalComment;
+  console.log('controller booleans:',vm.surveyService.demo, vm.surveyService.branding, vm.surveyService.retRec, vm.surveyService.locat, vm.surveyService.amen, vm.surveyService.conc);
 
 
 

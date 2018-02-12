@@ -7,14 +7,15 @@
         <h1>Your Dashboard</h1>
         <hr>
         <br>
+        <button class="btn btn-outline-danger btn-sm editComments" ng-show="dc.dashboardService.demoBlurbText.text" ng-hide="edit" ng-click="edit=true">Edit Comments</button>
         <div ng-show="dc.demo">
             <div>
                 <h2>Demographics</h2>
-                <button class="btn btn-outline-danger" ng-click="edit=true" ng-hide="edit || dc.dashboardService.demoBlurbText.text">Add Comment</button>
-                <button class="btn btn-outline-danger" ng-show="edit" ng-click="dc.addBlurbDemo(dc.newComment,$routeParams.clientId); edit = !edit">Submit</button>
+                <button class="btn btn-outline-danger btn-sm" ng-click="edit=true" ng-hide="edit || dc.dashboardService.demoBlurbText.text">Add Comment</button>
+                <button class="btn btn-outline-danger btn-sm" ng-show="edit" ng-click="dc.addBlurbDemo(dc.newComment,$routeParams.clientId); edit = !edit">Submit</button>
                 <input type="textarea" ng-show="edit" ng-model="dc.newComment" ng-value="dc.dashboardService.demoBlurbText.text">
-                <button class="btn btn-outline-danger" ng-show="edit" ng-click="edit = !edit">Cancel</button>
-                <button class="btn btn-outline-danger" ng-if="dc.dashboardService.demoBlurbText.text" ng-hide="edit" ng-click="edit=true">Edit</button>
+                <button class="btn btn-outline-danger btn-sm" ng-show="edit" ng-click="edit = !edit">Cancel</button>
+                
                 <p ng-hide="edit" ng-show="dc.dashboardService.demoBlurbText.text"> {{dc.dashboardService.demoBlurbText.text}} </p>
                 <br>
             </div>
@@ -66,12 +67,11 @@
 
             <h2>Location</h2>
 
-            <button class="btn btn-outline-danger" ng-click="edit=true" ng-hide="edit || dc.dashboardService.locatBlurbText.text">Add Comment</button>
-            <button class="btn btn-outline-danger" ng-show="edit" ng-click="dc.addBlurbLocation(dc.newComment,$routeParams.clientId); edit = !edit">Submit</button>
+            <button class="btn btn-outline-danger btn-sm" ng-click="edit=true" ng-hide="edit || dc.dashboardService.locatBlurbText.text">Add Comment</button>
+            <button class="btn btn-outline-danger btn-sm" ng-show="edit" ng-click="dc.addBlurbLocation(dc.newComment,$routeParams.clientId); edit = !edit">Submit</button>
             <input type="textarea" ng-show="edit" ng-model="dc.newComment" ng-value="dc.dashboardService.locatBlurbText.text">
-            <button class="btn btn-outline-danger" ng-show="edit" ng-click="edit = !edit">Cancel</button>
-            <button class="btn btn-outline-danger" ng-if="dc.dashboardService.locatBlurbText.text" ng-hide="edit" ng-click="edit=true">Edit</button>
-            <p ng-hide="edit" ng-if="dc.dashboardService.locatBlurbText.text"> {{dc.dashboardService.locatBlurbText.text}} </p>
+            <button class="btn btn-outline-danger btn-sm" ng-show="edit" ng-click="edit = !edit">Cancel</button>
+            <p ng-hide="edit" ng-show="dc.dashboardService.locatBlurbText.text"> {{dc.dashboardService.locatBlurbText.text}} </p>
             <br>
             <br>
             <div class="row">
@@ -124,12 +124,11 @@
         </div>
         <div ng-show="dc.amen.amen">
             <h2>Amenities</h2>
-            <button class="btn btn-outline-danger" ng-click="edit=true" ng-hide="edit || dc.dashboardService.amenBlurbText.text">Add Comment</button>
-            <button class="btn btn-outline-danger" ng-show="edit" ng-click="dc.addBlurbAmen(dc.newComment,$routeParams.clientId); edit = !edit">Submit</button>
+            <button class="btn btn-outline-danger btn-sm" ng-click="edit=true" ng-hide="edit || dc.dashboardService.amenBlurbText.text">Add Comment</button>
+            <button class="btn btn-outline-danger btn-sm" ng-show="edit" ng-click="dc.addBlurbAmen(dc.newComment,$routeParams.clientId); edit = !edit">Submit</button>
             <input type="textarea" ng-show="edit" ng-model="dc.newComment" ng-value="dc.dashboardService.amenBlurbText.text">
-            <button class="btn btn-outline-danger" ng-show="edit" ng-click="edit = !edit">Cancel</button>
-            <button class="btn btn-outline-danger" ng-if="dc.dashboardService.amenBlurbText.text" ng-hide="edit" ng-click="edit=true">Edit</button>
-            <p ng-hide="edit" ng-if="dc.dashboardService.amenBlurbText.text"> {{dc.dashboardService.amenBlurbText.text}} </p>
+            <button class="btn btn-outline-danger btn-sm" ng-show="edit" ng-click="edit = !edit">Cancel</button>
+            <p ng-hide="edit" ng-show="dc.dashboardService.amenBlurbText.text"> {{dc.dashboardService.amenBlurbText.text}} </p>
             <br>
             <div class="row">
                 <div class="col-6 dashboardpadding">
@@ -171,12 +170,11 @@
             <div>
                 <h2>Brand</h2>
             </div>
-            <button class="btn btn-outline-danger" ng-click="edit=true" ng-hide="edit || dc.dashboardService.brandBlurbText.text">Add Comment</button>
-            <button class="btn btn-outline-danger" ng-show="edit" ng-click="dc.addBlurbBrand(dc.newComment,$routeParams.clientId); edit = !edit">Submit</button>
+            <button class="btn btn-outline-danger btn-sm" ng-click="edit=true" ng-hide="edit || dc.dashboardService.brandBlurbText.text">Add Comment</button>
+            <button class="btn btn-outline-danger btn-sm" ng-show="edit" ng-click="dc.addBlurbBrand(dc.newComment,$routeParams.clientId); edit = !edit">Submit</button>
             <input type="textarea" ng-show="edit" ng-model="dc.newComment" ng-value="dc.dashboardService.brandBlurbText.text">
-            <button class="btn btn-outline-danger" ng-show="edit" ng-click="edit = !edit">Cancel</button>
-            <button class="btn btn-outline-danger" ng-if="dc.dashboardService.brandBlurbText.text" ng-hide="edit" ng-click="edit=true">Edit</button>
-            <p ng-hide="edit" ng-if="dc.dashboardService.brandBlurbText.text"> {{dc.dashboardService.brandBlurbText.text}} </p>
+            <button class="btn btn-outline-danger btn-sm" ng-show="edit" ng-click="edit = !edit">Cancel</button>
+            <p ng-hide="edit" ng-show="dc.dashboardService.brandBlurbText.text"> {{dc.dashboardService.brandBlurbText.text}} </p>
             <br>
             <div class="row">
                 <div class="col-6 dashboardpadding">
@@ -262,12 +260,11 @@
         </div>
         <div ng-show="dc.retRec.retRec">
             <h2>Recruitment and Retention</h2>
-            <button class="btn btn-outline-danger" ng-click="edit=true" ng-hide="edit || dc.dashboardService.retRecBlurbText.text">Add Comment</button>
-            <button class="btn btn-outline-danger" ng-show="edit" ng-click="dc.addBlurbRet(dc.newComment,$routeParams.clientId); edit = !edit">Submit</button>
+            <button class="btn btn-outline-danger btn-sm" ng-click="edit=true" ng-hide="edit || dc.dashboardService.retRecBlurbText.text">Add Comment</button>
+            <button class="btn btn-outline-danger btn-sm" ng-show="edit" ng-click="dc.addBlurbRet(dc.newComment,$routeParams.clientId); edit = !edit">Submit</button>
             <input type="textarea" ng-show="edit" ng-model="dc.newComment" ng-value="dc.dashboardService.retRecBlurbText.text">
-            <button class="btn btn-outline-danger" ng-show="edit" ng-click="edit = !edit">Cancel</button>
-            <button class="btn btn-outline-danger" ng-if="dc.dashboardService.retRecBlurbText.text" ng-hide="edit" ng-click="edit=true">Edit</button>
-            <p ng-hide="edit" ng-if="dc.dashboardService.retRecBlurbText.text"> {{dc.dashboardService.retRecBlurbText.text}} </p>
+            <button class="btn btn-outline-danger btn-sm" ng-show="edit" ng-click="edit = !edit">Cancel</button>
+            <p ng-hide="edit" ng-show="dc.dashboardService.retRecBlurbText.text"> {{dc.dashboardService.retRecBlurbText.text}} </p>
             <br>
             <br>
             <div class="row">
@@ -320,12 +317,11 @@
         </div>
         <div ng-show="dc.conc">
             <h2>Satisfaction</h2>
-            <button class="btn btn-outline-danger" ng-click="edit=true" ng-hide="edit || dc.dashboardService.concBlurbText.text">Add Comment</button>
-            <button class="btn btn-outline-danger" ng-show="edit" ng-click="dc.addBlurbConc(dc.newComment,$routeParams.clientId); edit = !edit">Submit</button>
+            <button class="btn btn-outline-danger btn-sm" ng-click="edit=true" ng-hide="edit || dc.dashboardService.concBlurbText.text">Add Comment</button>
+            <button class="btn btn-outline-danger btn-sm" ng-show="edit" ng-click="dc.addBlurbConc(dc.newComment,$routeParams.clientId); edit = !edit">Submit</button>
             <input type="textarea" ng-show="edit" ng-model="dc.newComment" ng-value="dc.dashboardService.concBlurbText.text">
-            <button class="btn btn-outline-danger" ng-show="edit" ng-click="edit = !edit">Cancel</button>
-            <button class="btn btn-outline-danger" ng-if="dc.dashboardService.concBlurbText.text" ng-hide="edit" ng-click="edit=true">Edit</button>
-            <p ng-hide="edit" ng-if="dc.dashboardService.concBlurbText.text"> {{dc.dashboardService.concBlurbText.text}} </p>
+            <button class="btn btn-outline-danger btn-sm" ng-show="edit" ng-click="edit = !edit">Cancel</button>
+            <p ng-hide="edit" ng-show="dc.dashboardService.concBlurbText.text"> {{dc.dashboardService.concBlurbText.text}} </p>
             <br>
             <div class="row">
 

@@ -100,7 +100,6 @@
 
 .survey-tabs {
     border-top: 1px;
-    border-radius: 3px;
     border-left: 1px;
     border-right: 1px;
     border-top-style: inset;
@@ -109,16 +108,18 @@
     border-bottom-style: none;
     padding-right: 5px;
     padding-left: 5px;
-    border-color: rgb(221, 217, 217);
-    background-color:rgb(228, 222, 222);
-    color: black;
+    border-color: rgb(237, 237, 237);
+    background-color:rgb(237, 237, 237);
+    color: #6b6d6d;
     width: 139px;
     height: 40px;
     text-align: center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
   }
 
   .well-md {
-    background-color: rgb(228, 222, 222);
+    background-color: rgb(237, 237, 237);
     text-align: center;
     margin-left: 200px;
     margin-bottom: 60px;
@@ -132,16 +133,14 @@
     border-left-style: inset;
     border-right-style: inset;
     border-bottom-style: inset;
-    border-color: rgb(221, 217, 217);
+    border-color: rgb(237, 237, 237);
 
 }
 
 .survey-background {
-    background-image: url('/images/cushman-wakefield-buildings.png');
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+    background-image: url('/images/redwall.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .survey-background-long {
@@ -168,7 +167,7 @@
 
 .tab-no-decor {
     text-decoration: none;
-    color: black;
+    color: #6B6D6D;
 }
 
 .tab-no-decor:hover {
@@ -243,6 +242,7 @@
 .survey-questions {
     font-weight: bold;
     margin-bottom: 50px;
+    color:#6b6d6d;
 }
 
 /* Begin dropDown styling */
@@ -463,4 +463,14 @@ select {
 
 .dashboard-container-background {
     background-color: white;
+}
+
+.editComments {
+    margin-bottom: 15px;
+}
+.companyName h2 {
+    color: white;
+}
+h5{ 
+    color: #6b6d6d;
 }
