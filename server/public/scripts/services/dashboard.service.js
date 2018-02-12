@@ -11,6 +11,7 @@ myApp.service('DashboardService', function ($http, $location) {
     self.clientConclusionData = { list: [] };
     self.ageDistributionInput = { labels: ['under 25', '26-35', '36-45', '46-55', '56+'], dataSets: [0, 0, 0, 0, 0] }
     self.surveysTaken = '';
+    self.employeeComments = { list: [] };
 
     //data arrays for graphs
 
@@ -1563,6 +1564,21 @@ myApp.service('DashboardService', function ($http, $location) {
             console.log('# that took survey:', self.surveysTaken)
         });
     }//end getCount
+
+    self.getEmployeeComments = function (clientId) {
+        console.log('client to get comments for:',  clientId);
+        $http({
+            method: 'GET',
+            url: '/dashboard/comments',
+            params: { clientId: clientId }
+        }).then(function (response) {
+            self.employeeComments.list = response.data;
+            console.log('employee comments:', self.employeeComments.list);
+
+
+
+        });
+    };
 
     self.getCount();
 

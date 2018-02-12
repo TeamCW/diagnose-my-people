@@ -214,7 +214,7 @@ router.get('/retention', function (req, res) {
 
 
 router.get('/conclusion', function (req, res) {
-    var clientId = req.query.clientId;;
+    var clientId = req.query.clientId;
     if (req.isAuthenticated()) {
         pool.connect(function (errorConnectingToDatabase, client, done) {
             if (errorConnectingToDatabase) {
@@ -265,6 +265,31 @@ router.get('/count', function (req, res) {
     });
 });
 
+
+router.get('/comments', function (req, res) {
+    var clientId = req.query.clientId;
+    console.log('comments request:',req.query)
+    pool.connect(function (errorConnectingToDatabase, client, done) {
+        if (errorConnectingToDatabase) {
+            console.log('error', errorConnectingToDatabase);
+            res.sendStatus(500);
+        } else {
+
+            client.query(`SELECT client_id, kpi_id, response_from_input, kpi FROM employee_kpi_comments
+            INNER JOIN category on category.id = employee_kpi_comments.kpi_id
+            WHERE employee_kpi_comments.response_from_input IS NOT NULL AND client_id = $1;`, [clientId],
+                function (errorMakingDatabaseQuery, result) {
+                    done();
+                    if (errorMakingDatabaseQuery) {
+                        console.log('error', errorMakingDatabaseQuery);
+                        res.sendStatus(500);
+                    } else {
+                        res.send(result.rows);
+                    }
+                });
+        }
+    });
+});
 
 
 module.exports = router;
