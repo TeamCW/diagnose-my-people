@@ -4,7 +4,7 @@
             <img class="header-image" src="{{sc.client.list[0].logo_url}}" alt="" style="padding: 17px">
         </div>
     </div>
-    <div class="row justify-content-md-center">
+    <div class="row justify-content-md-center companyName">
         <div class="col-md-1.5 company-name">
                 <h2>{{sc.client.list[0].organization}} Workspace Survey</h2>
         </div>
@@ -18,12 +18,15 @@
             10%
           </div>
         </div>
-      </div>   
+
+      </div>
+    
+
       <!--- tabs -->
       <div class="row justify-content-md-center">
         <ul class="nav nav-tabs">
           <li class="active survey-tabs">
-            <a class="active tab-no-decor" href="#survey/{{sc.client.list[0].survey_hash}}">My People</a>
+            <a class="active tab-no-decor" href="#survey/{{sc.client.list[0].survey_hash}}">Getting Started</a>
           </li>
           <li class="survey-tabs" ng-show="sc.surveyService.locat.locat"  >
             <a class="tab-no-decor" href="#location/{{sc.client.list[0].survey_hash}}">My Workplace</a>
@@ -50,7 +53,7 @@
         <br>
           <div ng-repeat="question in sc.demographics.list | limitTo:sc.demographicLimit">
             <div class="survey-questions">{{question.question}}
-              <div class="dropdown" ng-show="question.question_id === 1">
+              <div class="dropdown"  ng-show="question.question_id === 1">
                 <select ng-options="response.value as response.legend for response in question.responses track by response.value" ng-model="sc.slider.value.question1" class="demographicsDropdowns">
                 </select>
               </div>
