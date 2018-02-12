@@ -115,14 +115,7 @@
                             <span></span> Next
                         </button>
                     </a>
-                    <a href="#conclusion/{{sc.client.list[0].survey_hash}}" ng-if="!sc.branding.branding && !sc.retRec.retRec;">
-                        <button type="button" class="btn btn-danger" ng-click="sc.saveResponses( sc.slider.value, sc.client.list[0].id)">
-                            <span></span> Next
 
-                        <button type="button" class="btn btn-danger" ng-click="sc.saveEmployeeAmenitiesComments(sc.additionalComment, sc.client.list[0].id); sc.saveResponses( sc.slider.value, sc.client.list[0].id)">
-                            <span></span> Next
-                        </button>
-                    </a>
                     <a href="#conclusion/{{sc.client.list[0].survey_hash}}" ng-if="!sc.surveyService.branding.branding && !sc.surveyService.retRec.retRec;">
                         <button type="button" class="btn btn-danger" ng-click="sc.saveEmployeeAmenitiesComments(sc.additionalComment, sc.client.list[0].id); sc.saveResponses( sc.slider.value, sc.client.list[0].id)">
 
