@@ -10,6 +10,7 @@ myApp.service('DashboardService', function ($http, $location) {
     self.clientRetRecData = { list: [] };
     self.clientConclusionData = { list: [] };
     self.ageDistributionInput = { labels: ['under 25', '26-35', '36-45', '46-55', '56+'], dataSets: [0, 0, 0, 0, 0] }
+    self.surveysTaken = '';
 
     //data arrays for graphs
 
@@ -1552,5 +1553,17 @@ myApp.service('DashboardService', function ($http, $location) {
     });
 
 
+
+    self.getCount = function () {
+        $http({
+            method: 'GET',
+            url: '/dashboard/count',
+        }).then(function (response) {
+            self.surveysTaken = response.data;
+            console.log('# that took survey:', self.surveysTaken)
+        });
+    }//end getCount
+
+    self.getCount();
 
 }); //end service    

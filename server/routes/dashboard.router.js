@@ -242,4 +242,29 @@ router.get('/conclusion', function (req, res) {
 });
 
 
+
+router.get('/count', function (req, res) {
+    pool.connect(function (errorConnectingToDatabase, client, done) {
+        if (errorConnectingToDatabase) {
+            console.log('error', errorConnectingToDatabase);
+            res.sendStatus(500);
+        } else {
+
+            client.query(`SELECT COUNT(question_id) FROM employee_results
+            WHERE question_id = 2;`,
+                function (errorMakingDatabaseQuery, result) {
+                    done();
+                    if (errorMakingDatabaseQuery) {
+                        console.log('error', errorMakingDatabaseQuery);
+                        res.sendStatus(500);
+                    } else {
+                        res.send(result.rows);
+                    }
+                });
+        }
+    });
+});
+
+
+
 module.exports = router;
