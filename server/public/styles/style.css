@@ -137,25 +137,16 @@
 }
 
 .survey-background {
-    background-image: url('/images/cushman-wakefield-buildings.png');
+    background: linear-gradient(rgb(80, 48, 48), rgb(150, 10, 10))
+    /* background-image: url('/images/free-red-black-city.png');
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;
+    background-size: cover; */
 }
 
-.survey-background-long {
-    background-image: url('/images/red-city.jpg');
-    background-size: 100% 50%;
-}
-
-
-.survey-header {
-    background-image: url('/images/lighter-red-background.jpg');
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    /* background-image: url('/images/cush-background-3.jpg'); */
-
+.survey-title {
+    color: white;
 }
 
 .brand-survey-questions {
@@ -163,7 +154,7 @@
     margin-bottom: 2px;
 }
 .active.survey-tabs {
-    background-color: #e4002b;
+    background-color: #c20e0e;
 }
 
 .tab-no-decor {
