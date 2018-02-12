@@ -1,4 +1,104 @@
 <header ng-include="'/views/partials/header.html'" class=""></header>
+<div class="landing">
+    <div class="col-md-12">
+        <div class="card main">
+            <div class="card-body">
+                <h1 class="card-white">Survey Review</h1>
+                <h4 class="card-white">These are the categories you selected</h4>
+            </div>
+        </div>
+        <br>
+        <div class="card">
+            <div class="card-body">
+        <table class="table table-bordered">
+            <tr>
+                <td>
+                    <ul>
+                        <li>Demographics
+
+                        </li>
+                    </ul>
+                </td>
+                <td>
+                    *Required
+                </td>
+            </tr>
+            <tr ng-if="br.kpisAdded.locationAdded">
+                <td>
+                    <ul>
+                        <li>Location
+
+                        </li>
+                    </ul>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-outline-danger" ng-click="br.kpisAdded.locationRemove()">
+                        <span class="glyphicon glyphicon-remove"></span> Remove
+                    </button>
+                </td>
+            </tr>
+            <tr ng-show="br.kpisAdded.amenitiesAdded">
+                <td>
+                    <ul>
+                        <li>Amenities
+
+                        </li>
+                    </ul>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-outline-danger" ng-click="br.kpisAdded.amenitiesRemove()">
+                        <span class="glyphicon glyphicon-remove"></span> Remove
+                    </button>
+                </td>
+            </tr>
+            <tr ng-if="br.kpisAdded.brandAdded">
+                <td>
+                    <ul>
+                        <li>Brand
+
+                        </li>
+                    </ul>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-outline-danger" ng-click="br.kpisAdded.brandRemove()">
+                        <span class="glyphicon glyphicon-remove"></span> Remove
+                    </button>
+                </td>
+            </tr>
+            <tr ng-if="br.kpisAdded.retainmentAdded">
+                <td>
+                    <ul>
+                        <li>Recruitment & Retainment
+
+                        </li>
+                    </ul>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-outline-danger" ng-click="br.kpisAdded.retainmentRemove()">
+                        <span class="glyphicon glyphicon-remove"></span> Remove
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <ul>
+                        <li>Conclusion
+
+                        </li>
+                    </ul>
+                </td>
+                <td>
+                    *Required
+                </td>
+            </tr>
+        </table>
+
+        <a href="{{br.contactInformationURL.urlString}}" class="btn btn-outline-danger">Next</a>
+    </div>
+    </div>
+    </div>
+
+    <!-- </div>
 <div class="container">
     <h1>Your Survey Review</h1>
     <h4 style="color: #6b6d6d">These are the categories you selected along with the survey questions that will be included</h4>
@@ -152,5 +252,5 @@
     <a href="{{br.contactInformationURL.urlString}}" class="btn btn-outline-danger">Next</a>
 
 
-</div>
-<div class="space"></div>
+</div> -->
+    <div class="space"></div>

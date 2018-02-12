@@ -1,10 +1,11 @@
 <header ng-include="'/views/partials/header.html'" class=""></header>
 <div class="container">
-    <h1>Thank You {{bt.name}}</h1>
+    <h1>Thank You, {{bt.name}}</h1>
     <p>
-        Here is the url link to your survey. The next step is to distribute this link to your people. Once the survey period is over, your dashboard will be automatically populated.
+        Here is the link to your survey. The next step is to distribute this link to your people. Once the survey period is over, your dashboard will be automatically populated.
     </p>
-    <a href="#/survey/{{bt.surveyHash}}">localhost:5000/survey/{{bt.surveyHash}}</a>
+    <h4>
+    <a href="#/survey/{{bt.surveyHash}}">localhost:5000/survey/{{bt.surveyHash}}</a></h4>
     <br>
     <br>
     <a href="#/home" class="btn btn-outline-danger">Exit to Home Page</a>

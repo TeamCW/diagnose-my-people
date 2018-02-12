@@ -1,39 +1,60 @@
 <header ng-include="'/views/partials/header.html'" class=""></header>
-<div class="container">
+<div class="landing">
     <span class="glyphicon glyphicon-search"></span>
-    <h1>One Last Step...</h1>
-    <p>Fill out your contact information below. One of our Cushman & Wakefield specialists will follow up with you shortly.</p>
-    <div>
-
-
-
-        
-        <br>
-        <label for="name">Name: *required</label>
-        <input type="text" name="name" id="name" class="form-control" ng-model="bc.contactInformation.point_of_contact">
-        <label for="organization">Organization: </label>
-        <input type="text" name="organization" id="organzation" class="form-control" ng-model="bc.contactInformation.organization">
-        <label for="email">Email: *required</label>
-        <input type="email" name="email" id="email" class="form-control" ng-model="bc.contactInformation.contact_email">
-        <label for="phone">Contact Phone Number: </label>
-        <input type="tel" name="phone" id="phone" class="form-control" ng-model="bc.contactInformation.contact_number">
-        <label for="comments">Comments: </label>
-        <textarea name="comments" id="comments" cols="30" rows="10" class="form-control" ng-model="bc.contactInformation.comments"></textarea>
-        <br>
-        <hr>
-        <p>Add Company Logo</p>
-        <label for="">Logo Preview:</label>
-        <div style="height: 125px; width: 125px" class="row text-center">
-            <div ng-if="bc.contactInformation.logoURL.length>1">
-                <img style="max-height: 100px;" ng-src={{bc.contactInformation.logoURL}} class="img-fluid center-block" alt="logo">
+    <div class="col-md-12">
+        <div class="card main">
+            <div class="card-body">
+                <h1 style="color: white;">One Last Step...</h1>
+                <p style="color: white;">Please fill out your contact information below. You'll have access to your customized Diagnose My People
+                    Tool as soon as you push submit!</p>
             </div>
         </div>
-        <button ng-click="bc.openPicker()" class="btn btn-outline-danger btn-sm">Upload Organization Logo</button>
-        <hr>
-        <button ng-click="bc.postNewSurveyAndClient(bc.kpisAdded,bc.contactInformation)" class="btn btn-outline-danger">Submit</button>
+    </div>
+    <br>
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <br>
+                <label for="name">Name:
+                    <span style="color: red; font-size: .4em;">*required</span>
+                </label>
+                <input type="text" name="name" id="name" class="form-control" ng-model="bc.contactInformation.point_of_contact">
+                <label for="email">Email:
+                    <span style="color: red; font-size: .4em;">*required</span>
+                </label>
+                <input type="email" name="email" id="email" class="form-control" ng-model="bc.contactInformation.contact_email">
+                <label for="organization">Organization: </label>
+                <input type="text" name="organization" id="organzation" class="form-control" ng-model="bc.contactInformation.organization">
 
-        <div>
+                <label for="phone">Phone Number: </label>
+                <input type="tel" name="phone" id="phone" class="form-control" ng-model="bc.contactInformation.contact_number">
+                <label for="comments">Comments: </label>
+                <textarea name="comments" id="comments" cols="30" rows="10" class="form-control" ng-model="bc.contactInformation.comments"></textarea>
+                <br>
+                <hr>
+                <p>Company Logo:
+                    <span style="color: red; font-size: .4em;">*will be displayed on survey</span>
+                </p>
+                <button ng-click="bc.openPicker()" class="btn btn-outline-danger btn-sm">Upload Organization Logo</button>
+                <br>
+                <br>
+                <div>
+                    <label for="" style="font-size: .8em;">Logo Preview:</label>
+                </div>
+                <div style="height: 125px; width: 125px" class="row text-center">
+                    <div ng-if="bc.contactInformation.logoURL.length>1">
+                        <img style="max-height: 100px;" ng-src={{bc.contactInformation.logoURL}} class="img-fluid center-block" alt="logo">
+                    </div>
+                </div>
+                <hr>
+                <button ng-click="bc.postNewSurveyAndClient(bc.kpisAdded,bc.contactInformation)" class="btn btn-outline-danger">Submit</button>
+
+                <div>
 
 
+                </div>
+            </div>
         </div>
-        <div class="space"></div>
+    </div>
+</div>
+<div class="space"></div>
