@@ -1,5 +1,14 @@
-<header ng-include="'/views/partials/survey-header.html'" class=""></header>
-<div ng-cloak class="container-fluid survey-background-long">
+<div ng-cloak class="container-fluid survey-background">
+    <div class="row justify-content-md-center">
+        <div class="col-md-1.5">
+            <img class="header-image" src="{{sc.client.list[0].logo_url}}" alt="" style="padding: 17px">
+        </div>
+    </div>
+    <div class="row justify-content-md-center">
+        <div class="col-md-1.5">
+            <h2 class="survey-title">{{sc.client.list[0].organization}} Workspace Survey</h2>
+        </div>
+    </div>
     <div class="row">
         <div class="col-lg-10">
             <div class="row justify-content-md-center">
@@ -77,11 +86,17 @@
                             <span></span> Next
                         </button>
                     </a>
+<<<<<<< HEAD
+                    <a href="#conclusion/{{sc.client.list[0].survey_hash}}" ng-if="!sc.retRec.retRec;">
+                        <button type="button" class="btn btn-danger" ng-click="sc.saveResponses( sc.slider.value, sc.client.list[0].id)">
+                            <span></span> Next
+=======
                     <a href="#conclusion/{{sc.client.list[0].survey_hash}}" ng-if="!sc.surveyService.retRec.retRec;" >
                         <button type="button" class="btn btn-danger" ng-click="sc.saveEmployeeBrandComments(sc.additionalComment, sc.client.list[0].id); sc.saveResponses( sc.slider.value, sc.client.list[0].id)">
                           <span></span> Next
+>>>>>>> master
                         </button>
-                      </a>
+                    </a>
                 </div>
             </div>
         </div>

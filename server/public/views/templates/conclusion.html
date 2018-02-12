@@ -1,5 +1,14 @@
-<header ng-include="'/views/partials/survey-header.html'" class=""></header>
-<div ng-cloak class="container-fluid survey-background-long">
+<div ng-cloak class="container-fluid survey-background">
+    <div class="row justify-content-md-center">
+        <div class="col-md-1.5">
+            <img class="header-image" src="{{sc.client.list[0].logo_url}}" alt="" style="padding: 17px">
+        </div>
+    </div>
+    <div class="row justify-content-md-center">
+        <div class="col-md-1.5">
+            <h2 class="survey-title">{{sc.client.list[0].organization}} Workspace Survey</h2>
+        </div>
+    </div>
     <div class="row">
         <div class="col-lg-10">
             <div class="row justify-content-md-center">
@@ -62,7 +71,7 @@
                     </div>
                 </div>
                 <a href="#/surveyFinished/{{sc.client.list[0].survey_hash}}">
-                    <button type="button" class="btn btn-danger" ng-click="sc.saveResponsesUserInput(sc.lastQuestion, sc.client.list[0].id); sc.saveResponses( sc.slider.value, sc.client.list[0].id)">
+                    <button type="button" class="btn btn-danger" ng-click="sc.saveResponsesUserInput(sc.lastQuestion, sc.client.list[0].id); sc.saveResponses( sc.slider.value, sc.client.list[0].id); sc.addCount()">
                         <span></span> Finish Survey
                     </button>
                 </a>
