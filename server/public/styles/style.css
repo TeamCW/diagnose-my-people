@@ -468,6 +468,12 @@ select {
 .companyName h2 {
     color: white;
 }
-h5{ 
+h5 { 
     color: #6b6d6d;
 }
+
+.dashboardCounter {
+    color: #6b6d6d;
+    margin-bottom: 25px;
+}
+

@@ -38,6 +38,7 @@ myApp.controller('DashboardController', ['DashboardService', 'AdminService', '$h
     vm.retRec = DashboardService.retRec;
     vm.amen = DashboardService.amen;
     vm.conc = DashboardService.conc;
+    vm.surveysTaken = DashboardService.surveysTaken;
     console.log('controller booleans:', vm.demo, vm.brand, vm.retRec, vm.locat, vm.amen, vm.conc)
 
 

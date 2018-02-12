@@ -313,10 +313,7 @@ self.getClient = function (surveyHash) {
     });
 }
 
-self.addCount = function() {
-    self.userCount++;
-    console.log('User Count:', self.userCount);
-}
+
 
 self.getSelectedKpi = function (surveyHash) {
     self.demo = true
