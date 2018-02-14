@@ -1,5 +1,5 @@
 # Cushman & Wakefield: Diagnose My People
-‘Diagnose My People’ is a full stack web application that helps Cushman & Wakefield clients put their employees first as they’re calculating their commercial real estate needs.  Clients of Cushman & Wakefield can go to the website and are provided with the opportunity to build a custom-tailored survey that will be used to gather employee data based on 8 different categories.  Once the survey has been created, Cushman & Wakefield will reach out to the client and will provide them with a custom URL and passcode for the survey that the client can email to their employees.  Once the survey period is over, the data is compiled into an eye-catching and user-friendly dashboard.  Cushman & Wakefield can then set up a time to go over the results with the client and show them properties that are not only in their price-range, but also include the spatial, lifestyle and location preferences of employees.  This results in happier people with more buy-in and loyalty to their employer.  
+Diagnose My People is a full stack web application that helps Cushman & Wakefield clients/decision makers survey their people and tabulate their feedback into visualized data that is used to make informed decisions in purchasing a new workspace.  Clients of Cushman & Wakefield can go to the website and are provided with the opportunity to build a custom-tailored survey that is used to gather employee data on the categories that matter to them.  Once the survey has been created, Cushman & Wakefield will reach out to the clients and provide them with a custom URL and passcode for the survey that the client will email their employees.  When the survey period is over, the data is compiled into an eye-catching and user-friendly dashboard.  Cushman & Wakefield uses this information to better serve and make recommendations to clients and show them properties that resemble what the survey suggests.  This results in happier people with more buy-in and loyalty to their employer.  
 
 # Built With
 - PostgreSQL
@@ -21,6 +21,7 @@ Link to software that is required to install the app (e.g. node).
 - Node.js
 - npm
 - PostgreSQL
+- homebrew
 
 # Installing
 Steps to get the development environment running.
@@ -86,7 +87,7 @@ Features that you would like to add at some point in the future.
 [  ] Admin Dashboard View - Feature- Comment Section connect
 [  ] Admin Dashboard View - Feature-Heatmaps
 
-###Adding a Map Feature to Diagnose My People:
+### Adding a Map Feature to Diagnose My People:
 
 Get a Google Maps API key for Cushman & Wakefield. Follow the link below.
 https://developers.google.com/maps/documentation/javascript/get-api-key
@@ -102,9 +103,7 @@ https://developers.google.com/maps/documentation/javascript/earthquakes
 
 # Heroku Deployment
 
-[Heroku](https://www.heroku.com/) is a Cloud Application Platform that will allow you to publish your apps to the web. We'll be primarily using Heroku in this class but it's important to note that there are many other companies out there that offer similar services.
-
-Best of all, [Heroku](https://www.heroku.com/) is free for development use! 
+[Heroku](https://www.heroku.com/) is a Cloud Application Platform that allows users to publishapps to the web.
 
 ## Summary Steps
 
@@ -221,7 +220,7 @@ The [Heroku](https://www.heroku.com/) website GUI can simplify several of the st
 
 ## Connect Postico to your Heroku Database
 
-If you would like to edit your database, you can connect to your Heroku database directly from Postico. 
+If you would like to edit  database, connect to your Heroku database directly from Postico. 
 
 1. In [your list of Heroku apps](https://dashboard.heroku.com/apps), select your application.
 2. Under `Resources` or in the `Configure Add-Ons` section, select `Heroku Postgres`.
@@ -245,5 +244,3 @@ More detailed instructions can be found here:
 
 # Authors
 Dave Clark, Ryan DeCook, Joe Wales, Brandon Yapel
-
-\
