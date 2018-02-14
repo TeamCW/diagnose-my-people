@@ -1,17 +1,3 @@
-
-
-                                                                                                                                                                                    
-88888888ba,   88                                                                        88b           d88                88888888ba                                    88           
-88      `"8b  ""                                                                        888b         d888                88      "8b                                   88           
-88        `8b                                                                           88`8b       d8'88                88      ,8P                                   88           
-88         88 88 ,adPPYYba,  ,adPPYb,d8 8b,dPPYba,   ,adPPYba,  ,adPPYba,  ,adPPYba,    88 `8b     d8' 88 8b       d8    88aaaaaa8P' ,adPPYba,  ,adPPYba,  8b,dPPYba,  88  ,adPPYba,
-88         88 88 ""     `Y8 a8"    `Y88 88P'   `"8a a8"     "8a I8[    "" a8P_____88    88  `8b   d8'  88 `8b     d8'    88""""""'  a8P_____88 a8"     "8a 88P'    "8a 88 a8P_____88
-88         8P 88 ,adPPPPP88 8b       88 88       88 8b       d8  `"Y8ba,  8PP"""""""    88   `8b d8'   88  `8b   d8'     88         8PP""""""" 8b       d8 88       d8 88 8PP"""""""
-88      .a8P  88 88,    ,88 "8a,   ,d88 88       88 "8a,   ,a8" aa    ]8I "8b,   ,aa    88    `888'    88   `8b,d8'      88         "8b,   ,aa "8a,   ,a8" 88b,   ,a8" 88 "8b,   ,aa
-88888888Y"'   88 `"8bbdP"Y8  `"YbbdP"Y8 88       88  `"YbbdP"'  `"YbbdP"'  `"Ybbd8"'    88     `8'     88     Y88'       88          `"Ybbd8"'  `"YbbdP"'  88`YbbdP"'  88  `"Ybbd8"'
-                             aa,    ,88                                                                       d8'                                          88                       
-                              "Y8bbdP"                                                                       d8'                                           88  
-
 # Cushman & Wakefield: Diagnose My People
 Diagnose My People is a full stack web application that helps Cushman & Wakefield clients/decision makers survey their people and tabulate their feedback into visualized data that is used to make informed decisions in purchasing a new workspace.  Clients of Cushman & Wakefield can go to the website and are provided with the opportunity to build a custom-tailored survey that is used to gather employee data on the categories that matter to them.  Once the survey has been created, Cushman & Wakefield will reach out to the clients and provide them with a custom URL and passcode for the survey that the client will email their employees.  When the survey period is over, the data is compiled into an eye-catching and user-friendly dashboard.  Cushman & Wakefield uses this information to better serve and make recommendations to clients and show them properties that resemble what the survey suggests.  This results in happier people with more buy-in and loyalty to their employer.  
 
