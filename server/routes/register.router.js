@@ -12,13 +12,12 @@ router.get('/', function(req, res, next) {
 
 // Handles POST request with new user data
 router.post('/', function(req, res, next) {
-
   var saveUser = {
     username: req.body.username,
     password: encryptLib.encryptPassword(req.body.password)
   };
   console.log('new user:', saveUser);
-
+  if (req.isAuthenticated()) {
   pool.connect(function(err, client, done) {
     if(err) {
       console.log("Error connecting: ", err);
@@ -36,7 +35,12 @@ router.post('/', function(req, res, next) {
             res.sendStatus(201);
           }
         });
+        
   });
+}
+else {
+    res.sendStatus(403);
+}
 
 });
 
