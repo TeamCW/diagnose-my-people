@@ -35,6 +35,7 @@ router.get('/', function (req, res) {
 router.delete('/:id', function (req, res) {
     var clientIdToRemove = req.params.id;
     console.log("clientToDelete:", clientIdToRemove);
+    
     if (req.isAuthenticated()) {
         pool.connect(function (errorConnectingToDatabase, client, done) {
             if (errorConnectingToDatabase) {
